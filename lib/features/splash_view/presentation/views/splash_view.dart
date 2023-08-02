@@ -1,8 +1,9 @@
-import 'package:barter_project_2023/core/constant/constant.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../constants.dart';
 import '../../../../core/utils/app_router.dart';
 
 class SplashView extends StatefulWidget {

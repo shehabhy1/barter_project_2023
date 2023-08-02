@@ -1,7 +1,7 @@
+import 'package:barter_project_2023/features/log_in/presentation/views/password_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/splash_view/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kSplashView = '/';
@@ -11,7 +11,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: kSplashView,
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) => const PassView(),
       ),
       GoRoute(
         name: kOnBoardingView,

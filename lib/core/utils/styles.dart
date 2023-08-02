@@ -13,5 +13,12 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
     height: 1.25,
   );
-
+ static const textStyle14 = TextStyle(
+   color: Color(0xFF767474),
+   fontSize: 16,
+   fontFamily: 'Poppins',
+   fontWeight: FontWeight.w400,
+   height: 1.25,
+   letterSpacing: 0.02,
+ );
 }

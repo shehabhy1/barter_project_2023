@@ -1,5 +1,5 @@
-import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
+import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -11,7 +11,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: kSplashView,
-        builder: (context, state) => const LoginView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         name: kOnBoardingView,

@@ -33,7 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 15.h),
+              SizedBox(height: 5.h),
               Expanded(
                 child: PageView.builder(
                   physics: const BouncingScrollPhysics(),

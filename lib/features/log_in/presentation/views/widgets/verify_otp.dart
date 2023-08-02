@@ -1,11 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-
-
 
 class VerifyOtp extends StatefulWidget {
   const VerifyOtp({Key? key}) : super(key: key);
@@ -33,7 +30,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
     _focusNode1.dispose(); // Dispose the first FocusNode to avoid memory leaks
     _focusNode2.dispose();
     _focusNode3.dispose;
-    _focusNode4.dispose;// Dispose the second FocusNode to avoid memory leaks
+    _focusNode4.dispose; // Dispose the second FocusNode to avoid memory leaks
     super.dispose();
   }
 
@@ -48,25 +45,31 @@ class _VerifyOtpState extends State<VerifyOtp> {
             height: 68,
             width: 64,
             child: TextFormField(
-              focusNode: _focusNode1, // Assign the first FocusNode to the TextFormField
+              focusNode:
+                  _focusNode1, // Assign the first FocusNode to the TextFormField
               onTap: () {
                 setState(() {
-                  _focusNode1.requestFocus(); // Request focus when the text field is tapped
+                  _focusNode1
+                      .requestFocus(); // Request focus when the text field is tapped
                   _focusNode2.unfocus(); // Unfocus the second text field
                 });
               },
               onChanged: (value) {
                 if (value.length == 1) {
-                  _focusNode2.requestFocus(); // Move focus to the second text field when a digit is entered
+                  _focusNode2
+                      .requestFocus(); // Move focus to the second text field when a digit is entered
                 }
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                focusedBorder: OutlineInputBorder( // Add focused border style
+                focusedBorder: OutlineInputBorder(
+                  // Add focused border style
                   borderRadius: BorderRadius.circular(8),
-                  borderSide:  BorderSide(color: kPrimaryColor , width: 3), // Set the focused border color
+                  borderSide: BorderSide(
+                      color: kPrimaryColor,
+                      width: 3), // Set the focused border color
                 ),
               ),
               style: Styles.textStyle20,
@@ -82,25 +85,31 @@ class _VerifyOtpState extends State<VerifyOtp> {
             height: 68,
             width: 64,
             child: TextFormField(
-              focusNode: _focusNode2, // Assign the second FocusNode to the TextFormField
+              focusNode:
+                  _focusNode2, // Assign the second FocusNode to the TextFormField
               onTap: () {
                 setState(() {
-                  _focusNode2.requestFocus(); // Request focus when the text field is tapped
+                  _focusNode2
+                      .requestFocus(); // Request focus when the text field is tapped
                   _focusNode1.unfocus(); // Unfocus the first text field
                 });
               },
               onChanged: (value) {
                 if (value.length == 1) {
-                  _focusNode3.requestFocus(); // Remove focus from the second text field when a digit is entered
+                  _focusNode3
+                      .requestFocus(); // Remove focus from the second text field when a digit is entered
                 }
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
-                focusedBorder: OutlineInputBorder( // Add focused border style
+                focusedBorder: OutlineInputBorder(
+                  // Add focused border style
                   borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color: kPrimaryColor , width: 3), // Set the focused border color
+                  borderSide: BorderSide(
+                      color: kPrimaryColor,
+                      width: 3), // Set the focused border color
                 ),
               ),
               style: Styles.textStyle20.copyWith(fontSize: 20),
@@ -116,25 +125,31 @@ class _VerifyOtpState extends State<VerifyOtp> {
             height: 68,
             width: 64,
             child: TextFormField(
-              focusNode: _focusNode3, // Assign the second FocusNode to the TextFormField
+              focusNode:
+                  _focusNode3, // Assign the second FocusNode to the TextFormField
               onTap: () {
                 setState(() {
-                  _focusNode3.requestFocus(); // Request focus when the text field is tapped
+                  _focusNode3
+                      .requestFocus(); // Request focus when the text field is tapped
                   _focusNode2.unfocus(); // Unfocus the first text field
                 });
               },
               onChanged: (value) {
                 if (value.length == 1) {
-                  _focusNode4.requestFocus(); // Remove focus from the second text field when a digit is entered
+                  _focusNode4
+                      .requestFocus(); // Remove focus from the second text field when a digit is entered
                 }
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
-                focusedBorder: OutlineInputBorder( // Add focused border style
+                focusedBorder: OutlineInputBorder(
+                  // Add focused border style
                   borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color: kPrimaryColor , width: 3), // Set the focused border color
+                  borderSide: BorderSide(
+                      color: kPrimaryColor,
+                      width: 3), // Set the focused border color
                 ),
               ),
               style: Styles.textStyle20,
@@ -150,25 +165,31 @@ class _VerifyOtpState extends State<VerifyOtp> {
             height: 68,
             width: 64,
             child: TextFormField(
-              focusNode: _focusNode4, // Assign the second FocusNode to the TextFormField
+              focusNode:
+                  _focusNode4, // Assign the second FocusNode to the TextFormField
               onTap: () {
                 setState(() {
-                  _focusNode4.requestFocus(); // Request focus when the text field is tapped
+                  _focusNode4
+                      .requestFocus(); // Request focus when the text field is tapped
                   _focusNode3.unfocus(); // Unfocus the first text field
                 });
               },
               onChanged: (value) {
                 if (value.length == 1) {
-                  _focusNode4.unfocus(); // Remove focus from the second text field when a digit is entered
+                  _focusNode4
+                      .unfocus(); // Remove focus from the second text field when a digit is entered
                 }
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
-                focusedBorder: OutlineInputBorder( // Add focused border style
+                focusedBorder: OutlineInputBorder(
+                  // Add focused border style
                   borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color: kPrimaryColor , width: 3), // Set the focused border color
+                  borderSide: BorderSide(
+                      color: kPrimaryColor,
+                      width: 3), // Set the focused border color
                 ),
               ),
               style: Styles.textStyle20,

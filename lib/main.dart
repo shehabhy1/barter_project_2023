@@ -19,7 +19,7 @@ class BarterApp extends StatelessWidget {
           MaterialApp.router(
         title: 'Barter App',
         debugShowCheckedModeBanner: false,
-        routerConfig: AppRouter.rout,
+        routerConfig: AppRouter.routeScreens,
       ),
     );
   }

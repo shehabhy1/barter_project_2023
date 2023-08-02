@@ -13,14 +13,15 @@ class OnBoardingView extends StatefulWidget {
   State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-String onBoardingDesc =
+String onBoardingDescription =
     'where you can exchange goods and services with ease. Let our app connect you with a community of like-minded individuals and open up a world of possibilities!';
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   var onBoardingController = PageController();
   List<OnBoardingModel> screens = [
-    OnBoardingModel(image: Constant.onboardingImage1, desc: onBoardingDesc),
-    OnBoardingModel(image: Constant.onboardingImage2, desc: ''),
+    OnBoardingModel(
+        image: Constant.onboardingImage1, description: onBoardingDescription),
+    OnBoardingModel(image: Constant.onboardingImage2),
   ];
   bool isLast = false;
   @override
@@ -62,7 +63,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         child: isLast
                             ? Container()
                             : Text(
-                                screens[index].desc!,
+                                screens[index].description!,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 16,
@@ -77,8 +78,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               Indicator(
                   controller: onBoardingController, onBordingList: screens),
+              // if statement for sized box
               const SizedBox(height: 15),
-              //     //TODO: راجع التصميم مع فيجما  => شهاب
+              //TODO: راجع التصميم مع فيجما  => شهاب
 
               OnBoardingButtons(
                 onBoardingController: onBoardingController,
@@ -96,9 +98,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
 class OnBoardingModel {
   String? image;
-  String? desc;
+  String? description;
   OnBoardingModel({
     this.image,
-    this.desc,
+    this.description,
   });
 }

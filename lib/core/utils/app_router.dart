@@ -9,16 +9,16 @@ import '../../features/splash_view/presentation/views/splash_view.dart';
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
 class AppRouter {
-  static const kSplashView = '/';
+  static const routingSplashView = '/';
   static const pOnBoardingView = '/onBoardingView';
   static const kOnBoardingView = 'onBoardingView';
   static const kloginView = 'loginView';
   static const ploginView = '/loginView';
 
-  static final rout = GoRouter(
+  static final routeScreens = GoRouter(
     routes: [
       GoRoute(
-        path: kSplashView,
+        path: routingSplashView,
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(

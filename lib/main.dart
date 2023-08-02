@@ -1,9 +1,11 @@
 import 'package:barter_project_2023/core/utils/app_router.dart';
+import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
+void main() async {
   runApp(const BarterApp());
+  await CacheHelper.init();
 }
 
 class BarterApp extends StatelessWidget {

@@ -15,8 +15,8 @@ class PassBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: const Text(
+          const Center(
+            child: Text(
               'Forget password',
               style: Styles.textStyle32,
             ),
@@ -33,7 +33,7 @@ class PassBody extends StatelessWidget {
               type: TextInputType.emailAddress,
             hint: 'Write Your Email'
           ),
-          SizedBox(height: 40,),
+          const SizedBox(height: 40,),
           CustomButton(
             width: double.infinity,
               height: 60,

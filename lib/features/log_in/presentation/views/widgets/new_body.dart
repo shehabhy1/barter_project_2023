@@ -15,8 +15,8 @@ class NewPassBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: const Text(
+          const Center(
+            child: Text(
               'New password',
               style: Styles.textStyle32,
             ),
@@ -33,7 +33,7 @@ class NewPassBody extends StatelessWidget {
               type: TextInputType.visiblePassword,
               hint: 'Write your password'
           ),
-          SizedBox(height: 16,),
+          const SizedBox(height: 16,),
           const Text(
             'Repeat Password',
             style: Styles.textStyle20,
@@ -43,7 +43,7 @@ class NewPassBody extends StatelessWidget {
               type: TextInputType.visiblePassword,
               hint: 'Write your password'
           ),
-          SizedBox(height: 40,),
+          const SizedBox(height: 40,),
           CustomButton(
               width: double.infinity,
               height: 60,
@@ -58,6 +58,6 @@ class NewPassBody extends StatelessWidget {
           ),
         ],
       ),
-    );;
+    );
   }
 }

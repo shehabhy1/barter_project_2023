@@ -1,5 +1,6 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,8 @@ class AppRouter {
   static const kOnBoardingView = 'onBoardingView';
   static const kloginView = 'loginView';
   static const ploginView = '/loginView';
-
+  static const kLayoutView = 'layoutView';
+  static const pLayoutView = '/layoutView';
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
@@ -31,6 +33,11 @@ class AppRouter {
         path: ploginView,
         builder: (context, state) => const LoginView(),
       ),
+      // GoRoute(
+      //   name: kLayoutView,
+      //   path: pLayoutView,
+      //   builder: (context, state) => const LayoutView(),
+      // ),
     ],
   );
 }

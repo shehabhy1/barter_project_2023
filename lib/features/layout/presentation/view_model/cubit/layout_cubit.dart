@@ -2,7 +2,6 @@ import 'package:barter_project_2023/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../constants.dart';
 import '../../../../notification/presentition/views/notification_view.dart';
 import '../../views/add_view.dart';
 import '../../views/home_view.dart';

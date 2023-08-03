@@ -1,6 +1,8 @@
+import 'package:barter_project_2023/features/layout/presentation/views/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/another_acount.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/item_widget.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/second_row.dart';
+import 'package:barter_project_2023/features/notification/presentition/views/notification_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
@@ -85,10 +87,11 @@ class _LoginBodyState extends State<LoginBody> {
                 backgroundColor: kPrimaryColor,
                 text: 'Send',
                 func: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const VerifyView()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NotificationView()),
+                  );
                 }),
             const SizedBox(
               height: 15,

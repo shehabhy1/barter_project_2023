@@ -5,6 +5,7 @@ import 'package:barter_project_2023/features/log_in/presentation/views/login_vie
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/splash_view/presentation/views/splash_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
@@ -17,11 +18,14 @@ class AppRouter {
   static const ploginView = '/loginView';
   static const kLayoutView = 'layoutView';
   static const pLayoutView = '/layoutView';
+  static const knotificationScreen = '/NotificationsScreen';
+  static const PnotificationScreen = 'NotificationsScreen';
+
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
         path: routingSplashView,
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) =>  NotificationsScreen() ,
       ),
       GoRoute(
           name: kOnBoardingView,

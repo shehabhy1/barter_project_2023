@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../constants.dart';
-import '../../../../notification/presentition/views/notification_view.dart';
+import '../../../../notification/presentition/views/notification_screen.dart';
 import '../../views/add_view.dart';
 import '../../views/home_view.dart';
 import '../../views/profile_view.dart';
@@ -16,10 +16,11 @@ class LayoutCubit extends Cubit<LayoutState> {
   int currnetIndex = 0;
   // GlobalKey<CurvedNavigationBarState> bottomNavigationKey = GlobalKey();
 
-  List<Widget> bottomScreens = const [
+  List<Widget> bottomScreens =  [
     HomeView(),
     AddView(),
-    NotificationView(),
+    NotificationsScreen(),
+    // NotificationView(),
     ProfileView(),
   ];
 

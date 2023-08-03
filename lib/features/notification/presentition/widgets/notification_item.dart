@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/assets.dart';
 
 class NotificationItem extends StatelessWidget {
+  const NotificationItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.only(top: 15.0 , left: 15.0,right: 15.0),
+    return Padding(
+      padding: const EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.black12,
@@ -17,12 +18,11 @@ class NotificationItem extends StatelessWidget {
         height: 110.0,
         width: double.infinity,
         alignment: Alignment.center,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 15.0 , left: 10 , right: 10),
+        child: const Padding(
+          padding: EdgeInsets.only(top: 15.0, left: 10, right: 10),
           child: NotificationItemDetails(),
         ),
       ),
     );
-
   }
 }

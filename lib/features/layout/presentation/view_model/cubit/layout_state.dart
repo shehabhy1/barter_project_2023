@@ -6,3 +6,5 @@ abstract class LayoutState {}
 class LayoutInitial extends LayoutState {}
 
 class ShopChangeBottomNavState extends LayoutState {}
+
+class NavigatToNotificationView extends LayoutState {}

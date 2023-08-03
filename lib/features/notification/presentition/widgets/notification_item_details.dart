@@ -6,23 +6,22 @@ class NotificationItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           children: [
             CircleAvatar(
               radius: 28.0,
-              backgroundImage: AssetImage(AssetData.notiPhoto
-              ),
+              backgroundImage: AssetImage(AssetData.notiPhoto),
             ),
             SizedBox(
               width: 10.0,
             ),
             Text(
               'Lorem ipsum dolor sit amet\n'
-                  'consectetur adipiscing elit, sed\n'
-                  'diam nonummy \n'
-                  ' nibh euismod',
+              'consectetur adipiscing elit, sed\n'
+              'diam nonummy \n'
+              ' nibh euismod',
               style: TextStyle(
                 fontSize: 15.0,
               ),
@@ -32,10 +31,8 @@ class NotificationItemDetails extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Text(
-                '10:00 PM'
-            ),
+            padding: EdgeInsets.only(right: 10.0),
+            child: Text('10:00 PM'),
           ),
         ),
       ],

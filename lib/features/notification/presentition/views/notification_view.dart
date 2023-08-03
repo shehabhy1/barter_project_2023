@@ -8,12 +8,18 @@ class NotificationView extends StatelessWidget {
     return Scaffold(
       //extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Notification',
-            style: TextStyle(
-                color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
+        ),
+        centerTitle: true,
+        title: Text(
+          'Notification',
+          style: TextStyle(
+              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,

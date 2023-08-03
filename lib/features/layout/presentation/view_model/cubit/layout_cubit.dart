@@ -2,8 +2,7 @@ import 'package:barter_project_2023/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../constants.dart';
-import '../../../../notification/presentition/views/notification_view.dart';
+import '../../../../notification/presentition/views/notification_screen.dart';
 import '../../views/add_view.dart';
 import '../../views/home_view.dart';
 import '../../views/profile_view.dart';
@@ -14,16 +13,20 @@ class LayoutCubit extends Cubit<LayoutState> {
   LayoutCubit() : super(LayoutInitial());
   static LayoutCubit get(context) => BlocProvider.of(context);
   int currnetIndex = 0;
-  // GlobalKey<CurvedNavigationBarState> bottomNavigationKey = GlobalKey();
 
-  List<Widget> bottomScreens = [
+  List<Widget> bottomScreens = const [
     HomeView(),
     AddView(),
     NotificationsScreen(),
     // NotificationView(),
     ProfileView(),
   ];
-
+  List<String> screensTitles = [
+    'Home',
+    'Add',
+    'Notification',
+    'Profile',
+  ];
   List<BottomNavigationBarItem> bottomNavigationBarItems = [
     BottomNavigationBarItem(icon: Image.asset(AssetData.homeIcon), label: ''),
     BottomNavigationBarItem(icon: Image.asset(AssetData.addIcon), label: ''),
@@ -31,8 +34,12 @@ class LayoutCubit extends Cubit<LayoutState> {
         icon: Image.asset(AssetData.notificationIcon), label: ''),
     BottomNavigationBarItem(icon: Image.asset(AssetData.profilIcon), label: ''),
   ];
-  void changeIndex(index) {
-    currnetIndex = index;
-    emit(ShopChangeBottomNavState());
+  void changeIndexOfBottomNavBar(index) {
+    if (index == 2) {
+      emit(NavigatToNotificationView());
+    } else {
+      currnetIndex = index;
+      emit(ShopChangeBottomNavState());
+    }
   }
 }

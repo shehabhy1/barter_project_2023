@@ -11,11 +11,11 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          TopPartOfNotificationScreen(),
-          SizedBox(
+          const TopPartOfNotificationScreen(),
+          const SizedBox(
             height: 15.0,
           ),
           NotificationItemListView(),

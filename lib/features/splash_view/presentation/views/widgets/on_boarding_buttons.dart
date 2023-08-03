@@ -69,7 +69,7 @@ class OnBoardingButtons extends StatelessWidget {
     CacheHelper.saveString(key: Constant.kOnBoardingView, value: true).then(
       (value) {
         if (value) {
-          context.pushReplacementNamed(AppRouter.kloginView);
+          context.pushReplacementNamed(AppRouter.routingloginView);
         }
       },
     );

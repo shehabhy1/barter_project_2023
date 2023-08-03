@@ -13,29 +13,35 @@ bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 class AppRouter {
   static const routingSplashView = '/';
   static const pOnBoardingView = '/onBoardingView';
-  static const kOnBoardingView = 'onBoardingView';
-  static const kloginView = 'loginView';
+  static const routingOnBoardingView = 'onBoardingView';
+  static const routingloginView = 'loginView';
   static const ploginView = '/loginView';
   static const kLayoutView = 'layoutView';
   static const pLayoutView = '/layoutView';
-  static const knotificationScreen = '/NotificationsScreen';
-  static const PnotificationScreen = 'NotificationsScreen';
+  static const routingNotificationScreen = 'NotificationsScreen';
+  static const pNotificationScreen = '/NotificationsScreen';
 
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
         path: routingSplashView,
-        builder: (context, state) =>  NotificationsScreen() ,
+//add splash view when finish
+        builder: (context, state) => const LayoutView(),
       ),
       GoRoute(
-          name: kOnBoardingView,
+          name: routingOnBoardingView,
           path: pOnBoardingView,
           builder: (context, state) =>
               isLast ? const LoginView() : const OnBoardingView()),
       GoRoute(
-        name: kloginView,
+        name: routingloginView,
         path: ploginView,
         builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        name: routingNotificationScreen,
+        path: pNotificationScreen,
+        builder: (context, state) => NotificationsScreen(),
       ),
       // GoRoute(
       //   name: kLayoutView,

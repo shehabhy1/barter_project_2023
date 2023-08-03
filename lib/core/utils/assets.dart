@@ -7,4 +7,5 @@ class AssetData {
   static String notificationIcon = 'assets/images/notification.png';
   static String addIcon = 'assets/images/addsquare.png';
   static String profilIcon = 'assets/images/profilecircle.png';
+  static const String notiPhoto ='assets/images/notiPhoto.jpg';
 }

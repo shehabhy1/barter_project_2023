@@ -39,7 +39,7 @@ class LayoutCubit extends Cubit<LayoutState> {
       emit(NavigatToNotificationView());
     } else {
       currnetIndex = index;
-      emit(ShopChangeBottomNavState());
+      emit(LayoutChangeBottomNavState());
     }
   }
 }

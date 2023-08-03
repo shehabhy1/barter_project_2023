@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/assets.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -31,14 +31,14 @@ class _SplashViewState extends State<SplashView> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
-                Constant.splashImage,
+                AssetData.splashImage,
                 width: double.infinity,
               ),
             ),
             Positioned(
               bottom: 32.h,
               child: Image.asset(
-                Constant.logo,
+                AssetData.logo,
                 width: 56.w,
               ),
             )

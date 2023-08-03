@@ -6,6 +6,8 @@ import 'package:barter_project_2023/features/splash_view/presentation/views/widg
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/utils/assets.dart';
+
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
@@ -20,8 +22,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   var onBoardingController = PageController();
   List<OnBoardingModel> screens = [
     OnBoardingModel(
-        image: Constant.onboardingImage1, description: onBoardingDescription),
-    OnBoardingModel(image: Constant.onboardingImage2),
+        image: AssetData.onboardingImage1, description: onBoardingDescription),
+    OnBoardingModel(image: AssetData.onboardingImage2),
   ];
   bool isLast = false;
   @override

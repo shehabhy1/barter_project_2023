@@ -4,6 +4,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/shared_widget/default_text.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../layout/presentation/views/layout.dart';
 
 class NewPassBody extends StatelessWidget {
   const NewPassBody({Key? key}) : super(key: key);
@@ -50,10 +51,10 @@ class NewPassBody extends StatelessWidget {
               backgroundColor: kPrimaryColor,
               text: 'Send',
               func: (){
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const VerifyView()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LayoutView()),
+                );
               }
           ),
         ],

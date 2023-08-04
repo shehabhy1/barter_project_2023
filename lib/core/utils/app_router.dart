@@ -2,6 +2,7 @@ import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
+import 'package:barter_project_2023/features/log_in/presentation/views/signup_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +27,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const LayoutView(),
+        builder: (context, state) => const SignupView(),
       ),
       GoRoute(
           name: routingOnBoardingView,

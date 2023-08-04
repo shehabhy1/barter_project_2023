@@ -7,6 +7,7 @@ import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/shared_widget/default_text.dart';
 import '../../../../../core/shared_widget/radio_buttom.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../layout/presentation/views/layout.dart';
 import 'another_acount.dart';
 import 'item_widget.dart';
 
@@ -122,12 +123,12 @@ class SignupBody extends StatelessWidget {
                 width: double.infinity,
                 height: 60,
                 backgroundColor: kPrimaryColor,
-                text: 'Send',
+                text: 'Sign Up',
                 func: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const VerifyView()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LayoutView()),
+                  );
                 }),
             const SizedBox(
               height: 15,

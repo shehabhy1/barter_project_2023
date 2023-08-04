@@ -1,7 +1,5 @@
-import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import '../view_model/cubit/layout_cubit.dart';
 
@@ -10,25 +8,43 @@ class LayoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = LayoutCubit.get(context);
+    //to appear back button
+    bool isHomeScreen = true;
 
     return BlocConsumer<LayoutCubit, LayoutState>(
       listener: (context, state) {
-        if (state is NavigatToNotificationView) {
-          context.pushNamed(AppRouter.routingNotificationScreen);
+        if (cubit.currnetIndex == 2) {
+          isHomeScreen = false;
         } else {
-          cubit.currnetIndex == 0;
+          isHomeScreen = true;
         }
       },
       builder: (context, state) {
         return Scaffold(
           //toggle between screens
           appBar: AppBar(
+            toolbarHeight: 40,
             centerTitle: true,
             backgroundColor: Colors.transparent,
             elevation: 0,
+            leading: isHomeScreen
+                ? null
+                : Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: IconButton(
+                      onPressed: () {
+                        cubit.navigatTOHome();
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_outlined,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ),
             title: Text(
               cubit.screensTitles[cubit.currnetIndex],
               style: const TextStyle(
+                  height: 2,
                   fontSize: 24,
                   color: Colors.black,
                   fontWeight: FontWeight.w500),
@@ -36,8 +52,8 @@ class LayoutView extends StatelessWidget {
           ),
           body: cubit.bottomScreens[cubit.currnetIndex],
           bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            selectedIconTheme: const IconThemeData(color: Colors.blue),
+            // type: BottomNavigationBarType.fixed,
+            selectedIconTheme: const IconThemeData(color: Color(0xffB73BFF)),
             items: cubit.bottomNavigationBarItems,
             currentIndex: cubit.currnetIndex,
             onTap: (int index) {

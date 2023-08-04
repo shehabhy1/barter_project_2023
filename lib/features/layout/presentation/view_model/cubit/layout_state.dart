@@ -7,4 +7,4 @@ class LayoutInitial extends LayoutState {}
 
 class LayoutChangeBottomNavState extends LayoutState {}
 
-class NavigatToNotificationView extends LayoutState {}
+class NavigatTOHomeState extends LayoutState {}

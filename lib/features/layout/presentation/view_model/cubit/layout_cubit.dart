@@ -2,6 +2,7 @@ import 'package:barter_project_2023/core/utils/assets.dart';
 import 'package:barter_project_2023/features/notification/presentition/views/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../views/add_view.dart';
 import '../../views/home_view.dart';
 import '../../views/profile_view.dart';
@@ -17,7 +18,6 @@ class LayoutCubit extends Cubit<LayoutState> {
     HomeView(),
     AddView(),
     NotificationsScreen(),
-    // NotificationView(),
     ProfileView(),
   ];
   List<String> screensTitles = [
@@ -27,18 +27,42 @@ class LayoutCubit extends Cubit<LayoutState> {
     'Profile',
   ];
   List<BottomNavigationBarItem> bottomNavigationBarItems = [
-    BottomNavigationBarItem(icon: Image.asset(AssetData.homeIcon), label: ''),
-    BottomNavigationBarItem(icon: Image.asset(AssetData.addIcon), label: ''),
     BottomNavigationBarItem(
-        icon: Image.asset(AssetData.notificationIcon), label: ''),
-    BottomNavigationBarItem(icon: Image.asset(AssetData.profilIcon), label: ''),
+        icon: SvgPicture.asset(
+          AssetData.homeIcon,
+          width: 32,
+          height: 32,
+        ),
+        label: ''),
+    BottomNavigationBarItem(
+        icon: SvgPicture.asset(
+          AssetData.addIcon,
+          width: 32,
+          height: 32,
+        ),
+        label: ''),
+    BottomNavigationBarItem(
+        icon: SvgPicture.asset(
+          AssetData.notificationIcon,
+          width: 32,
+          height: 32,
+        ),
+        label: ''),
+    BottomNavigationBarItem(
+        icon: SvgPicture.asset(
+          AssetData.profilIcon,
+          width: 32,
+          height: 32,
+        ),
+        label: ''),
   ];
   void changeIndexOfBottomNavBar(index) {
-    if (index == 2) {
-      emit(NavigatToNotificationView());
-    } else {
-      currnetIndex = index;
-      emit(LayoutChangeBottomNavState());
-    }
+    currnetIndex = index;
+    emit(LayoutChangeBottomNavState());
+  }
+
+  void navigatTOHome() {
+    currnetIndex = 0;
+    emit(NavigatTOHomeState());
   }
 }

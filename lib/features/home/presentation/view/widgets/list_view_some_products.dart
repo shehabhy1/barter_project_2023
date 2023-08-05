@@ -1,8 +1,10 @@
+import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../../lib/assets.dart';
+import 'package:barter_project_2023/lib/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
   const ListViewSomeProducts({
@@ -17,55 +19,60 @@ class ListViewSomeProducts extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context , index) {
-            return Container(
-              width: MediaQuery.sizeOf(context).width * 0.42,
-              padding: const EdgeInsets.only(bottom: 16),
-              decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 0.50, color: Color(0xFFE6E6E6)),
-                  borderRadius: BorderRadius.circular(8),
+            return MaterialButton(
+              onPressed: () {
+                context.go(AppRouter.kProductDetails);
+              },
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.42,
+                padding: const EdgeInsets.only(bottom: 16),
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(width: 0.50, color: Color(0xFFE6E6E6)),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Column(
-                  children: [
-                    Image.asset(Assets.imagesImg,width: 128,),
-                    const SizedBox(height: 8),
-                    ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title:  Text(
-                          'mohamed Gehad',
-                          style: Styles.textStyle14.copyWith(
-                              color: Colors.black
-                          )
-                      ),
-                      subtitle: const Text(
-                          'Description ',
-                          style: Styles.textStyle12
-                      ),
-                      leading: Image.asset(Assets.imagesImg2,width: 28,),
-                    ),
-                    const SizedBox(height: 8),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        width: 80,
-                        height: 30,
-                        alignment: Alignment.center,
-                        decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16)
-                        ),
-                            color: Constant.primaryColor),
-                        child: Text(
-                            'Discover',
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Column(
+                    children: [
+                      Image.asset(Assets.imagesImg,width: 128,),
+                      const SizedBox(height: 8),
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title:  Text(
+                            'mohamed Gehad',
                             style: Styles.textStyle14.copyWith(
-                                color: Colors.white
+                                color: Colors.black
                             )
                         ),
+                        subtitle: const Text(
+                            'Description ',
+                            style: Styles.textStyle12
+                        ),
+                        leading: Image.asset(Assets.imagesImg2,width: 28,),
                       ),
-                    )
-                  ],
+                      const SizedBox(height: 8),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          width: 80,
+                          height: 30,
+                          alignment: Alignment.center,
+                          decoration: ShapeDecoration(shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)
+                          ),
+                              color: Constant.primaryColor),
+                          child: Text(
+                              'Discover',
+                              style: Styles.textStyle14.copyWith(
+                                  color: Colors.white
+                              )
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

@@ -29,7 +29,7 @@ class ListTileOfReviews extends StatelessWidget {
               style: Styles.textStyle14
           ),
           subtitle: const SubTitleRating(),
-          leading: Image.asset(Assets.imagesImg2,width: 54,),
+          leading: Image.asset(Assets.imagesImg,width: 54,),
         ),
       ),
     );

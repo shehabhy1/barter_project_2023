@@ -8,12 +8,13 @@ class Assets {
   static const String imagesHome = 'assets/images/home.svg';
   static const String imagesImg = 'assets/images/img.png';
   static const String imagesImg1 = 'assets/images/img_1.png';
-  static const String imagesImg2 = 'assets/images/profile_img.png';
+  static const String imagesImg2 = 'assets/images/map.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesNotiPhoto = 'assets/images/notiPhoto.jpg';
   static const String imagesNotification = 'assets/images/notification.svg';
   static const String imagesOnBoardingImage1 = 'assets/images/on_boarding_Image1.png';
   static const String imagesOnBoardingImage2 = 'assets/images/on_boarding_Image2.png';
+  static const String imagesProfileImg = 'assets/images/profile_img.png';
   static const String imagesProfilecircle = 'assets/images/profilecircle.svg';
   static const String imagesSplashImage = 'assets/images/splash_image.png';
 

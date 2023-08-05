@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/features/layout/presentation/views/home_view.dart';
+import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/another_acount.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/item_widget.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/second_row.dart';

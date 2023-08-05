@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../views/add_view.dart';
-import '../../views/home_view.dart';
+import '../../../../home/presentation/view/home_view.dart';
 import '../../views/profile_view.dart';
 
 part 'layout_state.dart';

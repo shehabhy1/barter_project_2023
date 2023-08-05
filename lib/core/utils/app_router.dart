@@ -1,5 +1,7 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
+import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/signup_view.dart';
@@ -21,6 +23,11 @@ class AppRouter {
   static const pLayoutView = '/layoutView';
   static const routingNotificationScreen = 'NotificationsScreen';
   static const pNotificationScreen = '/NotificationsScreen';
+  static const kHomeView = '/homeScreen';
+  static const pHomeView = '/homeScreen';
+  static const kHomeAllView = '/homeAllScreen';
+  static const pHomeAllView = '/homeAllScreen';
+
 
   static final routeScreens = GoRouter(
     routes: [
@@ -43,6 +50,16 @@ class AppRouter {
         name: routingNotificationScreen,
         path: pNotificationScreen,
         builder: (context, state) => NotificationsScreen(),
+      ),
+      GoRoute(
+        name: kHomeView,
+        path: pHomeView,
+        builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        name: kHomeAllView,
+        path: pHomeAllView,
+        builder: (context, state) => const ViewAllScreen(),
       ),
       // GoRoute(
       //   name: kLayoutView,

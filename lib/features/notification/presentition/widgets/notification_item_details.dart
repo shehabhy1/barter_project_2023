@@ -22,9 +22,7 @@ class NotificationItemDetails extends StatelessWidget {
               'consectetur adipiscing elit, sed\n'
               'diam nonummy \n'
               ' nibh euismod',
-              style: TextStyle(
-                fontSize: 15.0,
-              ),
+              style: TextStyle(fontSize: 15.0, color: Color(0xFF929090)),
             ),
           ],
         ),

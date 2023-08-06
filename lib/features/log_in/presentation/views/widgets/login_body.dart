@@ -10,6 +10,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/shared_widget/default_text.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../layout/presentation/views/layout.dart';
 import 'last_row.dart';
 
 class LoginBody extends StatefulWidget {
@@ -85,12 +86,11 @@ class _LoginBodyState extends State<LoginBody> {
                 width: double.infinity,
                 height: 60,
                 backgroundColor: kPrimaryColor,
-                text: 'Send',
+                text: 'Log in',
                 func: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const NotificationView()),
+                    MaterialPageRoute(builder: (context) => const LayoutView()),
                   );
                 }),
             const SizedBox(

@@ -14,18 +14,18 @@ class ListViewSomeProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.31,
+      height: MediaQuery.sizeOf(context).height * 0.37,
       child: ListView.separated(
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context , index) {
-            return MaterialButton(
+            return TextButton(
               onPressed: () {
                 context.go(AppRouter.kProductDetails);
               },
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 0.42,
-                padding: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsets.only(bottom: 12),
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(width: 0.50, color: Color(0xFFE6E6E6)),
@@ -34,7 +34,7 @@ class ListViewSomeProducts extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
-                  child: Column(
+                  child: ListView(
                     children: [
                       Image.asset(Assets.imagesImg,width: 128,),
                       const SizedBox(height: 8),
@@ -50,7 +50,7 @@ class ListViewSomeProducts extends StatelessWidget {
                             'Description ',
                             style: Styles.textStyle12
                         ),
-                        leading: Image.asset(Assets.imagesImg2,width: 28,),
+                        leading: Image.asset(Assets.imagesProfileImg,width: 28,),
                       ),
                       const SizedBox(height: 8),
                       Align(

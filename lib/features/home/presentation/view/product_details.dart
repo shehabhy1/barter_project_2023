@@ -1,10 +1,11 @@
-import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_tile_reviews.dart';
+import 'package:barter_project_2023/features/home/presentation/view/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../generted/assets.dart';
+import '../../../../generated/assets.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);
@@ -17,8 +18,11 @@ class ProductDetails extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        leading: const BackButton(
+        leading: BackButton(
           color: Colors.black,
+          onPressed: () {
+            context.go(AppRouter.kHomeView);
+          },
         ),
         title: Text(
           'Headphones',
@@ -30,6 +34,7 @@ class ProductDetails extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: MediaQuery.sizeOf(context).height * 0.3,
@@ -40,28 +45,10 @@ class ProductDetails extends StatelessWidget {
                 itemCount: 3,
               ),
             ),
-            SmoothPageIndicator(
-              controller: controller,
-              count: 3,
-              axisDirection: Axis.horizontal,
-              effect:  const SlideEffect(
-                  spacing:  8.0,
-                  radius:  6.0,
-                  dotWidth:  12.0,
-                  dotHeight:  12.0,
-                  paintStyle:  PaintingStyle.stroke,
-                  strokeWidth:  1.5,
-                  dotColor:  Colors.grey,
-                  activeDotColor:  Constant.primaryColor
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
+            PageIndicator(controller: controller),
+            buildSizedBox(24),
             const ListTileOfReviews(),
-            const SizedBox(
-              height: 12,
-            ),
+            buildSizedBox(12),
             const Card(
               color: Colors.grey,
               child: ListTile(
@@ -75,9 +62,7 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            buildSizedBox(20),
             const Card(
               color: Colors.grey,
               child: Padding(
@@ -97,9 +82,7 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 12,
-            ),
+            buildSizedBox(12),
             const Align(
               alignment: Alignment.topLeft,
               child: Text(
@@ -107,13 +90,16 @@ class ProductDetails extends StatelessWidget {
                 style: Styles.textStyle16
               ),
             ),
-            const SizedBox(
-              height: 12,
-            ),
+            buildSizedBox(12),
             Image.asset(Assets.imagesMap),
           ],
         ),
       ),
     );
   }
+}
+SizedBox buildSizedBox(double h) {
+  return  SizedBox(
+    height: h,
+  );
 }

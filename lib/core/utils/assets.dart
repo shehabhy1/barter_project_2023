@@ -9,4 +9,8 @@ class AssetData {
   static String profilIcon = 'assets/images/profilecircle.svg';
   static const String notiPhoto = 'assets/images/notiPhoto.jpg';
   static const String emptyImage = 'assets/images/empty.png';
+  static const String camera = 'assets/images/camera.png';
+  static const String editIcon = 'assets/images/editIcon.png';
+  static const String testImageEditProfile =
+      'assets/images/image_edit_profile.png';
 }

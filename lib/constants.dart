@@ -6,3 +6,4 @@ class Constant {
 }
 
 Color kPrimaryColor = const Color(0xFFB73BFF);
+const kGreyColor = Color(0xff575757);

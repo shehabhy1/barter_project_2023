@@ -1,6 +1,7 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/deals_view/presentation/view/deal_view.dart';
+import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
@@ -31,7 +32,7 @@ class AppRouter {
   static const pHomeAllView = '/homeAllScreen';
   static const kProductDetails = '/ProductDetails';
   static const pProductDetails = '/ProductDetails';
-
+  static const editProfile = '/editProfile';
 
   static final routeScreens = GoRouter(
     routes: [
@@ -69,6 +70,11 @@ class AppRouter {
         name: kProductDetails,
         path: pProductDetails,
         builder: (context, state) => const ProductDetails(),
+      ),
+      GoRoute(
+        name: editProfile,
+        path: editProfile,
+        builder: (context, state) => const EditProfileView(),
       ),
       // GoRoute(
       //   name: kLayoutView,

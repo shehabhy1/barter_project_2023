@@ -33,7 +33,9 @@ class CustomListTileProfile extends StatelessWidget {
         ),
       ),
       trailing: Image.asset(
-        AssetData.editIcon,
+        AssetData.editTextIcon,
+        width: 25,
+        height: 44,
         color: kGreyColor,
       ),
     );

@@ -10,6 +10,7 @@ class EditProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         title: const Text('Edit Profile'),
         centerTitle: true,
         leading: IconButton(

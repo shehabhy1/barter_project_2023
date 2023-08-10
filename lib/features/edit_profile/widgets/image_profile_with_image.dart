@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../core/utils/assets.dart';
+import 'bottom_sheet_body.dart';
 
 class ImageProfileWithIcon extends StatelessWidget {
   const ImageProfileWithIcon({super.key});
@@ -19,7 +20,7 @@ class ImageProfileWithIcon extends StatelessWidget {
           ),
           Positioned(
             top: 70,
-            left: 80,
+            left: 90,
             child: Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * .055,
@@ -29,7 +30,21 @@ class ImageProfileWithIcon extends StatelessWidget {
                 color: kPrimaryColor,
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: ()
+                {
+                  showModalBottomSheet(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                        ),
+                      ),
+                      context: context,
+                      builder: (context)
+                  {
+                    return bottomSheetBody();
+                  });
+                },
                 icon: Image.asset(
                   AssetData.camera,
                   color: Colors.white,

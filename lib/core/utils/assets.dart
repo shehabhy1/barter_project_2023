@@ -11,6 +11,11 @@ class AssetData {
   static const String emptyImage = 'assets/images/empty.png';
   static const String camera = 'assets/images/camera.png';
   static const String editIcon = 'assets/images/editIcon.png';
+  static const String editTextIcon = 'assets/images/edit_tex_icon.png';
+  static const String galleryIcon = 'assets/images/gallery.png';
+  static const String cameraIcon = 'assets/images/camera_profile_edit.png';
+  static const String avatarIcon = 'assets/images/avatar.png';
+  static const String deleteIcon = 'assets/images/delete_profile_photo.jpg';
   static const String testImageEditProfile =
       'assets/images/image_edit_profile.png';
 }

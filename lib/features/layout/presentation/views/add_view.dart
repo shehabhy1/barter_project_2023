@@ -1,3 +1,4 @@
+import 'package:barter_project_2023/features/add%20post/presentation/view/widgets/add_view_body.dart';
 import 'package:flutter/material.dart';
 
 class AddView extends StatelessWidget {
@@ -6,7 +7,7 @@ class AddView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('AddView'),
+      child: AddViewBody(),
     );
   }
 }

@@ -37,12 +37,13 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   go_router: ^10.0.0
   http: ^1.1.0
-  image_picker: ^1.0.1
+  image_picker: ^0.7.5+2
   path_provider: ^2.0.15
   shared_preferences: ^2.2.0
   sizer: ^2.0.15
   smooth_page_indicator: ^1.1.0
   animated_bottom_navigation_bar: ^1.2.0
+  snippet_coder_utils: ^1.0.6
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:

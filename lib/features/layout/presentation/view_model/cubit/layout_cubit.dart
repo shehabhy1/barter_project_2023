@@ -1,11 +1,11 @@
 import 'package:barter_project_2023/core/utils/assets.dart';
+import 'package:barter_project_2023/features/layout/presentation/views/profile_view.dart';
 import 'package:barter_project_2023/features/notification/presentition/views/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../views/add_view.dart';
 import '../../../../home/presentation/view/home_view.dart';
-import '../../views/profile_view.dart';
 
 part 'layout_state.dart';
 

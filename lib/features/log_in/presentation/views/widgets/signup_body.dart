@@ -32,9 +32,11 @@ class SignupBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Text(
+             Text(
               'First Name',
-              style: Styles.textStyle20,
+              style: Styles.textStyle20.copyWith(
+              ),
+
             ),
             const SizedBox(
               height: 8,
@@ -42,6 +44,7 @@ class SignupBody extends StatelessWidget {
             defaultText(
               type: TextInputType.text,
               hint: 'Write your First Name',
+              prefix: Icons.person,
             ),
             const SizedBox(
               height: 16,
@@ -56,6 +59,7 @@ class SignupBody extends StatelessWidget {
             defaultText(
               type: TextInputType.text,
               hint: 'Write your Last Name',
+              prefix: Icons.person,
             ),
             const SizedBox(
               height: 16,
@@ -70,6 +74,7 @@ class SignupBody extends StatelessWidget {
             defaultText(
               type: TextInputType.emailAddress,
               hint: 'Write your Email',
+              prefix: Icons.mail,
               validate: (value) {
                 if (value!.isEmpty || value!.contains('@')) {
                   return 'Email is Wrong You must write .com';
@@ -91,6 +96,7 @@ class SignupBody extends StatelessWidget {
             defaultText(
               type: TextInputType.visiblePassword,
               hint: 'Write your password',
+              prefix: Icons.lock,
               validate: (val) {
                 if (val.isEmpty || val.length < 6 || val.length > 16) {
                   return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
@@ -111,6 +117,7 @@ class SignupBody extends StatelessWidget {
             defaultText(
               type: TextInputType.visiblePassword,
               hint: 'Repeat  your password',
+              prefix: Icons.password_outlined
             ),
             const SizedBox(
               height: 8,

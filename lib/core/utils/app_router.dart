@@ -39,7 +39,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const DealView(),
+        builder: (context, state) => const LayoutView(),
       ),
       GoRoute(
           name: routingOnBoardingView,

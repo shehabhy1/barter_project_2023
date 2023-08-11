@@ -17,5 +17,6 @@ class Assets {
   static const String imagesProfileImg = 'assets/images/profile_img.png';
   static const String imagesProfilecircle = 'assets/images/profilecircle.svg';
   static const String imagesSplashImage = 'assets/images/splash_image.png';
+  static const String addPostImg = 'assets/images/add_post.png';
 
 }

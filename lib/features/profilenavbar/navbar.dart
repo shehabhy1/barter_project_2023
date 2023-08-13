@@ -1,4 +1,5 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:barter_project_2023/features/profile_screen/views/screens/profile_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +23,7 @@ class _UserLayoutState extends State<UserLayout> {
     HomeView(),
     AddView(),
     NotificationsScreen(),
-    ProfileView(),
+    ProfileScreen(),
   ];
   List<String> title =[
     'Home',

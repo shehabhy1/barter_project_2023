@@ -18,4 +18,5 @@ class AssetData {
   static const String deleteIcon = 'assets/images/delete_profile_photo.jpg';
   static const String testImageEditProfile =
       'assets/images/image_edit_profile.png';
+  static const String destroyedphonetest  ='assets/images/destroyedphonetest.png';
 }

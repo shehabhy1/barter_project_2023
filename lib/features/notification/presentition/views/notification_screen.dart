@@ -11,7 +11,7 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        // const TopPartOfNotificationScreen(),
+        const TopPartOfNotificationScreen(),
         SizedBox(
           height: 15.0,
         ),

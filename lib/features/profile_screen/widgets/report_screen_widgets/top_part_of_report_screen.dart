@@ -1,9 +1,8 @@
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class TopPartOfProfileScreen extends StatelessWidget {
-  const TopPartOfProfileScreen({super.key});
+class TopPartOfReportScreen extends StatelessWidget {
+  const TopPartOfReportScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,28 +24,13 @@ class TopPartOfProfileScreen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(left: 15.0),
             child: Text(
-              'All Reports',
+              'Report',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 47.0),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  ReportScreen()),
-                  );
-                },
-                icon: const Icon(
-                  Icons.add_box_outlined,
-                  color: Colors.black,
-                )),
-          ),
-
         ],
       ),
     );

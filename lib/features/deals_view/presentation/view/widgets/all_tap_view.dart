@@ -14,7 +14,14 @@ class AllTap extends StatelessWidget {
           AssetData.emptyImage,
           // fit: BoxFit.cover,
         ),
-        Text('You don\'t have any deals ')
+        const Text(
+          'You don\'t have any deals ' ,
+          style: TextStyle(
+            fontSize: 14,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+          ),
+        ),
       ],
     );
   }

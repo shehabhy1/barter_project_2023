@@ -5,15 +5,13 @@ import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
-import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/signup_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/settings/settings_view.dart';
-import '../../features/splash_view/presentation/views/splash_view.dart';
+
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
@@ -41,7 +39,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const LayoutView(),
+        builder: (context, state) => const DealView(),
       ),
       GoRoute(
           name: routingOnBoardingView,

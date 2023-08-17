@@ -1,9 +1,10 @@
+import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/deals_view/presentation/view/widgets/tab_bar_item.dart';
 import 'package:flutter/material.dart';
 
-import 'all_tap_view.dart';
-import 'completed_tap_view.dart';
-import 'inprogress_tap_view.dart';
+import 'widgets/all_tap_view.dart';
+import 'widgets/completed_tap_view.dart';
+import 'widgets/inprogress_tap_view.dart';
 
 class DealView extends StatefulWidget {
   const DealView({super.key});
@@ -26,9 +27,17 @@ class _DealViewState extends State<DealView> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Deals Status',
-          style: TextStyle(color: Colors.black),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: const Icon(
+              Icons.arrow_back_ios_new_rounded ,
+              color: Colors.black,),
+        ),
+        title:  Text(
+          'Deals status',
+          style: Styles.textStyle24.copyWith(fontWeight: FontWeight.w600 ),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -41,27 +50,23 @@ class _DealViewState extends State<DealView> {
             SizedBox(
               height: 60,
               // width: double.infinity,
-              child: Expanded(
-                child: ListView.builder(
-                  itemCount: tabBarTitles.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Expanded(
-                    child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currnetIndex = index;
-                          });
-                        },
-                        child: TabBarItem(
-                          index: index,
-                          tabBarTitles: tabBarTitles,
-                          currnetIndex: currnetIndex,
-                        )),
-                  ),
-                ),
+              child: ListView.builder(
+                itemCount: tabBarTitles.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        currnetIndex = index;
+                      });
+                    },
+                    child: TabBarItem(
+                      index: index,
+                      tabBarTitles: tabBarTitles,
+                      currnetIndex: currnetIndex,
+                    )),
               ),
             ),
-            tabBarBody[currnetIndex],
+            Expanded(child: tabBarBody[currnetIndex]),
           ],
         ),
       ),

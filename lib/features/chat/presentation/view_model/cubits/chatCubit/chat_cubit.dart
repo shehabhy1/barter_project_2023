@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../../constants.dart';
-import '../../models/messege.dart';
+import '../../../../data/models/messege.dart';
 
 part 'chat_state.dart';
 

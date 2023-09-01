@@ -4,8 +4,10 @@ import 'package:barter_project_2023/features/layout/presentation/view_model/cubi
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sizer/sizer.dart';
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:sizer/sizer.dart';
+import 'features/chat/presentation/view_model/cubits/chatCubit/chat_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,9 +15,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(
     const BarterApp(),
   );
+
   await CacheHelper.init();
 }
 
@@ -27,8 +31,11 @@ class BarterApp extends StatelessWidget {
     return Sizer(
       builder: (BuildContext context, Orientation orientation,
               DeviceType deviceType) =>
-          BlocProvider(
-        create: (context) => LayoutCubit(),
+          MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => LayoutCubit()),
+          BlocProvider(create: (context) => ChatCubit()),
+        ],
         child: MaterialApp.router(
           title: 'Barter App',
           debugShowCheckedModeBanner: false,

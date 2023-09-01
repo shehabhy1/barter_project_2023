@@ -1,17 +1,17 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
-import 'package:barter_project_2023/features/deals_view/presentation/view/deal_view.dart';
+import 'package:barter_project_2023/features/chat/presentation/view/chat_page.dart';
 import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
+import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/settings/settings_view.dart';
-
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
@@ -33,13 +33,14 @@ class AppRouter {
   static const pProductDetails = '/ProductDetails';
   static const editProfile = '/editProfile';
   static const settingsView = '/settingsView';
+  static const chatpage = '/ChatPage';
 
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const DealView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
           name: routingOnBoardingView,
@@ -54,7 +55,7 @@ class AppRouter {
       GoRoute(
         name: routingNotificationScreen,
         path: pNotificationScreen,
-        builder: (context, state) => NotificationsScreen(),
+        builder: (context, state) => const NotificationsScreen(),
       ),
       GoRoute(
         name: kHomeView,
@@ -80,6 +81,11 @@ class AppRouter {
         name: settingsView,
         path: settingsView,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        name: chatpage,
+        path: chatpage,
+        builder: (context, state) => ChatPage(),
       ),
       // GoRoute(
       //   name: kLayoutView,

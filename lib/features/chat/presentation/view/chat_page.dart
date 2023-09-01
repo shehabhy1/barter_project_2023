@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-import 'cubits/chatCubit/chat_cubit.dart';
-import 'models/messege.dart';
+
+import '../../data/models/messege.dart';
+import '../view_model/cubits/chatCubit/chat_cubit.dart';
+
 
 class ChatPage extends StatelessWidget {
   static String id = 'ChatPage';
@@ -60,7 +62,7 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: BlocConsumer/*<ChatCubit, ChatState>*/(
+            child: BlocConsumer<ChatCubit, ChatState>(
               listener: (context, state) {
                 if (state is ChatSuccess) {
                   messagesList = state.messages;

@@ -1,12 +1,8 @@
-import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/another_acount.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/item_widget.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/second_row.dart';
-import 'package:barter_project_2023/features/notification/presentition/views/notification_view.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../constants.dart';
-
 import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/shared_widget/default_text.dart';
 import '../../../../../core/utils/styles.dart';

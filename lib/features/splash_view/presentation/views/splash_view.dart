@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sizer/sizer.dart';
 
-import '../../../../constants.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/assets.dart';
 
@@ -36,10 +35,10 @@ class _SplashViewState extends State<SplashView> {
               ),
             ),
             Positioned(
-              bottom: 32.h,
+              bottom: 205.h,
               child: Image.asset(
                 AssetData.logo,
-                width: 56.w,
+                width: 250.w,
               ),
             )
           ],

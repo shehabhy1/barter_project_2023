@@ -1,7 +1,7 @@
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -21,7 +21,7 @@ class OnBoardingButtons extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 80.w,
+          width: 310.w,
           decoration: BoxDecoration(
               color: Constant.primaryColor,
               borderRadius: BorderRadius.circular(8)),
@@ -42,9 +42,9 @@ class OnBoardingButtons extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16.h),
         Container(
-          width: 80.w,
+          width: 310.w,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(color: Constant.primaryColor),

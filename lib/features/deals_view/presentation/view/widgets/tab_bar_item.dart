@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabBarItem extends StatelessWidget {
   const TabBarItem(
@@ -16,15 +16,17 @@ class TabBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 9),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
       child: Container(
         // height: 45,
-        width: 29.w,
+        width: 95.w,
         decoration: BoxDecoration(
-            color: currnetIndex == index ? const Color(0xffB73BFF) : Colors.white,
-            border: Border.all(
-                color: currnetIndex == index ? Colors.white : const Color(0xFF8B8B8B)),
-            borderRadius: BorderRadius.circular(8),
+          color: currnetIndex == index ? const Color(0xffB73BFF) : Colors.white,
+          border: Border.all(
+              color: currnetIndex == index
+                  ? Colors.white
+                  : const Color(0xFF8B8B8B)),
+          borderRadius: BorderRadius.circular(8),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Center(

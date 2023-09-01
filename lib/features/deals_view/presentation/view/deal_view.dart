@@ -28,16 +28,17 @@ class _DealViewState extends State<DealView> {
       appBar: AppBar(
         centerTitle: true,
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pop(context);
           },
-            child: const Icon(
-              Icons.arrow_back_ios_new_rounded ,
-              color: Colors.black,),
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black,
+          ),
         ),
-        title:  Text(
+        title: Text(
           'Deals status',
-          style: Styles.textStyle24.copyWith(fontWeight: FontWeight.w600 ),
+          style: Styles.textStyle24.copyWith(fontWeight: FontWeight.w600),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,

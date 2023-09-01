@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/widgets/indicator.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/widgets/on_boarding_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/assets.dart';
 
@@ -36,7 +35,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 5.h),
+              SizedBox(height: 100.h),
               Expanded(
                 child: PageView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -67,13 +66,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             : Text(
                                 screens[index].description!,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 16,
+                                style: TextStyle(
+                                  fontSize: 16.sp,
                                   color: Color(0xFF8B8B8B),
                                 ),
                               ),
                       ),
-                      const SizedBox(height: 15),
+                      SizedBox(height: 15.h),
                     ],
                   ),
                 ),
@@ -89,7 +88,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 isLast: isLast,
               ),
 
-              SizedBox(height: 5.h),
+              SizedBox(height: 40.h),
             ],
           ),
         ),

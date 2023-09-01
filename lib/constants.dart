@@ -8,3 +8,8 @@ class Constant {
 Color kPrimaryColor = const Color(0xFFB73BFF);
 const kGreyColor = Color(0xff575757);
 const kTextColor = Color(0xff8B8B8B);
+
+const kMessegesCollection = 'messeges';
+const kMessege = 'messege';
+const kID = 'id';
+const kMTime = 'mtime';

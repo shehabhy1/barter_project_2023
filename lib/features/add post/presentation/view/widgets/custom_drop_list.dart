@@ -2,7 +2,7 @@ import 'package:barter_project_2023/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() => runApp(CustomDropList());
+void main() => runApp(const CustomDropList());
 
 class CustomDropList extends StatefulWidget {
   const CustomDropList({super.key});
@@ -91,7 +91,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'Item Name',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -100,17 +100,17 @@ class _CustomDropListState extends State<CustomDropList> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Item Name',
                   border: InputBorder.none,
                 ),
@@ -123,7 +123,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'Category',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -136,7 +136,7 @@ class _CustomDropListState extends State<CustomDropList> {
               height: 3,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(16.0),
@@ -149,7 +149,7 @@ class _CustomDropListState extends State<CustomDropList> {
                     _selectedSubcategory = null;
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Category',
                   border: InputBorder.none,
                 ),
@@ -169,7 +169,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'Sub Category',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -182,7 +182,7 @@ class _CustomDropListState extends State<CustomDropList> {
               height: 3,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(16.0),
@@ -196,7 +196,7 @@ class _CustomDropListState extends State<CustomDropList> {
                           _selectedSubcategory = newValue;
                         });
                       },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'SubCategory',
                   border: InputBorder.none,
                 ),
@@ -220,7 +220,7 @@ class _CustomDropListState extends State<CustomDropList> {
                   ),
                   child: Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       'Price differnce',
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
@@ -229,10 +229,10 @@ class _CustomDropListState extends State<CustomDropList> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.check_box_outline_blank,
                     size: 41,
                   ),
@@ -246,7 +246,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'The application is not responsible for the price difference',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -262,7 +262,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'Description',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -275,13 +275,14 @@ class _CustomDropListState extends State<CustomDropList> {
               height: 3,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Description',
                   border: InputBorder.none,
                 ),
@@ -294,7 +295,7 @@ class _CustomDropListState extends State<CustomDropList> {
               ),
               child: Container(
                 alignment: Alignment.topLeft,
-                child: Text(
+                child: const Text(
                   'Do you want to exchange a specific product?',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -315,7 +316,7 @@ class _CustomDropListState extends State<CustomDropList> {
                       ),
                       child: Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           'Yes',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
@@ -324,8 +325,8 @@ class _CustomDropListState extends State<CustomDropList> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Icon(Icons.check_circle_outline),
+                    const SizedBox(width: 10),
+                    const Icon(Icons.check_circle_outline),
                   ],
                 ),
                 Row(
@@ -362,14 +363,14 @@ class _CustomDropListState extends State<CustomDropList> {
                 color: Constant.primaryColor,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Publish',
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 )),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
           ],

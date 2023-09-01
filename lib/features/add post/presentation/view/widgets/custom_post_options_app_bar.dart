@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class CustomPostOptionsAppBar extends StatelessWidget {
   const CustomPostOptionsAppBar({Key? key}) : super(key: key);
 
@@ -6,17 +7,18 @@ class CustomPostOptionsAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Row(
-        children:
-        [
+        children: [
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.arrow_back_ios),
           ),
-          SizedBox(width: 30,),
-          Center(
+          const SizedBox(
+            width: 30,
+          ),
+          const Center(
             child: Text(
               'Enter the item to swap it',
-              style:TextStyle(
+              style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
                 //  height: 36,
@@ -25,7 +27,6 @@ class CustomPostOptionsAppBar extends StatelessWidget {
           ),
         ],
       ),
-
     );
   }
 }

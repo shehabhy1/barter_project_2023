@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../data/models/messege.dart';
 
 class ChatBuble extends StatelessWidget {
@@ -15,11 +15,13 @@ class ChatBuble extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
-            backgroundImage: NetworkImage(''),
-            radius: 20,
+          CircleAvatar(
+            backgroundImage: const NetworkImage(
+              '',
+            ),
+            radius: 20.sp,
           ),
-          const SizedBox(width: 9),
+          SizedBox(width: 7.w),
           Expanded(
             child: Align(
               alignment: Alignment.centerLeft,
@@ -27,7 +29,8 @@ class ChatBuble extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     right: 10, left: 10, bottom: 10, top: 5),
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xffB73BFF), width: 1),
+                  border:
+                      Border.all(color: const Color(0xffB73BFF), width: 1.w),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(7),
                     topRight: Radius.circular(20),
@@ -46,9 +49,9 @@ class ChatBuble extends StatelessWidget {
                       ),
                       child: Text(
                         message.message,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 13.sp,
                           //fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -59,7 +62,8 @@ class ChatBuble extends StatelessWidget {
                       child: Text(
                         DateFormat("hh:mm a")
                             .format(DateTime.parse(message.mtime)),
-                        style: TextStyle(fontSize: 10, color: Colors.grey[700]),
+                        style:
+                            TextStyle(fontSize: 10.sp, color: Colors.grey[700]),
                         textAlign: TextAlign.right,
                       ),
                     ),
@@ -113,9 +117,9 @@ class ChatBubleForFriend extends StatelessWidget {
                       ),
                       child: Text(
                         message.message,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
-                          fontSize: 15,
+                          fontSize: 13.sp,
                           //fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -132,8 +136,8 @@ class ChatBubleForFriend extends StatelessWidget {
                                 fontSize: 10.0, color: Colors.white),
                             textAlign: TextAlign.right,
                           ),
-                          const SizedBox(width: 2),
-                          const Icon(Icons.done_all, size: 13),
+                          SizedBox(width: 2.w),
+                          Icon(Icons.done_all, size: 13.sp),
                         ],
                       ),
                     ),
@@ -142,10 +146,12 @@ class ChatBubleForFriend extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 7),
-          const CircleAvatar(
-            backgroundImage: NetworkImage(''),
-            radius: 20,
+          SizedBox(width: 7.w),
+          CircleAvatar(
+            backgroundImage: const NetworkImage(
+              '',
+            ),
+            radius: 20.sp,
           ),
         ],
       ),

@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../data/models/messege.dart';
 import '../view_model/cubits/chatCubit/chat_cubit.dart';
-
 
 class ChatPage extends StatelessWidget {
   static String id = 'ChatPage';
@@ -36,24 +35,28 @@ class ChatPage extends StatelessWidget {
             height: 1,
           ),
         ),
-        title: const Row(
+        title: Row(
           children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(''),
+            const CircleAvatar(
+              backgroundImage: NetworkImage(
+                '',
+              ),
             ),
-            SizedBox(width: 6),
+            SizedBox(width: 6.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Name', // Replace with user's name
-                  style: TextStyle(fontSize: 17, color: Color(0xff838283)),
+                  style: TextStyle(
+                      fontSize: 15.sp, color: const Color(0xff838283)),
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 4.sp,
                 ),
                 Text('online now',
-                    style: TextStyle(fontSize: 15, color: Color(0xff4CD964))),
+                    style: TextStyle(
+                        fontSize: 12.sp, color: const Color(0xff4CD964))),
               ],
             ),
           ],
@@ -90,13 +93,13 @@ class ChatPage extends StatelessWidget {
                         ? Center(
                             child: Card(
                               color: Colors.grey[300],
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
                                     vertical: 8, horizontal: 17),
                                 child: Text(
                                   'Today',
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
@@ -111,8 +114,8 @@ class ChatPage extends StatelessWidget {
                                 child: Text(
                                   DateFormat('MMMM d')
                                       .format(DateTime.parse(date)),
-                                  style: const TextStyle(
-                                      fontSize: 15,
+                                  style: TextStyle(
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),

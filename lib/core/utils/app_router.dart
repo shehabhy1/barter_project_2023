@@ -6,16 +6,18 @@ import 'package:barter_project_2023/features/home/presentation/view/product_deta
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
+import 'package:barter_project_2023/features/log_in/presentation/views/signup_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/settings/presentation/views/settings_view.dart';
+import '../../features/sign_up/sign_up_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
 class AppRouter {
-  static const routingSplashView = '/';
+  static const routingSplashView = '/ss';
   static const pOnBoardingView = '/onBoardingView';
   static const routingOnBoardingView = 'onBoardingView';
   static const routingloginView = 'loginView';
@@ -33,6 +35,7 @@ class AppRouter {
   static const editProfile = '/editProfile';
   static const settingsView = '/settingsView';
   static const chatpage = '/ChatPage';
+  static const signup = '/';
 
   static final routeScreens = GoRouter(
     routes: [
@@ -85,6 +88,11 @@ class AppRouter {
         name: chatpage,
         path: chatpage,
         builder: (context, state) => ChatPage(),
+      ),
+      GoRoute(
+        name: signup,
+        path: signup,
+        builder: (context, state) => const SignUpView(),
       ),
       // GoRoute(
       //   name: kLayoutView,

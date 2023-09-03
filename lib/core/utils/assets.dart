@@ -19,4 +19,5 @@ class AssetData {
   static const String testImageEditProfile =
       'assets/images/image_edit_profile.png';
   static const String destroyedphonetest  ='assets/images/destroyedphonetest.png';
+  static const String reportSuccessImage = 'assets/images/report_success_image.png';
 }

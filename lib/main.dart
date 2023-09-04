@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'features/chat/presentation/view_model/cubits/chatCubit/chat_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -30,11 +29,8 @@ class BarterApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => LayoutCubit()),
-          BlocProvider(create: (context) => ChatCubit()),
-        ],
+      builder: (context, child) => BlocProvider(
+              create: (context) => LayoutCubit(),
         child: MaterialApp.router(
           title: 'Barter App',
           debugShowCheckedModeBanner: false,

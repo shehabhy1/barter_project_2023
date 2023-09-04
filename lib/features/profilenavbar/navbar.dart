@@ -1,5 +1,5 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/profile_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +8,6 @@ import '../home/presentation/view/home_view.dart';
 import '../layout/presentation/views/add_view.dart';
 import '../layout/presentation/views/profile_view.dart';
 import '../notification/presentition/views/notification_screen.dart';
-
 
 class UserLayout extends StatefulWidget {
   const UserLayout({Key? key}) : super(key: key);
@@ -19,16 +18,16 @@ class UserLayout extends StatefulWidget {
 
 class _UserLayoutState extends State<UserLayout> {
   var currentIndex = 2;
-  List<Widget> userScreens =[
+  List<Widget> userScreens = [
     HomeView(),
     AddView(),
     NotificationsScreen(),
-    ProfileScreen(),
+    ReportView(),
   ];
-  List<String> title =[
+  List<String> title = [
     'Home',
     'add'
-    'Notifications',
+        'Notifications',
     'My account'
   ];
   int _currentIndex = 2;
@@ -37,21 +36,13 @@ class _UserLayoutState extends State<UserLayout> {
     Icons.add_comment_rounded,
     Icons.notifications,
     Icons.account_circle_outlined,
-
   ];
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawerEnableOpenDragGesture: false,
-
-
       body: userScreens[2 - _currentIndex],
-
       bottomNavigationBar: AnimatedBottomNavigationBar(
         height: 70,
         splashRadius: 50,
@@ -73,10 +64,7 @@ class _UserLayoutState extends State<UserLayout> {
           spreadRadius: 0.7,
           color: Color(0xff515281),
         ),
-
-
         onTap: (index) => setState(() => _currentIndex = index),
-
       ),
     );
   }

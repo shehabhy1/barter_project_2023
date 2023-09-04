@@ -21,15 +21,15 @@ class ProductDetails extends StatelessWidget {
         leading: BackButton(
           color: Colors.black,
           onPressed: () {
-            context.go(AppRouter.kHomeView);
+            //TODO: Navigat to Layout View => finished
+            // context.go(AppRouter.kHomeView);
+            context.pop();
           },
         ),
-        title: Text(
-          'Headphones',
-          style: Styles.textStyle24.copyWith(
-            letterSpacing: 0.04,
-          )
-        ),
+        title: Text('Headphones',
+            style: Styles.textStyle24.copyWith(
+              letterSpacing: 0.04,
+            )),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -39,9 +39,9 @@ class ProductDetails extends StatelessWidget {
             SizedBox(
               height: MediaQuery.sizeOf(context).height * 0.3,
               child: PageView.builder(
-                  itemBuilder: (context , index) {
-                    return  Image.asset(Assets.imagesImg);
-                  },
+                itemBuilder: (context, index) {
+                  return Image.asset(Assets.imagesImg);
+                },
                 itemCount: 3,
               ),
             ),
@@ -52,14 +52,10 @@ class ProductDetails extends StatelessWidget {
             const Card(
               color: Colors.grey,
               child: ListTile(
-                title: Text(
-                  'Description',
-                  style: Styles.textStyle16
-                ),
+                title: Text('Description', style: Styles.textStyle16),
                 subtitle: Text(
-                  'Bluetooth 5.0 technology Supports wireless charging Touch control feature',
-                  style: Styles.textStyle14
-                ),
+                    'Bluetooth 5.0 technology Supports wireless charging Touch control feature',
+                    style: Styles.textStyle14),
               ),
             ),
             buildSizedBox(20),
@@ -70,14 +66,8 @@ class ProductDetails extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Quality',
-                      style: Styles.textStyle16
-                    ),
-                    Text(
-                      'High',
-                      style: Styles.textStyle14
-                    ),
+                    Text('Quality', style: Styles.textStyle16),
+                    Text('High', style: Styles.textStyle14),
                   ],
                 ),
               ),
@@ -85,10 +75,7 @@ class ProductDetails extends StatelessWidget {
             buildSizedBox(12),
             const Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                'Location',
-                style: Styles.textStyle16
-              ),
+              child: Text('Location', style: Styles.textStyle16),
             ),
             buildSizedBox(12),
             Image.asset(Assets.imagesMap),
@@ -98,8 +85,9 @@ class ProductDetails extends StatelessWidget {
     );
   }
 }
+
 SizedBox buildSizedBox(double h) {
-  return  SizedBox(
+  return SizedBox(
     height: h,
   );
 }

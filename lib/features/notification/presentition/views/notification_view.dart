@@ -7,23 +7,23 @@ class NotificationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
-        centerTitle: true,
-        title: Text(
-          'Notification',
-          style: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     onPressed: () {},
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //       color: Colors.black,
+      //     ),
+      //   ),
+      //   centerTitle: true,
+      //   title: Text(
+      //     'Notification',
+      //     style: TextStyle(
+      //         color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
       body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(

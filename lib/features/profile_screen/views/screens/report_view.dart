@@ -3,10 +3,9 @@ import 'package:barter_project_2023/features/profile_screen/widgets/profile_scre
 import 'package:barter_project_2023/features/profile_screen/widgets/profile_screen_widgets/report_item_listview.dart';
 import 'package:barter_project_2023/features/profile_screen/widgets/profile_screen_widgets/top_part_of_profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ReportView extends StatelessWidget {
+  const ReportView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +14,8 @@ class ProfileScreen extends StatelessWidget {
         children: [
           TopPartOfProfileScreen(),
           ReportItemListView(),
-
         ],
       ),
     );
   }
 }
-
-

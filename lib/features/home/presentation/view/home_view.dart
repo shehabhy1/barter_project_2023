@@ -1,4 +1,3 @@
-
 import 'package:barter_project_2023/features/home/presentation/view/widgets/custom_text_field.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_view_some_products.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/show_bottom_sheet.dart';
@@ -21,22 +20,24 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Colors.transparent,
+      // ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
         physics: const BouncingScrollPhysics(),
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-               const Expanded(
+              const Expanded(
                 flex: 7,
                 child: CustomTextField(),
               ),
-              const SizedBox(width: 16,),
+              const SizedBox(
+                width: 16,
+              ),
               Expanded(
                 child: TextButton(
                   onPressed: () {
@@ -44,9 +45,10 @@ class _HomeViewState extends State<HomeView> {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    decoration: const ShapeDecoration(shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1,color:  Constant.primaryColor)
-                    )),
+                    decoration: const ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                width: 1, color: Constant.primaryColor))),
                     child: const Icon(
                       FontAwesomeIcons.filter,
                       color: Constant.primaryColor,
@@ -57,25 +59,23 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
           buildSizedBox(24),
-          const RowTextViewAll(text: 'New',),
+          const RowTextViewAll(
+            text: 'New',
+          ),
           buildSizedBox(16),
           const ListViewSomeProducts(),
           buildSizedBox(24),
-          const RowTextViewAll(text: 'Recommendations',),
+          const RowTextViewAll(
+            text: 'Recommendations',
+          ),
           buildSizedBox(16),
           const ListViewSomeProducts(),
-        buildSizedBox(24),
-          Text(
-            'Reviews',
-            style:Styles.textStyle14.copyWith(
-              color: Colors.black
-            )
-          ),
+          buildSizedBox(24),
+          Text('Reviews',
+              style: Styles.textStyle14.copyWith(color: Colors.black)),
           buildSizedBox(4),
-          const Text(
-            'Now you can see all users have high rate ',
-            style: Styles.textStyle14
-          ),
+          const Text('Now you can see all users have high rate ',
+              style: Styles.textStyle14),
           buildSizedBox(16),
           const ListTileOfReviews(),
         ],
@@ -84,19 +84,17 @@ class _HomeViewState extends State<HomeView> {
   }
 
   SizedBox buildSizedBox(double h) {
-    return  SizedBox(
-          height: h,
-        );
+    return SizedBox(
+      height: h,
+    );
   }
 
   void showBottomSheetFilter(BuildContext context) {
-     showBottomSheet(context: context,
-        builder:  (BuildContext context) {
-          return const ShowModelBottomSheet();
-        },);
+    showBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return const ShowModelBottomSheet();
+      },
+    );
   }
 }
-
-
-
-

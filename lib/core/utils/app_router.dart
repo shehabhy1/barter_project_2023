@@ -1,13 +1,17 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/chat/presentation/view/chat_page.dart';
+import 'package:barter_project_2023/features/deals_view/presentation/view/deal_view.dart';
 import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/signup_view.dart';
+import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
+import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
+import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
@@ -17,7 +21,7 @@ import '../../features/sign_up/sign_up_view.dart';
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
 class AppRouter {
-  static const routingSplashView = '/ss';
+  static const routingSplashView = '/';
   static const pOnBoardingView = '/onBoardingView';
   static const routingOnBoardingView = 'onBoardingView';
   static const routingloginView = 'loginView';
@@ -26,8 +30,8 @@ class AppRouter {
   static const pLayoutView = '/layoutView';
   static const routingNotificationScreen = 'NotificationsScreen';
   static const pNotificationScreen = '/NotificationsScreen';
-  static const kHomeView = '/homeScreen';
-  static const pHomeView = '/homeScreen';
+  // static const kHomeView = '/homeScreen';
+  // static const pHomeView = '/homeScreen';
   static const kHomeAllView = '/homeAllScreen';
   static const pHomeAllView = '/homeAllScreen';
   static const kProductDetails = '/ProductDetails';
@@ -35,14 +39,18 @@ class AppRouter {
   static const editProfile = '/editProfile';
   static const settingsView = '/settingsView';
   static const chatpage = '/ChatPage';
-  static const signup = '/';
+  static const signup = '/signUp';
+  static const kReportView = '/ReportView';
+  static const kReportDetailsView = '/ReportDetailsView';
+  static const kDealView = '/DealView';
+  static const kLanguageView = '/LanguageView';
 
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const SettingsView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
           name: routingOnBoardingView,
@@ -59,11 +67,11 @@ class AppRouter {
         path: pNotificationScreen,
         builder: (context, state) => const NotificationsScreen(),
       ),
-      GoRoute(
-        name: kHomeView,
-        path: pHomeView,
-        builder: (context, state) => const HomeView(),
-      ),
+      // GoRoute(
+      //   name: kHomeView,
+      //   path: pHomeView,
+      //   builder: (context, state) => const HomeView(),
+      // ),
       GoRoute(
         name: kHomeAllView,
         path: pHomeAllView,
@@ -93,6 +101,26 @@ class AppRouter {
         name: signup,
         path: signup,
         builder: (context, state) => const SignUpView(),
+      ),
+      GoRoute(
+        name: kReportView,
+        path: kReportView,
+        builder: (context, state) => const ReportView(),
+      ),
+      GoRoute(
+        name: kDealView,
+        path: kDealView,
+        builder: (context, state) => const DealView(),
+      ),
+      GoRoute(
+        name: kLanguageView,
+        path: kLanguageView,
+        builder: (context, state) => const LanguageView(),
+      ),
+      GoRoute(
+        name: kReportDetailsView,
+        path: kReportDetailsView,
+        builder: (context, state) => const ReportDetailsScreen(),
       ),
       // GoRoute(
       //   name: kLayoutView,

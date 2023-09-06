@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../widgets/report_screen_widgets/top_part_of_report_screen.dart';
 
 class ReportScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,14 +15,12 @@ class ReportScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 28.0),
               child: Column(children: [
                 Text(
-                    'Report user ID (user ID is used only for feedback on complaint processing and will not be disclosed to any third parties',
-                  style: TextStyle(
-                  fontSize: 16),
+                  'Report user ID (user ID is used only for feedback on complaint processing and will not be disclosed to any third parties',
+                  style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(
                   height: 30.0,
                 ),
-
                 Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
@@ -44,7 +41,9 @@ class ReportScreen extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
-                          width: 1, color: Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
+                          width: 1,
+                          color: Color.fromRGBO(
+                              200, 201, 203, 1.0)), //<-- SEE HERE
                     ),
                   ),
                 ),
@@ -71,7 +70,9 @@ class ReportScreen extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
-                          width: 1, color: Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
+                          width: 1,
+                          color: Color.fromRGBO(
+                              200, 201, 203, 1.0)), //<-- SEE HERE
                     ),
                   ),
                 ),
@@ -90,31 +91,34 @@ class ReportScreen extends StatelessWidget {
                   height: 20.0,
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Container(
                     width: double.infinity,
                     height: 60,
                     decoration: BoxDecoration(
-                      border:Border.all(
+                      border: Border.all(
                         color: Colors.grey[400]!,
-                        width: 1,),
+                        width: 1,
+                      ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Align(
                         alignment: AlignmentDirectional.centerEnd,
-                        child: IconButton(onPressed: (){}, icon: Icon(Icons.camera_enhance_outlined))),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.camera_enhance_outlined))),
                   ),
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 InkWell(
-                  onTap: ()
-                  {
-                    Navigator.push(context,
+                  onTap: () {
+                    Navigator.push(
+                        context,
                         MaterialPageRoute(
-                        builder:(context)=>reportSuccessScreen() ,
-                    ));
+                          builder: (context) => ReportSuccessScreen(),
+                        ));
                   },
                   child: Container(
                     width: double.infinity,
@@ -126,7 +130,8 @@ class ReportScreen extends StatelessWidget {
                       ),
                     ),
                     child: const Center(
-                      child: Text('Submit',
+                      child: Text(
+                        'Submit',
                         style: TextStyle(
                           fontSize: 16.0,
                           color: Color.fromRGBO(255, 255, 255, 1.0),
@@ -138,7 +143,6 @@ class ReportScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-
               ]),
             )
           ],

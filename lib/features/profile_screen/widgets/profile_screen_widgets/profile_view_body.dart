@@ -1,4 +1,7 @@
+import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/utils/app_router.dart';
+import 'package:barter_project_2023/core/utils/styles.dart';
+import 'package:barter_project_2023/features/profile_screen/widgets/show_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -154,14 +157,17 @@ class ProfileViewBody extends StatelessWidget {
                 ],
               ),
               const Divider(),
-              const Row(
+              Row(
                 children: [
-                  Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
+                  ShowAlertDialog()
+                  // TextButton(
+                  //     onPressed: () {
+
+                  //     },
+                  //     child: Text(
+                  //       'Logout',
+                  //       style: Styles.textStyle20.copyWith(color: Colors.black),
+                  //     ))
                 ],
               ),
             ],

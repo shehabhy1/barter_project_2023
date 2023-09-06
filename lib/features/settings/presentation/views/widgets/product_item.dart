@@ -57,12 +57,12 @@ class ProductItem extends StatelessWidget {
                     Text(
                       name,
                       style: Styles.textStyle14
-                          .copyWith(color: Colors.black, fontSize: 14.sp),
+                          .copyWith(color: Colors.black, fontSize: 14),
                     ),
                     Text(
                       desc,
                       style: Styles.textStyle12
-                          .copyWith(color: Colors.black, fontSize: 12.sp),
+                          .copyWith(color: Colors.black, fontSize: 12),
                     ),
                   ],
                 )

@@ -26,7 +26,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.h),
-          Text('My Have', style: Styles.textStyle20.copyWith(fontSize: 20.sp)),
+          Text('My Have', style: Styles.textStyle20.copyWith(fontSize: 20)),
           const SizedBox(height: 15),
           SizedBox(
             height: 160.h,
@@ -42,7 +42,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.h),
-          Text('My Needs', style: Styles.textStyle20.copyWith(fontSize: 20.sp)),
+          Text('My Needs', style: Styles.textStyle20.copyWith(fontSize: 20)),
           const SizedBox(height: 15),
           SizedBox(
             height: 160.h,

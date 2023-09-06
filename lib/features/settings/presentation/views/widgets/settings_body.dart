@@ -1,7 +1,6 @@
 import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/about_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import 'settings_tile.dart';
@@ -45,10 +44,10 @@ class SettingsBody extends StatelessWidget {
           SettingsTile(
             onTap: () {},
             title: "Version",
-            subTitle: Text(
+            subTitle: const Text(
               'v.1.7.2',
               style: TextStyle(
-                fontSize: 15.sp,
+                fontSize: 15,
                 color: Colors.grey,
               ),
             ),

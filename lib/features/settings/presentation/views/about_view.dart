@@ -20,7 +20,7 @@ class AboutView extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios_new),
           color: Colors.black,
-          iconSize: 30.sp,
+          iconSize: 30,
         ),
         title: const Text('About', style: Styles.textStyle24),
         centerTitle: true,
@@ -70,7 +70,7 @@ class ShowAlertDialog extends StatelessWidget {
                           )),
                     ],
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.sp)),
+                        borderRadius: BorderRadius.circular(8)),
                   ));
         },
         child: const Text('alelrt'));

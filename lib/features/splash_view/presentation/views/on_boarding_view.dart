@@ -66,8 +66,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             : Text(
                                 screens[index].description!,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
+                                style: const TextStyle(
+                                  fontSize: 16,
                                   color: Color(0xFF8B8B8B),
                                 ),
                               ),

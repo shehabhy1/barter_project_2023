@@ -1,3 +1,4 @@
+import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/deals_view/presentation/view/widgets/tab_bar_item.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class _DealViewState extends State<DealView> {
             //tap bar buttons
             SizedBox(
               height: 60,
+              width: context.deviceWidth,
               // width: double.infinity,
               child: ListView.builder(
                 itemCount: tabBarTitles.length,

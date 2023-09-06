@@ -87,7 +87,7 @@ class AppRouter {
       GoRoute(
         name: chatpage,
         path: chatpage,
-        builder: (context, state) => ChatPage(),
+        builder: (context, state) => const ChatPage(),
       ),
       GoRoute(
         name: signup,

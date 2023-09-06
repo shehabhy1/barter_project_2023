@@ -4,7 +4,6 @@ import 'package:meta/meta.dart';
 
 import '../../../../../../constants.dart';
 import '../../../../data/models/messege.dart';
-
 part 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
@@ -35,8 +34,7 @@ class ChatCubit extends Cubit<ChatState> {
       for (var doc in event.docs) {
         messagesList.add(Message.fromJson(doc));
       }
-      emit(ChatSuccess(messages: messagesList));
+      emit(ChatSuccess());
     });
-
   }
 }

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../view_model/cubits/chatCubit/chat_cubit.dart';
 
 class ChatTextField extends StatelessWidget {
-  final TextEditingController textControler;
-  final String email;
   const ChatTextField({
     super.key,
-    required this.textControler,
     required this.email,
   });
+  final String email;
+  static TextEditingController textControler = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: textControler,
       onSubmitted: (data) {
+        BlocProvider.of<ChatCubit>(context)
+            .sendMessege(messege: data, email: email);
         textControler.clear();
       },
       decoration: InputDecoration(
@@ -26,17 +31,18 @@ class ChatTextField extends StatelessWidget {
             ),
           ),
           child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.send, color: Colors.white)),
+            onPressed: () {
+              BlocProvider.of<ChatCubit>(context)
+                  .sendMessege(messege: textControler.text, email: email);
+              textControler.clear();
+            },
+            icon: const Icon(Icons.send, color: Colors.white),
+          ),
         ),
         prefixIcon: IconButton(
-            onPressed: () {},
-            icon:
-                const Icon(Icons.emoji_emotions_outlined, color: Colors.grey)),
-        // border: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(15),
-        //   borderSide: const BorderSide(color: kPrimaryColor),
-        // ),
+          onPressed: () {},
+          icon: const Icon(Icons.emoji_emotions_outlined, color: Colors.grey),
+        ),
         focusedBorder: const OutlineInputBorder(
           //borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(color: Colors.transparent),

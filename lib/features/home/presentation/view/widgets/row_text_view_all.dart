@@ -7,7 +7,8 @@ import '../../../../../core/utils/styles.dart';
 
 class RowTextViewAll extends StatelessWidget {
   const RowTextViewAll({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
 
   final String text;
@@ -16,20 +17,13 @@ class RowTextViewAll extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-         Text(
-            text,
-            style: Styles.textStyle20
-        ),
+        Text(text, style: Styles.textStyle20),
         TextButton(
           onPressed: () {
-            context.go(AppRouter.kHomeAllView);
+            context.pushNamed(AppRouter.kHomeAllView);
           },
-          child: Text(
-              'View all',
-              style: Styles.textStyle14.copyWith(
-                  color: Constant.primaryColor
-              )
-          ),
+          child: Text('View all',
+              style: Styles.textStyle14.copyWith(color: Constant.primaryColor)),
         ),
       ],
     );

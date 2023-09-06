@@ -61,7 +61,9 @@ class ProfileViewBody extends StatelessWidget {
                   ),
                   const Spacer(),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushNamed(AppRouter.kHaveAndNeedView);
+                      },
                       child: const Icon(Icons.arrow_forward_ios_outlined)),
                 ],
               ),

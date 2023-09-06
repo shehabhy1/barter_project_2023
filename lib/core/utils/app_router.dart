@@ -9,6 +9,7 @@ import 'package:barter_project_2023/features/home/presentation/view/home_view.da
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
+import 'package:barter_project_2023/features/settings/presentation/views/have_and_need_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
@@ -44,6 +45,7 @@ class AppRouter {
   static const kReportDetailsView = '/ReportDetailsView';
   static const kDealView = '/DealView';
   static const kLanguageView = '/LanguageView';
+  static const kHaveAndNeedView = '/HaveAndNeedView';
 
   static final routeScreens = GoRouter(
     routes: [
@@ -121,6 +123,11 @@ class AppRouter {
         name: kReportDetailsView,
         path: kReportDetailsView,
         builder: (context, state) => const ReportDetailsScreen(),
+      ),
+      GoRoute(
+        name: kHaveAndNeedView,
+        path: kHaveAndNeedView,
+        builder: (context, state) => const HaveAndNeedView(),
       ),
       // GoRoute(
       //   name: kLayoutView,

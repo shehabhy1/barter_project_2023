@@ -1,15 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../view_model/cubits/chatCubit/chat_cubit.dart';
 
 class ChatTextField extends StatelessWidget {
-  const ChatTextField({
-    super.key,
-    required this.email,
-  });
   final String email;
-  static TextEditingController textControler = TextEditingController();
+  final TextEditingController textControler;
+  const ChatTextField({
+    Key? key,
+    required this.email,
+    required this.textControler,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,6 @@ import '../view_model/cubits/chatCubit/chat_cubit.dart';
 
 class ChatPage extends StatelessWidget {
   static String id = 'ChatPage';
-
   const ChatPage({super.key});
 
   @override

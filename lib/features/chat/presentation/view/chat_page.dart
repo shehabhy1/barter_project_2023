@@ -11,7 +11,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var email = ModalRoute.of(context)!.settings.arguments as String;
+    String email = ModalRoute.of(context)!.settings.arguments.toString();
 
     return BlocProvider(
       create: (context) => ChatCubit(),

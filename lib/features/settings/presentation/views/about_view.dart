@@ -20,7 +20,7 @@ class AboutView extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios_new),
           color: Colors.black,
-          iconSize: 30.sp,
+          iconSize: 30,
         ),
         title: const Text('About', style: Styles.textStyle24),
         centerTitle: true,
@@ -30,49 +30,3 @@ class AboutView extends StatelessWidget {
   }
 }
 
-class ShowAlertDialog extends StatelessWidget {
-  const ShowAlertDialog({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                    content: SizedBox(
-                      width: 382.w,
-                      child: Text(
-                        'Do you want to logout?',
-                        style: Styles.textStyle16
-                            .copyWith(color: const Color(0xff626262)),
-                      ),
-                    ),
-                    insetPadding: const EdgeInsets.symmetric(horizontal: 200),
-                    actions: [
-                      TextButton(
-                          onPressed: () {
-                            context.pop();
-                          },
-                          child: Text(
-                            'Cancel',
-                            style: Styles.textStyle16
-                                .copyWith(color: const Color(0xff626262)),
-                          )),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'LogOut',
-                            style:
-                                Styles.textStyle16.copyWith(color: Colors.red),
-                          )),
-                    ],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.sp)),
-                  ));
-        },
-        child: const Text('alelrt'));
-  }
-}

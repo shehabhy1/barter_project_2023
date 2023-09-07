@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:barter_project_2023/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsTile extends StatelessWidget {
   final IconData? icon;
@@ -29,14 +28,14 @@ class SettingsTile extends StatelessWidget {
           title: Text(
             title,
             style: TextStyle(
-              fontSize: 17.sp,
+              fontSize: 17,
               fontWeight: FontWeight.bold,
             ),
           ),
           subtitle: subTitle,
           trailing: Icon(
             icon,
-            size: 22.sp,
+            size: 22,
           ),
         ),
       ),

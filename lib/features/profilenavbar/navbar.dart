@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../home/presentation/view/home_view.dart';
 import '../layout/presentation/views/add_view.dart';
-import '../layout/presentation/views/profile_view.dart';
+import '../profile_screen/views/profile_view.dart';
 import '../notification/presentition/views/notification_screen.dart';
 
 class UserLayout extends StatefulWidget {

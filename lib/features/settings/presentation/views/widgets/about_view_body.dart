@@ -15,7 +15,7 @@ class AboutViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(8.sp),
+            borderRadius: BorderRadius.circular(8),
             child: Image(
               image: const AssetImage(
                 'assets/images/unsplash_bzqU01v-G54.png',
@@ -27,11 +27,11 @@ class AboutViewBody extends StatelessWidget {
           ),
           SizedBox(height: 40.h),
           Text('Our purpose',
-              style: Styles.textStyle24.copyWith(fontSize: 22.sp)),
+              style: Styles.textStyle24.copyWith(fontSize: 22)),
           SizedBox(height: 24.h),
           Text(
             'Every home has a lot of things that you don’t know where you put , so this app for sharing anything .\nIt helps exchange your items as electronics, clothing  with other in your local community .\n \nThe app facilitates communication and negotiation between users. Learn more',
-            style: Styles.textStyle14.copyWith(fontSize: 14.sp),
+            style: Styles.textStyle14.copyWith(fontSize: 14),
           ),
         ],
       ),

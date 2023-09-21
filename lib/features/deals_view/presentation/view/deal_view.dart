@@ -62,7 +62,7 @@ class _DealViewState extends State<DealView> {
                         currnetIndex = index;
                       });
                     },
-                    child: TabBarItem(
+                    child: TapBarItem(
                       index: index,
                       tabBarTitles: tabBarTitles,
                       currnetIndex: currnetIndex,

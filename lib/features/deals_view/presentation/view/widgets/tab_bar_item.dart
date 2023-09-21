@@ -1,9 +1,8 @@
-import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TabBarItem extends StatelessWidget {
-  const TabBarItem(
+class TapBarItem extends StatelessWidget {
+  const TapBarItem(
       {super.key,
       required this.index,
       required this.tabBarTitles,
@@ -20,7 +19,10 @@ class TabBarItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
       child: Container(
         // height: 45,
-        width: context.deviceWidth / 3.3,
+        // width: context.deviceWidth / 3.3,
+        // width: context.deviceWidth / 3.8,
+        width: 95.w,
+
         decoration: BoxDecoration(
           color: currnetIndex == index ? const Color(0xffB73BFF) : Colors.white,
           border: Border.all(

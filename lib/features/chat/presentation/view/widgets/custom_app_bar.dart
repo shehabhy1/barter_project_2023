@@ -30,7 +30,7 @@ AppBar customAppBarBody() {
               style: TextStyle(fontSize: 15.sp, color: const Color(0xff838283)),
             ),
             SizedBox(
-              height: 4.sp,
+              height: 4.h,
             ),
             Text(
               'online now',

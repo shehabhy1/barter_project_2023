@@ -6,6 +6,7 @@ import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
+import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
@@ -40,7 +41,7 @@ class AppRouter {
   static const editProfile = '/editProfile';
   static const settingsView = '/settingsView';
   static const chatpage = '/ChatPage';
-  static const signup = '/signUp';
+  static const signup = '/signup';
   static const kReportView = '/ReportView';
   static const kReportDetailsView = '/ReportDetailsView';
   static const kDealView = '/DealView';
@@ -52,13 +53,14 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const ChatPage(),
+        builder: (context, state) => const LoginView(),
       ),
       GoRoute(
           name: routingOnBoardingView,
           path: pOnBoardingView,
           builder: (context, state) =>
-              isLast ? const LoginView() : const OnBoardingView()),
+              isLast ? const LoginView() : const OnBoardingView()
+      ),
       GoRoute(
         name: routingloginView,
         path: ploginView,

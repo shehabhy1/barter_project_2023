@@ -1,7 +1,7 @@
 import 'package:barter_project_2023/core/shared_widget/check_button.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/widgets/create_line.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/shared_widget/default_text.dart';
@@ -18,7 +18,7 @@ class SignupBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 35.h, horizontal: 20.w),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,43 +29,43 @@ class SignupBody extends StatelessWidget {
                 style: Styles.textStyle32,
               ),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             const Text(
               'First Name',
               style: Styles.textStyle20,
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             defaultText(
               type: TextInputType.text,
               hint: 'Write your First Name',
             ),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height: 16.h,
             ),
-            const Text(
+             Text(
               'Last Name',
               style: Styles.textStyle20,
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             defaultText(
               type: TextInputType.text,
               hint: 'Write your Last Name',
             ),
-            const SizedBox(
+             SizedBox(
               height: 16,
             ),
-            const Text(
+             Text(
               'Email',
               style: Styles.textStyle20,
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             defaultText(
               type: TextInputType.emailAddress,
@@ -77,16 +77,16 @@ class SignupBody extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height: 16.h,
             ),
             const RadioCheck(),
-            const Text(
+             Text(
               'Password',
               style: Styles.textStyle20,
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             defaultText(
               type: TextInputType.visiblePassword,
@@ -98,26 +98,26 @@ class SignupBody extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height: 16.h,
             ),
             const Text(
               'Repeat Password',
               style: Styles.textStyle20,
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             defaultText(
               type: TextInputType.visiblePassword,
               hint: 'Repeat  your password',
             ),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 8.h,
             ),
             const CheckButtom(text: 'I accepted privacy & Policy '),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             CustomButton(
                 width: double.infinity,
@@ -130,8 +130,8 @@ class SignupBody extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const LayoutView()),
                   );
                 }),
-            const SizedBox(
-              height: 15,
+             SizedBox(
+              height: 15.h,
             ),
             const AnotherAccount(),
             const ItemWidget(),

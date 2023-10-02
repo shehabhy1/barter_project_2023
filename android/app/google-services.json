@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "201814442769",
-    "project_id": "barter-chat",
-    "storage_bucket": "barter-chat.appspot.com"
+    "project_number": "415432673614",
+    "project_id": "barter-4521d",
+    "storage_bucket": "barter-4521d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:201814442769:android:fa33b801e5c0be18dbc2b0",
+        "mobilesdk_app_id": "1:415432673614:android:ce5b8379baba0df718b61f",
         "android_client_info": {
           "package_name": "com.example.barter_project_2023"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "201814442769-dmtg22in6kncpbuosjb5ji6k566fi6ra.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCoKBJUAvD_QX5hrZ1XHU_ZoeeWG1WYI-c"
+          "current_key": "AIzaSyBLdYf6USowjDKRI5DQK7p-geP3kfZgH34"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "201814442769-dmtg22in6kncpbuosjb5ji6k566fi6ra.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

@@ -47,30 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBzDli89O94roTlRvPnks_frNMpa3mjV4g',
-    appId: '1:201814442769:web:91b872b09cb87948dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    authDomain: 'barter-chat.firebaseapp.com',
-    storageBucket: 'barter-chat.appspot.com',
-    measurementId: 'G-80SYTF87ZX',
+    apiKey: 'AIzaSyBQ2KLT3mT2pRCDlbrzUi3lqvNGc2DvtJ4',
+    appId: '1:415432673614:web:2273ff47f3e2dde218b61f',
+    messagingSenderId: '415432673614',
+    projectId: 'barter-4521d',
+    authDomain: 'barter-4521d.firebaseapp.com',
+    storageBucket: 'barter-4521d.appspot.com',
+    measurementId: 'G-3FVX75D36Y',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCoKBJUAvD_QX5hrZ1XHU_ZoeeWG1WYI-c',
-    appId: '1:201814442769:android:fa33b801e5c0be18dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    storageBucket: 'barter-chat.appspot.com',
+    apiKey: 'AIzaSyBLdYf6USowjDKRI5DQK7p-geP3kfZgH34',
+    appId: '1:415432673614:android:ce5b8379baba0df718b61f',
+    messagingSenderId: '415432673614',
+    projectId: 'barter-4521d',
+    storageBucket: 'barter-4521d.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBCLE8Eu7Xc1RCZFLyr31M-PIbqf5UyC9I',
-    appId: '1:201814442769:ios:6c70eea3c95b4458dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    storageBucket: 'barter-chat.appspot.com',
-    iosClientId: '201814442769-8oqr8ecv5a0bf47rir3rujm2slvaccip.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCsEYZuKzX0JfF4ooSIgZnx77zeqEZ4ueo',
+    appId: '1:415432673614:ios:a801a8a69aa9191218b61f',
+    messagingSenderId: '415432673614',
+    projectId: 'barter-4521d',
+    storageBucket: 'barter-4521d.appspot.com',
     iosBundleId: 'com.example.barterProject2023',
   );
 }

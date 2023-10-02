@@ -30,7 +30,7 @@ class BarterApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => BlocProvider(
-              create: (context) => LayoutCubit(),
+        create: (context) => LayoutCubit(),
         child: MaterialApp.router(
           title: 'Barter App',
           debugShowCheckedModeBanner: false,

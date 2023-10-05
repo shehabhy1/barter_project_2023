@@ -30,7 +30,7 @@ class ItemAccount extends StatelessWidget {
                 text,
               style: const TextStyle(
                 color: Color(0xFF767474),
-                fontSize: 19,
+                fontSize: 15,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
               ),

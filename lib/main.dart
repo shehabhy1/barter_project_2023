@@ -3,6 +3,7 @@ import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/layout/presentation/view_model/cubit/layout_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'firebase_options.dart';
@@ -12,10 +13,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  runApp(
-    const BarterApp(),
-  );
+  // to prevent rotation of the app
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) {
+    runApp(
+      const BarterApp(),
+    );
+  });
 
   await CacheHelper.init();
 }

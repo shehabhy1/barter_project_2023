@@ -11,12 +11,15 @@ class ItemWidget extends StatelessWidget {
       child: Column(
         children: [
           ItemAccount(
-              text: ' Continue with Google',
-              imagePath: 'assets/images/facebook.png',
+            text: ' Continue with Facebook',
+            imagePath: 'assets/images/facebook.png',
           ),
-          SizedBox(height: 15,),
-          ItemAccount(text: ' Continue with Facebook',
-              imagePath: 'assets/images/google.png',
+          SizedBox(
+            height: 15,
+          ),
+          ItemAccount(
+            text: ' Continue with Google',
+            imagePath: 'assets/images/google.png',
           ),
         ],
       ),

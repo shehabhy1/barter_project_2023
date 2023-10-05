@@ -18,7 +18,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/settings/presentation/views/settings_view.dart';
-import '../../features/sign_up/sign_up_view.dart';
+import '../../features/swapping/sign_up_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
@@ -59,8 +59,7 @@ class AppRouter {
           name: routingOnBoardingView,
           path: pOnBoardingView,
           builder: (context, state) =>
-              isLast ? const LoginView() : const OnBoardingView()
-      ),
+              isLast ? const LoginView() : const OnBoardingView()),
       GoRoute(
         name: routingloginView,
         path: ploginView,

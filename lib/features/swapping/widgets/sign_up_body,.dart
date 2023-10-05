@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/features/sign_up/widgets/ciry_with_address.dart';
+import 'package:barter_project_2023/features/swapping/widgets/ciry_with_address.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';

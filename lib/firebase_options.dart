@@ -47,29 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBQ2KLT3mT2pRCDlbrzUi3lqvNGc2DvtJ4',
-    appId: '1:415432673614:web:2273ff47f3e2dde218b61f',
-    messagingSenderId: '415432673614',
-    projectId: 'barter-4521d',
-    authDomain: 'barter-4521d.firebaseapp.com',
-    storageBucket: 'barter-4521d.appspot.com',
-    measurementId: 'G-3FVX75D36Y',
+    apiKey: 'AIzaSyDxnCLvwYvdDlMr3yAEfB3u2RKklcWAGpQ',
+    appId: '1:758901123463:web:fb96832d44bb97001acb22',
+    messagingSenderId: '758901123463',
+    projectId: 'barter-3bd92',
+    authDomain: 'barter-3bd92.firebaseapp.com',
+    storageBucket: 'barter-3bd92.appspot.com',
+    measurementId: 'G-8YGD98PT7G',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBLdYf6USowjDKRI5DQK7p-geP3kfZgH34',
-    appId: '1:415432673614:android:ce5b8379baba0df718b61f',
-    messagingSenderId: '415432673614',
-    projectId: 'barter-4521d',
-    storageBucket: 'barter-4521d.appspot.com',
+    apiKey: 'AIzaSyD-bb9eArgEvoZpTIMvuDcz7RQswg7F4dU',
+    appId: '1:758901123463:android:09c3a75f23b534871acb22',
+    messagingSenderId: '758901123463',
+    projectId: 'barter-3bd92',
+    storageBucket: 'barter-3bd92.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCsEYZuKzX0JfF4ooSIgZnx77zeqEZ4ueo',
-    appId: '1:415432673614:ios:a801a8a69aa9191218b61f',
-    messagingSenderId: '415432673614',
-    projectId: 'barter-4521d',
-    storageBucket: 'barter-4521d.appspot.com',
+    apiKey: 'AIzaSyDlpIEitygS3I5grixGfPyhKK6LepZ9tq8',
+    appId: '1:758901123463:ios:54749803f2adc2511acb22',
+    messagingSenderId: '758901123463',
+    projectId: 'barter-3bd92',
+    storageBucket: 'barter-3bd92.appspot.com',
     iosBundleId: 'com.example.barterProject2023',
   );
 }

@@ -8,12 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/log_in/presentation/view_model/cubit/auth_cubit.dart';
 import 'firebase_options.dart';
+import 'simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = SimpleBlocObserver();
   // to prevent rotation of the app
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) {

@@ -20,13 +20,15 @@ class AuthCubit extends Cubit<AuthState> {
         password: password,
       );
       emit(AuthSuccess());
-    } on FirebaseAuthException catch (e) {
+    } 
+    on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure(errMessage: 'user-not-found'));
       } else if (e.code == 'wrong-password') {
         emit(AuthFailure(errMessage: 'wrong-password'));
       }
-    } catch (e) {
+    } 
+    catch (e) {
       emit(AuthFailure(errMessage: 'wrong'));
     }
   }

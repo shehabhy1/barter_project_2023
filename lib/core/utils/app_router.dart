@@ -15,7 +15,6 @@ import 'package:barter_project_2023/features/settings/presentation/views/have_an
 import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
@@ -55,10 +54,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
         //add splash view when finish
-        builder: (context, state) => BlocProvider(
-          create: (context) => AuthCubit(),
-          child: const LoginView(),
-        ),
+        builder: (context, state) => const LoginView(),
       ),
       GoRoute(
           name: routingOnBoardingView,

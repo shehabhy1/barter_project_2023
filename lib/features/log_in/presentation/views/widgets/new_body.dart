@@ -15,23 +15,27 @@ class NewPassBody extends StatelessWidget {
     var rePassController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return Form(
-      key:formKey ,
+      key: formKey,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 10),
+            padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 20, vertical: 10),
             child: Align(
               alignment: AlignmentDirectional.topStart,
               child: IconButton(
-                  onPressed: ()
-                  {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.arrow_back_ios)),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                ),
+              ),
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.symmetric(vertical: 10 , horizontal: 20),
+            padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10, horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -48,57 +52,58 @@ class NewPassBody extends StatelessWidget {
                   'New Password',
                   style: Styles.textStyle20,
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 defaultText(
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
                     controller: newPassController,
-                    validate: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
+                    validate: (value) {
+                      if (value!.isEmpty) {
                         return 'New Password most not empty';
+                      } else {
+                        return null;
                       }
-                      else{
-                        return null;}
-                    }
+                    }),
+                const SizedBox(
+                  height: 16,
                 ),
-                const SizedBox(height: 16,),
                 const Text(
                   'Repeat Password',
                   style: Styles.textStyle20,
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 defaultText(
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
                     controller: rePassController,
-                    validate: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
+                    validate: (value) {
+                      if (value!.isEmpty) {
                         return 'Repeat Password most not empty';
+                      } else {
+                        return null;
                       }
-                      else{
-                        return null;}
-                    }
+                    }),
+                const SizedBox(
+                  height: 40,
                 ),
-                const SizedBox(height: 40,),
                 CustomButton(
                     width: double.infinity,
                     height: 60,
                     backgroundColor: kPrimaryColor,
                     text: 'Send',
-                    func: (){
-                      if(formKey.currentState!.validate())
-                        {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const LayoutView()),
-                          );
-                        }
-                    }
-                ),
+                    func: () {
+                      if (formKey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LayoutView()),
+                        );
+                      }
+                    }),
               ],
             ),
           ),

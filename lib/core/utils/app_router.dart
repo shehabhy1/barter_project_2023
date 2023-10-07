@@ -7,6 +7,7 @@ import 'package:barter_project_2023/features/home/presentation/view/product_deta
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
 import 'package:barter_project_2023/features/home/presentation/view/home_view.dart';
 import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
+import 'package:barter_project_2023/features/log_in/presentation/view_model/cubit/auth_cubit.dart';
 import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
 import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
@@ -52,7 +53,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: routingSplashView,
-//add splash view when finish
+        //add splash view when finish
         builder: (context, state) => const LoginView(),
       ),
       GoRoute(

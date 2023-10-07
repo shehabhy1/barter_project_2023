@@ -6,13 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'features/log_in/presentation/view_model/cubit/auth_cubit.dart';
 import 'firebase_options.dart';
+import 'simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = SimpleBlocObserver();
   // to prevent rotation of the app
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) {
@@ -33,8 +36,15 @@ class BarterApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => BlocProvider(
-        create: (context) => LayoutCubit(),
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => LayoutCubit(),
+          ),
+          BlocProvider(
+            create: (context) => AuthCubit(),
+          ),
+        ],
         child: MaterialApp.router(
           title: 'Barter App',
           debugShowCheckedModeBanner: false,

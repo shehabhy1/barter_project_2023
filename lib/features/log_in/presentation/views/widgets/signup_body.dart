@@ -29,44 +29,32 @@ class SignupBody extends StatelessWidget {
                 style: Styles.textStyle32,
               ),
             ),
-            SizedBox(
-              height: 20.h,
-            ),
+            SizedBox(height: 20.h),
             const Text(
               'First Name',
               style: Styles.textStyle20,
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             defaultText(
               type: TextInputType.text,
               hint: 'Write your First Name',
             ),
-            SizedBox(
-              height: 16.h,
-            ),
-            Text(
+            SizedBox(height: 16.h),
+            const Text(
               'Last Name',
               style: Styles.textStyle20,
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             defaultText(
               type: TextInputType.text,
               hint: 'Write your Last Name',
             ),
-            SizedBox(
-              height: 16,
-            ),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Email',
               style: Styles.textStyle20,
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             defaultText(
               type: TextInputType.emailAddress,
               hint: 'Write your Email',
@@ -77,17 +65,13 @@ class SignupBody extends StatelessWidget {
                 return null;
               },
             ),
-            SizedBox(
-              height: 16.h,
-            ),
+            SizedBox(height: 16.h),
             const RadioCheck(),
-            Text(
+            const Text(
               'Password',
               style: Styles.textStyle20,
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             defaultText(
               type: TextInputType.visiblePassword,
               hint: 'Write your password',
@@ -98,41 +82,32 @@ class SignupBody extends StatelessWidget {
                 return null;
               },
             ),
-            SizedBox(
-              height: 16.h,
-            ),
+            SizedBox(height: 16.h),
             const Text(
               'Confirm Password',
               style: Styles.textStyle20,
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             defaultText(
               type: TextInputType.visiblePassword,
               hint: 'Confirm  your password',
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+            SizedBox(height: 8.h),
             const CheckButtom(text: 'I accepted privacy & Policy '),
-            SizedBox(
-              height: 20.h,
-            ),
+            SizedBox(height: 20.h),
             CustomButton(
-                width: double.infinity,
-                height: 60,
-                backgroundColor: kPrimaryColor,
-                text: 'Sign Up',
-                func: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LayoutView()),
-                  );
-                }),
-            SizedBox(
-              height: 15.h,
+              width: double.infinity,
+              height: 60,
+              backgroundColor: kPrimaryColor,
+              text: 'Sign Up',
+              func: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LayoutView()),
+                );
+              },
             ),
+            SizedBox(height: 15.h),
             const AnotherAccount(),
             const ItemWidget(),
             const LastLineSign(),

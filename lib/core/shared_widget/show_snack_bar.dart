@@ -5,6 +5,6 @@ void showSnackBar(BuildContext context, {required String messege}) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Center(child: Text(messege)),
     backgroundColor: kPrimaryColor,
-    duration: const Duration(milliseconds: 1500),
+    duration: const Duration(seconds: 2),
   ));
 }

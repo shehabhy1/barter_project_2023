@@ -29,9 +29,11 @@ class AuthCubit extends Cubit<AuthState> {
         emit(AuthFailure(errMessage: 'user-not-found'));
       } else if (e.code == 'wrong-password') {
         emit(AuthFailure(errMessage: 'wrong-password'));
+      } else {
+        emit(AuthFailure(errMessage: 'something is wrong'));
       }
     } catch (e) {
-      emit(AuthFailure(errMessage: 'wrong'));
+      emit(AuthFailure(errMessage: e.toString()));
     }
   }
 

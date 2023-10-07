@@ -16,7 +16,7 @@ class ListViewSomeProducts extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.37,
       child: ListView.separated(
-          physics: const BouncingScrollPhysics(),
+          // physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return TextButton(
@@ -25,8 +25,8 @@ class ListViewSomeProducts extends StatelessWidget {
                 // context.go(AppRouter.kProductDetails);
               },
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 0.42,
-                padding: const EdgeInsets.only(bottom: 12),
+                width: MediaQuery.sizeOf(context).width * 0.39,
+                padding: const EdgeInsets.only(bottom: 3),
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     side:
@@ -42,7 +42,7 @@ class ListViewSomeProducts extends StatelessWidget {
                         Assets.imagesImg,
                         width: 128,
                       ),
-                      const SizedBox(height: 8),
+                      // const SizedBox(height: 8),
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text('mohamed Gehad',

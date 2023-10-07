@@ -1,10 +1,7 @@
-
 import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/features/log_in/presentation/view_model/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/styles.dart';
-
-
 
 class RadioCheck extends StatefulWidget {
   const RadioCheck({Key? key}) : super(key: key);
@@ -22,7 +19,7 @@ class _RadioCheckState extends State<RadioCheck> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Gender' ,
+          'Gender',
           style: Styles.textStyle20,
         ),
         Row(
@@ -34,17 +31,22 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  AuthCubit.get(context).gender = 'Male';
                 });
               },
             ),
-            const SizedBox(width: 5,),
+            const SizedBox(
+              width: 5,
+            ),
             const Text(
               'Male',
               style: Styles.textStyle14,
             ),
           ],
         ),
-        const SizedBox(width: 20,),
+        const SizedBox(
+          width: 20,
+        ),
         Row(
           children: [
             Radio(
@@ -54,10 +56,13 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  AuthCubit.get(context).gender = 'Female';
                 });
               },
             ),
-            const SizedBox(width: 5,),
+            const SizedBox(
+              width: 5,
+            ),
             const Text(
               'Female',
               style: Styles.textStyle14,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -20,20 +19,22 @@ class _CheckButtomState extends State<CheckButtom> {
       children: [
         Checkbox(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0), // Set your desired border radius here
+              borderRadius: BorderRadius.circular(
+                  5.0), // Set your desired border radius here
             ),
             value: isChecked,
             activeColor: kPrimaryColor,
-            onChanged: (newBool){
+            onChanged: (newBool) {
               setState(() {
                 isChecked = newBool!;
               });
-            }
-        ),
+            }),
         Text(
           widget.text,
-          style: Styles.textStyle20.copyWith(fontSize: 14 , color: Color(0xFF8B8B8B),
-        ),
+          style: Styles.textStyle20.copyWith(
+            fontSize: 14,
+            color: const Color(0xFF8B8B8B),
+          ),
         ),
       ],
     );

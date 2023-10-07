@@ -1,4 +1,7 @@
+import 'package:barter_project_2023/core/utils/firestore_user.dart';
+import 'package:barter_project_2023/features/log_in/data/models/user_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +14,10 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   static AuthCubit get(context) => BlocProvider.of(context);
+  String gender = 'Male';
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
   Future<void> loginUser(
       {required String email, required String password}) async {
     emit(AuthLoading());
@@ -20,26 +27,44 @@ class AuthCubit extends Cubit<AuthState> {
         password: password,
       );
       emit(AuthSuccess());
-    } 
-    on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure(errMessage: 'user-not-found'));
       } else if (e.code == 'wrong-password') {
         emit(AuthFailure(errMessage: 'wrong-password'));
       }
-    } 
-    catch (e) {
+    } catch (e) {
       emit(AuthFailure(errMessage: 'wrong'));
     }
   }
 
-  Future<void> registerUser(
-      {required String email, required String password}) async {
+  Future<void> registerUser({
+    required String fName,
+    required String lName,
+    required String email,
+    required String password,
+  }) async {
     emit(AuthLoading());
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
         email: email,
         password: password,
+      )
+          .then(
+        (user) async {
+          await FireStoreUser().addUserToFireStore(
+            UsertModel(
+              id: user.user!.uid,
+              fName: fName,
+              lName: lName,
+              email: email,
+              password: password,
+              gender: gender,
+              pic: '',
+            ),
+          );
+        },
       );
       emit(AuthSuccess());
     } on FirebaseAuthException catch (e) {

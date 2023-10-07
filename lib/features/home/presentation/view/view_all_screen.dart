@@ -29,7 +29,7 @@ class ViewAllScreen extends StatelessWidget {
                     hintStyle: Styles.textStyle14,
                     contentPadding: const EdgeInsets.all(10),
                     prefixIcon: const Icon(FontAwesomeIcons.search),
-                    border:  OutlineInputBorder(
+                    border: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 0.25,
                         strokeAlign: BorderSide.strokeAlignCenter,
@@ -40,12 +40,15 @@ class ViewAllScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 16,),
+              const SizedBox(
+                width: 16,
+              ),
               Container(
                 alignment: Alignment.center,
-                decoration: const ShapeDecoration(shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 0.5,color:  Constant.primaryColor)
-                )),
+                decoration: const ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                            width: 0.5, color: Constant.primaryColor))),
                 child: const Icon(
                   FontAwesomeIcons.filter,
                   color: Constant.primaryColor,
@@ -70,21 +73,23 @@ class ViewAllScreen extends StatelessWidget {
           ),
           SizedBox(
             height: MediaQuery.sizeOf(context).height * 0.7,
+            width: 150,
             child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
-                itemBuilder: (context , index) {
+                itemBuilder: (context, index) {
                   return SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.31,
                     child: ListView.separated(
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context , index) {
+                        itemBuilder: (context, index) {
                           return Container(
                             width: MediaQuery.sizeOf(context).width * 0.42,
                             padding: const EdgeInsets.only(bottom: 16),
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
-                                side: const BorderSide(width: 0.50, color: Color(0xFFE6E6E6)),
+                                side: const BorderSide(
+                                    width: 0.50, color: Color(0xFFE6E6E6)),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
@@ -92,21 +97,22 @@ class ViewAllScreen extends StatelessWidget {
                               padding: const EdgeInsets.all(2.0),
                               child: Column(
                                 children: [
-                                  Image.asset(Assets.imagesImg,width: 128,),
-                                  const SizedBox(height: 8),
+                                  Image.asset(
+                                    Assets.imagesImg,
+                                    width: 90,
+                                  ),
+                                  const SizedBox(height: 4),
                                   ListTile(
                                     contentPadding: EdgeInsets.zero,
-                                    title:  Text(
-                                        'mohamed Gehad',
-                                        style: Styles.textStyle14.copyWith(
-                                            color: Colors.black
-                                        )
+                                    title: Text('mohamed Gehad',
+                                        style: Styles.textStyle14
+                                            .copyWith(color: Colors.black)),
+                                    subtitle: const Text('Description ',
+                                        style: Styles.textStyle12),
+                                    leading: Image.asset(
+                                      Assets.imagesImg2,
+                                      width: 28,
                                     ),
-                                    subtitle: const Text(
-                                        'Description ',
-                                        style: Styles.textStyle12
-                                    ),
-                                    leading: Image.asset(Assets.imagesImg2,width: 28,),
                                   ),
                                   const SizedBox(height: 8),
                                   Align(
@@ -115,33 +121,35 @@ class ViewAllScreen extends StatelessWidget {
                                       width: 80,
                                       height: 30,
                                       alignment: Alignment.center,
-                                      decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(16)
-                                      ),
+                                      decoration: ShapeDecoration(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(16)),
                                           color: Constant.primaryColor),
-                                      child: Text(
-                                          'Discover',
-                                          style: Styles.textStyle14.copyWith(
-                                              color: Colors.white
-                                          )
-                                      ),
+                                      child: Text('Discover',
+                                          style: Styles.textStyle14
+                                              .copyWith(color: Colors.white)),
                                     ),
                                   )
                                 ],
                               ),
                             ),
                           );
-                        }, separatorBuilder: (context , index) {
-                      return const SizedBox(
-                        width: 16,
-                      );
-                    }, itemCount: 3),
+                        },
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(
+                            width: 16,
+                          );
+                        },
+                        itemCount: 3),
                   );
-                }, separatorBuilder: (context , index) {
-              return const SizedBox(
-                height: 16,
-              );
-            }, itemCount: 3),
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 16,
+                  );
+                },
+                itemCount: 3),
           ),
           // SizedBox(
           //   height: MediaQuery.sizeOf(context).height * 0.31,

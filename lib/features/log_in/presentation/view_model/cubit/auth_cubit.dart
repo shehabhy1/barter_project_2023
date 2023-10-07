@@ -1,7 +1,6 @@
 import 'package:barter_project_2023/core/utils/firestore_user.dart';
 import 'package:barter_project_2023/features/log_in/data/models/user_model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +14,6 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   static AuthCubit get(context) => BlocProvider.of(context);
   String gender = 'Male';
-
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   Future<void> loginUser(
       {required String email, required String password}) async {

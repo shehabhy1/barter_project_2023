@@ -35,7 +35,9 @@ class ShowAlertDialog extends StatelessWidget {
                                 .copyWith(color: const Color(0xff626262)),
                           )),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            //TODO: log out by remove id from shared pref
+                          },
                           child: Text(
                             'LogOut',
                             style:

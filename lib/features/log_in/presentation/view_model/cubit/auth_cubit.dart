@@ -27,14 +27,17 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure(errMessage: 'user-not-found'));
+        debugPrint('user-not-found');
       } else if (e.code == 'wrong-password') {
         emit(AuthFailure(errMessage: 'wrong-password'));
-      } else {
-        emit(AuthFailure(errMessage: 'something is wrong'));
+      } else if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+        emit(AuthFailure(errMessage: 'user not found or wrong password'));
+        debugPrint(e.toString());
       }
-    } catch (e) {
-      emit(AuthFailure(errMessage: e.toString()));
     }
+    // catch (e) {
+    //   emit(AuthFailure(errMessage: 'wrong'));
+    // }
   }
 
   Future<void> registerUser({

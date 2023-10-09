@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/styles.dart';
-import 'package:barter_project_2023/lib/assets.dart';
+import 'package:barter_project_2023/app_img/assets.dart';
 
 class ViewAllScreen extends StatelessWidget {
   const ViewAllScreen({Key? key}) : super(key: key);
@@ -28,7 +28,10 @@ class ViewAllScreen extends StatelessWidget {
                     hintText: 'Search',
                     hintStyle: Styles.textStyle14,
                     contentPadding: const EdgeInsets.all(10),
-                    prefixIcon: const Icon(FontAwesomeIcons.search),
+                    prefixIcon: const Icon(
+                      // search deprecated so i have used magnifyingGlass instead
+                      FontAwesomeIcons.magnifyingGlass,
+                    ),
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 0.25,

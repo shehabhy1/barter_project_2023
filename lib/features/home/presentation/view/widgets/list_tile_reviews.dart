@@ -2,7 +2,7 @@ import 'package:barter_project_2023/features/home/presentation/view/widgets/sub_
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import 'package:barter_project_2023/lib/assets.dart';
+import 'package:barter_project_2023/app_img/assets.dart';
 
 class ListTileOfReviews extends StatelessWidget {
   const ListTileOfReviews({

@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import 'package:barter_project_2023/lib/assets.dart';
+import 'package:barter_project_2023/app_img/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
   const ListViewSomeProducts({

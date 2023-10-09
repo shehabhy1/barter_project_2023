@@ -134,7 +134,7 @@ class _SignupBodyState extends State<SignupBody> {
                     hint: 'Confirm  your password',
                   ),
                   SizedBox(height: 8.h),
-                  const CheckButtom(text: 'I accepted privacy & Policy '),
+                  const CheckButton(text: 'I accepted privacy & Policy '),
                   SizedBox(height: 20.h),
                   CustomButton(
                     width: double.infinity,

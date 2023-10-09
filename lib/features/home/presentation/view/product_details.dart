@@ -1,4 +1,3 @@
-import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_tile_reviews.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/page_indicator.dart';

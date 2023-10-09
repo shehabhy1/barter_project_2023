@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../utils/styles.dart';
 
-class CheckButtom extends StatefulWidget {
+class CheckButton extends StatefulWidget {
   final String text;
-  const CheckButtom({Key? key, required this.text}) : super(key: key);
+  const CheckButton({Key? key, required this.text}) : super(key: key);
 
   @override
-  State<CheckButtom> createState() => _CheckButtomState();
+  State<CheckButton> createState() => _CheckButtonState();
 }
 
-class _CheckButtomState extends State<CheckButtom> {
+class _CheckButtonState extends State<CheckButton> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {

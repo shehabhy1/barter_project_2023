@@ -13,11 +13,11 @@ class SecondRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const CheckButtom(
+        const CheckButton(
           text: 'Remember me',
         ),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const PassView()),
@@ -25,7 +25,9 @@ class SecondRow extends StatelessWidget {
           },
           child: Text(
             'Forget password?',
-            style: Styles.textStyle20.copyWith(fontSize: 14  , color: kPrimaryColor),),
+            style:
+                Styles.textStyle20.copyWith(fontSize: 14, color: kPrimaryColor),
+          ),
         ),
       ],
     );

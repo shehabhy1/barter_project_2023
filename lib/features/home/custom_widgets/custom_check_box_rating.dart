@@ -1,6 +1,5 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomCheckBoxRating extends StatefulWidget {
   final int itemCount;
@@ -45,10 +44,10 @@ class _CustomCheckBoxRatingState extends State<CustomCheckBoxRating> {
             ),
             child: _isChecked
                 ? const Icon(
-              Icons.check,
-              color: Colors.white,
-              size: 20,
-            )
+                    Icons.check,
+                    color: Colors.white,
+                    size: 20,
+                  )
                 : null,
           ),
           const SizedBox(width: 8),
@@ -56,13 +55,18 @@ class _CustomCheckBoxRatingState extends State<CustomCheckBoxRating> {
             width: 100,
             height: 24,
             child: ListView.separated(
-              scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-
-              return const Icon(Icons.star,color: Constant.primaryColor,size: 16,);
-            },
+                  return const Icon(
+                    Icons.star,
+                    color: Constant.primaryColor,
+                    size: 16,
+                  );
+                },
                 separatorBuilder: (context, index) {
-                return const SizedBox(width: 4,);
+                  return const SizedBox(
+                    width: 4,
+                  );
                 },
                 itemCount: widget.itemCount),
           )

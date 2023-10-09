@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../core/utils/styles.dart';
-import 'custom_check_box_rating.dart';
-import 'custom_checkbox.dart';
+import '../../../custom_widgets/custom_check_box_rating.dart';
+import '../../../custom_widgets/custom_checkbox.dart';
 
 class ShowModelBottomSheet extends StatelessWidget {
   const ShowModelBottomSheet({
@@ -28,15 +28,12 @@ class ShowModelBottomSheet extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: ListView(
-          children:  [
+          children: [
             buildSizedBox(34),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                    'Location',
-                    style: Styles.textStyle16
-                ),
+                Text('Location', style: Styles.textStyle16),
                 SizedBox(
                   width: 24,
                   height: 24,
@@ -51,24 +48,24 @@ class ShowModelBottomSheet extends StatelessWidget {
             buildSizedBox(24),
             const Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                  'Quality ',
-                  style: Styles.textStyle16
-              ),
+              child: Text('Quality ', style: Styles.textStyle16),
             ),
             buildSizedBox(19),
-            const CustomCheckBox(text: 'Low',),
+            const CustomCheckBox(
+              text: 'Low',
+            ),
             buildSizedBox(18),
-            const CustomCheckBox(text: 'Medium',),
+            const CustomCheckBox(
+              text: 'Medium',
+            ),
             buildSizedBox(18),
-            const CustomCheckBox(text: 'High',),
+            const CustomCheckBox(
+              text: 'High',
+            ),
             buildSizedBox(24),
             const Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                  'Review',
-                  style: Styles.textStyle16
-              ),
+              child: Text('Review', style: Styles.textStyle16),
             ),
             buildSizedBox(16),
             const CustomCheckBoxRating(itemCount: 5),
@@ -81,18 +78,20 @@ class ShowModelBottomSheet extends StatelessWidget {
             buildSizedBox(4),
             const CustomCheckBoxRating(itemCount: 1),
             buildSizedBox(18),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomButton(
                   text: 'Cancel',
                   textColor: Constant.primaryColor,
-                  backgroundColor: Colors.white, func: () {  },
+                  backgroundColor: Colors.white,
+                  func: () {},
                 ),
                 CustomButton(
                   text: 'Apply',
                   backgroundColor: Constant.primaryColor,
-                  textColor: Colors.white, func: () {  },
+                  textColor: Colors.white,
+                  func: () {},
                 ),
               ],
             )
@@ -104,7 +103,7 @@ class ShowModelBottomSheet extends StatelessWidget {
 }
 
 SizedBox buildSizedBox(double h) {
-  return  SizedBox(
+  return SizedBox(
     height: h,
   );
 }

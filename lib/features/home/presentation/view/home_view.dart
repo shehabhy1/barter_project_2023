@@ -1,4 +1,3 @@
-import 'package:barter_project_2023/features/home/presentation/view/widgets/custom_text_field.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_view_some_products.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/show_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/styles.dart';
+import '../../custom_widgets/custom_text_field.dart';
 import 'widgets/list_tile_reviews.dart';
 import 'widgets/row_text_view_all.dart';
 

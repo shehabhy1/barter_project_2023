@@ -1,6 +1,6 @@
 import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/features/log_in/presentation/view_model/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import '../../features/auth_screens/log_in/view_model/auth_cubit.dart';
 import '../utils/styles.dart';
 
 class RadioCheck extends StatefulWidget {

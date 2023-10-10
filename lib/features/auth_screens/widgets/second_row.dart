@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/shared_widget/check_button.dart';
-import '../../../../../core/utils/styles.dart';
-import '../password_view.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/shared_widget/check_button.dart';
+import '../../../../../../core/utils/styles.dart';
+import '../log_in/presentation/views/password_view.dart';
 
 class SecondRow extends StatelessWidget {
   const SecondRow({Key? key}) : super(key: key);

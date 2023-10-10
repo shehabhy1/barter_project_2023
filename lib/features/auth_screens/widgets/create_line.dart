@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 
-import '../signup_view.dart';
+import '../log_in/presentation/views/login_view.dart';
 
-class LastLine extends StatelessWidget {
-  const LastLine({Key? key}) : super(key: key);
+class LastLineSign extends StatelessWidget {
+  const LastLineSign({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children:  [
-        const Text('Don \'t have an account ?',
+      children: [
+        const Text(
+          'Have an account ?',
           style: TextStyle(
             fontWeight: FontWeight.w500,
             color: Color(0xFF767474),
           ),
         ),
         TextButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const SignupView(),
+                builder: (context) => const LoginView(),
               ),
             );
           },
           child: const Text(
-            'SIGN UP ',
+            'Log in ',
             style: TextStyle(
               color: Color(0xFFB73BFF),
               fontSize: 14,

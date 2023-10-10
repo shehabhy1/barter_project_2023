@@ -1,16 +1,16 @@
-import 'package:barter_project_2023/features/log_in/presentation/view_model/cubit/auth_cubit.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/widgets/another_acount.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/widgets/item_widget.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/widgets/second_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../constants.dart';
-import '../../../../../core/shared_widget/custom_buttom.dart';
-import '../../../../../core/shared_widget/default_text.dart';
-import '../../../../../core/shared_widget/show_snack_bar.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../layout/presentation/views/layout.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/shared_widget/custom_buttom.dart';
+import '../../../../../../core/shared_widget/default_text.dart';
+import '../../../../../../core/shared_widget/show_snack_bar.dart';
+import '../../../../../../core/utils/styles.dart';
+import '../../layout/presentation/views/layout.dart';
+import '../log_in/view_model/auth_cubit.dart';
+import 'another_acount.dart';
+import 'item_widget.dart';
 import 'last_row.dart';
+import 'second_row.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({Key? key}) : super(key: key);

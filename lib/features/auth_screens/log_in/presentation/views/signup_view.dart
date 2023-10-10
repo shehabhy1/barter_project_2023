@@ -1,5 +1,6 @@
-import 'package:barter_project_2023/features/log_in/presentation/views/widgets/signup_body.dart';
 import 'package:flutter/material.dart';
+
+import '../../../widgets/signup_body.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({Key? key}) : super(key: key);

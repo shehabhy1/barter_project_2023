@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/utils/styles.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/utils/styles.dart';
 
 class VerifyOtp extends StatefulWidget {
   const VerifyOtp({Key? key}) : super(key: key);

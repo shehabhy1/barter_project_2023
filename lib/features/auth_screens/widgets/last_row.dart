@@ -1,8 +1,9 @@
-import 'package:barter_project_2023/features/log_in/presentation/views/login_view.dart';
 import 'package:flutter/material.dart';
 
-class LastLineSign extends StatelessWidget {
-  const LastLineSign({Key? key}) : super(key: key);
+import '../log_in/presentation/views/signup_view.dart';
+
+class LastLine extends StatelessWidget {
+  const LastLine({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class LastLineSign extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          'Have an account ?',
+          'Don \'t have an account ?',
           style: TextStyle(
             fontWeight: FontWeight.w500,
             color: Color(0xFF767474),
@@ -21,12 +22,12 @@ class LastLineSign extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const LoginView(),
+                builder: (context) => const SignupView(),
               ),
             );
           },
           child: const Text(
-            'Log in ',
+            'SIGN UP ',
             style: TextStyle(
               color: Color(0xFFB73BFF),
               fontSize: 14,

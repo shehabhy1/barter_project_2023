@@ -1,17 +1,17 @@
 import 'package:barter_project_2023/core/shared_widget/check_button.dart';
-import 'package:barter_project_2023/features/log_in/presentation/views/widgets/create_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../constants.dart';
-import '../../../../../core/shared_widget/custom_buttom.dart';
-import '../../../../../core/shared_widget/default_text.dart';
-import '../../../../../core/shared_widget/radio_buttom.dart';
-import '../../../../../core/shared_widget/show_snack_bar.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../layout/presentation/views/layout.dart';
-import '../../view_model/cubit/auth_cubit.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/shared_widget/custom_buttom.dart';
+import '../../../../../../core/shared_widget/default_text.dart';
+import '../../../../../../core/shared_widget/radio_buttom.dart';
+import '../../../../../../core/shared_widget/show_snack_bar.dart';
+import '../../../../../../core/utils/styles.dart';
+import '../../layout/presentation/views/layout.dart';
+import '../log_in/view_model/auth_cubit.dart';
 import 'another_acount.dart';
+import 'create_line.dart';
 import 'item_widget.dart';
 
 // validator not working methods like (.contain)

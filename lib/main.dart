@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'features/log_in/presentation/view_model/cubit/auth_cubit.dart';
+import 'features/auth_screens/log_in/view_model/auth_cubit.dart';
 import 'firebase_options.dart';
 import 'simple_bloc_observer.dart';
 

@@ -51,7 +51,7 @@ class PassBody extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                defaultText(
+                defaultTextField(
                     type: TextInputType.emailAddress,
                     hint: 'Write Your Email',
                     controller: emailController,

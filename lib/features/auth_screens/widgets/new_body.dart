@@ -55,7 +55,7 @@ class NewPassBody extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                defaultText(
+                defaultTextField(
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
                     controller: newPassController,
@@ -76,7 +76,7 @@ class NewPassBody extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                defaultText(
+                defaultTextField(
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
                     controller: rePassController,

@@ -55,6 +55,7 @@ class _SignupBodyState extends State<SignupBody> {
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 35.h, horizontal: 20.w),
           child: SingleChildScrollView(
+            // explain why we need this absorbPointer
             child: AbsorbPointer(
               absorbing: state is AuthLoading ? true : false,
               child: Column(
@@ -72,7 +73,7 @@ class _SignupBodyState extends State<SignupBody> {
                     style: Styles.textStyle20,
                   ),
                   SizedBox(height: 8.h),
-                  defaultText(
+                  defaultTextField(
                     controller: fNameController,
                     type: TextInputType.text,
                     hint: 'Write your First Name',
@@ -83,7 +84,7 @@ class _SignupBodyState extends State<SignupBody> {
                     style: Styles.textStyle20,
                   ),
                   SizedBox(height: 8.h),
-                  defaultText(
+                  defaultTextField(
                     controller: lNameController,
                     type: TextInputType.text,
                     hint: 'Write your Last Name',
@@ -94,7 +95,7 @@ class _SignupBodyState extends State<SignupBody> {
                     style: Styles.textStyle20,
                   ),
                   SizedBox(height: 8.h),
-                  defaultText(
+                  defaultTextField(
                     controller: emailController,
                     type: TextInputType.emailAddress,
                     hint: 'Write your Email',
@@ -112,10 +113,11 @@ class _SignupBodyState extends State<SignupBody> {
                     style: Styles.textStyle20,
                   ),
                   SizedBox(height: 8.h),
-                  defaultText(
+                  defaultTextField(
                     controller: passwordController,
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
+                    suffix: Icons.remove_red_eye,
                     validate: (val) {
                       if (val.isEmpty || val.length < 6 || val.length > 16) {
                         return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
@@ -129,7 +131,7 @@ class _SignupBodyState extends State<SignupBody> {
                     style: Styles.textStyle20,
                   ),
                   SizedBox(height: 8.h),
-                  defaultText(
+                  defaultTextField(
                     type: TextInputType.visiblePassword,
                     hint: 'Confirm  your password',
                   ),

@@ -65,7 +65,7 @@ class _LoginBodyState extends State<LoginBody> {
                     style: Styles.textStyle20,
                   ),
                   const SizedBox(height: 8),
-                  defaultText(
+                  defaultTextField(
                     type: TextInputType.emailAddress,
                     hint: 'Write your Email',
                     controller: emailController,
@@ -82,7 +82,7 @@ class _LoginBodyState extends State<LoginBody> {
                     style: Styles.textStyle20,
                   ),
                   const SizedBox(height: 8),
-                  defaultText(
+                  defaultTextField(
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
                     controller: passwordController,

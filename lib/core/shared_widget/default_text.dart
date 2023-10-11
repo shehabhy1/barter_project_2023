@@ -4,7 +4,7 @@ import '../../constants.dart';
 
 // default text form field you should name it like this
 
-Widget defaultText({
+Widget defaultTextField({
   // final String? Function(String?)? validator,
   TextEditingController? controller,
   required TextInputType type,

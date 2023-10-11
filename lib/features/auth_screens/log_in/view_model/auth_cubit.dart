@@ -1,15 +1,13 @@
 import 'package:barter_project_2023/core/utils/firestore_user.dart';
-import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:meta/meta.dart';
 
 import '../../model/user_model.dart';
 
-part 'auth_state.dart';
+part 'login_auth_state.dart';
 
 // you have to separate the sign in function from the sign up
 class AuthCubit extends Cubit<AuthState> {

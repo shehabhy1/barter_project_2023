@@ -1,6 +1,6 @@
 import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(const CustomDropList());
 
@@ -362,7 +362,14 @@ class _CustomDropListState extends State<CustomDropList> {
                 height: MediaQuery.of(context).size.height * .052,
                 color: Constant.primaryColor,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    PostCubit.get(context).addPost(
+                      name: 'samir',
+                      category: 'flutter',
+                      subCategory: 'mobile',
+                      disc: 'انا بكره اسرائيل',
+                    );
+                  },
                   child: const Text(
                     'Publish',
                     style: TextStyle(

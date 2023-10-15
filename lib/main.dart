@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'features/add post/presentation/view_model/cubit/post_cubit.dart';
 import 'features/auth_screens/log_in/view_model/auth_cubit.dart';
 import 'firebase_options.dart';
 import 'simple_bloc_observer.dart';
@@ -43,6 +44,9 @@ class BarterApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => AuthCubit(),
+          ),
+          BlocProvider(
+            create: (context) => PostCubit(),
           ),
         ],
         child: MaterialApp.router(

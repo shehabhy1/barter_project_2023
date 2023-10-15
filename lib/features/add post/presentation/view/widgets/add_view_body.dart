@@ -17,17 +17,48 @@ class AddViewBody extends StatelessWidget {
 
               // const CustomPostOptionsAppBar(),
               const SizedBox(
-                height: 10,
+                height: 25,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/add_post.png",
-                  height: MediaQuery.of(context).size.height * .377,
-                  width: MediaQuery.of(context).size.width * .86,
-                  fit: BoxFit.cover,
-                ),
+              Row(
+                // don't repeat the widgets use listview.builder instead
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Image.asset(
+                      "assets/images/add_post.png",
+                      // the height and weight must be responsive
+                      // so use media query instead of fixed size
+                      height: 100, //MediaQuery.of(context).size.height * .100,
+                      width: 100, //MediaQuery.of(context).size.width * .32,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Image.asset(
+                      "assets/images/add_post.png",
+                      // the height and weight must be responsive
+                      // so use media query instead of fixed size
+                      height: 100, //MediaQuery.of(context).size.height * .100,
+                      width: 100, //MediaQuery.of(context).size.width * .32,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Image.asset(
+                      "assets/images/add_post.png",
+                      // the height and weight must be responsive
+                      // so use media query instead of fixed size
+                      height: 100, //MediaQuery.of(context).size.height * .100,
+                      width: 100, //MediaQuery.of(context).size.width * .32,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
               ),
+
               const SizedBox(
                 height: 10,
               ),

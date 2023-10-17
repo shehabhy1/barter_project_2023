@@ -92,6 +92,13 @@ class _LoginBodyState extends State<LoginBody> {
                       }
                       return null;
                     },
+                    suffix: AuthCubit.get(context).isPasswordShow? Icons.visibility:Icons.visibility_off,
+                    pressed:()
+                    {
+                      AuthCubit.get(context).PasswordShowed();
+                    },
+                    isObscure: AuthCubit.get(context).isPasswordShow,
+
                   ),
                   const SizedBox(height: 8),
                   const SecondRow(),

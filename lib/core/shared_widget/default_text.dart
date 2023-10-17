@@ -18,6 +18,7 @@ Widget defaultTextField({
   Function()? pressed,
   Function()? tap,
   bool? enable,
+  Color    background = Colors.purple ,
 }) =>
     TextFormField(
       onTap: tap,
@@ -28,12 +29,13 @@ Widget defaultTextField({
         labelText: label,
         labelStyle: TextStyle(color: kPrimaryColor),
         hintText: hint,
-        prefixIcon: Icon(prefix),
+        prefixIcon: prefix != null? Icon(prefix) : null,
         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: pressed,
                 icon: Icon(
                   suffix,
+                  color: background,
                 ),
               )
             : null,

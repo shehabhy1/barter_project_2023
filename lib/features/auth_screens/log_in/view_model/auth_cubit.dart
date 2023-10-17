@@ -40,6 +40,28 @@ class AuthCubit extends Cubit<AuthState> {
     // }
   }
 
+  //ايكون الباسورد (محمد حسين)
+  bool isPasswordShow = true;
+  void PasswordShowed()
+  {
+    isPasswordShow=!isPasswordShow;
+    emit(LoginShowPasswordState());
+  }
+
+  bool isNewPasswordShow = true;
+  void NewPasswordShowed()
+  {
+    isNewPasswordShow=!isNewPasswordShow;
+    emit(LoginShowNewPasswordState());
+  }
+
+  bool isRepeatPasswordShow = true;
+  void RepeatPasswordShowed()
+  {
+    isRepeatPasswordShow=!isRepeatPasswordShow;
+    emit(LoginShowRepeatPasswordState());
+  }
+
   Future<void> registerUser({
     required String fName,
     required String lName,

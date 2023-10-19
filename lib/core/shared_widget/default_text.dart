@@ -5,7 +5,6 @@ import '../../constants.dart';
 // default text form field you should name it like this
 
 Widget defaultTextField({
-  // final String? Function(String?)? validator,
   TextEditingController? controller,
   required TextInputType type,
   Function(String)? onChange,
@@ -15,21 +14,26 @@ Widget defaultTextField({
   IconData? prefix,
   bool isObscure = false,
   IconData? suffix,
+  int? maxLines,
   Function()? pressed,
   Function()? tap,
+  EdgeInsetsGeometry? padding,
+  InputBorder? border,
   bool? enable,
-  Color    background = Colors.purple ,
+  Color background = Colors.purple,
 }) =>
     TextFormField(
       onTap: tap,
       enabled: enable,
       controller: controller,
+      maxLines: maxLines ?? 1,
       obscureText: isObscure,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: TextStyle(color: kPrimaryColor),
         hintText: hint,
-        prefixIcon: prefix != null? Icon(prefix) : null,
+        prefixIcon: prefix != null ? Icon(prefix) : null,
+        contentPadding: padding,
         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: pressed,
@@ -39,9 +43,10 @@ Widget defaultTextField({
                 ),
               )
             : null,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
+        border: border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kPrimaryColor, width: 2.0),
           borderRadius: const BorderRadius.all(Radius.circular(10.0)),

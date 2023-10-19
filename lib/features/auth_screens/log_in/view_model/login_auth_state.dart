@@ -9,11 +9,17 @@ final class AuthLoading extends AuthState {}
 
 final class AuthSuccess extends AuthState {}
 
+final class GetUSersSuccess extends AuthState {
+
+}
+
 final class AuthFailure extends AuthState {
   final String errMessage;
   AuthFailure({required this.errMessage});
 }
 
 final class LoginShowPasswordState extends AuthState {}
+
 final class LoginShowNewPasswordState extends AuthState {}
+
 final class LoginShowRepeatPasswordState extends AuthState {}

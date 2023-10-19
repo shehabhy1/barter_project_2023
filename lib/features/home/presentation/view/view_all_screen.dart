@@ -1,3 +1,4 @@
+import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,7 +7,8 @@ import '../../../../core/utils/styles.dart';
 import 'package:barter_project_2023/app_img/assets.dart';
 
 class ViewAllScreen extends StatelessWidget {
-  const ViewAllScreen({Key? key}) : super(key: key);
+  final List<PostModel> posts;
+  const ViewAllScreen({Key? key, required this.posts}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -86,58 +88,7 @@ class ViewAllScreen extends StatelessWidget {
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Container(
-                            width: MediaQuery.sizeOf(context).width * 0.42,
-                            padding: const EdgeInsets.only(bottom: 16),
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                    width: 0.50, color: Color(0xFFE6E6E6)),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    Assets.imagesImg,
-                                    width: 90,
-                                  ),
-                                  const SizedBox(height: 4),
-                                  ListTile(
-                                    contentPadding: EdgeInsets.zero,
-                                    title: Text('mohamed Gehad',
-                                        style: Styles.textStyle14
-                                            .copyWith(color: Colors.black)),
-                                    subtitle: const Text('Description ',
-                                        style: Styles.textStyle12),
-                                    leading: Image.asset(
-                                      Assets.imagesImg2,
-                                      width: 28,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Container(
-                                      width: 80,
-                                      height: 30,
-                                      alignment: Alignment.center,
-                                      decoration: ShapeDecoration(
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16)),
-                                          color: Constant.primaryColor),
-                                      child: Text('Discover',
-                                          style: Styles.textStyle14
-                                              .copyWith(color: Colors.white)),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
+                          return ItemBuilder();
                         },
                         separatorBuilder: (context, index) {
                           return const SizedBox(
@@ -219,6 +170,63 @@ class ViewAllScreen extends StatelessWidget {
           //   }, itemCount: 3),
           // ),
         ],
+      ),
+    );
+  }
+}
+
+class ItemBuilder extends StatelessWidget {
+  const ItemBuilder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.sizeOf(context).width * 0.42,
+      padding: const EdgeInsets.only(bottom: 16),
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 0.50, color: Color(0xFFE6E6E6)),
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Column(
+          children: [
+            Image.asset(
+              Assets.imagesImg,
+              width: 90,
+            ),
+            const SizedBox(height: 4),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text('mohamed Gehad',
+                  style: Styles.textStyle14.copyWith(color: Colors.black)),
+              subtitle: const Text('Description ', style: Styles.textStyle12),
+              leading: Image.asset(
+                Assets.imagesImg2,
+                width: 28,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                width: 80,
+                height: 30,
+                alignment: Alignment.center,
+                decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16)),
+                    color: Constant.primaryColor),
+                child: Text('Discover',
+                    style: Styles.textStyle14.copyWith(color: Colors.white)),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

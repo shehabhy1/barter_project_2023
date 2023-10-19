@@ -23,6 +23,7 @@ class PostCubit extends Cubit<PostState> {
   }) async {
     var currentUser = FirebaseAuth.instance.currentUser;
     _postCollectionRef.doc().set(PostModel(
+          // fName: ,
           userId: currentUser!.uid,
           name: name,
           category: category,

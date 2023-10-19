@@ -1,4 +1,4 @@
-class UsertModel {
+class UserModel {
   final String id;
   final String fName;
   final String lName;
@@ -7,7 +7,7 @@ class UsertModel {
   final String gender;
   final String? pic;
 
-  UsertModel({
+  UserModel({
     required this.id,
     required this.fName,
     required this.lName,
@@ -17,8 +17,8 @@ class UsertModel {
     required this.pic,
   });
 
-  factory UsertModel.fromJson(jsonData) {
-    return UsertModel(
+  factory UserModel.fromJson(jsonData) {
+    return UserModel(
       id: (jsonData['id']),
       fName: jsonData['fname'],
       lName: jsonData['lname'],

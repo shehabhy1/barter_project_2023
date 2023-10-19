@@ -1,4 +1,5 @@
 import 'package:barter_project_2023/core/utils/styles.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_tile_reviews.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../generated/assets.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  final PostModel postModel;
+  const ProductDetails({Key? key, required this.postModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class ProductDetails extends StatelessWidget {
             context.pop();
           },
         ),
-        title: Text('Headphones',
+        title: Text(postModel.name,
             style: Styles.textStyle24.copyWith(
               letterSpacing: 0.04,
             )),
@@ -39,7 +41,8 @@ class ProductDetails extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.3,
               child: PageView.builder(
                 itemBuilder: (context, index) {
-                  return Image.asset(Assets.imagesImg);
+                  // return Image.asset('Assets.imagesImg');
+                  return Image.network(postModel.pic!);
                 },
                 itemCount: 3,
               ),
@@ -48,13 +51,11 @@ class ProductDetails extends StatelessWidget {
             buildSizedBox(24),
             const ListTileOfReviews(),
             buildSizedBox(12),
-            const Card(
+            Card(
               color: Colors.grey,
               child: ListTile(
-                title: Text('Description', style: Styles.textStyle16),
-                subtitle: Text(
-                    'Bluetooth 5.0 technology Supports wireless charging Touch control feature',
-                    style: Styles.textStyle14),
+                title: const Text('Description', style: Styles.textStyle16),
+                subtitle: Text(postModel.disc, style: Styles.textStyle14),
               ),
             ),
             buildSizedBox(20),
@@ -66,6 +67,7 @@ class ProductDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Quality', style: Styles.textStyle16),
+                    // TODO:not added in post model and add screen
                     Text('High', style: Styles.textStyle14),
                   ],
                 ),

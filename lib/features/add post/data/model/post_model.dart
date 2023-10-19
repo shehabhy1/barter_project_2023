@@ -1,12 +1,16 @@
 class PostModel {
   final String userId;
   final String name;
+  // final String fName;
+  // final String lName;
   final String category;
   final String subCategory;
   final String disc;
   final String? pic;
 
   PostModel({
+    // required this.fName,
+    // required this.lName,
     required this.userId,
     required this.name,
     required this.category,
@@ -17,6 +21,8 @@ class PostModel {
 
   factory PostModel.fromJson(jsonData) {
     return PostModel(
+      // fName: jsonData['fName'],
+      // lName: jsonData['lName'],
       userId: jsonData['id'],
       name: jsonData['name'],
       category: jsonData['category'],
@@ -28,6 +34,8 @@ class PostModel {
 
   Map<String, dynamic> toJson() {
     return {
+      // 'fName': fName,
+      // 'lName': lName,
       'id': userId,
       'name': name,
       'category': category,

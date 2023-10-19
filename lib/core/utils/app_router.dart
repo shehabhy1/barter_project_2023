@@ -1,5 +1,7 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
+import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:barter_project_2023/features/chat/presentation/view/chat_page.dart';
 import 'package:barter_project_2023/features/deals_view/presentation/view/deal_view.dart';
 import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
@@ -10,6 +12,7 @@ import 'package:barter_project_2023/features/profile_screen/views/screens/report
 import 'package:barter_project_2023/features/settings/presentation/views/have_and_need_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth_screens/log_in/presentation/views/login_view.dart';
@@ -19,32 +22,28 @@ import '../../features/swapping/sign_up_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
+ late List<PostModel>postList;
 class AppRouter {
-  static const routingSplashView = '/';
-  static const pOnBoardingView = '/onBoardingView';
-  static const routingOnBoardingView = 'onBoardingView';
-  static const routingloginView = 'loginView';
-  static const ploginView = '/loginView';
+
+  static const chatpage = '/ChatPage';
+  static const editProfile = '/editProfile';
+  static const kDealView = '/DealView';
+  static const kHaveAndNeedView = '/HaveAndNeedView';
+  static const kLanguageView = '/LanguageView';
   static const kLayoutView = 'layoutView';
-  static const pLayoutView = '/layoutView';
-  static const routingNotificationScreen = 'NotificationsScreen';
-  static const pNotificationScreen = '/NotificationsScreen';
   // static const kHomeView = '/homeScreen';
   // static const pHomeView = '/homeScreen';
-  static const kHomeAllView = '/homeAllScreen';
-  static const pHomeAllView = '/homeAllScreen';
-  static const kProductDetails = '/ProductDetails';
-  static const pProductDetails = '/ProductDetails';
-  static const editProfile = '/editProfile';
-  static const settingsView = '/settingsView';
-  static const chatpage = '/ChatPage';
-  static const signup = '/signup';
-  static const kReportView = '/ReportView';
-  static const kReportDetailsView = '/ReportDetailsView';
-  static const kDealView = '/DealView';
-  static const kLanguageView = '/LanguageView';
-  static const kHaveAndNeedView = '/HaveAndNeedView';
+  // static const kHomeAllView = '/homeAllScreen';
+  // static const pHomeAllView = '/homeAllScreen';
+  // static const kProductDetails = '/ProductDetails';
 
+  static const kReportDetailsView = '/ReportDetailsView';
+  static const kReportView = '/ReportView';
+  static const pLayoutView = '/layoutView';
+  static const pNotificationScreen = '/NotificationsScreen';
+  static const pOnBoardingView = '/onBoardingView';
+  static const pProductDetails = '/ProductDetails';
+  static const ploginView = '/loginView';
   static final routeScreens = GoRouter(
     routes: [
       GoRoute(
@@ -72,16 +71,17 @@ class AppRouter {
       //   path: pHomeView,
       //   builder: (context, state) => const HomeView(),
       // ),
-      GoRoute(
-        name: kHomeAllView,
-        path: pHomeAllView,
-        builder: (context, state) => const ViewAllScreen(),
-      ),
-      GoRoute(
-        name: kProductDetails,
-        path: pProductDetails,
-        builder: (context, state) => const ProductDetails(),
-      ),
+      //TODO: use go router to pass data
+      // GoRoute(
+      //   name: kHomeAllView,
+      //   path: pHomeAllView,
+      //   builder: (context, state) => ViewAllScreen(posts: postList),
+      // ),
+      // GoRoute(
+      //   name: kProductDetails,
+      //   path: pProductDetails,
+      //   builder: (context, state) => const ProductDetails(),
+      // ),
       GoRoute(
         name: editProfile,
         path: editProfile,
@@ -134,4 +134,13 @@ class AppRouter {
       // ),
     ],
   );
+
+  static const routingNotificationScreen = 'NotificationsScreen';
+  static const routingOnBoardingView = 'onBoardingView';
+  static const routingSplashView = '/';
+  static const routingloginView = 'loginView';
+  static const settingsView = '/settingsView';
+  static const signup = '/signup';
+
+  List<PostModel>posts=[];
 }

@@ -78,7 +78,7 @@ class AuthCubit extends Cubit<AuthState> {
           .then(
         (user) async {
           await FireStoreUser().addUserToFireStore(
-            UsertModel(
+            UserModel(
               id: user.user!.uid,
               fName: fName,
               lName: lName,

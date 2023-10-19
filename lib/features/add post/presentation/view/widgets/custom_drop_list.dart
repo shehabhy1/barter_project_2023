@@ -1,6 +1,12 @@
 import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
+import 'package:barter_project_2023/core/shared_widget/default_text.dart';
+import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
+import 'package:barter_project_2023/features/home/custom_widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 void main() => runApp(const CustomDropList());
 
@@ -77,9 +83,13 @@ class _CustomDropListState extends State<CustomDropList> {
     'Service',
   ];
 
+  TextEditingController itemNameController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Column(
@@ -103,19 +113,34 @@ class _CustomDropListState extends State<CustomDropList> {
             const SizedBox(
               height: 3,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Item Name',
-                  border: InputBorder.none,
-                ),
-              ),
+            defaultTextField(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              type: TextInputType.text,
+              controller: itemNameController,
+              hint: 'Enter Your Item Name',
+              // border: InputBorder.none,
+
+              validate: (val) {
+                if (val.isEmpty || val.length < 6 || val.length > 16) {
+                  return 'this field is required';
+                }
+                return null;
+              },
             ),
+            // Container(
+            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            //   decoration: BoxDecoration(
+            //     border: Border.all(color: Colors.grey),
+            //     borderRadius: BorderRadius.circular(16.0),
+            //   ),
+            //   child: TextFormField(
+            //     controller: itemNameController,
+            //     decoration: const InputDecoration(
+            //       labelText: 'Item Name',
+            //       border: InputBorder.none,
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8.0,
@@ -144,10 +169,12 @@ class _CustomDropListState extends State<CustomDropList> {
               child: DropdownButtonFormField(
                 value: _selectedCategory,
                 onChanged: (String? newValue) {
-                  setState(() {
-                    _selectedCategory = newValue;
-                    _selectedSubcategory = null;
-                  });
+                  setState(
+                    () {
+                      _selectedCategory = newValue;
+                      _selectedSubcategory = null;
+                    },
+                  );
                 },
                 decoration: const InputDecoration(
                   labelText: 'Category',
@@ -274,20 +301,46 @@ class _CustomDropListState extends State<CustomDropList> {
             const SizedBox(
               height: 3,
             ),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Description',
-                  border: InputBorder.none,
-                ),
+
+            SizedBox(
+              height: context.deviceHeight * 0.2,
+              // width: 360,
+              child: defaultTextField(
+                maxLines: 10,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                type: TextInputType.text,
+                controller: descriptionController,
+                hint: 'Enter a description for the item you want',
+                // border: InputBorder.none,
+
+                validate: (val) {
+                  if (val.isEmpty || val.length < 6 || val.length > 16) {
+                    return 'this field is required';
+                  }
+                  return null;
+                },
               ),
             ),
+
+            // Container(
+            //   padding:
+            //       const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+            //   decoration: BoxDecoration(
+            //     border: Border.all(color: Colors.grey),
+            //     borderRadius: BorderRadius.circular(16.0),
+            //   ),
+            //   child: TextFormField(
+            //     controller: descriptionController,
+            //     decoration: const InputDecoration(
+            //       isDense: true,
+            //       hintText: 'Description',
+            //       contentPadding: EdgeInsets.symmetric(vertical: 10),
+            //       // labelText: 'Description',
+            //       border: InputBorder.none,
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 6.0,
@@ -357,26 +410,36 @@ class _CustomDropListState extends State<CustomDropList> {
             SizedBox(
               height: MediaQuery.of(context).size.height * .04,
             ),
-            Container(
-                width: MediaQuery.of(context).size.width * 25,
-                height: MediaQuery.of(context).size.height * .052,
-                color: Constant.primaryColor,
-                child: TextButton(
-                  onPressed: () {
-                    PostCubit.get(context).addPost(
-                      name: 'samir',
-                      category: 'flutter',
-                      subCategory: 'mobile',
-                      disc: 'انا بكره اسرائيل',
-                    );
-                  },
-                  child: const Text(
-                    'Publish',
-                    style: TextStyle(
-                      color: Colors.white,
+            BlocBuilder<PostCubit, PostState>(
+              builder: (context, state) {
+                return Container(
+                  width: MediaQuery.of(context).size.width * 25,
+                  height: MediaQuery.of(context).size.height * .052,
+                  color: Constant.primaryColor,
+                  child: TextButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        PostCubit.get(context).addPost(
+                          name: itemNameController.text,
+                          category: _selectedCategory!,
+                          subCategory: _selectedSubcategory!,
+                          disc: descriptionController.text,
+                        );
+
+                        itemNameController.clear();
+                        descriptionController.clear();
+                      }
+                    },
+                    child: const Text(
+                      'Publish',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                )),
+                );
+              },
+            ),
             const SizedBox(
               height: 50,
             ),

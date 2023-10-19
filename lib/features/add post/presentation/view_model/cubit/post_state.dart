@@ -14,8 +14,26 @@ final class AddPostSuccess extends PostState {}
 final class AddPostFailure extends PostState {}
 
 final class GetPostLoading extends PostState {}
-final class ChosenPostImageSuccessfullyState extends PostState {}
-final class ChosenPostImageErrorState extends PostState {}
+
+final class ChosenImageSuccessfullyState extends PostState {}
+
+final class ChosenImageErrorState extends PostState {}
+
+final class RemoveImageSuccessfullyState extends PostState {}
+
+final class UploadImageLoadingState extends PostState {}
+
+final class UploadImageErrorState extends PostState {
+  final String error;
+
+  const UploadImageErrorState({required this.error});
+}
+
+final class UploadPostErrorState extends PostState {
+  final String error;
+
+  const UploadPostErrorState({required this.error});
+}
 
 final class GetPostSuccess extends PostState {
   final List<PostModel> posts;

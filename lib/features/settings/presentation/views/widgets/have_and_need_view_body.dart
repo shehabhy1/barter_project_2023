@@ -64,7 +64,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) =>
           ProductItem(postModel: posts[index], userModel: user),
-      itemCount: 5,
+      itemCount: posts.length,
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
     );

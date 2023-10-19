@@ -41,11 +41,17 @@ class _HaveAndNeedViewState extends State<HaveAndNeedView> {
             )),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is GetUserDataLoading) {
+            const CircularProgressIndicator();
+          }
+        },
         builder: (context, state) {
           return BlocConsumer<PostCubit, PostState>(
             listener: (context, state) {
-             
+              if (state is GetPostLoading) {
+                const CircularProgressIndicator();
+              }
             },
             builder: (context, state) {
               var aCubit = BlocProvider.of<AuthCubit>(context);

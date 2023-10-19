@@ -98,14 +98,14 @@ class AuthCubit extends Cubit<AuthState> {
             ),
           );
 
-          userModel = UserModel(
-              id: user.user!.uid,
-              fName: fName,
-              lName: lName,
-              email: email,
-              password: password,
-              gender: gender,
-              pic: '');
+          // userModel = UserModel(
+          //     id: user.user!.uid,
+          //     fName: fName,
+          //     lName: lName,
+          //     email: email,
+          //     password: password,
+          //     gender: gender,
+          //     pic: '');
           //save email in shared pref
 
           CacheHelper.saveString(

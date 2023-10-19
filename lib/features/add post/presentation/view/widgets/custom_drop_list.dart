@@ -124,20 +124,6 @@ class _CustomDropListState extends State<CustomDropList> {
                 return null;
               },
             ),
-            // Container(
-            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            //   decoration: BoxDecoration(
-            //     border: Border.all(color: Colors.grey),
-            //     borderRadius: BorderRadius.circular(16.0),
-            //   ),
-            //   child: TextFormField(
-            //     controller: itemNameController,
-            //     decoration: const InputDecoration(
-            //       labelText: 'Item Name',
-            //       border: InputBorder.none,
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8.0,
@@ -298,7 +284,6 @@ class _CustomDropListState extends State<CustomDropList> {
             const SizedBox(
               height: 3,
             ),
-
             SizedBox(
               height: context.deviceHeight * 0.2,
               // width: 360,
@@ -320,25 +305,6 @@ class _CustomDropListState extends State<CustomDropList> {
                 },
               ),
             ),
-
-            // Container(
-            //   padding:
-            //       const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
-            //   decoration: BoxDecoration(
-            //     border: Border.all(color: Colors.grey),
-            //     borderRadius: BorderRadius.circular(16.0),
-            //   ),
-            //   child: TextFormField(
-            //     controller: descriptionController,
-            //     decoration: const InputDecoration(
-            //       isDense: true,
-            //       hintText: 'Description',
-            //       contentPadding: EdgeInsets.symmetric(vertical: 10),
-            //       // labelText: 'Description',
-            //       border: InputBorder.none,
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 6.0,
@@ -418,6 +384,8 @@ class _CustomDropListState extends State<CustomDropList> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         PostCubit.get(context).addPost(
+                          image:
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA7bFA5ENeg9SCOBJiqO1hLZRk_Y71lZrxig&usqp=CAU',
                           name: itemNameController.text,
                           category: _selectedCategory!,
                           subCategory: _selectedSubcategory!,

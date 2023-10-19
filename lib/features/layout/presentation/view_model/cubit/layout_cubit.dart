@@ -22,7 +22,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   ];
   List<String> screensTitles = [
     'Home',
-    'Add',
+    'Enter the item to swap it',
     'Notification',
     'Profile',
   ];

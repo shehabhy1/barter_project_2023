@@ -9,13 +9,36 @@ import '../../../../../core/utils/styles.dart';
 import 'package:barter_project_2023/app_img/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
-  final List<PostModel> posts;
+  // final List<PostModel> posts;
   const ListViewSomeProducts({
     super.key,
-    required this.posts,
+    // required this.posts,
   });
   @override
   Widget build(BuildContext context) {
+    final List<PostModel> posts = [
+      PostModel(
+          userId: '',
+          name: 'mohamed Gehad',
+          category: 'category',
+          subCategory: 'subCategory',
+          disc: 'disc',
+          pic: 'pic'),
+      PostModel(
+          userId: '',
+          name: 'mohamed Gehad',
+          category: 'category',
+          subCategory: 'subCategory',
+          disc: 'disc',
+          pic: 'pic'),
+      PostModel(
+          userId: '',
+          name: 'mohamed Gehad',
+          category: 'category',
+          subCategory: 'subCategory',
+          disc: 'disc',
+          pic: 'pic'),
+    ];
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.37,
       child: ListView.separated(
@@ -25,8 +48,6 @@ class ListViewSomeProducts extends StatelessWidget {
             return TextButton(
               onPressed: () {
                 navigateTo(context, ProductDetails(postModel: posts[index]));
-                // context.pushNamed(AppRouter.kProductDetails);
-                // context.go(AppRouter.kProductDetails);
               },
               child: itemBuilder(
                 context,

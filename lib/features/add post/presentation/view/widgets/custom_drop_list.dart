@@ -1,12 +1,9 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
-import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
-import 'package:barter_project_2023/features/home/custom_widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 void main() => runApp(const CustomDropList());
 
@@ -121,7 +118,7 @@ class _CustomDropListState extends State<CustomDropList> {
               // border: InputBorder.none,
 
               validate: (val) {
-                if (val.isEmpty || val.length < 6 || val.length > 16) {
+                if (val.isEmpty) {
                   return 'this field is required';
                 }
                 return null;
@@ -307,6 +304,7 @@ class _CustomDropListState extends State<CustomDropList> {
               // width: 360,
               child: defaultTextField(
                 maxLines: 10,
+
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 type: TextInputType.text,
@@ -315,7 +313,7 @@ class _CustomDropListState extends State<CustomDropList> {
                 // border: InputBorder.none,
 
                 validate: (val) {
-                  if (val.isEmpty || val.length < 6 || val.length > 16) {
+                  if (val.isEmpty) {
                     return 'this field is required';
                   }
                   return null;

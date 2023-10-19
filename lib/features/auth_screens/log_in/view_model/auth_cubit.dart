@@ -1,4 +1,7 @@
+import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/core/utils/firestore_user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
   static AuthCubit get(context) => BlocProvider.of(context);
   String gender = 'Male';
 
+  UserModel? userModel;
   Future<void> loginUser(
       {required String email, required String password}) async {
     emit(AuthLoading());
@@ -23,6 +27,14 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
+      //save email in shared pref
+      CacheHelper.saveString(
+        key: Constant.kEmail,
+        value: email,
+      );
+
+      debugPrint(
+          '/////////////////${CacheHelper.getData(key: Constant.kEmail)}///////////////////');
       emit(AuthSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -42,23 +54,20 @@ class AuthCubit extends Cubit<AuthState> {
 
   //ايكون الباسورد (محمد حسين)
   bool isPasswordShow = true;
-  void PasswordShowed()
-  {
-    isPasswordShow=!isPasswordShow;
+  void PasswordShowed() {
+    isPasswordShow = !isPasswordShow;
     emit(LoginShowPasswordState());
   }
 
   bool isNewPasswordShow = true;
-  void NewPasswordShowed()
-  {
-    isNewPasswordShow=!isNewPasswordShow;
+  void NewPasswordShowed() {
+    isNewPasswordShow = !isNewPasswordShow;
     emit(LoginShowNewPasswordState());
   }
 
   bool isRepeatPasswordShow = true;
-  void RepeatPasswordShowed()
-  {
-    isRepeatPasswordShow=!isRepeatPasswordShow;
+  void RepeatPasswordShowed() {
+    isRepeatPasswordShow = !isRepeatPasswordShow;
     emit(LoginShowRepeatPasswordState());
   }
 
@@ -88,8 +97,24 @@ class AuthCubit extends Cubit<AuthState> {
               pic: '',
             ),
           );
+
+          userModel = UserModel(
+              id: user.user!.uid,
+              fName: fName,
+              lName: lName,
+              email: email,
+              password: password,
+              gender: gender,
+              pic: '');
+          //save email in shared pref
+
+          CacheHelper.saveString(
+            key: Constant.kEmail,
+            value: email,
+          );
         },
       );
+
       emit(AuthSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -100,6 +125,20 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(AuthFailure(errMessage: 'wrong'));
     }
+  }
+
+  void getUserData() {
+    emit(GetUserDataLoading());
+    FirebaseFirestore.instance
+        .collection('Users')
+        .doc(CacheHelper.getData(key: Constant.kEmail))
+        .get()
+        .then((value) {
+      userModel = UserModel.fromJson(value);
+      emit(GetUserDataSuccess());
+    }).catchError((error) {
+      emit(GetUserDataError(error: error));
+    });
   }
 
   Future<UserCredential> signInWithGoogle() async {

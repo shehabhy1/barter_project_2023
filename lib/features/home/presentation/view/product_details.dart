@@ -27,7 +27,7 @@ class ProductDetails extends StatelessWidget {
             context.pop();
           },
         ),
-        title: Text(postModel.name,
+        title: Text('postModel.name',
             style: Styles.textStyle24.copyWith(
               letterSpacing: 0.04,
             )),
@@ -41,8 +41,8 @@ class ProductDetails extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.3,
               child: PageView.builder(
                 itemBuilder: (context, index) {
-                  // return Image.asset('Assets.imagesImg');
-                  return Image.network(postModel.pic!);
+                  return Image.asset('Assets.imagesImg');
+                  // return Image.network(postModel.pic!);
                 },
                 itemCount: 3,
               ),

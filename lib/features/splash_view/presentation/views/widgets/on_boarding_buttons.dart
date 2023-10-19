@@ -66,7 +66,7 @@ class OnBoardingButtons extends StatelessWidget {
 
   void submit(BuildContext context) {
     //save data in shared pref
-    CacheHelper.saveString(key: Constant.kOnBoardingView, value: true).then(
+    CacheHelper.savebool(key: Constant.kOnBoardingView, value: true).then(
       (value) {
         if (value) {
           context.pushReplacementNamed(AppRouter.routingloginView);

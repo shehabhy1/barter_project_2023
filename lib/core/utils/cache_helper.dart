@@ -11,13 +11,13 @@ abstract class CacheHelper {
   }
 
   static Future<bool> saveString(
-      {required String key, required bool value}) async {
-    return await storingSharedPreferences!.setBool(key, value);
+      {required String key, required String value}) async {
+    return await storingSharedPreferences!.setString(key, value);
   }
 
   static Future<bool> savebool(
-      {required String key, required String value}) async {
-    return await storingSharedPreferences!.setString(key, value);
+      {required String key, required bool value}) async {
+    return await storingSharedPreferences!.setBool(key, value);
   }
 
   static Future<bool> saveint({required String key, required int value}) async {

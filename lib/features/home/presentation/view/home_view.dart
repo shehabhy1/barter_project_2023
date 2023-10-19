@@ -73,7 +73,7 @@ class _HomeViewState extends State<HomeView> {
               ),
               buildSizedBox(16),
               ListViewSomeProducts(
-                posts: cubit.posts,
+                // posts: cubit.posts,
               ),
               buildSizedBox(24),
               //TODO: replace this with my products

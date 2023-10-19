@@ -1,12 +1,9 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
-import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
-import 'package:barter_project_2023/features/home/custom_widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 void main() => runApp(const CustomDropList());
 
@@ -121,26 +118,12 @@ class _CustomDropListState extends State<CustomDropList> {
               // border: InputBorder.none,
 
               validate: (val) {
-                if (val.isEmpty || val.length < 6 || val.length > 16) {
+                if (val.isEmpty) {
                   return 'this field is required';
                 }
                 return null;
               },
             ),
-            // Container(
-            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            //   decoration: BoxDecoration(
-            //     border: Border.all(color: Colors.grey),
-            //     borderRadius: BorderRadius.circular(16.0),
-            //   ),
-            //   child: TextFormField(
-            //     controller: itemNameController,
-            //     decoration: const InputDecoration(
-            //       labelText: 'Item Name',
-            //       border: InputBorder.none,
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8.0,
@@ -301,12 +284,12 @@ class _CustomDropListState extends State<CustomDropList> {
             const SizedBox(
               height: 3,
             ),
-
             SizedBox(
               height: context.deviceHeight * 0.2,
               // width: 360,
               child: defaultTextField(
                 maxLines: 10,
+
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 type: TextInputType.text,
@@ -315,32 +298,13 @@ class _CustomDropListState extends State<CustomDropList> {
                 // border: InputBorder.none,
 
                 validate: (val) {
-                  if (val.isEmpty || val.length < 6 || val.length > 16) {
+                  if (val.isEmpty) {
                     return 'this field is required';
                   }
                   return null;
                 },
               ),
             ),
-
-            // Container(
-            //   padding:
-            //       const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
-            //   decoration: BoxDecoration(
-            //     border: Border.all(color: Colors.grey),
-            //     borderRadius: BorderRadius.circular(16.0),
-            //   ),
-            //   child: TextFormField(
-            //     controller: descriptionController,
-            //     decoration: const InputDecoration(
-            //       isDense: true,
-            //       hintText: 'Description',
-            //       contentPadding: EdgeInsets.symmetric(vertical: 10),
-            //       // labelText: 'Description',
-            //       border: InputBorder.none,
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 6.0,
@@ -420,6 +384,8 @@ class _CustomDropListState extends State<CustomDropList> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         PostCubit.get(context).addPost(
+                          image:
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA7bFA5ENeg9SCOBJiqO1hLZRk_Y71lZrxig&usqp=CAU',
                           name: itemNameController.text,
                           category: _selectedCategory!,
                           subCategory: _selectedSubcategory!,

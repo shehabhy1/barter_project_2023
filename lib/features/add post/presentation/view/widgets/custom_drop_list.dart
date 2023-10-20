@@ -383,9 +383,7 @@ class _CustomDropListState extends State<CustomDropList> {
                   child: TextButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        PostCubit.get(context).addPost(
-                          image:
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA7bFA5ENeg9SCOBJiqO1hLZRk_Y71lZrxig&usqp=CAU',
+                        PostCubit.get(context).uploadFile(
                           name: itemNameController.text,
                           category: _selectedCategory!,
                           subCategory: _selectedSubcategory!,

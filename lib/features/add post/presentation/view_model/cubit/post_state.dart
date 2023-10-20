@@ -22,6 +22,7 @@ final class ChosenImageErrorState extends PostState {}
 final class RemoveImageSuccessfullyState extends PostState {}
 
 final class UploadImageLoadingState extends PostState {}
+final class UploadImageSuccessState extends PostState {}
 
 final class UploadImageErrorState extends PostState {
   final String error;

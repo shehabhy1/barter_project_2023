@@ -18,7 +18,7 @@ class PostCubit extends Cubit<PostState> {
   static PostCubit get(context) => BlocProvider.of(context);
 
   List<PostModel> posts = [];
-
+  var exchangeSelected = '';
   final CollectionReference _postCollectionRef =
       FirebaseFirestore.instance.collection('Users');
   String currentUser = CacheHelper.getData(key: Constant.kEmail);
@@ -111,5 +111,4 @@ class PostCubit extends Cubit<PostState> {
       emit(UploadImageErrorState(error: error));
     });
   }
-
 }

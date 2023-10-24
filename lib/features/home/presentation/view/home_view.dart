@@ -69,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
               buildSizedBox(24),
               RowTextViewAll(
                 text: 'New',
-                posts: cubit.posts,
+                posts: cubit.myHaveList,
               ),
               buildSizedBox(16),
               ListViewSomeProducts(

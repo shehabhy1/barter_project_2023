@@ -18,72 +18,26 @@ class CustomDropList extends StatefulWidget {
 class _CustomDropListState extends State<CustomDropList> {
   String? _selectedCategory;
   String? _selectedSubcategory;
+  String? _selectedSpecCategory;
+  String? _selectedSpecSubcategory;
 
-  final Map<String, List<String>> _subcategoryOptions = {
-    'Electronics': [
-      'Phones& Tablets',
-      'Accessories',
-      'Mobile numbers',
-      'Gaming HDDs',
-      'Photography equipment',
-    ],
-    'Fashion&Cosmetics': [
-      'Clothes',
-      'blogs & Shoes',
-      'Cosmetics & Perfumes',
-    ],
-    'Pets': [
-      'Cats',
-      'Dogs',
-      'Birds ',
-      'Pet supplies or accessories',
-    ],
-    'Books': [
-      'Novels & stories',
-      'Books',
-      ' Newspappers & magazines',
-      'School books',
-      'Faculty books',
-    ],
-    'Home': [
-      'Furniture',
-      'Electrical devices',
-      'Fabrics-curtains-carpets',
-      'Decorations & accessories',
-    ],
-    'Vehicle': [
-      'Vehicles',
-      'Motorcycles',
-      'Spare parts',
-    ],
-    'Apartment': [
-      'Villas',
-      'Lands',
-    ],
-    'Service': [
-      'Cooking',
-      'Teaching',
-      'Driving',
-      'Maintenance',
-      'House keeping',
-      'Photography',
-    ],
-  };
+  Map<String, List<String>>? _subcategoryOptions;
+  @override
+  void initState() {
+    super.initState();
 
-  final List<String> _categoryOptions = [
-    'Electronics',
-    'Fashion&Cosmetics',
-    'Pets',
-    'Books',
-    'Home',
-    'Vehicle',
-    'Apartment',
-    'Service',
-  ];
+    _categoryOptions = BlocProvider.of<PostCubit>(context).categoryOptions;
+    _subcategoryOptions =
+        BlocProvider.of<PostCubit>(context).subcategoryOptions;
+  }
+
+  List<String>? _categoryOptions;
   bool selectYes = true;
   int selection = 0;
   TextEditingController itemNameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  TextEditingController itemNameSpecController = TextEditingController();
+  TextEditingController descriptionSpecController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -165,7 +119,7 @@ class _CustomDropListState extends State<CustomDropList> {
                     labelText: 'Category',
                     border: InputBorder.none,
                   ),
-                  items: _categoryOptions.map((category) {
+                  items: _categoryOptions!.map((category) {
                     return DropdownMenuItem(
                       value: category,
                       child: Text(category),
@@ -214,7 +168,7 @@ class _CustomDropListState extends State<CustomDropList> {
                   ),
                   items: (_selectedCategory == null)
                       ? null
-                      : _subcategoryOptions[_selectedCategory]!
+                      : _subcategoryOptions![_selectedCategory]!
                           .map((subcategory) {
                           return DropdownMenuItem(
                             value: subcategory,
@@ -333,7 +287,7 @@ class _CustomDropListState extends State<CustomDropList> {
                     children: [
                       Expanded(
                         child: ListTile(
-                          title: Text('yes'),
+                          title: const Text('yes'),
                           leading: Radio<int>(
                               value: 1,
                               groupValue:
@@ -347,7 +301,7 @@ class _CustomDropListState extends State<CustomDropList> {
                       ),
                       Expanded(
                         child: ListTile(
-                          title: Text('no'),
+                          title: const Text('no'),
                           leading: Radio<int>(
                               value: 0,
                               groupValue:
@@ -376,11 +330,16 @@ class _CustomDropListState extends State<CustomDropList> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10),
                                       type: TextInputType.text,
-                                      controller: itemNameController,
+                                      controller: itemNameSpecController,
                                       hint: 'Enter Your Item Name',
                                       // border: InputBorder.none,
 
-                                      validate: (val) {}),
+                                      validate: (val) {
+                                        if (val.isEmpty) {
+                                          return 'this field is required';
+                                        }
+                                        return null;
+                                      }),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 8.0,
@@ -408,12 +367,12 @@ class _CustomDropListState extends State<CustomDropList> {
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
                                     child: DropdownButtonFormField(
-                                      value: _selectedCategory,
+                                      value: _selectedSpecCategory,
                                       onChanged: (String? newValue) {
                                         setState(
                                           () {
-                                            _selectedCategory = newValue;
-                                            _selectedSubcategory = null;
+                                            _selectedSpecCategory = newValue;
+                                            _selectedSpecSubcategory = null;
                                           },
                                         );
                                       },
@@ -421,7 +380,7 @@ class _CustomDropListState extends State<CustomDropList> {
                                         labelText: 'Category',
                                         border: InputBorder.none,
                                       ),
-                                      items: _categoryOptions.map((category) {
+                                      items: _categoryOptions!.map((category) {
                                         return DropdownMenuItem(
                                           value: category,
                                           child: Text(category),
@@ -460,21 +419,22 @@ class _CustomDropListState extends State<CustomDropList> {
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: DropdownButtonFormField(
-                                value: _selectedSubcategory,
-                                onChanged: (_selectedCategory == null)
+                                value: _selectedSpecSubcategory,
+                                onChanged: (_selectedSpecCategory == null)
                                     ? null
                                     : (String? newValue) {
                                         setState(() {
-                                          _selectedSubcategory = newValue;
+                                          _selectedSpecSubcategory = newValue;
                                         });
                                       },
                                 decoration: const InputDecoration(
                                   labelText: 'SubCategory',
                                   border: InputBorder.none,
                                 ),
-                                items: (_selectedCategory == null)
+                                items: (_selectedSpecCategory == null)
                                     ? null
-                                    : _subcategoryOptions[_selectedCategory]!
+                                    : _subcategoryOptions![
+                                            _selectedSpecCategory]!
                                         .map((subcategory) {
                                         return DropdownMenuItem(
                                           value: subcategory,
@@ -483,7 +443,7 @@ class _CustomDropListState extends State<CustomDropList> {
                                       }).toList(),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Padding(
@@ -514,7 +474,7 @@ class _CustomDropListState extends State<CustomDropList> {
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 10, horizontal: 10),
                                 type: TextInputType.text,
-                                controller: descriptionController,
+                                controller: descriptionSpecController,
                                 hint:
                                     'Enter a description for the item you want',
                                 // border: InputBorder.none,
@@ -527,12 +487,12 @@ class _CustomDropListState extends State<CustomDropList> {
                                 },
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             )
                           ],
                         )
-                      : SizedBox(
+                      : const SizedBox(
                           height: 5,
                         ),
                   BlocBuilder<PostCubit, PostState>(
@@ -550,9 +510,19 @@ class _CustomDropListState extends State<CustomDropList> {
                                 subCategory: _selectedSubcategory!,
                                 disc: descriptionController.text,
                               );
+                              if (selection == 1) {
+                                PostCubit.get(context).addSpecPost(
+                                    name: itemNameSpecController.text,
+                                    category: _selectedSpecCategory ?? '',
+                                    subCategory: _selectedSpecSubcategory ?? '',
+                                    description:
+                                        descriptionSpecController.text);
+                              }
 
                               itemNameController.clear();
                               descriptionController.clear();
+                              itemNameSpecController.clear();
+                              descriptionSpecController.clear();
                             }
                           },
                           child: const Text(

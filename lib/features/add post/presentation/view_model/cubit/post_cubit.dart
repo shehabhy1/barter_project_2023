@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/foundation.dart';
@@ -16,8 +17,68 @@ part 'post_state.dart';
 class PostCubit extends Cubit<PostState> {
   PostCubit() : super(PostInitial());
   static PostCubit get(context) => BlocProvider.of(context);
+  final List<String> categoryOptions = [
+    'Electronics',
+    'Fashion&Cosmetics',
+    'Pets',
+    'Books',
+    'Home',
+    'Vehicle',
+    'Apartment',
+    'Service',
+  ];
 
-  List<PostModel> posts = [];
+  final Map<String, List<String>> subcategoryOptions = {
+    'Electronics': [
+      'Phones& Tablets',
+      'Accessories',
+      'Mobile numbers',
+      'Gaming HDDs',
+      'Photography equipment',
+    ],
+    'Fashion&Cosmetics': [
+      'Clothes',
+      'blogs & Shoes',
+      'Cosmetics & Perfumes',
+    ],
+    'Pets': [
+      'Cats',
+      'Dogs',
+      'Birds ',
+      'Pet supplies or accessories',
+    ],
+    'Books': [
+      'Novels & stories',
+      'Books',
+      ' Newspappers & magazines',
+      'School books',
+      'Faculty books',
+    ],
+    'Home': [
+      'Furniture',
+      'Electrical devices',
+      'Fabrics-curtains-carpets',
+      'Decorations & accessories',
+    ],
+    'Vehicle': [
+      'Vehicles',
+      'Motorcycles',
+      'Spare parts',
+    ],
+    'Apartment': [
+      'Villas',
+      'Lands',
+    ],
+    'Service': [
+      'Cooking',
+      'Teaching',
+      'Driving',
+      'Maintenance',
+      'House keeping',
+      'Photography',
+    ],
+  };
+  List<PostModel> myHaveList = [];
   var exchangeSelected = '';
   final CollectionReference _postCollectionRef =
       FirebaseFirestore.instance.collection('Users');
@@ -50,19 +111,75 @@ class PostCubit extends Cubit<PostState> {
     });
   }
 
+  Future<void> addSpecPost({
+    required String name,
+    required String category,
+    required String subCategory,
+    required String description,
+  }) async {
+    //get email from shared pref
+
+    SpecificProductModel postModel = SpecificProductModel(
+        itemName: name,
+        category: category,
+        subCategory: subCategory,
+        description: description);
+    _postCollectionRef
+        .doc(currentUser)
+        .collection('specificProducts')
+        .add(postModel.toJson())
+        .then((value) => emit(AddPostSuccess()))
+        .catchError((error) {
+      emit(AddPostFailure());
+    });
+  }
+
+  List<SpecificProductModel> myNeedList = [];
+  bool isNeedListEmpty = false;
+  bool isHaveListNotEmpty = false;
   void getMyPosts() {
-    posts.clear();
+    myHaveList.clear();
     emit(GetPostLoading());
     _postCollectionRef.doc(currentUser).collection('posts').get().then((value) {
       for (var element in value.docs) {
-        posts.add(PostModel.fromJson(element));
+        myHaveList.add(PostModel.fromJson(element));
+      }
+      if (myHaveList.isEmpty) {
+        isHaveListNotEmpty = true;
+      } else {
+        isHaveListNotEmpty = false;
       }
       debugPrint('/////////////////');
-      debugPrint(posts[1].name);
+      debugPrint(myHaveList[1].name);
       debugPrint('/////////////////');
-      emit(GetPostSuccess(posts: posts));
+      emit(GetPostSuccess());
     }).catchError((error) {
       emit(GetPostFailure(error: error.toString()));
+    });
+  }
+
+  void getMyNeedProducts() {
+    myNeedList.clear();
+    emit(GetSpecPostLoading());
+    _postCollectionRef
+        .doc(currentUser)
+        .collection('specificProducts')
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        myNeedList.add(SpecificProductModel.fromJson(element.data()));
+      }
+      if (myNeedList.isEmpty) {
+        isNeedListEmpty = true;
+      } else {
+        isNeedListEmpty = false;
+      }
+      debugPrint('/////////////////');
+      debugPrint(myNeedList[1].itemName);
+      debugPrint('/////////////////');
+      emit(GetSpecPostSuccess());
+    }).catchError((error) {
+      emit(GetSpecPostFailure(error: error.toString()));
     });
   }
 

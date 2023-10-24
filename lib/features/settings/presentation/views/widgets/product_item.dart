@@ -1,16 +1,22 @@
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
-import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
-import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductItem extends StatelessWidget {
-  final PostModel postModel;
-  final UserModel userModel;
   const ProductItem(
-      {Key? key, required this.postModel, required this.userModel})
-      : super(key: key);
+      {super.key,
+      required this.fName,
+      required this.lName,
+      required this.disc,
+      required this.productImage,
+      required this.profilImage});
+
+  final String fName;
+  final String lName;
+  final String disc;
+  final String profilImage;
+  final String productImage;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class ProductItem extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image(
-                  image: NetworkImage(postModel.pic!),
+                  image: NetworkImage(productImage),
                   width: 170.w,
                   fit: BoxFit.cover,
                   // height: 100.h,
@@ -38,11 +44,11 @@ class ProductItem extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  //TODO: add currnet user image
+                  //TODO change asset image to network image
                   backgroundImage: AssetImage(
-                    'assets/images/profile_img.png',
+                    profilImage,
                   ),
                   radius: 18,
                 ),
@@ -52,12 +58,12 @@ class ProductItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${userModel.fName}' '${userModel.lName}',
+                          '$fName ' '$lName',
                           style: Styles.textStyle14
                               .copyWith(color: Colors.black, fontSize: 14),
                         ),
                         Text(
-                          postModel.disc,
+                          disc,
                           style: Styles.textStyle12.copyWith(
                               overflow: TextOverflow.ellipsis,
                               color: const Color.fromARGB(255, 71, 35, 35),

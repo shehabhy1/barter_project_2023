@@ -20,50 +20,27 @@ class _HaveAndNeedViewState extends State<HaveAndNeedView> {
     super.initState();
     BlocProvider.of<AuthCubit>(context).getUserData();
     BlocProvider.of<PostCubit>(context).getMyPosts();
+    BlocProvider.of<PostCubit>(context).getMyNeedProducts();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('Have And Need'),
-        titleTextStyle: Styles.textStyle24.copyWith(fontSize: 22),
-        leading: IconButton(
-            onPressed: () {
-              context.pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            )),
-      ),
-      body: BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {
-          if (state is GetUserDataLoading) {
-            const CircularProgressIndicator();
-          }
-        },
-        builder: (context, state) {
-          return BlocConsumer<PostCubit, PostState>(
-            listener: (context, state) {
-              if (state is GetPostLoading) {
-                const CircularProgressIndicator();
-              }
-            },
-            builder: (context, state) {
-              var aCubit = BlocProvider.of<AuthCubit>(context);
-              var pCubit = BlocProvider.of<PostCubit>(context);
-              return HaveAndNeddViewBody(
-                posts: pCubit.posts,
-                user: aCubit.userModel!,
-              );
-            },
-          );
-        },
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: const Text('Have And Need'),
+          titleTextStyle: Styles.textStyle24.copyWith(fontSize: 22),
+          leading: IconButton(
+              onPressed: () {
+                context.pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              )),
+        ),
+        body: const HaveAndNeddViewBody());
   }
 }

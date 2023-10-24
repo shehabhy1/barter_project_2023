@@ -1,87 +1,118 @@
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:barter_project_2023/features/auth_screens/log_in/view_model/auth_cubit.dart';
+
 import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
-import 'package:barter_project_2023/features/settings/presentation/views/widgets/product_item.dart';
+import 'package:barter_project_2023/features/settings/presentation/views/widgets/have_product_item_.dart';
+import 'package:barter_project_2023/features/settings/presentation/views/widgets/need_product_item.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HaveAndNeddViewBody extends StatelessWidget {
-  final List<PostModel> posts;
-  final UserModel user;
-  const HaveAndNeddViewBody(
-      {super.key, required this.posts, required this.user});
+  const HaveAndNeddViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 44.h,
-              child: defaultTextField(
-                type: TextInputType.text,
-                onChange: (value) {},
-                hint: 'Search',
-                prefix: Icons.search,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Text('My Have', style: Styles.textStyle20.copyWith(fontSize: 20)),
-            const SizedBox(height: 15),
-            //TODO: handle loading state
-            FutureBuilder(builder: (builder, ctx) {
-              if (ctx.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator(
-                  strokeWidth: 25,
-                  color: Colors.amber,
-                  backgroundColor: Colors.black,
-                );
-              } else {
-                return SizedBox(
-                  height: 250.h,
-                  width: double.infinity,
-                  child: myHaveList(posts, user),
-                );
-              }
-            }),
-            /* Builder(builder: (context) {
-              if (State is GetUserDataLoading) {
-                return const CircleAvatar();
-              } else {
-                return SizedBox(
-                  height: 250.h,
-                  width: double.infinity,
-                  child: myHaveList(posts, user),
-                );
-              }
-            }),  */
-            SizedBox(height: 10.h),
-            Text('My Needs', style: Styles.textStyle20.copyWith(fontSize: 20)),
-            // const SizedBox(height: 15),
-            // SizedBox(
-            //   height: 160.h,
-            //   child: ListView.builder(
-            //     itemBuilder: (context, index) => const ProductItem(
-            //        postModel: [],userModel: ,),
-            //     itemCount: 5,
-            //     scrollDirection: Axis.horizontal,
-            //     physics: const BouncingScrollPhysics(),
-            //   ),
-            // ),
-          ],
-        ));
+    return BlocBuilder<AuthCubit, AuthState>(
+      builder: (context, state) {
+        var aCubit = AuthCubit.get(context);
+        return BlocBuilder<PostCubit, PostState>(
+          builder: (context, state) {
+            var pCubit = PostCubit.get(context);
+            return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 44.h,
+                      child: defaultTextField(
+                        type: TextInputType.text,
+                        onChange: (value) {},
+                        hint: 'Search',
+                        prefix: Icons.search,
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    Text('My Have',
+                        style: Styles.textStyle20.copyWith(fontSize: 20)),
+                    const SizedBox(height: 15),
+                    //TODO: handle loading state
+                    pCubit.isHaveListNotEmpty
+                        ? const Center(
+                            child: Text('Ther is no products'),
+                          )
+                        : ConditionalBuilder(
+                            condition: pCubit.myHaveList.isEmpty ||
+                                aCubit.userModel == null,
+                            builder: (context) => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                            fallback: (context) => SizedBox(
+                              height: 200.h,
+                              width: double.infinity,
+                              child: myHaveList(
+                                  pCubit.myHaveList, aCubit.userModel!),
+                            ),
+                          ),
+
+                    Text('My Needs',
+                        style: Styles.textStyle20.copyWith(fontSize: 20)),
+                    const SizedBox(height: 15),
+                    pCubit.isNeedListEmpty
+                        ? const Center(
+                            child: Text('Ther is no products'),
+                          )
+                        : ConditionalBuilder(
+                            condition: pCubit.myNeedList.isEmpty ||
+                                aCubit.userModel == null,
+                            builder: (context) => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                            fallback: (context) => SizedBox(
+                              height: 160.h,
+                              width: double.infinity,
+                              child: myNeedList(
+                                  pCubit.myNeedList, aCubit.userModel!),
+                            ),
+                          )
+                    // : const Center(
+                    //     child: Text('Ther is no products'),
+                    //   )
+                    ,
+                    // SizedBox(height: 160.h, child: myNeedList(posts, user)),
+                  ],
+                ));
+          },
+        );
+      },
+    );
   }
 
   ListView myHaveList(List<PostModel> posts, UserModel user) {
     return ListView.builder(
       itemBuilder: (context, index) =>
-          ProductItem(postModel: posts[index], userModel: user),
+          HaveProductItem(product: posts[index], userModel: user),
       itemCount: posts.length,
+      padding: EdgeInsets.zero,
+      scrollDirection: Axis.horizontal,
+      physics: const BouncingScrollPhysics(),
+    );
+  }
+
+  ListView myNeedList(List<SpecificProductModel> needs, UserModel user) {
+    return ListView.builder(
+      itemBuilder: (context, index) =>
+          NeedProductItem(product: needs[index], userModel: user),
+      itemCount: needs.length,
+      padding: EdgeInsets.zero,
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
     );

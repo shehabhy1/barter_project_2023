@@ -1,6 +1,7 @@
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
+import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:barter_project_2023/features/auth_screens/log_in/view_model/auth_cubit.dart';
 import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/widgets/product_item.dart';
@@ -33,16 +34,32 @@ class HaveAndNeddViewBody extends StatelessWidget {
             Text('My Have', style: Styles.textStyle20.copyWith(fontSize: 20)),
             const SizedBox(height: 15),
             //TODO: handle loading state
-            Builder(builder: (context) {
-              if (State is GetUserDataLoading) {
-                return const CircleAvatar();
+            FutureBuilder(builder: (builder, ctx) {
+              if (ctx.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator(
+                  strokeWidth: 25,
+                  color: Colors.amber,
+                  backgroundColor: Colors.black,
+                );
               } else {
                 return SizedBox(
-                  height: 160.h,
+                  height: 250.h,
+                  width: double.infinity,
                   child: myHaveList(posts, user),
                 );
               }
             }),
+            /* Builder(builder: (context) {
+              if (State is GetUserDataLoading) {
+                return const CircleAvatar();
+              } else {
+                return SizedBox(
+                  height: 250.h,
+                  width: double.infinity,
+                  child: myHaveList(posts, user),
+                );
+              }
+            }),  */
             SizedBox(height: 10.h),
             Text('My Needs', style: Styles.textStyle20.copyWith(fontSize: 20)),
             // const SizedBox(height: 15),

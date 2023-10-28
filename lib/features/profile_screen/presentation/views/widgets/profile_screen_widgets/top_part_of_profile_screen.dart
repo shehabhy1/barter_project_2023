@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -7,8 +7,8 @@ import 'package:barter_project_2023/features/deals_view/presentation/view/deal_v
 import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_details_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/have_and_need_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';

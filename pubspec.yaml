@@ -50,6 +50,7 @@ dependencies:
   http: ^1.1.0
   image_picker: ^0.7.5+2
   intl: ^0.18.1
+  meta: ^1.9.1
   path_provider: ^2.0.15
   shared_preferences: ^2.2.0
   smooth_page_indicator: ^1.1.0

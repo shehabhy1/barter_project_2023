@@ -1,7 +1,7 @@
-import 'package:barter_project_2023/features/profile_screen/widgets/report_details_screen_widgets/image_item.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/widgets/report_details_screen_widgets/image_item.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/report_details_screen_widgets/top_part_of_report_details_screen.dart';
+import '../widgets/report_details_screen_widgets/top_part_of_report_details_screen.dart';
 
 class ReportDetailsScreen extends StatelessWidget {
   const ReportDetailsScreen({Key? key}) : super(key: key);

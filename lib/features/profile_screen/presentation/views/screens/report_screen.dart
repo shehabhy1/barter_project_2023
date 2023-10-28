@@ -1,7 +1,7 @@
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_success_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_success_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/report_screen_widgets/top_part_of_report_screen.dart';
+import '../widgets/report_screen_widgets/top_part_of_report_screen.dart';
 
 class ReportScreen extends StatelessWidget {
   @override

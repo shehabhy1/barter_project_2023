@@ -1,12 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../home/presentation/view/home_view.dart';
 import '../layout/presentation/views/add_view.dart';
-import '../profile_screen/views/profile_view.dart';
+import '../profile_screen/presentation/views/profile_view.dart';
 import '../notification/presentition/views/notification_screen.dart';
 
 class UserLayout extends StatefulWidget {

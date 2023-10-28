@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/features/profile_screen/widgets/profile_screen_widgets/profile_view_body.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/widgets/profile_screen_widgets/profile_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {

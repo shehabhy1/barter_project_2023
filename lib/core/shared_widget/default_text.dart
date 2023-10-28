@@ -10,6 +10,8 @@ Widget defaultTextField({
   Function(String)? onChange,
   FormFieldValidator? validate,
   String? label,
+  void Function(String)? onFieldSubmitted,
+  bool autofocus = false,
   String? hint,
   IconData? prefix,
   bool isObscure = false,
@@ -23,8 +25,10 @@ Widget defaultTextField({
   Color background = Colors.purple,
 }) =>
     TextFormField(
+      autofocus: autofocus,
       onTap: tap,
       enabled: enable,
+      onFieldSubmitted: onFieldSubmitted,
       controller: controller,
       maxLines: maxLines ?? 1,
       obscureText: isObscure,

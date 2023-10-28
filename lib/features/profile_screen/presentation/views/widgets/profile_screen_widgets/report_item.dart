@@ -1,7 +1,7 @@
 import 'package:barter_project_2023/core/utils/assets.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_view.dart';
-import 'package:barter_project_2023/features/profile_screen/views/screens/report_details_screen.dart';
-import 'package:barter_project_2023/features/profile_screen/widgets/profile_screen_widgets/button_item.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_view.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_details_screen.dart';
+import 'package:barter_project_2023/features/profile_screen/presentation/views/widgets/profile_screen_widgets/button_item.dart';
 import 'package:flutter/material.dart';
 
 class ReportItem extends StatelessWidget {

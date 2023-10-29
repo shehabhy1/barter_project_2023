@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/product_model.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
@@ -82,18 +83,17 @@ class PostCubit extends Cubit<PostState> {
   var exchangeSelected = '';
   final CollectionReference _postCollectionRef =
       FirebaseFirestore.instance.collection('Users');
+  //get email from shared pref
   String currentUser = CacheHelper.getData(key: Constant.kEmail);
   Future<void> addPost({
+    required String userName,
     required String name,
     required String category,
     required String subCategory,
     required String disc,
     required String image,
   }) async {
-    //get email from shared pref
-
     PostModel postModel = PostModel(
-      // fName: ,
       userId: currentUser,
       name: name,
       category: category,
@@ -101,14 +101,30 @@ class PostCubit extends Cubit<PostState> {
       disc: disc,
       pic: image,
     );
-    _postCollectionRef
-        .doc(currentUser)
-        .collection('posts')
-        .add(postModel.toJson())
-        .then((value) => emit(AddPostSuccess()))
-        .catchError((error) {
-      emit(AddPostFailure());
-    });
+    ProductModel productModel = ProductModel(
+        userName: userName,
+        userId: currentUser,
+        name: name,
+        category: category,
+        subCategory: subCategory,
+        disc: disc,
+        pic: image);
+
+    try {
+      FirebaseFirestore.instance
+          .collection('All Products')
+          .doc(currentUser)
+          .set(productModel.toJson())
+          .then((value) {
+        _postCollectionRef
+            .doc(currentUser)
+            .collection('posts')
+            .add(postModel.toJson());
+        emit(AddPostSuccess());
+      });
+    } on Exception catch (error) {
+      emit(AddPostFailure(error: error.toString()));
+    }
   }
 
   Future<void> addSpecPost({
@@ -130,7 +146,7 @@ class PostCubit extends Cubit<PostState> {
         .add(postModel.toJson())
         .then((value) => emit(AddPostSuccess()))
         .catchError((error) {
-      emit(AddPostFailure());
+      emit(AddPostFailure(error: error.toString()));
     });
   }
 
@@ -201,6 +217,7 @@ class PostCubit extends Cubit<PostState> {
   }
 
   Future<void> uploadFile({
+    // required String userName,
     required String name,
     required String category,
     required String subCategory,
@@ -216,6 +233,7 @@ class PostCubit extends Cubit<PostState> {
     await ref.putFile(imageFile!).then((value) async {
       await value.ref.getDownloadURL().then((imageUrl) {
         addPost(
+            userName: CacheHelper.getData(key: Constant.kUserName),
             name: name,
             category: category,
             subCategory: subCategory,
@@ -226,6 +244,22 @@ class PostCubit extends Cubit<PostState> {
       emit(UploadImageSuccessState());
     }).catchError((error) {
       emit(UploadImageErrorState(error: error));
+    });
+  }
+
+  List<ProductModel> allProudcts = [];
+  void getAllProducts() {
+    allProudcts.clear();
+    emit(GetAllPRoductsLoading());
+    FirebaseFirestore.instance
+        .collection('All Products')
+        .doc()
+        .get()
+        .then((value) {
+      allProudcts.add(ProductModel.fromJson(value));
+      emit(GetAllPRoductsSuccess());
+    }).catchError((error) {
+      emit(GetAllPRoductsFailure(error: error));
     });
   }
 }

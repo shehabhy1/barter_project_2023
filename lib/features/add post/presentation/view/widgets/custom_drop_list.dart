@@ -1,6 +1,7 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
+import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -509,6 +510,8 @@ class _CustomDropListState extends State<CustomDropList> {
                                 category: _selectedCategory!,
                                 subCategory: _selectedSubcategory!,
                                 disc: descriptionController.text,
+                                // userName: CacheHelper.getData(
+                                //     key: Constant.kUserName),
                               );
                               if (selection == 1) {
                                 PostCubit.get(context).addSpecPost(

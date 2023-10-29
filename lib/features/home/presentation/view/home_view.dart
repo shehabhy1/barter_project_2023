@@ -1,4 +1,5 @@
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
+import 'package:barter_project_2023/features/auth_screens/log_in/view_model/auth_cubit.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_view_some_products.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/show_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,17 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<AuthCubit>(context).getUserData();
+    // BlocProvider.of<PostCubit>(context).getAllProducts();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var cubit = PostCubit.get(context);
+
     return BlocConsumer<PostCubit, PostState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -73,8 +83,8 @@ class _HomeViewState extends State<HomeView> {
               ),
               buildSizedBox(16),
               ListViewSomeProducts(
-                // posts: cubit.posts,
-              ),
+                  // posts: cubit.posts,
+                  ),
               buildSizedBox(24),
               //TODO: replace this with my products
               // const RowTextViewAll(

@@ -113,7 +113,7 @@ class PostCubit extends Cubit<PostState> {
     try {
       FirebaseFirestore.instance
           .collection('All Products')
-          .doc(currentUser)
+          .doc()
           .set(productModel.toJson())
           .then((value) {
         _postCollectionRef
@@ -251,12 +251,11 @@ class PostCubit extends Cubit<PostState> {
   void getAllProducts() {
     allProudcts.clear();
     emit(GetAllPRoductsLoading());
-    FirebaseFirestore.instance
-        .collection('All Products')
-        .doc()
-        .get()
-        .then((value) {
-      allProudcts.add(ProductModel.fromJson(value));
+    FirebaseFirestore.instance.collection('All Products').get().then((value) {
+      for (var post in value.docs) {
+        allProudcts.add(ProductModel.fromJson(post));
+      }
+
       emit(GetAllPRoductsSuccess());
     }).catchError((error) {
       emit(GetAllPRoductsFailure(error: error));

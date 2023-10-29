@@ -1,15 +1,14 @@
 import 'package:barter_project_2023/core/utils/styles.dart';
-import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/product_model.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_tile_reviews.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../generated/assets.dart';
 
 class ProductDetails extends StatelessWidget {
-  final PostModel postModel;
-  const ProductDetails({Key? key, required this.postModel}) : super(key: key);
+  final ProductModel product;
+  const ProductDetails({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +21,10 @@ class ProductDetails extends StatelessWidget {
         leading: BackButton(
           color: Colors.black,
           onPressed: () {
-            //TODO: Navigat to Layout View => finished
-            // context.go(AppRouter.kHomeView);
             context.pop();
           },
         ),
-        title: Text('postModel.name',
+        title: Text(product.name,
             style: Styles.textStyle24.copyWith(
               letterSpacing: 0.04,
             )),
@@ -41,45 +38,46 @@ class ProductDetails extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.3,
               child: PageView.builder(
                 itemBuilder: (context, index) {
-                  return Image.asset('Assets.imagesImg');
+                  return Image.network(product.pic!);
                   // return Image.network(postModel.pic!);
                 },
                 itemCount: 3,
               ),
             ),
+            buildSizedBox(10),
             PageIndicator(controller: controller),
             buildSizedBox(24),
-            const ListTileOfReviews(),
+            ListTileOfReviews(userName: product.userName),
             buildSizedBox(12),
             Card(
               color: Colors.grey,
               child: ListTile(
                 title: const Text('Description', style: Styles.textStyle16),
-                subtitle: Text(postModel.disc, style: Styles.textStyle14),
+                subtitle: Text(product.disc, style: Styles.textStyle14),
               ),
             ),
             buildSizedBox(20),
-            const Card(
-              color: Colors.grey,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Quality', style: Styles.textStyle16),
-                    // TODO:not added in post model and add screen
-                    Text('High', style: Styles.textStyle14),
-                  ],
-                ),
-              ),
-            ),
-            buildSizedBox(12),
-            const Align(
-              alignment: Alignment.topLeft,
-              child: Text('Location', style: Styles.textStyle16),
-            ),
-            buildSizedBox(12),
-            Image.asset(Assets.imagesMap),
+            // const Card(
+            //   color: Colors.grey,
+            //   child: Padding(
+            //     padding: EdgeInsets.all(8.0),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         Text('Quality', style: Styles.textStyle16),
+            //         // TODO:not added in post model and add screen
+            //         Text('High', style: Styles.textStyle14),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // buildSizedBox(12),
+            // const Align(
+            //   alignment: Alignment.topLeft,
+            //   child: Text('Location', style: Styles.textStyle16),
+            // ),
+            // buildSizedBox(12),
+            // Image.asset(Assets.imagesMap),
           ],
         ),
       ),

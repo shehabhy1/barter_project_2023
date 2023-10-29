@@ -13,10 +13,10 @@ class ReportSuccessScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(AssetData.reportSuccessImage),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Congratulations, dear client! The report has been received. Your request will be reviewed, and we will respond to you as soon as possible to resolve your issue',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),

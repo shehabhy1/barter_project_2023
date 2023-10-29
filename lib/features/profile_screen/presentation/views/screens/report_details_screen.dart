@@ -10,23 +10,23 @@ class ReportDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-          TopPartOfReportDetailsScreen(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const TopPartOfReportDetailsScreen(),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 28.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 25.0, horizontal: 28.0),
             child: Column(children: [
-              Text('you can edit your report before you submit it'),
-              SizedBox(
+              const Text('you can edit your report before you submit it'),
+              const SizedBox(
                 height: 20.0,
               ),
-              ImageItem(),
-
-              SizedBox(
+              const ImageItem(),
+              const SizedBox(
                 height: 20.0,
               ),
-              Align(
+              const Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     'Please write a reason',
@@ -34,26 +34,28 @@ class ReportDetailsScreen extends StatelessWidget {
                       fontSize: 20.0,
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'write the reason',
-                  helperStyle: TextStyle(
+                  helperStyle: const TextStyle(
                     color: Color.fromRGBO(169, 165, 165, 1.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
-                        width: 1, color: Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
+                    borderSide: const BorderSide(
+                        width: 1,
+                        color:
+                            Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              Align(
+              const Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     'Description',
@@ -61,31 +63,29 @@ class ReportDetailsScreen extends StatelessWidget {
                       fontSize: 20.0,
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'write description',
-                  helperStyle: TextStyle(
+                  helperStyle: const TextStyle(
                     color: Color.fromRGBO(169, 165, 165, 1.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
-                        width: 1, color: Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
+                    borderSide: const BorderSide(
+                        width: 1,
+                        color:
+                            Color.fromRGBO(200, 201, 203, 1.0)), //<-- SEE HERE
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               InkWell(
-                onTap: ()
-                {
-
-
-                },
+                onTap: () {},
                 child: Container(
                   width: double.infinity,
                   height: 40.0,
@@ -96,7 +96,8 @@ class ReportDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Center(
-                    child: Text('Submit',
+                    child: Text(
+                      'Submit',
                       style: TextStyle(
                         fontSize: 16.0,
                         color: Color.fromRGBO(255, 255, 255, 1.0),
@@ -105,33 +106,27 @@ class ReportDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
-
               InkWell(
-                onTap: ()
-                {
-
-
-                },
+                onTap: () {},
                 child: Container(
                   width: double.infinity,
                   height: 40.0,
-                  decoration:  BoxDecoration(
-                    color: Color.fromRGBO(255, 255, 255, 1.0),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 255, 255, 1.0),
                     border: Border.all(
-                      color: Color.fromARGB(255, 183, 59, 255),
-                        width: 1,
-                      ),
-                    borderRadius: BorderRadius.all(
+                      color: const Color.fromARGB(255, 183, 59, 255),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(8),
                     ),
-
-
                   ),
                   child: const Center(
-                    child: Text('Cancel',
+                    child: Text(
+                      'Cancel',
                       style: TextStyle(
                         fontSize: 16.0,
                         color: Color.fromARGB(255, 183, 59, 255),
@@ -140,11 +135,10 @@ class ReportDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
             ]),
           )
-      ],
-    ),
-        ));
+        ],
+      ),
+    ));
   }
 }

@@ -31,7 +31,7 @@ class ProductModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'userNname': userName,
+      'userName': userName,
       'id': userId,
       'name': name,
       'category': category,

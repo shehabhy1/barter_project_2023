@@ -38,7 +38,8 @@ class TopPartOfProfileScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  ReportScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const ReportScreen()),
                   );
                 },
                 icon: const Icon(
@@ -46,7 +47,6 @@ class TopPartOfProfileScreen extends StatelessWidget {
                   color: Colors.black,
                 )),
           ),
-
         ],
       ),
     );

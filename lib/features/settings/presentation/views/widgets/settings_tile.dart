@@ -27,7 +27,7 @@ class SettingsTile extends StatelessWidget {
           minVerticalPadding: 15,
           title: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
             ),

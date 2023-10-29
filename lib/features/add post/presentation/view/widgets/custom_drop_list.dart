@@ -1,12 +1,12 @@
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
-import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // what is that ????????????????????????????
+//عايزين شويه كاتشب -_-
 void main() => runApp(const CustomDropList());
 
 class CustomDropList extends StatefulWidget {

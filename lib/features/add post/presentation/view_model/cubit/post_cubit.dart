@@ -127,30 +127,39 @@ class PostCubit extends Cubit<PostState> {
     }
   }
 
+//Add Specific post to firebase
   Future<void> addSpecPost({
     required String name,
     required String category,
     required String subCategory,
     required String description,
+    required String image,
   }) async {
     //get email from shared pref
 
-    SpecificProductModel postModel = SpecificProductModel(
-        itemName: name,
+    PostModel specProduct = PostModel(
+        userId: currentUser,
+        name: name,
         category: category,
         subCategory: subCategory,
-        description: description);
+        disc: description,
+        pic: image);
+    // SpecificProductModel postModel = SpecificProductModel(
+    //     itemName: name,
+    //     category: category,
+    //     subCategory: subCategory,
+    //     description: description);
     _postCollectionRef
         .doc(currentUser)
         .collection('specificProducts')
-        .add(postModel.toJson())
+        .add(specProduct.toJson())
         .then((value) => emit(AddPostSuccess()))
         .catchError((error) {
       emit(AddPostFailure(error: error.toString()));
     });
   }
 
-  List<SpecificProductModel> myNeedList = [];
+  List<PostModel> myNeedList = [];
   bool isNeedListEmpty = false;
   bool isHaveListNotEmpty = false;
   void getMyPosts() {
@@ -183,7 +192,7 @@ class PostCubit extends Cubit<PostState> {
         .get()
         .then((value) {
       for (var element in value.docs) {
-        myNeedList.add(SpecificProductModel.fromJson(element.data()));
+        myNeedList.add(PostModel.fromJson(element.data()));
       }
       if (myNeedList.isEmpty) {
         isNeedListEmpty = true;
@@ -191,7 +200,7 @@ class PostCubit extends Cubit<PostState> {
         isNeedListEmpty = false;
       }
       debugPrint('/////////////////');
-      debugPrint(myNeedList[1].itemName);
+      debugPrint(myNeedList[1].name);
       debugPrint('/////////////////');
       emit(GetSpecPostSuccess());
     }).catchError((error) {
@@ -199,7 +208,9 @@ class PostCubit extends Cubit<PostState> {
     });
   }
 
+//Product image
   File? imageFile;
+
   final ImagePicker _imagePicker = ImagePicker();
   Future<void> getPostImage() async {
     final xFile = await _imagePicker.getImage(source: ImageSource.gallery);
@@ -244,6 +255,54 @@ class PostCubit extends Cubit<PostState> {
       emit(UploadImageSuccessState());
     }).catchError((error) {
       emit(UploadImageErrorState(error: error));
+    });
+  }
+
+//specific Product image
+  File? specFile;
+
+  Future<void> getSpecifictProductImage() async {
+    final xFile = await _imagePicker.getImage(source: ImageSource.gallery);
+    if (xFile != null) {
+      specFile = File(xFile.path);
+      emit(ChosenImageSuccessfullyState());
+    } else {
+      emit(ChosenImageErrorState());
+    }
+  }
+
+  void removeSpecImage() {
+    imageFile = null;
+    emit(RemoveImageSuccessfullyState());
+  }
+
+  Future<void> uploadSpecificFile({
+    required String name,
+    required String category,
+    required String subCategory,
+    required String disc,
+  }) async {
+    if (specFile == null) return;
+    final fileName = p.basename(specFile!.path);
+    final destination = '$currentUser/${Uri.file(fileName).pathSegments.last}';
+
+    final ref = firebase_storage.FirebaseStorage.instance
+        .ref()
+        .child('Specific Products/$destination');
+    await ref.putFile(specFile!).then((value) async {
+      await value.ref.getDownloadURL().then((imageUrl) {
+        addSpecPost(
+            // userName: CacheHelper.getData(key: Constant.kUserName),
+            name: name,
+            category: category,
+            subCategory: subCategory,
+            image: imageUrl.toString(),
+            description: disc);
+      });
+      specFile = null;
+      emit(UploadSpecificImageSuccessState());
+    }).catchError((error) {
+      emit(UploadSpecificImageErrorState(error: error));
     });
   }
 

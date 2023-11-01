@@ -107,7 +107,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
     );
   }
 
-  ListView myNeedList(List<SpecificProductModel> needs, UserModel user) {
+  ListView myNeedList(List<PostModel> needs, UserModel user) {
     return ListView.builder(
       itemBuilder: (context, index) =>
           NeedProductItem(product: needs[index], userModel: user),

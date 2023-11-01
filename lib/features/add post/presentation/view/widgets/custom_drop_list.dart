@@ -322,176 +322,261 @@ class _CustomDropListState extends State<CustomDropList> {
                     height: MediaQuery.of(context).size.height * .04,
                   ),
                   selection == 1
-                      ? Column(
-                          children: [
-                            Container(
-                              child: Column(
-                                children: [
-                                  defaultTextField(
+                      ? BlocBuilder<PostCubit, PostState>(
+                          builder: (context, state) {
+                            var cubit = PostCubit.get(context);
+                            return Column(
+                              children: [
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(25),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          cubit.getSpecifictProductImage();
+                                        },
+                                        child: Container(
+                                            height: context.deviceHeight * 0.30,
+                                            width: context.deviceWidth * .9,
+                                            decoration: ShapeDecoration(
+                                              image: const DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image: AssetImage(
+                                                  'assets/images/add_post.png',
+                                                ),
+                                              ),
+                                              shape: RoundedRectangleBorder(
+                                                side: const BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFF8B8B8B)),
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                              ),
+                                            ),
+                                            //add file here
+                                            child: cubit.specFile == null
+                                                ? null
+                                                : Image(
+                                                    image: FileImage(
+                                                        cubit.specFile!),
+                                                    height:
+                                                        context.deviceHeight *
+                                                            0.30,
+                                                    width: context.deviceWidth *
+                                                        .9,
+                                                    fit: BoxFit.fill,
+                                                  )),
+                                      ),
+                                    ),
+                                    //TODO: make this icon responsive
+                                    //To remove image
+                                    if (cubit.specFile != null)
+                                      Positioned(
+                                        left: 280,
+                                        bottom: 180,
+                                        child: IconButton(
+                                            onPressed: () {
+                                              cubit.removeSpecImage();
+                                            },
+                                            icon: const Icon(
+                                              Icons.cancel_outlined,
+                                              color: Constant.primaryColor,
+                                              size: 30,
+                                            )),
+                                      )
+                                  ],
+                                ),
+                                SizedBox(height: 10),
+                                Column(
+                                  children: [
+                                    Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      type: TextInputType.text,
-                                      controller: itemNameSpecController,
-                                      hint: 'Enter Your Item Name',
-                                      // border: InputBorder.none,
-
-                                      validate: (val) {
-                                        if (val.isEmpty) {
-                                          return 'this field is required';
-                                        }
-                                        return null;
-                                      }),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 8.0,
-                                      horizontal: 4,
-                                    ),
-                                    child: Container(
-                                      alignment: Alignment.topLeft,
-                                      child: const Text(
-                                        'Category',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 20,
+                                        vertical: 8.0,
+                                        horizontal: 4,
+                                      ),
+                                      child: Container(
+                                        alignment: Alignment.topLeft,
+                                        child: const Text(
+                                          'Item Name',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 20,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10.0),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(16.0),
+                                    defaultTextField(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        type: TextInputType.text,
+                                        controller: itemNameSpecController,
+                                        hint: 'Enter Your Item Name',
+                                        // border: InputBorder.none,
+
+                                        validate: (val) {
+                                          if (val.isEmpty) {
+                                            return 'this field is required';
+                                          }
+                                          return null;
+                                        }),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0,
+                                        horizontal: 4,
+                                      ),
+                                      child: Container(
+                                        alignment: Alignment.topLeft,
+                                        child: const Text(
+                                          'Category',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                    child: DropdownButtonFormField(
-                                      value: _selectedSpecCategory,
-                                      onChanged: (String? newValue) {
-                                        setState(
-                                          () {
-                                            _selectedSpecCategory = newValue;
-                                            _selectedSpecSubcategory = null;
+                                    const SizedBox(
+                                      height: 3,
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10.0),
+                                      decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      child: DropdownButtonFormField(
+                                        value: _selectedSpecCategory,
+                                        onChanged: (String? newValue) {
+                                          setState(
+                                            () {
+                                              _selectedSpecCategory =
+                                                  newValue;
+                                              _selectedSpecSubcategory = null;
+                                            },
+                                          );
+                                        },
+                                        decoration: const InputDecoration(
+                                          labelText: 'Category',
+                                          border: InputBorder.none,
+                                        ),
+                                        items:
+                                            _categoryOptions!.map((category) {
+                                          return DropdownMenuItem(
+                                            value: category,
+                                            child: Text(category),
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 16.0),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 6.0,
+                                        horizontal: 4,
+                                      ),
+                                      child: Container(
+                                        alignment: Alignment.topLeft,
+                                        child: const Text(
+                                          'Sub Category',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 3,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.grey),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: DropdownButtonFormField(
+                                    value: _selectedSpecSubcategory,
+                                    onChanged: (_selectedSpecCategory == null)
+                                        ? null
+                                        : (String? newValue) {
+                                            setState(() {
+                                              _selectedSpecSubcategory =
+                                                  newValue;
+                                            });
                                           },
-                                        );
-                                      },
-                                      decoration: const InputDecoration(
-                                        labelText: 'Category',
-                                        border: InputBorder.none,
+                                    decoration: const InputDecoration(
+                                      labelText: 'SubCategory',
+                                      border: InputBorder.none,
+                                    ),
+                                    items: (_selectedSpecCategory == null)
+                                        ? null
+                                        : _subcategoryOptions![
+                                                _selectedSpecCategory]!
+                                            .map((subcategory) {
+                                            return DropdownMenuItem(
+                                              value: subcategory,
+                                              child: Text(subcategory),
+                                            );
+                                          }).toList(),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8.0,
+                                    horizontal: 4,
+                                  ),
+                                  child: Container(
+                                    alignment: Alignment.topLeft,
+                                    child: const Text(
+                                      'Description',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 20,
                                       ),
-                                      items: _categoryOptions!.map((category) {
-                                        return DropdownMenuItem(
-                                          value: category,
-                                          child: Text(category),
-                                        );
-                                      }).toList(),
                                     ),
                                   ),
-                                  const SizedBox(height: 16.0),
-                                  Padding(
+                                ),
+                                const SizedBox(
+                                  height: 3,
+                                ),
+                                SizedBox(
+                                  height: context.deviceHeight * 0.2,
+                                  // width: 360,
+                                  child: defaultTextField(
+                                    maxLines: 10,
+
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 6.0,
-                                      horizontal: 4,
-                                    ),
-                                    child: Container(
-                                      alignment: Alignment.topLeft,
-                                      child: const Text(
-                                        'Sub Category',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 3,
-                            ),
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: DropdownButtonFormField(
-                                value: _selectedSpecSubcategory,
-                                onChanged: (_selectedSpecCategory == null)
-                                    ? null
-                                    : (String? newValue) {
-                                        setState(() {
-                                          _selectedSpecSubcategory = newValue;
-                                        });
-                                      },
-                                decoration: const InputDecoration(
-                                  labelText: 'SubCategory',
-                                  border: InputBorder.none,
-                                ),
-                                items: (_selectedSpecCategory == null)
-                                    ? null
-                                    : _subcategoryOptions![
-                                            _selectedSpecCategory]!
-                                        .map((subcategory) {
-                                        return DropdownMenuItem(
-                                          value: subcategory,
-                                          child: Text(subcategory),
-                                        );
-                                      }).toList(),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 8.0,
-                                horizontal: 4,
-                              ),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Description',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 20,
+                                        vertical: 10, horizontal: 10),
+                                    type: TextInputType.text,
+                                    controller: descriptionSpecController,
+                                    hint:
+                                        'Enter a description for the item you want',
+                                    // border: InputBorder.none,
+
+                                    validate: (val) {
+                                      if (val.isEmpty) {
+                                        return 'this field is required';
+                                      }
+                                      return null;
+                                    },
                                   ),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 3,
-                            ),
-                            SizedBox(
-                              height: context.deviceHeight * 0.2,
-                              // width: 360,
-                              child: defaultTextField(
-                                maxLines: 10,
-
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10),
-                                type: TextInputType.text,
-                                controller: descriptionSpecController,
-                                hint:
-                                    'Enter a description for the item you want',
-                                // border: InputBorder.none,
-
-                                validate: (val) {
-                                  if (val.isEmpty) {
-                                    return 'this field is required';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            )
-                          ],
+                                const SizedBox(
+                                  height: 15,
+                                )
+                              ],
+                            );
+                          },
                         )
                       : const SizedBox(
                           height: 5,
@@ -514,12 +599,11 @@ class _CustomDropListState extends State<CustomDropList> {
                                 //     key: Constant.kUserName),
                               );
                               if (selection == 1) {
-                                PostCubit.get(context).addSpecPost(
+                                PostCubit.get(context).uploadSpecificFile(
                                     name: itemNameSpecController.text,
                                     category: _selectedSpecCategory ?? '',
                                     subCategory: _selectedSpecSubcategory ?? '',
-                                    description:
-                                        descriptionSpecController.text);
+                                    disc: descriptionSpecController.text);
                               }
 
                               itemNameController.clear();

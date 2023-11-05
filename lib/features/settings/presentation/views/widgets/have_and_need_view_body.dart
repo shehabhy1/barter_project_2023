@@ -31,16 +31,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 44.h,
-                      child: defaultTextField(
-                        type: TextInputType.text,
-                        onChange: (value) {},
-                        hint: 'Search',
-                        prefix: Icons.search,
-                      ),
-                    ),
-                    SizedBox(height: 10.h),
+
                     Text('My Have',
                         style: Styles.textStyle20.copyWith(fontSize: 20)),
                     const SizedBox(height: 15),

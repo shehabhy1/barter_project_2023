@@ -8,36 +8,44 @@ class ItemAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        height: 60,
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          border: Border.all(
-            color: const Color(0xFF8B8B8B),
-            // Customize the border color for the selected and unselected states
-            width: 1, // Adjust the border width as needed
-          ),
-          borderRadius: BorderRadius.circular(6),
-        ),
-        child: Row(
-         mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(image: AssetImage(imagePath),),
-            const SizedBox(height: 5,),
-            Text(
-                text,
-              style: const TextStyle(
-                color: Color(0xFF767474),
-                fontSize: 15,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final containerWidth = constraints.maxWidth * 0.8; // Adjust as needed
+        final fontSize = constraints.maxWidth * 0.04; // Adjust as needed
+
+        return GestureDetector(
+          child: Center(
+            child: Container(
+              width: containerWidth,
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: const Color(0xFF8B8B8B),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(image: AssetImage(imagePath),),
+                  const SizedBox(width: 5), // Use width instead of height
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: Color(0xFF767474),
+                      fontSize: fontSize,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

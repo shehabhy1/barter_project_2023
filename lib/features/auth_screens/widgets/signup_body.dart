@@ -27,6 +27,7 @@ class _SignupBodyState extends State<SignupBody> {
   final lNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isVisible  = false;
   //final String genderSelected;
 
   @override
@@ -117,7 +118,12 @@ class _SignupBodyState extends State<SignupBody> {
                     controller: passwordController,
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
-                    suffix: Icons.remove_red_eye,
+                    suffix: isVisible ? Icons.visibility : Icons.visibility_off,
+                    pressed: (){
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
                     validate: (val) {
                       if (val.isEmpty || val.length < 6 || val.length > 16) {
                         return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
@@ -125,16 +131,7 @@ class _SignupBodyState extends State<SignupBody> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.h),
-                  const Text(
-                    'Confirm Password',
-                    style: Styles.textStyle20,
-                  ),
-                  SizedBox(height: 8.h),
-                  defaultTextField(
-                    type: TextInputType.visiblePassword,
-                    hint: 'Confirm  your password',
-                  ),
+
                   SizedBox(height: 8.h),
                   const CheckButton(text: 'I accepted privacy & Policy '),
                   SizedBox(height: 20.h),

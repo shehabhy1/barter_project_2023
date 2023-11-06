@@ -4,7 +4,7 @@ import 'package:barter_project_2023/features/add%20post/data/model/post_model.da
 import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:barter_project_2023/features/auth_screens/log_in/view_model/auth_cubit.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/widgets/have_product_item_.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/widgets/need_product_item.dart';
@@ -56,7 +56,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
 
                     Text('My Needs',
                         style: Styles.textStyle20.copyWith(fontSize: 20)),
-                    const SizedBox(height: 15),
+                     SizedBox(height: 15.h),
                     pCubit.isNeedListEmpty
                         ? const Center(
                             child: Text('Ther is no products'),
@@ -68,7 +68,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
                               child: CircularProgressIndicator(),
                             ),
                             fallback: (context) => SizedBox(
-                              height: 160.h,
+                              height: 200.h,
                               width: double.infinity,
                               child: myNeedList(
                                   pCubit.myNeedList, aCubit.userModel!),

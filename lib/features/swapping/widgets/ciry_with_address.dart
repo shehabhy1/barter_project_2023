@@ -40,7 +40,7 @@ class _CityWithAddressState extends State<CityWithAddress> {
                                 setState(() {
                                   yourCity = city;
                                 });
-                                print(yourCity);
+                                debugPrint(yourCity);
                               },
                               child: Container(
                                 margin: const EdgeInsets.all(4),

@@ -1,6 +1,5 @@
 import 'package:barter_project_2023/core/shared_widget/componets.dart';
-import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
-import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
+import 'package:barter_project_2023/features/add%20post/data/model/product_model.dart';
 import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
 import 'package:flutter/material.dart';
 
@@ -9,36 +8,13 @@ import '../../../../../core/utils/styles.dart';
 import 'package:barter_project_2023/app_img/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
-  // final List<PostModel> posts;
+  final List<ProductModel> products;
   const ListViewSomeProducts({
     super.key,
-    // required this.posts,
+    required this.products,
   });
   @override
   Widget build(BuildContext context) {
-    final List<PostModel> posts = [
-      PostModel(
-          userId: '',
-          name: 'mohamed Gehad',
-          category: 'category',
-          subCategory: 'subCategory',
-          disc: 'disc',
-          pic: 'pic'),
-      PostModel(
-          userId: '',
-          name: 'mohamed Gehad',
-          category: 'category',
-          subCategory: 'subCategory',
-          disc: 'disc',
-          pic: 'pic'),
-      PostModel(
-          userId: '',
-          name: 'mohamed Gehad',
-          category: 'category',
-          subCategory: 'subCategory',
-          disc: 'disc',
-          pic: 'pic'),
-    ];
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.37,
       child: ListView.separated(
@@ -47,11 +23,11 @@ class ListViewSomeProducts extends StatelessWidget {
           itemBuilder: (context, index) {
             return TextButton(
               onPressed: () {
-                navigateTo(context, ProductDetails(postModel: posts[index]));
+                navigateTo(context, ProductDetails(product: products[index]));
               },
               child: itemBuilder(
                 context,
-                posts[index],
+                products[index],
               ),
             );
           },
@@ -64,7 +40,7 @@ class ListViewSomeProducts extends StatelessWidget {
     );
   }
 
-  Container itemBuilder(BuildContext context, PostModel postModel) {
+  Container itemBuilder(BuildContext context, ProductModel proudct) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 0.39,
       padding: const EdgeInsets.only(bottom: 3),
@@ -78,16 +54,17 @@ class ListViewSomeProducts extends StatelessWidget {
         padding: const EdgeInsets.all(2.0),
         child: ListView(
           children: [
-            Image.asset(
-              Assets.imagesImg,
+            Image.network(
+              proudct.pic!,
+              // Assets.imagesImg,
               width: 128,
             ),
             // const SizedBox(height: 8),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: Text('User name',
+              title: Text(proudct.userName,
                   style: Styles.textStyle14.copyWith(color: Colors.black)),
-              subtitle: Text(postModel.disc,
+              subtitle: Text(proudct.disc,
                   style: Styles.textStyle12
                       .copyWith(overflow: TextOverflow.ellipsis)),
               leading: Image.asset(
@@ -108,7 +85,7 @@ class ListViewSomeProducts extends StatelessWidget {
                     color: Constant.primaryColor),
                 child: TextButton(
                     onPressed: () {
-                      navigateTo(context, ProductDetails(postModel: postModel));
+                      navigateTo(context, ProductDetails(product: proudct));
                     },
                     child: Text('Discover',
                         style:

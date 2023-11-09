@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ButtonItem extends StatelessWidget {
+  const ButtonItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()
-      {
-
-
-      },
+      onTap: () {},
       child: Container(
         width: 90.0,
         height: 35.0,
@@ -20,7 +17,8 @@ class ButtonItem extends StatelessWidget {
           ),
         ),
         child: const Center(
-          child: Text('Submited',
+          child: Text(
+            'Submited',
             style: TextStyle(
               fontSize: 16.0,
               color: Color.fromRGBO(255, 255, 255, 1.0),

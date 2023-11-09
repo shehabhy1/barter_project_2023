@@ -1,10 +1,11 @@
+import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 
 class NeedProductItem extends StatelessWidget {
-  final SpecificProductModel product;
+  final PostModel product;
   final UserModel userModel;
   const NeedProductItem(
       {Key? key, required this.product, required this.userModel})
@@ -15,9 +16,9 @@ class NeedProductItem extends StatelessWidget {
     return ProductItem(
         fName: userModel.fName,
         lName: userModel.lName,
-        disc: product.description,
+        disc: product.disc,
         //TODO: add product image
-        productImage: 'https://2u.pw/RR69CR8',
+        productImage: product.pic!,
         //TODO: add profile image
         profilImage: 'assets/images/profile_img.png');
   }

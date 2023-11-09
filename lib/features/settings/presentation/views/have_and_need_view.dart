@@ -18,7 +18,7 @@ class _HaveAndNeedViewState extends State<HaveAndNeedView> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<AuthCubit>(context).getUserData();
+    // BlocProvider.of<AuthCubit>(context).getUserData();
     BlocProvider.of<PostCubit>(context).getMyPosts();
     BlocProvider.of<PostCubit>(context).getMyNeedProducts();
   }

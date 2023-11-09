@@ -135,6 +135,10 @@ class AuthCubit extends Cubit<AuthState> {
         .get()
         .then((value) {
       userModel = UserModel.fromJson(value);
+      CacheHelper.saveString(
+        key: Constant.kUserName,
+        value: '${userModel!.fName} ' '${userModel!.lName}',
+      );
       emit(GetUserDataSuccess());
     }).catchError((error) {
       emit(GetUserDataError(error: error));

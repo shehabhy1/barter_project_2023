@@ -4,6 +4,7 @@ class Constant {
   static const String kOnBoardingView = 'Constant.kOnBoarding';
   static const Color primaryColor = Color(0xFFB73BFF);
   static const String kEmail = 'kEmail';
+  static const String kUserName = 'kUserName';
 }
 
 Color kPrimaryColor = const Color(0xFFB73BFF);

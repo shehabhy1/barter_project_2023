@@ -13,26 +13,30 @@ class CheckButton extends StatefulWidget {
 
 class _CheckButtonState extends State<CheckButton> {
   bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final fontSize = screenWidth < 600 ? 12.0 : 14.0; // Adjust as needed
+
     return Row(
       children: [
         Checkbox(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                  5.0), // Set your desired border radius here
-            ),
-            value: isChecked,
-            activeColor: kPrimaryColor,
-            onChanged: (newBool) {
-              setState(() {
-                isChecked = newBool!;
-              });
-            }),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          value: isChecked,
+          activeColor: kPrimaryColor,
+          onChanged: (newBool) {
+            setState(() {
+              isChecked = newBool!;
+            });
+          },
+        ),
         Text(
           widget.text,
-          style: Styles.textStyle20.copyWith(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: fontSize,
             color: const Color(0xFF8B8B8B),
           ),
         ),

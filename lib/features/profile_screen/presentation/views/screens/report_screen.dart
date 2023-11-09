@@ -4,24 +4,27 @@ import 'package:flutter/material.dart';
 import '../widgets/report_screen_widgets/top_part_of_report_screen.dart';
 
 class ReportScreen extends StatelessWidget {
+  const ReportScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TopPartOfReportScreen(),
+            const TopPartOfReportScreen(),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 28.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 25.0, horizontal: 28.0),
               child: Column(children: [
-                Text(
+                const Text(
                   'Report user ID (user ID is used only for feedback on complaint processing and will not be disclosed to any third parties',
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 ),
-                Align(
+                const Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
                       'Please write a reason',
@@ -29,28 +32,28 @@ class ReportScreen extends StatelessWidget {
                         fontSize: 20.0,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'write the reason',
-                    helperStyle: TextStyle(
+                    helperStyle: const TextStyle(
                       color: Color.fromRGBO(169, 165, 165, 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 1,
                           color: Color.fromRGBO(
                               200, 201, 203, 1.0)), //<-- SEE HERE
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
-                Align(
+                const Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
                       'Description',
@@ -58,28 +61,28 @@ class ReportScreen extends StatelessWidget {
                         fontSize: 20.0,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'write description',
-                    helperStyle: TextStyle(
+                    helperStyle: const TextStyle(
                       color: Color.fromRGBO(169, 165, 165, 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 1,
                           color: Color.fromRGBO(
                               200, 201, 203, 1.0)), //<-- SEE HERE
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
-                Align(
+                const Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
                       'Image',
@@ -87,7 +90,7 @@ class ReportScreen extends StatelessWidget {
                         fontSize: 20.0,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 InkWell(
@@ -106,10 +109,10 @@ class ReportScreen extends StatelessWidget {
                         alignment: AlignmentDirectional.centerEnd,
                         child: IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.camera_enhance_outlined))),
+                            icon: const Icon(Icons.camera_enhance_outlined))),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 InkWell(
@@ -117,7 +120,7 @@ class ReportScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ReportSuccessScreen(),
+                          builder: (context) => const ReportSuccessScreen(),
                         ));
                   },
                   child: Container(
@@ -140,7 +143,7 @@ class ReportScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
               ]),

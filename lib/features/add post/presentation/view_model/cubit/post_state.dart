@@ -11,7 +11,11 @@ final class AddPostLoading extends PostState {}
 
 final class AddPostSuccess extends PostState {}
 
-final class AddPostFailure extends PostState {}
+final class AddPostFailure extends PostState {
+  final String error;
+
+  const AddPostFailure({required this.error});
+}
 
 final class ChosenImageSuccessfullyState extends PostState {}
 
@@ -19,7 +23,7 @@ final class ChosenImageErrorState extends PostState {}
 
 final class RemoveImageSuccessfullyState extends PostState {}
 
-final class UploadImageLoadingState extends PostState {}
+// final class UploadImageLoadingState extends PostState {}
 
 final class UploadImageSuccessState extends PostState {}
 
@@ -27,6 +31,15 @@ final class UploadImageErrorState extends PostState {
   final String error;
 
   const UploadImageErrorState({required this.error});
+}
+// final class UploadSpecificImageLoadingState extends PostState {}
+
+final class UploadSpecificImageSuccessState extends PostState {}
+
+final class UploadSpecificImageErrorState extends PostState {
+  final String error;
+
+  const UploadSpecificImageErrorState({required this.error});
 }
 
 final class UploadPostErrorState extends PostState {
@@ -43,6 +56,16 @@ final class GetPostFailure extends PostState {
   final String error;
 
   const GetPostFailure({required this.error});
+}
+
+final class GetAllPRoductsLoading extends PostState {}
+
+final class GetAllPRoductsSuccess extends PostState {}
+
+final class GetAllPRoductsFailure extends PostState {
+  final String error;
+
+  const GetAllPRoductsFailure({required this.error});
 }
 
 final class GetSpecPostLoading extends PostState {}

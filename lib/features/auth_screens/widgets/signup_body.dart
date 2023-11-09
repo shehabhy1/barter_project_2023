@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:barter_project_2023/core/shared_widget/check_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -117,7 +119,13 @@ class _SignupBodyState extends State<SignupBody> {
                     controller: passwordController,
                     type: TextInputType.visiblePassword,
                     hint: 'Write your password',
-                    suffix: Icons.remove_red_eye,
+                    suffix: AuthCubit.get(context).isPasswordShow
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    pressed: () {
+                      AuthCubit.get(context).PasswordShowed();
+                    },
+                    isObscure: AuthCubit.get(context).isPasswordShow,
                     validate: (val) {
                       if (val.isEmpty || val.length < 6 || val.length > 16) {
                         return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
@@ -125,7 +133,9 @@ class _SignupBodyState extends State<SignupBody> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.h),
+                  /* 
+                   here we have removed the confirm password section
+                   SizedBox(height: 16.h),
                   const Text(
                     'Confirm Password',
                     style: Styles.textStyle20,
@@ -134,9 +144,18 @@ class _SignupBodyState extends State<SignupBody> {
                   defaultTextField(
                     type: TextInputType.visiblePassword,
                     hint: 'Confirm  your password',
-                  ),
+                  ), */
                   SizedBox(height: 8.h),
-                  const CheckButton(text: 'I accepted privacy & Policy '),
+                  //TODO: privacy and policy => change color to purble
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          log('are you okay?');
+                        });
+                      },
+                      // TODO: here we will use rich text
+                      child: const CheckButton(
+                          text: 'I accepted privacy & Policy ')),
                   SizedBox(height: 20.h),
                   CustomButton(
                     width: double.infinity,

@@ -1,4 +1,4 @@
-// ListView.builder(physics: const NeverScrollableScrollPhysics()
+/* // ListView.builder(physics: const NeverScrollableScrollPhysics()
 // ,
 // shrinkWrap: true
 // ,
@@ -287,3 +287,4 @@ class _DealItemState extends State<DealItem> {
     ),
   }
 }
+ */

@@ -443,8 +443,7 @@ class _CustomDropListState extends State<CustomDropList> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10.0),
                                       decoration: BoxDecoration(
-                                        border:
-                                            Border.all(color: Colors.grey),
+                                        border: Border.all(color: Colors.grey),
                                         borderRadius:
                                             BorderRadius.circular(16.0),
                                       ),
@@ -453,8 +452,7 @@ class _CustomDropListState extends State<CustomDropList> {
                                         onChanged: (String? newValue) {
                                           setState(
                                             () {
-                                              _selectedSpecCategory =
-                                                  newValue;
+                                              _selectedSpecCategory = newValue;
                                               _selectedSpecSubcategory = null;
                                             },
                                           );

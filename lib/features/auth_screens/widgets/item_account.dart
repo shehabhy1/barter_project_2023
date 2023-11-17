@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ItemAccount extends StatelessWidget {
-  const ItemAccount({Key? key, required this.text, required this.imagePath})
+  ItemAccount(
+      {Key? key,
+      required this.text,
+      required this.imagePath,
+      required this.onTap})
       : super(key: key);
   final String text;
   final String imagePath;
-
+  void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -14,6 +18,7 @@ class ItemAccount extends StatelessWidget {
         final fontSize = constraints.maxWidth * 0.04; // Adjust as needed
 
         return GestureDetector(
+          onTap: onTap,
           child: Center(
             child: Container(
               width: containerWidth,
@@ -29,7 +34,9 @@ class ItemAccount extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(image: AssetImage(imagePath),),
+                  Image(
+                    image: AssetImage(imagePath),
+                  ),
                   const SizedBox(width: 5), // Use width instead of height
                   Text(
                     text,

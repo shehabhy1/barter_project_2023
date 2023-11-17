@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+import '../log_in/view_model/auth_cubit.dart';
 import 'item_account.dart';
 
 class ItemWidget extends StatelessWidget {
@@ -7,11 +10,13 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(20.0),
       child: Column(
         children: [
           ItemAccount(
+            onTap: () => log(
+                'message from facebook'), //AuthCubit.get(context).signInWithFacebook() ,
             text: ' Continue with Facebook',
             imagePath: 'assets/images/facebook.png',
           ),
@@ -19,6 +24,7 @@ class ItemWidget extends StatelessWidget {
             height: 15,
           ),
           ItemAccount(
+            onTap: () => log('message from facebook'),
             text: ' Continue with Google',
             imagePath: 'assets/images/google.png',
           ),

@@ -36,6 +36,7 @@ class _LoginBodyState extends State<LoginBody> {
         if (state is AuthFailure) {
           showSnackBar(context, messege: state.errMessage);
         } else if (state is AuthSuccess) {
+          // remove .push and put pushandremoveuntil
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -87,18 +88,22 @@ class _LoginBodyState extends State<LoginBody> {
                     hint: 'Write your password',
                     controller: passwordController,
                     validate: (val) {
-                      if (val.isEmpty || val.length < 6 || val.length > 16) {
+                      // val is dynamic so you need to specify the type or
+                      // convert the val to string
+                      if (val.toString().isEmpty ||
+                          val.length < 6 ||
+                          val.length > 16) {
                         return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
                       }
                       return null;
                     },
-                    suffix: AuthCubit.get(context).isPasswordShow? Icons.visibility:Icons.visibility_off,
-                    pressed:()
-                    {
+                    suffix: AuthCubit.get(context).isPasswordShow
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    pressed: () {
                       AuthCubit.get(context).PasswordShowed();
                     },
                     isObscure: AuthCubit.get(context).isPasswordShow,
-
                   ),
                   const SizedBox(height: 8),
                   const SecondRow(),

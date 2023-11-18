@@ -29,8 +29,10 @@ class _SignupBodyState extends State<SignupBody> {
   final lNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final selectedImage = '';
   //final String genderSelected;
-
+  // this method is working only when i press on hot reload
+  // someone who using bloc may change this
   @override
   void dispose() {
     emailController.dispose();
@@ -70,6 +72,21 @@ class _SignupBodyState extends State<SignupBody> {
                     ),
                   ),
                   SizedBox(height: 20.h),
+                  GestureDetector(
+                    onTap: () => AuthCubit.get(context).selectImage(),
+                    child: CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AuthCubit.get(context).file != null
+                          ? FileImage(AuthCubit.get(context).file!)
+                          : null,
+                      child: AuthCubit.get(context).file == null
+                          ? const Icon(
+                              Icons.camera_alt,
+                              size: 80,
+                            )
+                          : null,
+                    ),
+                  ),
                   const Text(
                     'First Name',
                     style: Styles.textStyle20,

@@ -37,6 +37,7 @@ class ListViewSomeProducts extends StatelessWidget {
             );
           },
           itemCount: 3),
+      // products.length but we need with pagination
     );
   }
 
@@ -54,11 +55,16 @@ class ListViewSomeProducts extends StatelessWidget {
         padding: const EdgeInsets.all(2.0),
         child: ListView(
           children: [
-            Image.network(
-              proudct.pic!,
-              // Assets.imagesImg,
-              width: 128,
+            Container(
+              width: 100,
+              height: 100,
+              child: Image.network(
+                proudct.pic!,
+                fit: BoxFit.cover,
+                // Assets.imagesImg,
+              ),
             ),
+
             // const SizedBox(height: 8),
             ListTile(
               contentPadding: EdgeInsets.zero,
@@ -77,11 +83,11 @@ class ListViewSomeProducts extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Container(
                 width: 80,
-                height: 30,
+                height: 40,
                 alignment: Alignment.center,
                 decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16)),
+                        borderRadius: BorderRadius.circular(25)),
                     color: Constant.primaryColor),
                 child: TextButton(
                     onPressed: () {

@@ -5,7 +5,6 @@ import 'package:barter_project_2023/features/home/presentation/view/widgets/page
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 class ProductDetails extends StatelessWidget {
   final ProductModel product;
   const ProductDetails({Key? key, required this.product}) : super(key: key);
@@ -41,11 +40,11 @@ class ProductDetails extends StatelessWidget {
                   return Image.network(product.pic!);
                   // return Image.network(postModel.pic!);
                 },
-                itemCount: 3,
+                //itemCount: 4,
               ),
             ),
-            buildSizedBox(10),
-            PageIndicator(controller: controller),
+//            buildSizedBox(10),
+            //PageIndicator(controller: controller),
             buildSizedBox(24),
             ListTileOfReviews(userName: product.userName),
             buildSizedBox(12),

@@ -89,23 +89,6 @@ class ProfileViewBody extends StatelessWidget {
               Row(
                 children: [
                   const Text(
-                    'Settings',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  const Spacer(),
-                  TextButton(
-                      onPressed: () {
-                        context.pushNamed(AppRouter.settingsView);
-                      },
-                      child: const Icon(Icons.arrow_forward_ios_outlined)),
-                ],
-              ),
-              const Divider(),
-              Row(
-                children: [
-                  const Text(
                     'All Reports',
                     style: TextStyle(
                       fontSize: 20,
@@ -120,7 +103,26 @@ class ProfileViewBody extends StatelessWidget {
                 ],
               ),
               const Divider(),
+
               Row(
+                children: [
+                  const Text(
+                    'Settings',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                      onPressed: () {
+                        context.pushNamed(AppRouter.settingsView);
+                      },
+                      child: const Icon(Icons.arrow_forward_ios_outlined)),
+                ],
+              ),
+              const Divider(),
+
+              /*  Row(
                 children: [
                   const Text(
                     'Submit Report',
@@ -136,8 +138,8 @@ class ProfileViewBody extends StatelessWidget {
                       child: const Icon(Icons.arrow_forward_ios_outlined)),
                 ],
               ),
-              const Divider(),
-              Row(
+              const Divider(), */
+              /*  Row(
                 children: [
                   const Text(
                     'Notification',
@@ -154,7 +156,7 @@ class ProfileViewBody extends StatelessWidget {
                   )
                 ],
               ),
-              const Divider(),
+              const Divider(), */
               const Row(
                 children: [
                   ShowAlertDialog()

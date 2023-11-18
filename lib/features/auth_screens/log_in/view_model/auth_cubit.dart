@@ -1,12 +1,16 @@
+import 'dart:io';
+
 import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/core/utils/firestore_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../model/user_model.dart';
 
@@ -17,6 +21,16 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   static AuthCubit get(context) => BlocProvider.of(context);
   String gender = 'Male';
+  File? file;
+  void selectImage() async {
+    var pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      file = File(pickedFile.path);
+      /* final ref = FirebaseStorage.instance.ref('images');
+      await ref.putFile(file!);
+      imgUrl = ref.getDownloadURL(); */
+    }
+  }
 
   UserModel? userModel;
   Future<void> loginUser(
@@ -79,6 +93,10 @@ class AuthCubit extends Cubit<AuthState> {
   }) async {
     emit(AuthLoading());
     try {
+      Reference storageReference =
+          FirebaseStorage.instance.ref().child('user_images');
+      await storageReference.putFile(file!);
+      String imageUrl = await storageReference.getDownloadURL();
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
         email: email,
@@ -94,7 +112,7 @@ class AuthCubit extends Cubit<AuthState> {
               email: email,
               password: password,
               gender: gender,
-              pic: '',
+              pic: imageUrl,
             ),
           );
 

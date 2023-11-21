@@ -89,13 +89,13 @@ class _HomeViewState extends State<HomeView> {
                 // buildSizedBox(16),
                 // const ListViewSomeProducts(),
 
-                buildSizedBox(24),
+                /*  buildSizedBox(24),
                 Text('Reviews',
                     style: Styles.textStyle14.copyWith(color: Colors.black)),
                 buildSizedBox(4),
                 const Text('Now you can see all users have high rate ',
                     style: Styles.textStyle14),
-                buildSizedBox(16),
+                buildSizedBox(16), */
                 // const ListTileOfReviews(userName: cubit.allProudcts[index]),
               ],
             );

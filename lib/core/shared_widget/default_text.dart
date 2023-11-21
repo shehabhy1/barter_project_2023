@@ -13,6 +13,7 @@ Widget defaultTextField({
   void Function(String)? onFieldSubmitted,
   bool autofocus = false,
   String? hint,
+  String? prefixText,
   IconData? prefix,
   bool isObscure = false,
   IconData? suffix,
@@ -33,6 +34,7 @@ Widget defaultTextField({
       maxLines: maxLines ?? 1,
       obscureText: isObscure,
       decoration: InputDecoration(
+        prefixText: prefixText,
         labelText: label,
         labelStyle: TextStyle(color: kPrimaryColor),
         hintText: hint,

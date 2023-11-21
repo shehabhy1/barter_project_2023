@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({Key? key}) : super(key: key);
-
+  //TODO: show the name of the user instead of Jack arsany and his photo
   @override
   Widget build(BuildContext context) {
     return SafeArea(

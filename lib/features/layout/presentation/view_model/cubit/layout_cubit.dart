@@ -17,13 +17,13 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<Widget> bottomScreens = const [
     HomeView(),
     AddView(),
-    NotificationsScreen(),
+    //  NotificationsScreen(),
     ProfileView(),
   ];
   List<String> screensTitles = [
     'Home',
     'Enter the item to swap it',
-    'Notification',
+    //'Notification',
     'Profile',
   ];
   List<BottomNavigationBarItem> bottomNavigationBarItems = [
@@ -41,13 +41,13 @@ class LayoutCubit extends Cubit<LayoutState> {
           height: 32,
         ),
         label: ''),
-    BottomNavigationBarItem(
+    /*  BottomNavigationBarItem(
         icon: SvgPicture.asset(
           AssetData.notificationIcon,
           width: 32,
           height: 32,
         ),
-        label: ''),
+        label: ''), */
     BottomNavigationBarItem(
         icon: SvgPicture.asset(
           AssetData.profilIcon,

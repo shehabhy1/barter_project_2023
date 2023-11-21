@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_router.dart';
-import '../../../../../core/utils/cache_helper.dart';
+import '../../../../../core/helper/cache_helper.dart';
 
 class OnBoardingButtons extends StatelessWidget {
   const OnBoardingButtons({

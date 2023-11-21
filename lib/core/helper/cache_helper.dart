@@ -10,6 +10,10 @@ abstract class CacheHelper {
     return storingSharedPreferences?.get(key);
   }
 
+  static String getStringData({required String key}) {
+    return storingSharedPreferences!.getString(key) ?? '';
+  }
+
   static Future<bool> saveString(
       {required String key, required String value}) async {
     return await storingSharedPreferences!.setString(key, value);

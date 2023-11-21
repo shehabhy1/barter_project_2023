@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/product_model.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/specific_post_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

@@ -1,18 +1,17 @@
 import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/post_model.dart';
-import 'package:barter_project_2023/features/add%20post/presentation/view_model/cubit/post_cubit.dart';
 import 'package:barter_project_2023/features/chat/presentation/view/chat_page.dart';
 import 'package:barter_project_2023/features/deals_view/presentation/view/deal_view.dart';
 import 'package:barter_project_2023/features/edit_profile/edit_profile_view.dart';
-import 'package:barter_project_2023/features/home/presentation/view/product_details.dart';
-import 'package:barter_project_2023/features/home/presentation/view/view_all_screen.dart';
+import 'package:barter_project_2023/features/layout/presentation/views/layout.dart';
 import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_details_screen.dart';
 import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/have_and_need_view.dart';
 import 'package:barter_project_2023/features/settings/presentation/views/language_view.dart';
 import 'package:barter_project_2023/features/splash_view/presentation/views/on_boarding_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:barter_project_2023/features/splash_view/presentation/views/splash_view.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth_screens/log_in/presentation/views/login_view.dart';
@@ -21,10 +20,31 @@ import '../../features/settings/presentation/views/settings_view.dart';
 import '../../features/swapping/sign_up_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
+//  bool userToken = CacheHelper.getData(key: Constant.kUserToken).??false;
+bool checkUserToken() {
+  String userToken = CacheHelper.getStringData(key: Constant.kUserToken);
+  if (userToken.isEmpty) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
- late List<PostModel>postList;
+Widget firetWidget() {
+  if (isLast && checkUserToken()) {
+    return const LayoutView();
+  } else if (isLast && !checkUserToken()) {
+    return const LoginView();
+  } else if (!isLast && checkUserToken()) {
+    return const OnBoardingView();
+  } else {
+    return const OnBoardingView();
+  }
+}
+
+late List<PostModel> postList;
+
 class AppRouter {
-
   static const chatpage = '/ChatPage';
   static const editProfile = '/editProfile';
   static const kDealView = '/DealView';
@@ -49,13 +69,14 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
         //add splash view when finish
-        builder: (context, state) => const LoginView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
           name: routingOnBoardingView,
           path: pOnBoardingView,
-          builder: (context, state) =>
-              isLast ? const LoginView() : const OnBoardingView()),
+          builder: (context, state) => firetWidget()
+          // return isLast ? const LoginView() :  OnBoardingView()
+          ),
       GoRoute(
         name: routingloginView,
         path: ploginView,
@@ -142,5 +163,5 @@ class AppRouter {
   static const settingsView = '/settingsView';
   static const signup = '/signup';
 
-  List<PostModel>posts=[];
+  List<PostModel> posts = [];
 }

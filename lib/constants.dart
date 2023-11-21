@@ -5,6 +5,7 @@ class Constant {
   static const Color primaryColor = Color(0xFFB73BFF);
   static const String kEmail = 'kEmail';
   static const String kUserName = 'kUserName';
+  static const String kUserToken = 'userToken';
 }
 
 Color kPrimaryColor = const Color(0xFFB73BFF);
@@ -14,4 +15,5 @@ const kTextColor = Color(0xff8B8B8B);
 const kMessegesCollection = 'messeges';
 const kMessege = 'messege';
 const kID = 'id';
+
 const kMTime = 'mtime';

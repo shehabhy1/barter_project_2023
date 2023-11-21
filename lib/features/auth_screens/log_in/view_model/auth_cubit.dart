@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
 import 'package:barter_project_2023/core/utils/firestore_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,6 +33,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   UserModel? userModel;
+  User? userToken;
   Future<void> loginUser(
       {required String email, required String password}) async {
     emit(AuthLoading());
@@ -41,6 +42,9 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
+      userToken = FirebaseAuth.instance.currentUser;
+      print('{$userToken}//////////////////');
+      print('{}//////////////////');
       //save email in shared pref
       CacheHelper.saveString(
         key: Constant.kEmail,

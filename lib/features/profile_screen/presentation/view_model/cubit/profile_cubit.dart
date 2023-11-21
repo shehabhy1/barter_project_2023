@@ -1,5 +1,5 @@
 import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/core/utils/cache_helper.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
 import 'package:barter_project_2023/features/auth_screens/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

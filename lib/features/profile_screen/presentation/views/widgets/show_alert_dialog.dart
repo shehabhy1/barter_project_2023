@@ -1,13 +1,23 @@
+import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
 import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
+import 'package:barter_project_2023/core/shared_widget/componets.dart';
+import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
+import 'package:barter_project_2023/features/auth_screens/log_in/presentation/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ShowAlertDialog extends StatelessWidget {
+class ShowAlertDialog extends StatefulWidget {
   const ShowAlertDialog({
     super.key,
   });
 
+  @override
+  State<ShowAlertDialog> createState() => _ShowAlertDialogState();
+}
+
+class _ShowAlertDialogState extends State<ShowAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -37,6 +47,11 @@ class ShowAlertDialog extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             //TODO: log out by remove id from shared pref
+                            CacheHelper.removeData(key: Constant.kUserToken)
+                                .then((value) => {
+                                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginView(),))
+                                    });
+                            setState(() {});
                           },
                           child: Text(
                             'LogOut',

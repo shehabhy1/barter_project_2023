@@ -76,10 +76,10 @@ class _SignupBodyState extends State<SignupBody> {
                     onTap: () => AuthCubit.get(context).selectImage(),
                     child: CircleAvatar(
                       radius: 80,
-                      backgroundImage: AuthCubit.get(context).file != null
-                          ? FileImage(AuthCubit.get(context).file!)
+                      backgroundImage: AuthCubit.get(context).imageFile != null
+                          ? FileImage(AuthCubit.get(context).imageFile!)
                           : null,
-                      child: AuthCubit.get(context).file == null
+                      child: AuthCubit.get(context).imageFile == null
                           ? const Icon(
                               Icons.camera_alt,
                               size: 80,
@@ -140,7 +140,7 @@ class _SignupBodyState extends State<SignupBody> {
                         ? Icons.visibility
                         : Icons.visibility_off,
                     pressed: () {
-                      AuthCubit.get(context).PasswordShowed();
+                      AuthCubit.get(context).passwordShowed();
                     },
                     isObscure: AuthCubit.get(context).isPasswordShow,
                     validate: (val) {

@@ -1,8 +1,5 @@
 import 'dart:io';
 
-import 'package:barter_project_2023/constants.dart';
-import 'package:barter_project_2023/core/helper/cache_helper.dart';
-import 'package:barter_project_2023/core/utils/firestore_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,6 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
+
+import 'package:barter_project_2023/constants.dart';
+import 'package:barter_project_2023/core/helper/cache_helper.dart';
+import 'package:barter_project_2023/core/utils/firestore_user.dart';
 
 import '../../model/user_model.dart';
 
@@ -21,14 +23,28 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   static AuthCubit get(context) => BlocProvider.of(context);
   String gender = 'Male';
-  File? file;
-  void selectImage() async {
-    var pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      file = File(pickedFile.path);
-      /* final ref = FirebaseStorage.instance.ref('images');
-      await ref.putFile(file!);
-      imgUrl = ref.getDownloadURL(); */
+  // File? file;
+  // void selectImage() async {
+  //   var pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
+  //   if (pickedFile != null) {
+  //     file = File(pickedFile.path);
+  //     /* final ref = FirebaseStorage.instance.ref('images');
+  //     await ref.putFile(file!);
+  //     imgUrl = ref.getDownloadURL(); */
+  //   }
+  // }
+
+//Product image
+  File? imageFile;
+
+  final ImagePicker _imagePicker = ImagePicker();
+  Future<void> selectImage() async {
+    final xFile = await _imagePicker.getImage(source: ImageSource.gallery);
+    if (xFile != null) {
+      imageFile = File(xFile.path);
+      emit(ChosenImageSuccessfullyState());
+    } else {
+      emit(ChosenImageErrorState());
     }
   }
 
@@ -72,19 +88,19 @@ class AuthCubit extends Cubit<AuthState> {
 
   //ايكون الباسورد (محمد حسين)
   bool isPasswordShow = true;
-  void PasswordShowed() {
+  void passwordShowed() {
     isPasswordShow = !isPasswordShow;
     emit(LoginShowPasswordState());
   }
 
   bool isNewPasswordShow = true;
-  void NewPasswordShowed() {
+  void newPasswordShowed() {
     isNewPasswordShow = !isNewPasswordShow;
     emit(LoginShowNewPasswordState());
   }
 
   bool isRepeatPasswordShow = true;
-  void RepeatPasswordShowed() {
+  void repeatPasswordShowed() {
     isRepeatPasswordShow = !isRepeatPasswordShow;
     emit(LoginShowRepeatPasswordState());
   }
@@ -97,9 +113,11 @@ class AuthCubit extends Cubit<AuthState> {
   }) async {
     emit(AuthLoading());
     try {
+      final fileName = p.basename(imageFile!.path);
+      final destination = Uri.file(fileName).pathSegments.last;
       Reference storageReference =
-          FirebaseStorage.instance.ref().child('user_images');
-      await storageReference.putFile(file!);
+          FirebaseStorage.instance.ref().child('/Users Images/$destination');
+      await storageReference.putFile(imageFile!);
       String imageUrl = await storageReference.getDownloadURL();
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(

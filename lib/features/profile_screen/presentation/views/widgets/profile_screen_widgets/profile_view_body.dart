@@ -1,7 +1,8 @@
 import 'package:barter_project_2023/core/utils/app_router.dart';
+import 'package:barter_project_2023/features/auth_screens/log_in/view_model/auth_cubit.dart';
 import 'package:barter_project_2023/features/profile_screen/presentation/views/widgets/show_alert_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,22 +17,27 @@ class ProfileViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
           child: Column(
             children: [
-              Row(
-                children: [
-                  const CircleAvatar(
-                      radius: 20,
-                      foregroundImage: AssetImage('assets/images/PROFIL.png')),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  const Text(
-                    'Jack Arsany',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Color(0xFFB73BFF),
-                    ),
-                  ),
-                ],
+              BlocBuilder<AuthCubit, AuthState>(
+                builder: (context, state) {
+                  var cubit = AuthCubit.get(context);
+                  return Row(
+                    children: [
+                      CircleAvatar(
+                          radius: 20,
+                          foregroundImage: NetworkImage(cubit.userModel!.pic!)),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                       Text(
+                        '${cubit.userModel!.fName} ''${cubit.userModel!.lName}',
+                        style: const TextStyle(
+                          fontSize: 24,
+                          color: Color(0xFFB73BFF),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
               // SizedBox(height: 12.h,),
               const Divider(),

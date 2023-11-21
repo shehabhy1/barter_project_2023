@@ -74,7 +74,7 @@ class NewPassBody extends StatelessWidget {
                         suffix: AuthCubit.get(context).isNewPasswordShow? Icons.visibility:Icons.visibility_off,
                         pressed:()
                         {
-                          AuthCubit.get(context).NewPasswordShowed();
+                          AuthCubit.get(context).newPasswordShowed();
                         },
                         isObscure: AuthCubit.get(context).isNewPasswordShow,
                       ),
@@ -102,7 +102,7 @@ class NewPassBody extends StatelessWidget {
                         suffix: AuthCubit.get(context).isRepeatPasswordShow? Icons.visibility:Icons.visibility_off,
                         pressed:()
                         {
-                          AuthCubit.get(context).RepeatPasswordShowed();
+                          AuthCubit.get(context).repeatPasswordShowed();
                         },
                         isObscure: AuthCubit.get(context).isRepeatPasswordShow,
                       ),

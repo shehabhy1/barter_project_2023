@@ -53,7 +53,8 @@ class _EditProfileBodyState extends State<EditProfileBody> {
 
           return ListView(
             children: [
-              ImageProfileWithIcon(),
+              // profile image
+              ImageProfileWithIcon(urlImage: userData.pic!),
               Text(
                 '${userData.fName} ' '${userData.lName}',
                 textAlign: TextAlign.center,

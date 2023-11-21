@@ -102,7 +102,7 @@ class _LoginBodyState extends State<LoginBody> {
                         ? Icons.visibility
                         : Icons.visibility_off,
                     pressed: () {
-                      AuthCubit.get(context).PasswordShowed();
+                      AuthCubit.get(context).passwordShowed();
                     },
                     isObscure: AuthCubit.get(context).isPasswordShow,
                   ),

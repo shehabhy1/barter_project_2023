@@ -31,3 +31,5 @@ final class GetUserDataError extends AuthState {
 }
 
 final class GetUserDataLoading extends AuthState {}
+final class ChosenImageSuccessfullyState extends AuthState {}
+final class ChosenImageErrorState extends AuthState {}

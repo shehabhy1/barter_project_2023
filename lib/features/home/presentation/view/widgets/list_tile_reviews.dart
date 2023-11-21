@@ -1,24 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
 import 'package:barter_project_2023/features/profile_screen/presentation/views/screens/report_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:barter_project_2023/app_img/assets.dart';
-import 'package:barter_project_2023/features/home/presentation/view/widgets/sub_title_rating.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class ListTileOfReviews extends StatelessWidget {
   final String userName;
-  const ListTileOfReviews({
+  ListTileOfReviews({
     Key? key,
     required this.userName,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    String phone = 'https://wa.me/+201007235515';
     return Card(
       color: Colors.grey,
       child: ListTile(
@@ -30,7 +26,7 @@ class ListTileOfReviews extends StatelessWidget {
           ),
           trailing: IconButton(
             onPressed: () {
-              final Uri whats = Uri.parse('https://wa.me/+2001007235515');
+              final Uri whats = Uri.parse(phone);
               launchUrl(whats);
             },
             icon: Icon(Icons.message),

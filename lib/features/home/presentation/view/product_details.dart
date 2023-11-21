@@ -1,7 +1,6 @@
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/add%20post/data/model/product_model.dart';
 import 'package:barter_project_2023/features/home/presentation/view/widgets/list_tile_reviews.dart';
-import 'package:barter_project_2023/features/home/presentation/view/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -35,7 +35,7 @@ class _SplashViewState extends State<SplashView> {
               ),
             ),
             Positioned(
-              bottom: 205.h,
+              bottom: 200.h,
               child: Image.asset(
                 AssetData.logo,
                 width: 250.w,

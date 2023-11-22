@@ -109,6 +109,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String fName,
     required String lName,
     required String email,
+    required String whatsapp,
     required String password,
   }) async {
     emit(AuthLoading());
@@ -132,6 +133,7 @@ class AuthCubit extends Cubit<AuthState> {
               fName: fName,
               lName: lName,
               email: email,
+              whatsapp: whatsapp,
               password: password,
               gender: gender,
               pic: imageUrl,

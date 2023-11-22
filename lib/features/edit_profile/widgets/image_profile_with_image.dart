@@ -9,11 +9,13 @@ class ImageProfileWithIcon extends StatelessWidget {
   final String urlImage;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          CircleAvatar(
+    return CircleAvatar(
+      radius: 60,
+      //child: Image.network(urlImage),
+      //foregroundImage: NetworkImage(urlImage),
+      backgroundImage: NetworkImage(urlImage),
+    );
+    /* CircleAvatar(
             radius: 60,
             child: Image.network(
               urlImage,
@@ -55,6 +57,6 @@ class ImageProfileWithIcon extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ); */
   }
 }

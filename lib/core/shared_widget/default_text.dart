@@ -10,6 +10,7 @@ Widget defaultTextField({
   Function(String)? onChange,
   FormFieldValidator? validate,
   String? label,
+  int? maxLength,
   void Function(String)? onFieldSubmitted,
   bool autofocus = false,
   String? hint,
@@ -26,6 +27,7 @@ Widget defaultTextField({
   Color background = Colors.purple,
 }) =>
     TextFormField(
+      maxLength: maxLength,
       autofocus: autofocus,
       onTap: tap,
       enabled: enable,

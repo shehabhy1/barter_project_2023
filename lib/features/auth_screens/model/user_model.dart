@@ -3,6 +3,7 @@ class UserModel {
   final String fName;
   final String lName;
   final String email;
+  final String whatsapp;
   final String password;
   final String gender;
   final String? pic;
@@ -12,6 +13,7 @@ class UserModel {
     required this.fName,
     required this.lName,
     required this.email,
+    required this.whatsapp,
     required this.password,
     required this.gender,
     required this.pic,
@@ -23,6 +25,7 @@ class UserModel {
       fName: jsonData['fname'],
       lName: jsonData['lname'],
       email: (jsonData['email']),
+      whatsapp: (jsonData['whatsapp']),
       password: (jsonData['password']),
       gender: (jsonData['gender']),
       pic: (jsonData['pic']),
@@ -35,6 +38,7 @@ class UserModel {
       'fname': fName,
       'lname': lName,
       'email': email,
+      'whatsapp': whatsapp,
       'password': password,
       'gender': gender,
       'pic': pic,

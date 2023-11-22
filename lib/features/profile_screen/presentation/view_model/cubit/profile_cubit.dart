@@ -29,11 +29,13 @@ class ProfileCubit extends Cubit<ProfileStates> {
     });
   }
 
-  void updateUserData(
-      {@required String? fName,
-      @required String? lName,
-      @required String? email,
-      @required String? password}) {
+  void updateUserData({
+    @required String? fName,
+    @required String? lName,
+    @required String? email,
+    @required String? whatsapp,
+    @required String? password,
+  }) {
     UserModel userModel = UserModel(
         id: this.userModel!.id,
         fName: fName ?? this.userModel!.fName,
@@ -42,7 +44,8 @@ class ProfileCubit extends Cubit<ProfileStates> {
         email: email ?? this.userModel!.email,
         password: password ?? this.userModel!.password,
         gender: this.userModel!.gender,
-        pic: this.userModel!.pic);
+        pic: this.userModel!.pic,
+        whatsapp: whatsapp ?? this.userModel!.whatsapp);
     try {
       emit(UpdateProfileDataLoadingState());
       firebaseFirestore

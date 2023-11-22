@@ -28,8 +28,9 @@ class _SignupBodyState extends State<SignupBody> {
   final fNameController = TextEditingController();
   final lNameController = TextEditingController();
   final emailController = TextEditingController();
+  final whatsAppController = TextEditingController();
   final passwordController = TextEditingController();
-  final selectedImage = '';
+  //final selectedImage = '';
   //final String genderSelected;
   // this method is working only when i press on hot reload
   // someone who using bloc may change this
@@ -74,17 +75,22 @@ class _SignupBodyState extends State<SignupBody> {
                   SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () => AuthCubit.get(context).selectImage(),
-                    child: CircleAvatar(
-                      radius: 80,
-                      backgroundImage: AuthCubit.get(context).imageFile != null
-                          ? FileImage(AuthCubit.get(context).imageFile!)
-                          : null,
-                      child: AuthCubit.get(context).imageFile == null
-                          ? const Icon(
-                              Icons.camera_alt,
-                              size: 80,
-                            )
-                          : null,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 100),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 60,
+                        backgroundImage:
+                            AuthCubit.get(context).imageFile != null
+                                ? FileImage(AuthCubit.get(context).imageFile!)
+                                : null,
+                        child: AuthCubit.get(context).imageFile == null
+                            ? const Icon(
+                                Icons.camera_alt,
+                                size: 80,
+                              )
+                            : null,
+                      ),
                     ),
                   ),
                   const Text(
@@ -121,6 +127,25 @@ class _SignupBodyState extends State<SignupBody> {
                     validate: (value) {
                       if (value!.isEmpty || value!.contains('@')) {
                         return 'Email is Wrong You must write .com';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 16.h),
+                  const Text(
+                    'whatsapp number',
+                    style: Styles.textStyle20,
+                  ),
+                  SizedBox(height: 8.h),
+
+                  defaultTextField(
+                    controller: whatsAppController,
+                    type: TextInputType.phone,
+                    maxLength: 11,
+                    hint: 'Write your WhatsApp Number',
+                    validate: (value) {
+                      if (value!.isEmpty || value!.contains('@')) {
+                        return 'Enter Your WhatsApp Number';
                       }
                       return null;
                     },
@@ -185,6 +210,7 @@ class _SignupBodyState extends State<SignupBody> {
                         fName: fNameController.text,
                         lName: lNameController.text,
                         email: emailController.text,
+                        whatsapp: whatsAppController.text,
                         password: passwordController.text,
                       );
                     },

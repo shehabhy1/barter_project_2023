@@ -21,6 +21,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
   var fNameController = TextEditingController();
   var lnameController = TextEditingController();
   var emailController = TextEditingController();
+  var whatsAppController = TextEditingController();
   var passController = TextEditingController();
 
   @override
@@ -29,6 +30,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
     fNameController.dispose();
     lnameController.dispose();
     emailController.dispose();
+    whatsAppController.dispose();
     passController.dispose();
   }
 
@@ -48,6 +50,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
           );
 
           emailController.text = userData.email;
+          whatsAppController.text = userData.whatsapp;
           passController.text = pass;
           //TO replace password to asterisks
 
@@ -70,6 +73,8 @@ class _EditProfileBodyState extends State<EditProfileBody> {
               CustomListTileProfile(
                   title: 'Email', controller: emailController),
               CustomListTileProfile(
+                  title: 'whatsapp', controller: whatsAppController),
+              CustomListTileProfile(
                   title: 'Password', controller: passController),
               // if (state is UpdateProfileDataLoadingState)
               //   const LinearProgressIndicator(),
@@ -81,6 +86,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                     lName: lnameController.text,
                     email: emailController.text,
                     password: passController.text,
+                    whatsapp: whatsAppController.text,
                   );
                 },
               ),

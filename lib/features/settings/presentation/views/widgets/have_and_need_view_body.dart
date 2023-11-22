@@ -31,7 +31,6 @@ class HaveAndNeddViewBody extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Text('My Have',
                         style: Styles.textStyle20.copyWith(fontSize: 20)),
                     const SizedBox(height: 15),
@@ -56,7 +55,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
 
                     Text('My Needs',
                         style: Styles.textStyle20.copyWith(fontSize: 20)),
-                     SizedBox(height: 15.h),
+                    SizedBox(height: 15.h),
                     pCubit.isNeedListEmpty
                         ? const Center(
                             child: Text('Ther is no products'),

@@ -36,7 +36,7 @@ class ListViewSomeProducts extends StatelessWidget {
               width: 16,
             );
           },
-          itemCount: 3),
+          itemCount: products.length),
       // products.length but we need with pagination
     );
   }

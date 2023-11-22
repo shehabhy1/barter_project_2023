@@ -46,7 +46,7 @@ class BarterApp extends StatelessWidget {
             create: (context) => AuthCubit(),
           ),
           BlocProvider(
-            create: (context) => PostCubit()..getAllProducts(),
+            create: (context) => PostCubit(),
           ),
         ],
         child: MaterialApp.router(

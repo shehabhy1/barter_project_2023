@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/constants.dart';
+/* import 'package:barter_project_2023/constants.dart';
 import 'package:barter_project_2023/core/shared_widget/custom_buttom.dart';
 import 'package:barter_project_2023/core/shared_widget/default_text.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
@@ -87,3 +87,4 @@ class PassBody extends StatelessWidget {
     );
   }
 }
+ */

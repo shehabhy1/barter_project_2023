@@ -5,9 +5,11 @@ import '../../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../../core/shared_widget/default_text.dart';
 import '../../../../../../core/shared_widget/show_snack_bar.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../../core/shared_widget/check_button.dart';
 import '../../layout/presentation/views/layout.dart';
 import '../log_in/view_model/auth_cubit.dart';
 import 'another_acount.dart';
+import 'forgetpass.dart';
 import 'item_widget.dart';
 import 'last_row.dart';
 import 'second_row.dart';
@@ -24,7 +26,6 @@ class _LoginBodyState extends State<LoginBody> {
   final passwordController = TextEditingController();
   @override
   void dispose() {
-   
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -107,7 +108,29 @@ class _LoginBodyState extends State<LoginBody> {
                     isObscure: AuthCubit.get(context).isPasswordShow,
                   ),
                   const SizedBox(height: 8),
-                  const SecondRow(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const CheckButton(
+                        text: 'Remember me',
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ForgetPassword()),
+                          );
+                        },
+                        child: Text(
+                          'Forget password?',
+                          style: Styles.textStyle20
+                              .copyWith(fontSize: 14, color: kPrimaryColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                  //   const SecondRow(),
                   const SizedBox(height: 20),
                   CustomButton(
                     width: double.infinity,

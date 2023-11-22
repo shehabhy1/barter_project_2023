@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 
 import '../../../widgets/verify_pass.dart';
 
@@ -14,3 +14,4 @@ class VerifyView extends StatelessWidget {
     );
   }
 }
+ */

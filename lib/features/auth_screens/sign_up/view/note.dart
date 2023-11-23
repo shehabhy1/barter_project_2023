@@ -1,4 +1,0 @@
-/* 
-you have to transfer all the sifn up view inside the View folder that is 
-related to sign up folder 
- */

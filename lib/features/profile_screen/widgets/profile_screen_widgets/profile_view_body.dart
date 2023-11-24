@@ -3,7 +3,6 @@ import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:barter_project_2023/features/profile_screen/widgets/show_alert_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -139,7 +138,7 @@ class ProfileViewBody extends StatelessWidget {
                 ],
               ),
               const Divider(),
-              Row(
+              /*  Row(
                 children: [
                   const Text(
                     'Notification',
@@ -148,14 +147,14 @@ class ProfileViewBody extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  GFToggle(
+                  button(
                     onChanged: (val) {},
                     value: true,
                     enabledThumbColor: Colors.grey,
                     type: GFToggleType.ios,
                   )
                 ],
-              ),
+              ), */
               const Divider(),
               Row(
                 children: [

@@ -1,11 +1,11 @@
 import 'package:barter_project_2023/core/utils/app_router.dart';
 import 'package:barter_project_2023/core/utils/cache_helper.dart';
 import 'package:barter_project_2023/features/layout/presentation/view_model/cubit/layout_cubit.dart';
+import 'package:barter_project_2023/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class BarterApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => BlocProvider(
-              create: (context) => LayoutCubit(),
+        create: (context) => LayoutCubit(),
         child: MaterialApp.router(
           title: 'Barter App',
           debugShowCheckedModeBanner: false,

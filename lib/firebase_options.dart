@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,31 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBzDli89O94roTlRvPnks_frNMpa3mjV4g',
-    appId: '1:201814442769:web:91b872b09cb87948dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    authDomain: 'barter-chat.firebaseapp.com',
-    storageBucket: 'barter-chat.appspot.com',
-    measurementId: 'G-80SYTF87ZX',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCoKBJUAvD_QX5hrZ1XHU_ZoeeWG1WYI-c',
-    appId: '1:201814442769:android:fa33b801e5c0be18dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    storageBucket: 'barter-chat.appspot.com',
+    apiKey: 'AIzaSyBYuDq9FKI6tt_QnP29ON6S6DQ4xhLGGDo',
+    appId: '1:507922846503:android:49ad6daa7cfee1264a4f02',
+    messagingSenderId: '507922846503',
+    projectId: 'barter-app-a7a25',
+    storageBucket: 'barter-app-a7a25.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBCLE8Eu7Xc1RCZFLyr31M-PIbqf5UyC9I',
-    appId: '1:201814442769:ios:6c70eea3c95b4458dbc2b0',
-    messagingSenderId: '201814442769',
-    projectId: 'barter-chat',
-    storageBucket: 'barter-chat.appspot.com',
-    iosClientId: '201814442769-8oqr8ecv5a0bf47rir3rujm2slvaccip.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAZp3KkgrhgMEx6PiG7r-jp-g3FVDaLFr8',
+    appId: '1:507922846503:ios:94d83dc25393bfd94a4f02',
+    messagingSenderId: '507922846503',
+    projectId: 'barter-app-a7a25',
+    storageBucket: 'barter-app-a7a25.appspot.com',
     iosBundleId: 'com.example.barterProject2023',
   );
 }

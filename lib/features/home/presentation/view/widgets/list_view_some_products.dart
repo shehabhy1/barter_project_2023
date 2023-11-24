@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import 'package:barter_project_2023/lib/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
   const ListViewSomeProducts({
@@ -38,10 +37,10 @@ class ListViewSomeProducts extends StatelessWidget {
                   padding: const EdgeInsets.all(2.0),
                   child: ListView(
                     children: [
-                      Image.asset(
+                      /*  Image.asset(
                         Assets.imagesImg,
                         width: 128,
-                      ),
+                      ), */
                       const SizedBox(height: 8),
                       ListTile(
                         contentPadding: EdgeInsets.zero,
@@ -50,10 +49,10 @@ class ListViewSomeProducts extends StatelessWidget {
                                 .copyWith(color: Colors.black)),
                         subtitle: const Text('Description ',
                             style: Styles.textStyle12),
-                        leading: Image.asset(
+                        /*   leading: Image.asset(
                           Assets.imagesProfileImg,
                           width: 28,
-                        ),
+                        ), */
                       ),
                       const SizedBox(height: 8),
                       Align(

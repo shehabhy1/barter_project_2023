@@ -52,7 +52,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const ChatPage(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
           name: routingOnBoardingView,

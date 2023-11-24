@@ -58,7 +58,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       Image.asset(
                         screens[index].image!,
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: isLast

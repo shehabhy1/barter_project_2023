@@ -17,27 +17,21 @@ class CustomListTileProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        title,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: kPrimaryColor,
+        title: Text(
+          title,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: kPrimaryColor,
+          ),
         ),
-      ),
-      subtitle: Text(
-        subTitle,
-        style: const TextStyle(
-          fontSize: 16,
-          color: kGreyColor,
+        subtitle: Text(
+          subTitle,
+          style: const TextStyle(
+            fontSize: 16,
+            color: kGreyColor,
+          ),
         ),
-      ),
-      trailing: Image.asset(
-        AssetData.editTextIcon,
-        width: 25,
-        height: 44,
-        color: kGreyColor,
-      ),
-    );
+        trailing: trailing);
   }
 }

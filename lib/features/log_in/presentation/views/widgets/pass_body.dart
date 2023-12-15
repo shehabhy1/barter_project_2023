@@ -10,8 +10,8 @@ class PassBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40 , horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,24 +28,25 @@ class PassBody extends StatelessWidget {
             'Email',
             style: Styles.textStyle20,
           ),
-          const SizedBox(height: 8,),
-          defaultText(
-              type: TextInputType.emailAddress,
-            hint: 'Write Your Email'
+          const SizedBox(
+            height: 8,
           ),
-          const SizedBox(height: 40,),
+          defaultTextField(
+              type: TextInputType.emailAddress, hint: 'Write Your Email'),
+          const SizedBox(
+            height: 40,
+          ),
           CustomButton(
-            width: double.infinity,
+              width: double.infinity,
               height: 60,
               backgroundColor: kPrimaryColor,
               text: 'Send',
-              func: (){
+              onPressed: () {
                 Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const VerifyView()),
-                        );
-              }
-          ),
+                  context,
+                  MaterialPageRoute(builder: (context) => const VerifyView()),
+                );
+              }),
         ],
       ),
     );

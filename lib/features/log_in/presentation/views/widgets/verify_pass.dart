@@ -11,8 +11,8 @@ class VerifyPass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40 , horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,36 +22,47 @@ class VerifyPass extends StatelessWidget {
               style: Styles.textStyle32,
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           Center(
-            child: Text('Enter the 4-digital code sent to you at ',
-              style: Styles.textStyle20.copyWith(color: const Color((0xFF8B8B8B),),
+            child: Text(
+              'Enter the 4-digital code sent to you at ',
+              style: Styles.textStyle20.copyWith(
+                color: const Color(
+                  (0xFF8B8B8B),
+                ),
               ),
             ),
           ),
           Center(
-              child:
-              Text(
-                  '0813-3754-6113',
-              style: Styles.textStyle20.copyWith(color: const Color((0xFF8B8B8B),),
-              ),),),
+            child: Text(
+              '0813-3754-6113',
+              style: Styles.textStyle20.copyWith(
+                color: const Color(
+                  (0xFF8B8B8B),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(
             height: 20,
           ),
-         const VerifyOtp(),
-          const SizedBox(height: 40,),
+          const VerifyOtp(),
+          const SizedBox(
+            height: 40,
+          ),
           CustomButton(
               width: double.infinity,
               height: 60,
               backgroundColor: kPrimaryColor,
               text: 'Send',
-              func: (){
+              onPressed: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const NewPass()),
                 );
-              }
-          ),
+              }),
         ],
       ),
     );

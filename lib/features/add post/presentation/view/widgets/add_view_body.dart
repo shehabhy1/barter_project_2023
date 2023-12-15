@@ -1,3 +1,5 @@
+/* import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'custom_drop_list.dart';
@@ -20,7 +22,9 @@ class AddViewBody extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  log('message');
+                },
                 child: Image.asset(
                   "assets/images/add_post.png",
                   height: MediaQuery.of(context).size.height * .377,
@@ -39,3 +43,4 @@ class AddViewBody extends StatelessWidget {
     );
   }
 }
+ */

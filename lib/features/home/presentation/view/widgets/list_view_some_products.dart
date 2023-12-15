@@ -1,10 +1,10 @@
-import 'package:barter_project_2023/core/utils/app_router.dart';
+/* import 'package:barter_project_2023/core/utils/app_router.dart';
+import 'package:barter_project_2023/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import 'package:barter_project_2023/lib/assets.dart';
 
 class ListViewSomeProducts extends StatelessWidget {
   const ListViewSomeProducts({
@@ -13,7 +13,8 @@ class ListViewSomeProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return 
+     SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.37,
       child: ListView.separated(
           physics: const BouncingScrollPhysics(),
@@ -39,7 +40,7 @@ class ListViewSomeProducts extends StatelessWidget {
                   child: ListView(
                     children: [
                       Image.asset(
-                        Assets.imagesImg,
+                        AssetData.imagesImg,
                         width: 128,
                       ),
                       const SizedBox(height: 8),
@@ -51,7 +52,7 @@ class ListViewSomeProducts extends StatelessWidget {
                         subtitle: const Text('Description ',
                             style: Styles.textStyle12),
                         leading: Image.asset(
-                          Assets.imagesProfileImg,
+                          AssetData.imagesProfileImg,
                           width: 28,
                         ),
                       ),
@@ -83,6 +84,7 @@ class ListViewSomeProducts extends StatelessWidget {
             );
           },
           itemCount: 3),
-    );
+    ); 
   }
 }
+ */

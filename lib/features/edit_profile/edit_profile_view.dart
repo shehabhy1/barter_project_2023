@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+/* // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:barter_project_2023/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -13,20 +13,21 @@ class EditProfileView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: const Text('Edit Profile'),
+        title: Text('Edit Profile'),
         titleTextStyle: Styles.textStyle24,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
           ),
         ),
       ),
-      body: const EditProfileBody(),
+      body: EditProfileBody(),
     );
   }
 }
+ */

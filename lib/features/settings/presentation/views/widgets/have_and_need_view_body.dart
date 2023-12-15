@@ -18,7 +18,7 @@ class HaveAndNeddViewBody extends StatelessWidget {
         children: [
           SizedBox(
             height: 44.h,
-            child: defaultText(
+            child: defaultTextField(
               type: TextInputType.text,
               onChange: (value) {},
               hint: 'Search',

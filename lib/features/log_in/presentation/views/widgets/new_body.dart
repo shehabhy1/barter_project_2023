@@ -12,7 +12,7 @@ class NewPassBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40 , horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,34 +29,37 @@ class NewPassBody extends StatelessWidget {
             'New Password',
             style: Styles.textStyle20,
           ),
-          const SizedBox(height: 8,),
-          defaultText(
-              type: TextInputType.visiblePassword,
-              hint: 'Write your password'
+          const SizedBox(
+            height: 8,
           ),
-          const SizedBox(height: 16,),
+          defaultTextField(
+              type: TextInputType.visiblePassword, hint: 'Write your password'),
+          const SizedBox(
+            height: 16,
+          ),
           const Text(
             'Repeat Password',
             style: Styles.textStyle20,
           ),
-          const SizedBox(height: 8,),
-          defaultText(
-              type: TextInputType.visiblePassword,
-              hint: 'Write your password'
+          const SizedBox(
+            height: 8,
           ),
-          const SizedBox(height: 40,),
+          defaultTextField(
+              type: TextInputType.visiblePassword, hint: 'Write your password'),
+          const SizedBox(
+            height: 40,
+          ),
           CustomButton(
               width: double.infinity,
               height: 60,
               backgroundColor: kPrimaryColor,
               text: 'Send',
-              func: (){
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const LayoutView()),
                 );
-              }
-          ),
+              }),
         ],
       ),
     );

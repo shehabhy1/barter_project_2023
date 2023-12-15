@@ -17,7 +17,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/notification/presentition/views/notification_screen.dart';
 import '../../features/settings/presentation/views/settings_view.dart';
-import '../../features/sign_up/sign_up_view.dart';
+import '../../features/swapping/sign_up_view.dart';
 
 bool isLast = CacheHelper.getData(key: Constant.kOnBoardingView) ?? false;
 
@@ -52,7 +52,7 @@ class AppRouter {
       GoRoute(
         path: routingSplashView,
 //add splash view when finish
-        builder: (context, state) => const ChatPage(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
           name: routingOnBoardingView,
@@ -84,21 +84,21 @@ class AppRouter {
         path: pProductDetails,
         builder: (context, state) => const ProductDetails(),
       ),
-      GoRoute(
+      /*  GoRoute(
         name: editProfile,
         path: editProfile,
         builder: (context, state) => const EditProfileView(),
-      ),
+      ), */
       GoRoute(
         name: settingsView,
         path: settingsView,
         builder: (context, state) => const SettingsView(),
       ),
-      GoRoute(
+      /* GoRoute(
         name: chatpage,
         path: chatpage,
         builder: (context, state) => const ChatPage(),
-      ),
+      ), */
       GoRoute(
         name: signup,
         path: signup,

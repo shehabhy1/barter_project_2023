@@ -4,12 +4,11 @@ import '../../constants.dart';
 
 // default text form field you should name it like this
 
-Widget defaultText({
+Widget defaultTextField({
   // final String? Function(String?)? validator,
   TextEditingController? controller,
   required TextInputType type,
   Function(String)? onChange,
-  FormFieldValidator? validate,
   String? label,
   String? hint,
   IconData? prefix,
@@ -19,7 +18,7 @@ Widget defaultText({
   Function()? tap,
   bool? enable,
 }) =>
-    TextFormField(
+    TextField(
       onTap: tap,
       enabled: enable,
       controller: controller,
@@ -47,5 +46,4 @@ Widget defaultText({
       ),
       keyboardType: type,
       onChanged: onChange,
-      validator: validate,
     );

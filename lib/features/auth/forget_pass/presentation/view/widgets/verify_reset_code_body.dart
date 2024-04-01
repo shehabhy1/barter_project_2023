@@ -1,4 +1,4 @@
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/shared_widget/custom_buttom.dart';
@@ -50,7 +50,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
                     // ?? context.read<ForgetPassCubit>().email
                     ,
                     style: TextStyle(
-                        color: Constants.primaryColor, fontSize: 16.sp),
+                        color: AppConstants.primaryColor, fontSize: 16.sp),
                   )
                 ],
                 style: Styles.textStyle20.copyWith(
@@ -70,8 +70,8 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
               showFieldAsBox: true,
               onCodeChanged: (val) {},
               textStyle: Styles.textStyle20,
-              focusedBorderColor: Constants.primaryColor,
-              enabledBorderColor: Constants.greyColor,
+              focusedBorderColor: AppConstants.primaryColor,
+              enabledBorderColor: AppConstants.greyColor,
               onSubmit: (String verificationCode) {
                 codeOtp = verificationCode;
                 debugPrint(codeOtp.toString());
@@ -81,7 +81,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
             CustomButton(
               width: double.infinity,
               height: 60,
-              backgroundColor: Constants.primaryColor,
+              backgroundColor: AppConstants.primaryColor,
               text: 'Send',
               func: () {
                 if (formKey.currentState!.validate()) {

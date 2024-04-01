@@ -1,7 +1,7 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../core/helper/constants.dart';
+import '../../../../../../core/helper/app_constants.dart';
 import '../../../../../../core/shared_widget/check_button.dart';
 import '../../../../../../core/utils/styles.dart';
 
@@ -23,7 +23,7 @@ class SecondRow extends StatelessWidget {
           child: Text(
             'Forget password?',
             style: Styles.textStyle20
-                .copyWith(fontSize: 14, color: Constants.primaryColor),
+                .copyWith(fontSize: 14, color: AppConstants.primaryColor),
           ),
         ),
       ],

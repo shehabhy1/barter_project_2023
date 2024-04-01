@@ -1,4 +1,4 @@
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +25,7 @@ void snackBarState(BuildContext context, String error) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       duration: const Duration(seconds: 3),
-      backgroundColor: Constants.primaryColor,
+      backgroundColor: AppConstants.primaryColor,
       content: Text(
         error,
         textAlign: TextAlign.center,

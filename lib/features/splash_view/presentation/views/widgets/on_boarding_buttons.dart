@@ -5,7 +5,7 @@ import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/helper/constants.dart';
+import '../../../../../core/helper/app_constants.dart';
 import '../../../../../core/utils/cache_helper.dart';
 
 class OnBoardingButtons extends StatelessWidget {
@@ -24,7 +24,7 @@ class OnBoardingButtons extends StatelessWidget {
         Container(
           width: 310.w,
           decoration: BoxDecoration(
-              color: Constants.primaryColor,
+              color: AppConstants.primaryColor,
               borderRadius: BorderRadius.circular(8)),
           //TODO: راجع التصميم مع فيجما  => شهاب
           child: TextButton(
@@ -48,7 +48,7 @@ class OnBoardingButtons extends StatelessWidget {
           width: 310.w,
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: Constants.primaryColor),
+            border: Border.all(color: AppConstants.primaryColor),
             borderRadius: BorderRadius.circular(8),
           ),
           child: TextButton(
@@ -57,7 +57,8 @@ class OnBoardingButtons extends StatelessWidget {
             },
             child: Text(
               'Skip',
-              style: Styles.textStyle20.copyWith(color: Constants.primaryColor),
+              style:
+                  Styles.textStyle20.copyWith(color: AppConstants.primaryColor),
             ),
           ),
         ),
@@ -67,7 +68,7 @@ class OnBoardingButtons extends StatelessWidget {
 
   void submit(BuildContext context) {
     //save data in shared pref
-    CacheHelper.saveBool(key: Constants.kOnBoardingView, value: true).then(
+    CacheHelper.saveBool(key: AppConstants.kOnBoardingView, value: true).then(
       (value) {
         if (value) {
           context.pushReplacementNamed(Routes.loginView);

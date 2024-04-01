@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/networking/api_constants.dart';
 import 'package:barter_app/core/networking/dio_factory.dart';
 import 'package:barter_app/core/networking/errors/exceptions.dart';
@@ -30,7 +30,7 @@ class LoginRepo {
       final loginResponse = LoginResponse.fromJson(response);
 
       CacheHelper.saveString(
-          key: Constants.kUserToken, value: loginResponse.token);
+          key: AppConstants.kUserToken, value: loginResponse.token);
       return Right(loginResponse);
     } on ServerException catch (e) {
       return Left(e.errModel.message!);

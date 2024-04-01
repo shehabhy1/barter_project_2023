@@ -1,4 +1,4 @@
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/shared_widget/custom_buttom.dart';
 import 'package:barter_app/core/shared_widget/default_text.dart';
 import 'package:barter_app/core/utils/styles.dart';
@@ -55,7 +55,7 @@ class _ForgetPassBodyState extends State<ForgetPassBody> {
           CustomButton(
               width: double.infinity,
               height: 60,
-              backgroundColor: Constants.primaryColor,
+              backgroundColor: AppConstants.primaryColor,
               text: 'Send',
               func: () {
                 context

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constants {
+class AppConstants {
   static const String kOnBoardingView = 'onBoarding';
   static const String kUserToken = 'userToken';
   static const Color primaryColor = Color(0xFFB73BFF);

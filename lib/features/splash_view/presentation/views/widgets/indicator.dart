@@ -2,7 +2,7 @@ import 'package:barter_app/features/splash_view/presentation/views/on_boarding_v
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../core/helper/constants.dart';
+import '../../../../../core/helper/app_constants.dart';
 
 class Indicator extends StatelessWidget {
   const Indicator({
@@ -23,7 +23,7 @@ class Indicator extends StatelessWidget {
           dotWidth: 9.0,
           dotHeight: 9.0,
           spacing: 8.0,
-          activeDotColor: Constants.primaryColor),
+          activeDotColor: AppConstants.primaryColor),
     );
   }
 }

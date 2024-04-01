@@ -5,7 +5,7 @@ import 'package:barter_app/features/auth/login/presentation/view_model/cubit/log
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../core/helper/constants.dart';
+import '../../../../../../core/helper/app_constants.dart';
 import '../../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../../core/utils/styles.dart';
 import 'last_row.dart';
@@ -50,7 +50,7 @@ class _LoginBodyState extends State<LoginBody> {
                     : CustomButton(
                         width: double.infinity,
                         height: 60,
-                        backgroundColor: Constants.primaryColor,
+                        backgroundColor: AppConstants.primaryColor,
                         text: 'Log in',
                         func: () {
                           validateThenDoLogin(context);

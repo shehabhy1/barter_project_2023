@@ -3,7 +3,7 @@ import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/r
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/helper/constants.dart';
+import '../../../../../../core/helper/app_constants.dart';
 import '../../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../../core/shared_widget/default_text.dart';
 import '../../../../../../core/utils/styles.dart';
@@ -77,7 +77,7 @@ class _ResetPassBodyState extends State<ResetPassBody> {
             CustomButton(
                 width: double.infinity,
                 height: 60,
-                backgroundColor: Constants.primaryColor,
+                backgroundColor: AppConstants.primaryColor,
                 text: 'Send',
                 func: () {
                   context.read<ForgetPassCubit>().resetPassword(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../helper/constants.dart';
+import '../helper/app_constants.dart';
 
 // default text form field you should name it like this
 
@@ -29,7 +29,7 @@ Widget defaultText({
       obscureText: isObscure,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: Constants.primaryColor),
+        labelStyle: const TextStyle(color: AppConstants.primaryColor),
         hintText: hint,
         prefixIcon: Icon(prefix),
         suffixIcon: sufficIcon,
@@ -37,7 +37,7 @@ Widget defaultText({
           borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Constants.primaryColor, width: 2.0),
+          borderSide: BorderSide(color: AppConstants.primaryColor, width: 2.0),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
       ),

@@ -8,7 +8,7 @@ import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/helper/constants.dart';
+import '../../../../../../core/helper/app_constants.dart';
 
 class ResetPassBlocListener extends StatelessWidget {
   const ResetPassBlocListener({super.key});
@@ -31,7 +31,7 @@ class ResetPassBlocListener extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               duration: const Duration(seconds: 3),
-              backgroundColor: Constants.primaryColor,
+              backgroundColor: AppConstants.primaryColor,
               content: Text(
                 'Password changed successfully',
                 textAlign: TextAlign.center,
@@ -44,7 +44,7 @@ class ResetPassBlocListener extends StatelessWidget {
           );
           context.pushReplacementNamed(Routes.loginView);
         } else {
-                    //TODO: add progress
+          //TODO: add progress
 
           // defaultCircularProgress(context: context);
         }

@@ -1,4 +1,4 @@
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
 import '../utils/styles.dart';
 
@@ -22,7 +22,7 @@ class _CheckButtomState extends State<CheckButtom> {
                   5.0), // Set your desired border radius here
             ),
             value: isChecked,
-            activeColor: Constants.primaryColor,
+            activeColor: AppConstants.primaryColor,
             onChanged: (newBool) {
               setState(() {
                 isChecked = newBool!;

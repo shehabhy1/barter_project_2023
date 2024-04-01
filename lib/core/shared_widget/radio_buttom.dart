@@ -1,4 +1,4 @@
-import 'package:barter_app/core/helper/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
 import '../utils/styles.dart';
 
@@ -24,7 +24,7 @@ class _RadioCheckState extends State<RadioCheck> {
         Row(
           children: [
             Radio(
-              activeColor: Constants.primaryColor,
+              activeColor: AppConstants.primaryColor,
               value: 1,
               groupValue: _selectedValue,
               onChanged: (value) {
@@ -48,7 +48,7 @@ class _RadioCheckState extends State<RadioCheck> {
         Row(
           children: [
             Radio(
-              activeColor: Constants.primaryColor,
+              activeColor: AppConstants.primaryColor,
               value: 2,
               groupValue: _selectedValue,
               onChanged: (value) {

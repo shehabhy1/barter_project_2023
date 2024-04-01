@@ -29,4 +29,9 @@ class AppRegex {
   static bool hasMinLength(String password) {
     return RegExp(r'^(?=.{8,})').hasMatch(password);
   }
+
+  // Regular expression to validate Egyptian phone numbers
+  static bool validatePhoneNumber(String number) {
+    return RegExp(r'^01[0-2]\d{8}$').hasMatch(number);
+  }
 }

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../../../constants.dart';
+import '../../../../../../core/helper/constants.dart';
 import '../../../../../../core/shared_widget/custom_buttom.dart';
 import '../../../../../../core/utils/styles.dart';
 

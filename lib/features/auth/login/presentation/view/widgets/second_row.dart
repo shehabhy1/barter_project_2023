@@ -1,7 +1,7 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../constants.dart';
+import '../../../../../../core/helper/constants.dart';
 import '../../../../../../core/shared_widget/check_button.dart';
 import '../../../../../../core/utils/styles.dart';
 

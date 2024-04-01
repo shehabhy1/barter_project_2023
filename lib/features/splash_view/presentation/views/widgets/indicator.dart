@@ -2,7 +2,7 @@ import 'package:barter_app/features/splash_view/presentation/views/on_boarding_v
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../constants.dart';
+import '../../../../../core/helper/constants.dart';
 
 class Indicator extends StatelessWidget {
   const Indicator({

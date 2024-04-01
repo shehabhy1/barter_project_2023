@@ -1,10 +1,11 @@
 import 'package:barter_app/core/helper/extentions.dart';
+import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../constants.dart';
+import '../../../../../core/helper/constants.dart';
 import '../../../../../core/utils/cache_helper.dart';
 
 class OnBoardingButtons extends StatelessWidget {
@@ -42,7 +43,7 @@ class OnBoardingButtons extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 16.h),
+        verticalSpace(16),
         Container(
           width: 310.w,
           decoration: BoxDecoration(

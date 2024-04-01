@@ -1,4 +1,4 @@
-import 'package:barter_app/constants.dart';
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

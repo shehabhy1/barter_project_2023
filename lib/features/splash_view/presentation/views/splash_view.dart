@@ -1,7 +1,6 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/assets.dart';
 
 class SplashView extends StatefulWidget {

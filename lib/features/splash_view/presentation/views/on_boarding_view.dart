@@ -1,10 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-
+import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/indicator.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/on_boarding_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/utils/assets.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -35,7 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 100.h),
+              verticalSpace(100),
               Expanded(
                 child: PageView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -72,7 +70,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 ),
                               ),
                       ),
-                      SizedBox(height: 15.h),
+                      verticalSpace(15),
                     ],
                   ),
                 ),
@@ -88,7 +86,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 isLast: isLast,
               ),
 
-              SizedBox(height: 40.h),
+              verticalSpace(40),
             ],
           ),
         ),

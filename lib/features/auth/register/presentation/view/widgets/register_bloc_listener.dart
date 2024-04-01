@@ -24,7 +24,7 @@ class RegisterBlocListener extends StatelessWidget {
           context.pushNamed(Routes.layoutView);
         }
       },
-      child: SizedBox(),
+      child: const SizedBox(),
     );
   }
 

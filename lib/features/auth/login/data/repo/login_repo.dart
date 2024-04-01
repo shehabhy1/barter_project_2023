@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:barter_app/constants.dart';
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:barter_app/core/networking/api_constants.dart';
 import 'package:barter_app/core/networking/dio_factory.dart';
 import 'package:barter_app/core/networking/errors/exceptions.dart';

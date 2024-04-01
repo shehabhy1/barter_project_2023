@@ -1,6 +1,5 @@
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
 import '../utils/styles.dart';
 
 class CheckButtom extends StatefulWidget {

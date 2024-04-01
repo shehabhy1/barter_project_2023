@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/helper/spacing.dart';
+
 class PasswordValidations extends StatelessWidget {
   const PasswordValidations(
       {super.key,
@@ -20,14 +22,14 @@ class PasswordValidations extends StatelessWidget {
     return Column(
       children: [
         buildValidationRow('At least 1 lowercase letter', hasLowerCase),
-        SizedBox(height: 2.h),
+        verticalSpace(2),
         buildValidationRow('At least 1 uppercase letter', hasUpperCase),
-        SizedBox(height: 2.h),
+        verticalSpace(2),
         buildValidationRow(
             'At least 1 special character', hasSpecialCharacters),
-        SizedBox(height: 2.h),
+        verticalSpace(2),
         buildValidationRow('At least 1 number', hasNumber),
-        SizedBox(height: 2.h),
+        verticalSpace(2),
         buildValidationRow('At least 8 characters long', hasMinLength),
       ],
     );
@@ -39,7 +41,7 @@ class PasswordValidations extends StatelessWidget {
             radius: 2.5.sp,
             backgroundColor: Colors.grey,
           ),
-          SizedBox(width: 10.w),
+          horizontalSpace(10),
           Text(
             text,
             style: TextStyle(

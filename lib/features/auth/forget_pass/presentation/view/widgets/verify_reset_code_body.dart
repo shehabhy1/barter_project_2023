@@ -1,4 +1,4 @@
-import 'package:barter_app/constants.dart';
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/shared_widget/custom_buttom.dart';
@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../../core/helper/spacing.dart';
 
 class VerifyResetCodeBody extends StatefulWidget {
   const VerifyResetCodeBody({super.key, required this.email});
@@ -37,9 +39,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
                 style: Styles.textStyle32,
               ),
             ),
-            SizedBox(
-              height: 10.h,
-            ),
+            verticalSpace(10),
             RichText(
               text: TextSpan(
                 text: 'Enter the 6-digital code sent to ',
@@ -60,9 +60,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20.h,
-            ),
+            verticalSpace(20),
             OtpTextField(
               fillColor: Colors.blue,
               numberOfFields: 6,
@@ -79,9 +77,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
                 debugPrint(codeOtp.toString());
               },
             ),
-            SizedBox(
-              height: 80.h,
-            ),
+            verticalSpace(80),
             CustomButton(
               width: double.infinity,
               height: 60,

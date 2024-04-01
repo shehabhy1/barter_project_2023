@@ -1,4 +1,4 @@
-import 'package:barter_app/constants.dart';
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:barter_app/core/utils/cache_helper.dart';
 import 'package:dio/dio.dart';
 

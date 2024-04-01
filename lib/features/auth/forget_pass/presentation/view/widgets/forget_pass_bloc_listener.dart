@@ -1,6 +1,5 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
-import 'package:barter_app/core/shared_widget/defaut_circular_progress.dart';
 import 'package:barter_app/core/shared_widget/error_dialog.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_cubit.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_state.dart';

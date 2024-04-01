@@ -1,4 +1,4 @@
-import 'package:barter_app/constants.dart';
+import 'package:barter_app/core/helper/constants.dart';
 import 'package:barter_app/core/shared_widget/custom_buttom.dart';
 import 'package:barter_app/core/shared_widget/default_text.dart';
 import 'package:barter_app/core/utils/styles.dart';

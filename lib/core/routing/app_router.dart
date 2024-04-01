@@ -18,19 +18,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
-  // bool isLast = CacheHelper.getData(key: Constants.kOnBoardingView) ?? false;
+  bool isLast = CacheHelper.getData(key: AppConstants.kOnBoardingView) ?? false;
 
   Route generatRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.routingSplashView:
         return MaterialPageRoute(builder: (_) => const SplashView());
+      case Routes.onBoardingView:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  // child: const LoginView(),
+                  child: isLast ? const LoginView() : const OnBoardingView(),
+                ));
       case Routes.loginView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
-                  child: LoginView(),
-                  // child: isLast ? const LoginView() : const OnBoardingView(),
+                  child: const LoginView(),
                 ));
       case Routes.registerView:
         return MaterialPageRoute(

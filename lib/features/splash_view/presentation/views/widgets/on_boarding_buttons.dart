@@ -4,7 +4,6 @@ import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/helper/app_constants.dart';
 import '../../../../../core/utils/cache_helper.dart';
 
@@ -28,9 +27,14 @@ class OnBoardingButtons extends StatelessWidget {
               borderRadius: BorderRadius.circular(8)),
           //TODO: راجع التصميم مع فيجما  => شهاب
           child: TextButton(
-            onPressed: () {
+            onPressed: () async {
               if (isLast) {
                 submit(context);
+                // await CacheHelper.saveBool(
+                //     key: AppConstants.kOnBoardingView, value: true);
+                // Future.delayed(const Duration(milliseconds: 5000), () {
+                //   context.pushReplacementNamed(Routes.loginView);
+                // });
               } else {
                 onBoardingController.nextPage(
                     duration: const Duration(microseconds: 750),

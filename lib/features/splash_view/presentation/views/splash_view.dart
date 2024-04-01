@@ -49,7 +49,7 @@ class _SplashViewState extends State<SplashView> {
 
   void navigateToHome() {
     Future.delayed(const Duration(milliseconds: 3500), () {
-      context.pushReplacementNamed(Routes.loginView);
+      context.pushReplacementNamed(Routes.onBoardingView);
     });
   }
 }

@@ -3,8 +3,8 @@ import 'package:barter_app/features/auth/login/presentation/view/widgets/passwor
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/shared_widget/default_text.dart';
+import '../../../../../../core/helper/spacing.dart';
+import '../../../../../../core/shared_widget/app_text_field.dart';
 import '../../../../../../core/utils/styles.dart';
 
 class EmailAndPassword extends StatefulWidget {
@@ -56,10 +56,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             'Email',
             style: Styles.textStyle20,
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          defaultText(
+          const SizedBox(height: 8),
+          AppTextFiled(
             type: TextInputType.emailAddress,
             hint: 'Write your Email',
             controller: context.read<LoginCubit>().emailController,
@@ -73,17 +71,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               return null;
             },
           ),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           const Text(
             'Password',
             style: Styles.textStyle20,
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          defaultText(
+          const SizedBox(height: 8),
+          AppTextFiled(
             controller: context.read<LoginCubit>().passwordController,
             type: TextInputType.visiblePassword,
             hint: 'Write your password',
@@ -105,13 +99,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               ),
             ),
           ),
-          SizedBox(height: 24.h),
+          verticalSpace(24),
           PasswordValidations(
-              hasLowerCase: hasLowercase,
-              hasUpperCase: hasUppercase,
-              hasSpecialCharacters: hasSpecialCharacters,
-              hasNumber: hasNumber,
-              hasMinLength: hasMinLength)
+            hasLowerCase: hasLowercase,
+            hasUpperCase: hasUppercase,
+            hasSpecialCharacters: hasSpecialCharacters,
+            hasNumber: hasNumber,
+            hasMinLength: hasMinLength,
+          )
         ],
       ),
     );

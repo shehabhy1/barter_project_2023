@@ -5,8 +5,7 @@ import 'package:barter_app/features/auth/login/presentation/view_model/cubit/log
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../core/helper/app_constants.dart';
-import '../../../../../../core/shared_widget/custom_buttom.dart';
+import '../../../../../../core/shared_widget/app_buttom.dart';
 import '../../../../../../core/utils/styles.dart';
 import 'last_row.dart';
 
@@ -32,25 +31,16 @@ class _LoginBodyState extends State<LoginBody> {
                 style: Styles.textStyle32,
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             const EmailAndPassword(),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             const SecondRow(),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             BlocBuilder<LoginCubit, LoginState>(
               builder: (context, state) {
                 return state is LoginLoadingState
                     ? const Center(child: CircularProgressIndicator())
-                    : CustomButton(
-                        width: double.infinity,
-                        height: 60,
-                        backgroundColor: AppConstants.primaryColor,
+                    : AppButton(
                         text: 'Log in',
                         func: () {
                           validateThenDoLogin(context);
@@ -58,9 +48,7 @@ class _LoginBodyState extends State<LoginBody> {
                       );
               },
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             const LastLine(),
             const LoginBlocListener(),
           ],

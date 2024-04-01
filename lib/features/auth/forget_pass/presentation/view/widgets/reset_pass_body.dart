@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/helper/app_constants.dart';
-import '../../../../../../core/shared_widget/custom_buttom.dart';
-import '../../../../../../core/shared_widget/default_text.dart';
+import '../../../../../../core/shared_widget/app_buttom.dart';
+import '../../../../../../core/shared_widget/app_text_field.dart';
 import '../../../../../../core/utils/styles.dart';
 
 class ResetPassBody extends StatefulWidget {
@@ -52,7 +52,7 @@ class _ResetPassBodyState extends State<ResetPassBody> {
             const SizedBox(
               height: 8,
             ),
-            defaultText(
+            AppTextFiled(
               controller: TextEditingController(text: widget.email),
               readOnly: true,
               type: TextInputType.text,
@@ -67,17 +67,14 @@ class _ResetPassBodyState extends State<ResetPassBody> {
             const SizedBox(
               height: 8,
             ),
-            defaultText(
+            AppTextFiled(
                 controller: newPassController,
                 type: TextInputType.visiblePassword,
                 hint: 'Write your password'),
             const SizedBox(
               height: 40,
             ),
-            CustomButton(
-                width: double.infinity,
-                height: 60,
-                backgroundColor: AppConstants.primaryColor,
+            AppButton(
                 text: 'Send',
                 func: () {
                   context.read<ForgetPassCubit>().resetPassword(

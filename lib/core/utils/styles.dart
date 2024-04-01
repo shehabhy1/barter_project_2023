@@ -26,19 +26,19 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
     letterSpacing: 0.02,
   );
- static const textStyle14 = TextStyle(
-   color: Color(0xFF767474),
-   fontSize: 16,
-   fontFamily: 'Poppins',
-   fontWeight: FontWeight.w400,
-   letterSpacing: 0.02,
- );
+  static const textStyle14 = TextStyle(
+    color: Color(0xFF767474),
+    fontSize: 16,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.02,
+  );
 
- static const textStyle12 = TextStyle(
-   color: Color(0xFF746F6F),
-   fontSize: 12,
-   fontFamily: 'Poppins',
-   fontWeight: FontWeight.w400,
-   letterSpacing: 0.05,
- );
+  static const textStyle12 = TextStyle(
+    color: Color(0xFF746F6F),
+    fontSize: 12,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.05,
+  );
 }

@@ -1,7 +1,7 @@
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
-import 'package:barter_app/core/shared_widget/custom_buttom.dart';
+import 'package:barter_app/core/shared_widget/app_buttom.dart';
 import 'package:barter_app/core/shared_widget/error_dialog.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_cubit.dart';
@@ -78,10 +78,7 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
               },
             ),
             verticalSpace(80),
-            CustomButton(
-              width: double.infinity,
-              height: 60,
-              backgroundColor: AppConstants.primaryColor,
+            AppButton(
               text: 'Send',
               func: () {
                 if (formKey.currentState!.validate()) {

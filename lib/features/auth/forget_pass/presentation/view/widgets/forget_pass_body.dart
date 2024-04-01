@@ -1,6 +1,6 @@
 import 'package:barter_app/core/helper/app_constants.dart';
-import 'package:barter_app/core/shared_widget/custom_buttom.dart';
-import 'package:barter_app/core/shared_widget/default_text.dart';
+import 'package:barter_app/core/shared_widget/app_buttom.dart';
+import 'package:barter_app/core/shared_widget/app_text_field.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_cubit.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/forget_pass_bloc_listener.dart';
@@ -45,17 +45,14 @@ class _ForgetPassBodyState extends State<ForgetPassBody> {
           const SizedBox(
             height: 8,
           ),
-          defaultText(
+          AppTextFiled(
               type: TextInputType.emailAddress,
               controller: verifyEmailController,
               hint: 'Write Your Email'),
           const SizedBox(
             height: 40,
           ),
-          CustomButton(
-              width: double.infinity,
-              height: 60,
-              backgroundColor: AppConstants.primaryColor,
+          AppButton(
               text: 'Send',
               func: () {
                 context

@@ -17,6 +17,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController fNameController = TextEditingController();
   TextEditingController lNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  TextEditingController whatsController = TextEditingController();
 
   XFile? imageFile;
   XFile? profilePic;

@@ -46,7 +46,7 @@ class RegisterBody extends StatelessWidget {
                       }),
                 const SizedBox(height: 15),
                 const LastLineSign(),
-                const RegisterBlocListener()
+                const RegisterBlocListener(),
               ],
             );
           },
@@ -55,6 +55,7 @@ class RegisterBody extends StatelessWidget {
     );
   }
 }
+
                 // GestureDetector(
                 //   onTap: () {
                 //     ImagePicker().pickImage(source: ImageSource.gallery).then(

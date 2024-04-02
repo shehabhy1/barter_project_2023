@@ -21,23 +21,25 @@ Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
+      name: json['name'] as String?,
       email: json['email'] as String?,
       gender: json['gender'] as String?,
       phone: json['phone'] as String?,
-      image: json['image'] as String?,
+      image: json['image'] == null
+          ? null
+          : Image.fromJson(json['image'] as Map<String, dynamic>),
       password: json['password'] as String?,
+      whatsapp: json['whatsapp'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
+      'name': instance.name,
       'email': instance.email,
       'gender': instance.gender,
       'phone': instance.phone,
       'image': instance.image,
       'password': instance.password,
+      'whatsapp': instance.whatsapp,
     };
 
 Image _$ImageFromJson(Map<String, dynamic> json) => Image(

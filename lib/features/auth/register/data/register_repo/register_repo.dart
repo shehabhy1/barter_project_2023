@@ -17,8 +17,8 @@ class RegisterRepo {
     required String email,
     required String password,
     required String gender,
-    required String firstName,
-    required String lastName,
+    required String name,
+    required String whatsapp,
     required String phone,
     required XFile image,
   }) async {
@@ -31,8 +31,8 @@ class RegisterRepo {
             'email': email,
             'password': password,
             'gender': gender,
-            'firstName': firstName,
-            'lastName': lastName,
+            'name': name,
+            'whatsapp': whatsapp,
             'phone': phone,
             'image': await MultipartFile.fromFile(
               image.path,

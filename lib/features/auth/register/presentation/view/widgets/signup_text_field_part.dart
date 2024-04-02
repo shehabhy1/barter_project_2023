@@ -19,7 +19,7 @@ class SignUpTextFieldPart extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         AppTextFiled(
-            controller: cubit.lNameController,
+            controller: cubit.nameController,
             type: TextInputType.text,
             hint: 'Write your Full Name',
             validate: (value) {

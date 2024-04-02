@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'register_response_model.g.dart';
@@ -17,23 +18,24 @@ class RegisterResponse {
 
 @JsonSerializable()
 class UserData {
-  String? firstName;
-  String? lastName;
+  String? name;
   String? email;
   String? gender;
   String? phone;
-  String? image;
+  Image? image;
   String? password;
+  String? whatsapp;
+
   UserData({
-    this.firstName,
-    this.lastName,
+    this.name,
     this.email,
     this.gender,
     this.phone,
     this.image,
     this.password,
+    this.whatsapp,
   });
- 
+
   Map<String, dynamic> toJson() => _$UserDataToJson(this);
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);

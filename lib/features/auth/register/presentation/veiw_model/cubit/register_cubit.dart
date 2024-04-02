@@ -11,8 +11,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   final formKey = GlobalKey<FormState>();
   late TextEditingController emailController = TextEditingController();
   late TextEditingController passwordController = TextEditingController();
-  late TextEditingController fNameController = TextEditingController();
-  late TextEditingController lNameController = TextEditingController();
+  late TextEditingController nameController = TextEditingController();
   late TextEditingController phoneController = TextEditingController();
   late TextEditingController whatsController = TextEditingController();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -59,8 +58,8 @@ class RegisterCubit extends Cubit<RegisterState> {
       //     ? 'male'
       //     : 'femal',
       //firstName: fNameController.text,
-      firstName: 'magdy',
-      lastName: lNameController.text,
+      name: nameController.text,
+      whatsapp: whatsController.text,
       phone: phoneController.text,
       image: profilePic!,
     );

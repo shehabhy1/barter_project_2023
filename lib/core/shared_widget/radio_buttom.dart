@@ -1,16 +1,18 @@
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import '../utils/styles.dart';
 
 class RadioCheck extends StatefulWidget {
-  const RadioCheck({Key? key}) : super(key: key);
+  const RadioCheck({super.key});
 
   @override
   State<RadioCheck> createState() => _RadioCheckState();
 }
 
 class _RadioCheckState extends State<RadioCheck> {
-  int _selectedValue = 1;
+  int _selectedValue = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  context.read<RegisterCubit>().gender = 'Male';
                 });
               },
             ),
@@ -54,6 +57,7 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  context.read<RegisterCubit>().gender = 'Female';
                 });
               },
             ),

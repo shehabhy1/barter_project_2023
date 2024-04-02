@@ -7,9 +7,10 @@ import 'package:barter_app/features/auth/register/presentation/view/widgets/regi
 import 'package:barter_app/features/auth/register/presentation/view/widgets/create_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
+import '../../../../../../core/shared_widget/image_picker/show_image_dialog.dart';
 import '../../../../login/presentation/view/widgets/custom_center_text.dart';
-import 'image_section.dart';
 
 class RegisterBody extends StatelessWidget {
   const RegisterBody({super.key});
@@ -23,7 +24,12 @@ class RegisterBody extends StatelessWidget {
           child: Column(
         children: [
           const CustomCenterText(text: 'Create account'),
-          const ImageSection(),
+          //const ImageSection(),
+          SizedBox(
+            height: 130.h,
+            width: 130.w,
+            child: const ImageDialogeShow(),
+          ),
           const SizedBox(height: 20),
           const FieldsOfRegister(),
           const SizedBox(height: 16),

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:barter_app/core/shared_widget/error_dialog.dart';
 import 'package:bloc/bloc.dart';
 import 'package:barter_app/features/auth/register/data/register_repo/register_repo.dart';
@@ -19,32 +17,13 @@ class RegisterCubit extends Cubit<RegisterState> {
   late TextEditingController whatsController = TextEditingController();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  File? imageFile;
-  // XFile? profilePic;
-
+  //File? imageFile;
+  XFile? profilePic;
+  String? gender;
   // uploadProfilePic(XFile image) {
   //   profilePic = image;
   //   emit(UploadProfilePic());
   // }
-
-  final ImagePicker _imagePicker = ImagePicker();
-  Future<void> selectImage() async {
-    final xFile = await _imagePicker.pickImage(
-      source: ImageSource.gallery,
-    );
-    if (xFile != null) {
-      imageFile = File(xFile.path);
-
-      emit(ChosenImageSuccessfullyState());
-    } else {
-      emit(ChosenImageErrorState());
-    }
-  }
-
-  void removeImage() {
-    imageFile = null;
-    emit(RemoveImageSuccessState());
-  }
 
   void emitRegisterStates() async {
     emit(RegisterLoadingState());
@@ -52,17 +31,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     var response = await _registerRepo.register(
       email: emailController.text,
       password: passwordController.text,
-      gender: 'male',
-      //TODO: handle user gender
-
-      // gender: context.read<RegisterCubit>().selectedValue == 1
-      //     ? 'male'
-      //     : 'femal',
-      //firstName: fNameController.text,
+      gender: gender!,
       name: nameController.text,
       whatsapp: whatsController.text,
       phone: phoneController.text,
-      image: imageFile!.path,
+      image: profilePic!.path,
     );
     response.fold((error) {
       emit(RegisterErrorState(error: error));
@@ -77,10 +50,17 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   void validateThenDoLogin(context) {
-    if (formKey.currentState!.validate() && imageFile != null) {
-      emitRegisterStates();
-    } else if (imageFile == null) {
-      snackBarState(context, 'please select your image');
+    if (formKey.currentState!.validate()) {
+      if (profilePic != null && gender != null) {
+        emitRegisterStates();
+      } else {
+        snackBarState(
+          context,
+          profilePic?.path == null
+              ? 'please select your image'
+              : 'please select your gender',
+        );
+      }
     } else {
       validateMode();
     }

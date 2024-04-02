@@ -2,8 +2,7 @@ import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cub
 import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/reset_pass_bloc_lstener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../../core/helper/app_constants.dart';
+import '../../../../../../core/helper/app_regex_helper.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
 import '../../../../../../core/shared_widget/app_text_field.dart';
 import '../../../../../../core/utils/styles.dart';
@@ -56,6 +55,11 @@ class _ResetPassBodyState extends State<ResetPassBody> {
               controller: TextEditingController(text: widget.email),
               readOnly: true,
               type: TextInputType.text,
+              validate: (val) {
+                if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
+                  return "Please enter a valid email";
+                }
+              },
             ),
             const SizedBox(
               height: 16,

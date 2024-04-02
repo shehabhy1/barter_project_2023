@@ -1,4 +1,3 @@
-import 'package:barter_app/core/shared_widget/radio_buttom.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_state.dart';
 import 'package:flutter/material.dart';
@@ -26,18 +25,6 @@ class FieldsOfRegister extends StatelessWidget {
                 const SizedBox(height: 8),
                 PhoneAnsPasswordTextFieldPart(cubit: cubit),
                 const SizedBox(height: 16),
-                const RadioCheck(),
-                // AppTextFiled(
-                //   controller: context.read<RegisterCubit>().passwordController,
-                //   type: TextInputType.visiblePassword,
-                //   hint: 'Write your password',
-                //   validate: (val) {
-                //     if (val.isEmpty || val.length < 6 || val.length > 16) {
-                //       return 'Password should contain at least 1 special character,the length should be \n between 6 to 16  character';
-                //     }
-                //     return null;
-                //   },
-                // ),
               ],
             ),
           ),

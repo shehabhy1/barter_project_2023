@@ -7,7 +7,8 @@ class AppTextFiled extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType type;
   final Function(String)? onChange;
-  final FormFieldValidator? validate;
+
+  final Function(String?)? validate;
   final String? label;
   final String? hint;
   final Widget? sufficIcon;
@@ -26,9 +27,9 @@ class AppTextFiled extends StatelessWidget {
   const AppTextFiled({
     super.key,
     required this.type,
+    this.validate,
     this.controller,
     this.onChange,
-    this.validate,
     this.label,
     this.hint,
     this.sufficIcon,
@@ -72,7 +73,9 @@ class AppTextFiled extends StatelessWidget {
         focusedErrorBorder: buildOutlineInputBorder(AppConstants.red),
       ),
       enabled: enable,
-      validator: validate,
+      validator: (value) {
+        return validate!(value);
+      },
       obscureText: isObscure,
     );
   }

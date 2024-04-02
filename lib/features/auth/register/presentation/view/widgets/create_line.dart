@@ -3,7 +3,7 @@ import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 
 class LastLineSign extends StatelessWidget {
-  const LastLineSign({Key? key}) : super(key: key);
+  const LastLineSign({super.key});
 
   @override
   Widget build(BuildContext context) {

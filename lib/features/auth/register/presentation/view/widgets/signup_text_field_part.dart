@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../../core/helper/app_regex_helper.dart';
 import '../../../../../../core/shared_widget/app_text_field.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../veiw_model/cubit/register_cubit.dart';
@@ -26,7 +27,6 @@ class SignUpTextFieldPart extends StatelessWidget {
               if (value!.isEmpty) {
                 return 'Name is required';
               }
-              return null;
             }),
         const SizedBox(height: 16),
         const Text(
@@ -38,11 +38,10 @@ class SignUpTextFieldPart extends StatelessWidget {
           controller: cubit.emailController,
           type: TextInputType.emailAddress,
           hint: 'Write your Email',
-          validate: (value) {
-            if (value!.isEmpty) {
-              return 'Email is Wrong You must write .com';
+          validate: (val) {
+            if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
+              return "Please enter a valid email";
             }
-            return null;
           },
         ),
         const SizedBox(height: 16),
@@ -55,11 +54,12 @@ class SignUpTextFieldPart extends StatelessWidget {
           controller: cubit.phoneController,
           type: TextInputType.phone,
           hint: 'Write your Phone',
-          validate: (value) {
-            if (value!.isEmpty) {
-              return 'phone is Wrong ';
+          validate: (val) {
+            if (val!.isEmpty ||
+                val.length > 11 ||
+                !AppRegex.validatePhoneNumber(val)) {
+              return 'Please enter a valid Egyptian phone number';
             }
-            return null;
           },
         ),
         const SizedBox(height: 16),

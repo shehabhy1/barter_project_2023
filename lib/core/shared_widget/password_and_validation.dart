@@ -62,10 +62,10 @@ class _PasswordAndValidationsState extends State<PasswordAndValidation> {
             if (val == null ||
                 val.isEmpty ||
                 val.length < 6 ||
-                val.length > 16) {
+                val.length > 16 ||
+                AppRegex.isPasswordValid(val)) {
               return 'Please enter a valid password';
             }
-            return null;
           },
           sufficIcon: GestureDetector(
             onTap: () {

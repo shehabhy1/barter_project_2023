@@ -1,9 +1,11 @@
-import 'package:barter_app/core/shared_widget/error_dialog.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:bloc/bloc.dart';
 import 'package:barter_app/features/auth/register/data/register_repo/register_repo.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../../../../core/shared_widget/warning_dialog.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this._registerRepo) : super(RegisterInitial());
@@ -54,11 +56,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       if (profilePic != null && gender != null) {
         emitRegisterStates();
       } else {
-        snackBarState(
-          context,
-          profilePic?.path == null
+        AppErrors.showAwesomeDialog(
+          title: 'Wrong',
+          desc: profilePic?.path == null
               ? 'please select your image'
               : 'please select your gender',
+          context: context,
+          dialogType: DialogType.warning,
         );
       }
     } else {

@@ -10,12 +10,16 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
     this._forgetPassRepo,
   ) : super(ForgetPassInitial());
 
+  final formKey = GlobalKey<FormState>();
   final ForgetPassRepo _forgetPassRepo;
+  late TextEditingController verifyEmailController = TextEditingController();
+
   // late String email;
-  void emitForgetPassStates({required String email}) async {
+  void emitForgetPassStates() async {
     // this.email = email;
     emit(ForgetPassLoadingState());
-    final response = await _forgetPassRepo.forgetPassword(email);
+    final response =
+        await _forgetPassRepo.forgetPassword(verifyEmailController.text);
     response.fold((error) {
       emit(ForgetPassErrorState(error: error));
       debugPrint(error.toString());
@@ -44,5 +48,11 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
     }, (r) {
       emit(ResetPasswordSuccessState());
     });
+  }
+
+  void validateThenDoLogin() {
+    if (formKey.currentState!.validate()) {
+      emitForgetPassStates();
+    }
   }
 }

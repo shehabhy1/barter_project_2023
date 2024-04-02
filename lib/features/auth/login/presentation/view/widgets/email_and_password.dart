@@ -31,14 +31,12 @@ class EmailAndPassword extends StatelessWidget {
                   type: TextInputType.emailAddress,
                   hint: 'Write your Email',
                   controller: context.read<LoginCubit>().emailController,
-                  validate: (value) {
-                    //value.tostring to activate the isEmpty method
-                    if (value!.isEmpty ||
-                        value == null ||
-                        value == AppRegex.isEmailValid(value)) {
-                      return 'Email is Wrong You must write .com';
+                  validate: (val) {
+                    if (val == null ||
+                        val.isEmpty ||
+                        !AppRegex.isEmailValid(val)) {
+                      return "Please enter a valid email";
                     }
-                    return null;
                   },
                 ),
                 const SizedBox(height: 16),

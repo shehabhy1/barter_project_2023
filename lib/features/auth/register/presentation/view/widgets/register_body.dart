@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
 import '../../../../../../core/shared_widget/image_picker/show_image_dialog.dart';
+import '../../../../../../core/shared_widget/radio_buttom.dart';
 import '../../../../login/presentation/view/widgets/custom_center_text.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -17,14 +18,12 @@ class RegisterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<RegisterCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
       child: SingleChildScrollView(
           child: Column(
         children: [
           const CustomCenterText(text: 'Create account'),
-          //const ImageSection(),
           SizedBox(
             height: 130.h,
             width: 130.w,
@@ -32,6 +31,7 @@ class RegisterBody extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const FieldsOfRegister(),
+          const RadioCheck(),
           const SizedBox(height: 16),
           const CheckButtom(text: 'I accepted privacy & Policy '),
           const SizedBox(height: 20),
@@ -42,8 +42,11 @@ class RegisterBody extends StatelessWidget {
                   : AppButton(
                       text: 'Sign Up',
                       func: () {
-                        cubit.validateThenDoLogin(context);
-                      });
+                        context
+                            .read<RegisterCubit>()
+                            .validateThenDoLogin(context);
+                      },
+                    );
             },
           ),
           const SizedBox(height: 15),

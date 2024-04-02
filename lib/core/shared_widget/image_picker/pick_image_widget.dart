@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../helper/app_constants.dart';
 
@@ -12,7 +13,7 @@ class PickImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return pickedImage == null
         ? CircleAvatar(
-            backgroundColor: Colors.grey.shade200,
+            backgroundColor: Colors.grey.shade300,
             backgroundImage: const AssetImage("assets/images/avatar.png"),
             child: Stack(
               children: [
@@ -20,8 +21,8 @@ class PickImageWidget extends StatelessWidget {
                   right: 0,
                   bottom: 0,
                   child: Container(
-                    height: 40,
-                    width: 40,
+                    height: 40.h,
+                    width: 40.w,
                     decoration: BoxDecoration(
                       color: AppConstants.primaryColor.withOpacity(0.8),
                       border: Border.all(color: Colors.white, width: 3),

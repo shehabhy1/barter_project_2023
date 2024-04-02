@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:barter_app/core/shared_widget/error_dialog.dart';
 import 'package:bloc/bloc.dart';
 import 'package:barter_app/features/auth/register/data/register_repo/register_repo.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_state.dart';
@@ -16,29 +19,27 @@ class RegisterCubit extends Cubit<RegisterState> {
   late TextEditingController whatsController = TextEditingController();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  XFile? imageFile;
-  XFile? profilePic;
+  File? imageFile;
+  // XFile? profilePic;
 
-  uploadProfilePic(XFile image) {
-    profilePic = image;
-    emit(UploadProfilePic());
-  }
+  // uploadProfilePic(XFile image) {
+  //   profilePic = image;
+  //   emit(UploadProfilePic());
+  // }
 
   final ImagePicker _imagePicker = ImagePicker();
-  // Future<void> selectImage() async {
-  //   final xFile = await _imagePicker.pickImage(
-  //     source: ImageSource.gallery,
-  //   );
-  //   if (xFile != null) {
-  //     imageFile = File(
-  //       xFile,
-  //     );
+  Future<void> selectImage() async {
+    final xFile = await _imagePicker.pickImage(
+      source: ImageSource.gallery,
+    );
+    if (xFile != null) {
+      imageFile = File(xFile.path);
 
-  //     emit(ChosenImageSuccessfullyState());
-  //   } else {
-  //     emit(ChosenImageErrorState());
-  //   }
-  // }
+      emit(ChosenImageSuccessfullyState());
+    } else {
+      emit(ChosenImageErrorState());
+    }
+  }
 
   void removeImage() {
     imageFile = null;
@@ -61,7 +62,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       name: nameController.text,
       whatsapp: whatsController.text,
       phone: phoneController.text,
-      image: profilePic!,
+      image: imageFile!.path,
     );
     response.fold((error) {
       emit(RegisterErrorState(error: error));
@@ -75,9 +76,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(ValidateMode());
   }
 
-  void validateThenDoLogin() {
-    if (formKey.currentState!.validate()) {
+  void validateThenDoLogin(context) {
+    if (formKey.currentState!.validate() && imageFile != null) {
       emitRegisterStates();
+    } else if (imageFile == null) {
+      snackBarState(context, 'please select your image');
     } else {
       validateMode();
     }

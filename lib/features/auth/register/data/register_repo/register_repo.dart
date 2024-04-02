@@ -20,9 +20,9 @@ class RegisterRepo {
     required String name,
     required String whatsapp,
     required String phone,
-    required XFile image,
+    required String image,
   }) async {
-    String? mimeType = mime(image.path);
+    String? mimeType = mime(image);
     String mimee = mimeType!.split('/')[0];
     String type = mimeType.split('/')[1];
     try {
@@ -35,8 +35,8 @@ class RegisterRepo {
             'whatsapp': whatsapp,
             'phone': phone,
             'image': await MultipartFile.fromFile(
-              image.path,
-              filename: image.path.split('/').last,
+              image,
+              filename: image.split('/').last,
               contentType: MediaType(mimee, type),
             ),
           },

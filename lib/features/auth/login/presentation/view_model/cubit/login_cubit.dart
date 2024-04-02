@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginRepo) : super(LoginInitial());
+
   final LoginRepo _loginRepo;
-
   final formKey = GlobalKey<FormState>();
+  late TextEditingController emailController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
+  late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  void emitLoginStates({
-    required String email,
-    required String password,
-  }) async {
+  void emitLoginStates() async {
     emit(LoginLoadingState());
-    final responose = await _loginRepo.login(email: email, password: password);
+    final responose = await _loginRepo.login(
+        email: emailController.text, password: passwordController.text);
     responose.fold((errorMsg) {
       emit(LoginErrorState(error: errorMsg));
     }, (loginResponse) {
       emit(LoginSuccessState());
     });
   }
+
   // response.when(success: (loginResponse) async {
   //   await CacheHelper.saveString(
   //       key: Constants.kUserToken, value: loginResponse.token);
@@ -31,4 +31,17 @@ class LoginCubit extends Cubit<LoginState> {
   // }, failure: (error) {
   //   emit(LoginState.error(error: error.apiErrorModel.message!));
   // });
+
+  void validateMode() {
+    autovalidateMode = AutovalidateMode.always;
+    emit(ValidateMode());
+  }
+
+  void validateThenDoLogin() {
+    if (formKey.currentState!.validate()) {
+      emitLoginStates();
+    } else {
+      validateMode();
+    }
+  }
 }

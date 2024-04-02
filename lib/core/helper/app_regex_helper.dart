@@ -31,7 +31,8 @@ class AppRegex {
   }
 
   // Regular expression to validate Egyptian phone numbers
-  static bool validatePhoneNumber(String number) {
-    return RegExp(r'^01[0-2]\d{8}$').hasMatch(number);
+  static bool validatePhoneNumber(String phoneNumber) {
+    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
+    // return RegExp(r'^01[0-2]\d{8}$').hasMatch(phoneNumber);
   }
 }

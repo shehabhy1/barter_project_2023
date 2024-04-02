@@ -6,17 +6,13 @@ import 'package:barter_app/features/auth/login/presentation/view_model/cubit/log
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
-import '../../../../../../core/utils/styles.dart';
+import '../../../../../../core/shared_widget/custom_loading_indicator.dart';
+import 'custom_center_text.dart';
 import 'last_row.dart';
 
-class LoginBody extends StatefulWidget {
+class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
 
-  @override
-  State<LoginBody> createState() => _LoginBodyState();
-}
-
-class _LoginBodyState extends State<LoginBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,12 +21,7 @@ class _LoginBodyState extends State<LoginBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
-              child: Text(
-                'Login',
-                style: Styles.textStyle32,
-              ),
-            ),
+            const CustomCenterText(text: 'Login'),
             const SizedBox(height: 20),
             const EmailAndPassword(),
             const SizedBox(height: 8),
@@ -39,11 +30,11 @@ class _LoginBodyState extends State<LoginBody> {
             BlocBuilder<LoginCubit, LoginState>(
               builder: (context, state) {
                 return state is LoginLoadingState
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const CustomLoadingIndicator()
                     : AppButton(
                         text: 'Log in',
                         func: () {
-                          validateThenDoLogin(context);
+                          context.read<LoginCubit>().validateThenDoLogin();
                         },
                       );
               },
@@ -55,14 +46,5 @@ class _LoginBodyState extends State<LoginBody> {
         ),
       ),
     );
-  }
-
-  void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-            email: context.read<LoginCubit>().emailController.text,
-            password: context.read<LoginCubit>().passwordController.text,
-          );
-    }
   }
 }

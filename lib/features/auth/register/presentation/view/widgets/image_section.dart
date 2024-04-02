@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../../../../core/helper/app_constants.dart';
 import '../../veiw_model/cubit/register_cubit.dart';
 
 class ImageSection extends StatelessWidget {
@@ -12,8 +14,8 @@ class ImageSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 130,
-      height: 130,
+      width: 130.w,
+      height: 130.h,
       child: context.read<RegisterCubit>().profilePic == null
           ? CircleAvatar(
               backgroundColor: Colors.grey.shade200,
@@ -21,15 +23,15 @@ class ImageSection extends StatelessWidget {
               child: Stack(
                 children: [
                   Positioned(
-                    bottom: 5,
-                    right: 5,
+                    right: -1,
+                    bottom: -1,
                     child: GestureDetector(
                       onTap: () async {},
                       child: Container(
                         height: 50,
                         width: 50,
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade400,
+                          color: AppConstants.primaryColor.withOpacity(0.8),
                           border: Border.all(color: Colors.white, width: 3),
                           borderRadius: BorderRadius.circular(25),
                         ),
@@ -55,7 +57,8 @@ class ImageSection extends StatelessWidget {
             )
           : CircleAvatar(
               backgroundImage: FileImage(
-                  File(context.read<RegisterCubit>().profilePic!.path)),
+                File(context.read<RegisterCubit>().profilePic!.path),
+              ),
             ),
     );
   }

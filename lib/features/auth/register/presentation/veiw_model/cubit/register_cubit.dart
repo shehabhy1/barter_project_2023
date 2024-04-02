@@ -1,23 +1,21 @@
 import 'package:bloc/bloc.dart';
-
 import 'package:barter_app/features/auth/register/data/register_repo/register_repo.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit(
-    this._registerRepo,
-  ) : super(RegisterInitial());
+  RegisterCubit(this._registerRepo) : super(RegisterInitial());
 
   final RegisterRepo _registerRepo;
   final formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController fNameController = TextEditingController();
-  TextEditingController lNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController whatsController = TextEditingController();
+  late TextEditingController emailController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
+  late TextEditingController fNameController = TextEditingController();
+  late TextEditingController lNameController = TextEditingController();
+  late TextEditingController phoneController = TextEditingController();
+  late TextEditingController whatsController = TextEditingController();
+  late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   XFile? imageFile;
   XFile? profilePic;
@@ -48,23 +46,22 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(RemoveImageSuccessState());
   }
 
-  void emitRegisterStates({
-    required String email,
-    required String password,
-    required String gender,
-    required String firstName,
-    required String lastName,
-    required String phone,
-  }) async {
+  void emitRegisterStates() async {
     emit(RegisterLoadingState());
 
     var response = await _registerRepo.register(
-      email: email,
-      password: password,
-      gender: gender,
-      firstName: firstName,
-      lastName: lastName,
-      phone: phone,
+      email: emailController.text,
+      password: passwordController.text,
+      gender: 'male',
+      //TODO: handle user gender
+
+      // gender: context.read<RegisterCubit>().selectedValue == 1
+      //     ? 'male'
+      //     : 'femal',
+      //firstName: fNameController.text,
+      firstName: 'magdy',
+      lastName: lNameController.text,
+      phone: phoneController.text,
       image: profilePic!,
     );
     response.fold((error) {
@@ -72,6 +69,19 @@ class RegisterCubit extends Cubit<RegisterState> {
     }, (registerResponse) {
       emit(RegisterSuccessState());
     });
+  }
+
+  void validateMode() {
+    autovalidateMode = AutovalidateMode.always;
+    emit(ValidateMode());
+  }
+
+  void validateThenDoLogin() {
+    if (formKey.currentState!.validate()) {
+      emitRegisterStates();
+    } else {
+      validateMode();
+    }
   }
 }
 //mo925@gmail.com

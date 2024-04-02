@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../../../login/presentation/view/widgets/custom_center_text.dart';
 import 'image_section.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -23,13 +24,37 @@ class RegisterBody extends StatelessWidget {
           builder: (context, state) {
             return Column(
               children: [
-                const Center(
-                  child: Text(
-                    'Create account',
-                    style: Styles.textStyle32,
-                  ),
-                ),
+                const CustomCenterText(text: 'Create account'),
                 const ImageSection(),
+                if (cubit.profilePic == null)
+                  const Padding(
+                      padding: EdgeInsetsDirectional.only(top: 20),
+                      child: Text(
+                        'please select your image',
+                        style: Styles.textStyle14,
+                      )),
+                const SizedBox(height: 20),
+                const FieldsOfRegister(),
+                const SizedBox(height: 16),
+                const CheckButtom(text: 'I accepted privacy & Policy '),
+                const SizedBox(height: 20),
+                if (cubit.profilePic != null)
+                  AppButton(
+                      text: 'Sign Up',
+                      func: () {
+                        cubit.validateThenDoLogin();
+                      }),
+                const SizedBox(height: 15),
+                const LastLineSign(),
+                const RegisterBlocListener()
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
                 // GestureDetector(
                 //   onTap: () {
                 //     ImagePicker().pickImage(source: ImageSource.gallery).then(
@@ -64,46 +89,3 @@ class RegisterBody extends StatelessWidget {
                 //     ],
                 //   ),
                 // ),
-                if (cubit.profilePic == null)
-                  const Padding(
-                      padding: EdgeInsetsDirectional.only(top: 20),
-                      child: Text('please select your image')),
-                const SizedBox(height: 20),
-                const FieldsOfRegister(),
-                const SizedBox(height: 16),
-                const CheckButtom(text: 'I accepted privacy & Policy '),
-                const SizedBox(height: 20),
-                if (cubit.profilePic != null)
-                  AppButton(
-                      text: 'Sign Up',
-                      func: () {
-                        validateThenDoLogin(context);
-                      }),
-                const SizedBox(height: 15),
-                const LastLineSign(),
-                const RegisterBlocListener()
-              ],
-            );
-          },
-        ),
-      ),
-    );
-  }
-
-  void validateThenDoLogin(BuildContext context) {
-    if (context.read<RegisterCubit>().formKey.currentState!.validate()) {
-      context.read<RegisterCubit>().emitRegisterStates(
-            email: context.read<RegisterCubit>().emailController.text,
-            password: context.read<RegisterCubit>().passwordController.text,
-            //TODO: handle user gender
-            gender: 'male',
-            // gender: context.read<RegisterCubit>().selectedValue == 1
-            //     ? 'male'
-            //     : 'femal',
-            firstName: context.read<RegisterCubit>().fNameController.text,
-            lastName: context.read<RegisterCubit>().lNameController.text,
-            phone: context.read<RegisterCubit>().phoneController.text,
-          );
-    }
-  }
-}

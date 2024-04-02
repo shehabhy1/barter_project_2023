@@ -22,9 +22,8 @@ class ForgetPassRepo {
   }
 
   Future<Either<String, dynamic>> verifyResetCode(String resetCode) async {
-
     try {
-      final response = _dioFactory
+      final response = await _dioFactory
           .post(ApiConstants.verifyResetCode, data: {'resetCode': resetCode});
       return Right(response);
     } on ServerException catch (e) {
@@ -34,9 +33,8 @@ class ForgetPassRepo {
 
   Future<Either<String, dynamic>> resetPassword(
       String email, String pass) async {
-    
     try {
-      final response = _dioFactory.post(ApiConstants.verifyResetCode,
+      final response = await _dioFactory.post(ApiConstants.resetPassword,
           data: {'email': email, 'password': pass});
       return Right(response);
     } on ServerException catch (e) {

@@ -26,7 +26,7 @@ class ServerException implements Exception {
       case DioExceptionType.connectionError:
         throw ServerException(
             errModel: ApiErrorModel(
-                message: 'Pleas Check your Internet',
+                message: 'Please Check your Internet',
                 errors: [Error(msg: 'Please Check your Internet')]));
       case DioExceptionType.unknown:
         if (e.response != null &&

@@ -33,7 +33,7 @@ class RegisterBody extends StatelessWidget {
           const FieldsOfRegister(),
           const RadioCheck(),
           const SizedBox(height: 16),
-          const CheckButtom(text: 'I accepted privacy & Policy '),
+          const CheckButtom(text: 'Privacy & Policy '),
           const SizedBox(height: 20),
           BlocBuilder<RegisterCubit, RegisterState>(
             builder: (context, state) {

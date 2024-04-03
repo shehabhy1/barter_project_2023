@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/helper/app_constants.dart';
 
 class ResetPassBlocListener extends StatelessWidget {
   const ResetPassBlocListener({super.key});
@@ -15,7 +13,7 @@ class ResetPassBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<ForgetPassCubit, ForgetPassState>(
       listenWhen: (previous, current) =>
-          current is ResetPasswordSuccessState ||
+          current is ResetPasswordLoadingState ||
           current is ResetPasswordSuccessState ||
           current is ResetPasswordErrorState,
       listener: (context, state) {
@@ -26,28 +24,11 @@ class ResetPassBlocListener extends StatelessWidget {
           );
         } else if (state is ResetPasswordSuccessState) {
           context.pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              duration: const Duration(seconds: 3),
-              backgroundColor: AppConstants.primaryColor,
-              content: Text(
-                'Password changed successfully',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          );
           context.pushReplacementNamed(Routes.loginView);
-        } else {
-          //TODO: add progress
-
-          // defaultCircularProgress(context: context);
+          AppWarning.snackBarState(context, 'Password changed successfully');
         }
       },
-      child: Container(),
+      child: const SizedBox(),
     );
   }
 }

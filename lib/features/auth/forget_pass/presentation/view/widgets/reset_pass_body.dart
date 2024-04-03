@@ -1,6 +1,6 @@
 import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_cubit.dart';
-import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/reset_pass_bloc_lstener.dart';
+import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/reset_pass_bloc_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/helper/app_regex_helper.dart';

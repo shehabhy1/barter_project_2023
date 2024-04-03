@@ -1,22 +1,19 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-
 import 'package:barter_app/features/auth/forget_pass/data/repo/foreget_pass_repo.dart';
 
 class ForgetPassCubit extends Cubit<ForgetPassState> {
-  ForgetPassCubit(
-    this._forgetPassRepo,
-  ) : super(ForgetPassInitial());
+  ForgetPassCubit(this._forgetPassRepo) : super(ForgetPassInitial());
 
   final formKey = GlobalKey<FormState>();
   final ForgetPassRepo _forgetPassRepo;
   late TextEditingController verifyEmailController = TextEditingController();
+  late TextEditingController newPassController = TextEditingController();
 
-  // late String email;
+  String? codeOtp;
+
   void emitForgetPassStates() async {
-    // this.email = email;
     emit(ForgetPassLoadingState());
     final response =
         await _forgetPassRepo.forgetPassword(verifyEmailController.text);
@@ -28,9 +25,9 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
     });
   }
 
-  void verifyResetCode({required String resetCode}) async {
+  void verifyResetCode() async {
     emit(VerifyResetCodeLoadingState());
-    final response = await _forgetPassRepo.verifyResetCode(resetCode);
+    final response = await _forgetPassRepo.verifyResetCode(codeOtp!);
 
     response.fold((error) {
       emit(VerifyResetCodeErrorState(error: error));
@@ -40,9 +37,10 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
     });
   }
 
-  void resetPassword({required String email, required String pass}) async {
+  void resetPassword({required String email}) async {
     emit(ResetPasswordLoadingState());
-    final response = await _forgetPassRepo.resetPassword(email, pass);
+    final response =
+        await _forgetPassRepo.resetPassword(email, newPassController.text);
     response.fold((error) {
       emit(ResetPasswordErrorState(error: error));
     }, (r) {
@@ -50,9 +48,21 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
     });
   }
 
-  void validateThenDoLogin() {
+  void validateThenDoForgetPassword() {
     if (formKey.currentState!.validate()) {
       emitForgetPassStates();
+    }
+  }
+
+  void validateThenDoVerifyResetCode() {
+    if (formKey.currentState!.validate()) {
+      verifyResetCode();
+    }
+  }
+
+  void validateThenDoResetPassword(String email) {
+    if (formKey.currentState!.validate()) {
+      resetPassword(email: email);
     }
   }
 }

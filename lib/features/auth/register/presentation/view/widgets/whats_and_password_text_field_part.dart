@@ -36,7 +36,8 @@ class PhoneAnsPasswordTextFieldPart extends StatelessWidget {
               BoxConstraints(maxWidth: 50.w, maxHeight: 50.h),
           hint: 'Write your WhatsApp number',
           validate: (val) {
-            if (val!.isEmpty ||
+            if (val == null ||
+                val.isEmpty ||
                 val.length > 11 ||
                 !AppRegex.validatePhoneNumber(val)) {
               return 'Please enter a valid Egyptian phone number';

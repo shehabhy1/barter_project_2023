@@ -1,33 +1,24 @@
 import 'package:barter_app/core/helper/app_constants.dart';
-import 'package:barter_app/core/helper/extentions.dart';
-import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/shared_widget/app_buttom.dart';
-import 'package:barter_app/core/shared_widget/error_dialog.dart';
 import 'package:barter_app/core/utils/styles.dart';
-import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_cubit.dart';
-import 'package:barter_app/features/auth/forget_pass/presentation/model_view/cubit/forget_pass_state.dart';
+import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/linear_progress_indicator_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../core/helper/spacing.dart';
+import '../../model_view/cubit/forget_pass_cubit.dart';
+import 'otp_text_field.dart';
+import 'verify_reset_code_listener.dart';
 
-class VerifyResetCodeBody extends StatefulWidget {
-  const VerifyResetCodeBody({super.key, required this.email});
+class VerifyResetCodeBody extends StatelessWidget {
   final String? email;
 
-  @override
-  State<VerifyResetCodeBody> createState() => _VerifyResetCodeBodyState();
-}
+  const VerifyResetCodeBody({super.key, required this.email});
 
-class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
-  String? codeOtp;
-  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<ForgetPassCubit>().formKey,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 20.w),
         child: Column(
@@ -45,84 +36,36 @@ class _VerifyResetCodeBodyState extends State<VerifyResetCodeBody> {
                 text: 'Enter the 6-digital code sent to ',
                 children: [
                   TextSpan(
-                    text: widget.email
-
+                    text: email,
                     // ?? context.read<ForgetPassCubit>().email
-                    ,
+
                     style: TextStyle(
                         color: AppConstants.primaryColor, fontSize: 16.sp),
                   )
                 ],
                 style: Styles.textStyle20.copyWith(
-                  color: const Color(
-                    (0xFF8B8B8B),
-                  ),
+                  color: const Color((0xFF8B8B8B)),
                 ),
               ),
             ),
             verticalSpace(20),
-            OtpTextField(
-              fillColor: Colors.blue,
-              numberOfFields: 6,
-              fieldWidth: context.deviceWidth * .11,
-              borderRadius: BorderRadius.circular(10),
-              autoFocus: true,
-              showFieldAsBox: true,
-              onCodeChanged: (val) {},
-              textStyle: Styles.textStyle20,
-              focusedBorderColor: AppConstants.primaryColor,
-              enabledBorderColor: AppConstants.greyColor,
-              onSubmit: (String verificationCode) {
-                codeOtp = verificationCode;
-                debugPrint(codeOtp.toString());
-              },
-            ),
+            const OtpTextFieldWidget(),
             verticalSpace(80),
+            const LinearProgressIndicatorBuilder(),
+            verticalSpace(5),
             AppButton(
               text: 'Send',
               func: () {
-                if (formKey.currentState!.validate()) {
-                  context.read<ForgetPassCubit>().verifyResetCode(
-                        resetCode: codeOtp!,
-                      );
-                  debugPrint(widget.email);
-                }
-                debugPrint(widget.email.toString());
+                context.read<ForgetPassCubit>().validateThenDoVerifyResetCode();
+                debugPrint(email);
               },
             ),
             VerifyResetCodeBlocListener(
-              email: widget.email!,
+              email: email!,
             )
           ],
         ),
       ),
-    );
-  }
-}
-
-class VerifyResetCodeBlocListener extends StatelessWidget {
-  const VerifyResetCodeBlocListener({super.key, required this.email});
-  final String email;
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<ForgetPassCubit, ForgetPassState>(
-      listenWhen: (previous, current) =>
-          current is VerifyResetCodeLoadingState ||
-          current is VerifyResetCodeSuccessState ||
-          current is VerifyResetCodeErrorState,
-      listener: (context, state) {
-        if (state is VerifyResetCodeErrorState) {
-          dialogErrorState(
-            context,
-            state.error,
-          );
-        } else if (state is VerifyResetCodeSuccessState) {
-          context.pushReplacementNamed(Routes.resetPassView, arguments: email);
-        } else {
-          const Center(child: CircularProgressIndicator());
-        }
-      },
-      child: Container(),
     );
   }
 }

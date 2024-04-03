@@ -56,7 +56,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       if (profilePic != null && gender != null) {
         emitRegisterStates();
       } else {
-        AppErrors.showAwesomeDialog(
+        AppWarning.showAwesomeDialog(
           title: 'Wrong',
           desc: profilePic?.path == null
               ? 'please select your image'

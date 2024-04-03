@@ -5,7 +5,6 @@ import 'package:barter_app/features/auth/register/data/models/register_response_
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:mime_type/mime_type.dart';
 
 class RegisterRepo {

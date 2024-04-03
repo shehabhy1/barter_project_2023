@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'register_response_model.g.dart';
 
 @JsonSerializable()

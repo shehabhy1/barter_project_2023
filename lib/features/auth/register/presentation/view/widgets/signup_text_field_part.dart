@@ -23,8 +23,8 @@ class SignUpTextFieldPart extends StatelessWidget {
             controller: cubit.nameController,
             type: TextInputType.text,
             hint: 'Write your Full Name',
-            validate: (value) {
-              if (value!.isEmpty) {
+            validate: (val) {
+              if (val == null || val.isEmpty) {
                 return 'Name is required';
               }
             }),
@@ -55,10 +55,11 @@ class SignUpTextFieldPart extends StatelessWidget {
           type: TextInputType.phone,
           hint: 'Write your Phone',
           validate: (val) {
-            if (val!.isEmpty ||
+            if (val == null ||
+                val.isEmpty ||
                 val.length > 11 ||
                 !AppRegex.validatePhoneNumber(val)) {
-              return 'Please enter a valid Egyptian phone number';
+              return "Please enter a valid phone";
             }
           },
         ),

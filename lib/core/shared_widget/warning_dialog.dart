@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../helper/app_constants.dart';
 import '../utils/styles.dart';
 
-class AppErrors {
+class AppWarning {
   // static Future<void> showWarningDialog({
   //   required BuildContext context,
   //   required String subtitle,
@@ -128,6 +128,41 @@ class AppErrors {
             color: Colors.black,
           ),
         ),
+      ),
+    );
+  }
+
+  static void dialogErrorState(BuildContext context, String error) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        icon: const Icon(
+          Icons.error,
+          color: Colors.red,
+          size: 32,
+        ),
+        content: Text(
+          error,
+          style: TextStyle(
+            fontSize: 16.sp,
+            color: Colors.black,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.pop();
+            },
+            child: Text(
+              'close',
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

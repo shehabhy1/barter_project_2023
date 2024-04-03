@@ -38,7 +38,8 @@ class ForgetPassRepo {
           data: {'email': email, 'password': pass});
       return Right(response);
     } on ServerException catch (e) {
-      return Left(e.errModel.message!);
+      //
+      return Left(e.errModel.message ?? e.errModel.errors![0].msg!);
     }
   }
 }

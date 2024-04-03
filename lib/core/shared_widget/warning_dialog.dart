@@ -124,8 +124,8 @@ class AppWarning {
           error,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 15.sp,
-            color: Colors.black,
+            fontSize: 15.sp, fontWeight: FontWeight.w500,
+            //color: Colors.black,
           ),
         ),
       ),

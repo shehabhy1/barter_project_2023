@@ -1,50 +1,55 @@
 import 'dart:io';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../helper/app_constants.dart';
+import 'container_of_icon.dart';
 
 class PickImageWidget extends StatelessWidget {
   final XFile? pickedImage;
-
   const PickImageWidget({super.key, this.pickedImage});
 
   @override
   Widget build(BuildContext context) {
     return pickedImage == null
-        ? CircleAvatar(
-            backgroundColor: Colors.grey.shade300,
-            backgroundImage: const AssetImage("assets/images/avatar.png"),
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    height: 40.h,
-                    width: 40.w,
-                    decoration: BoxDecoration(
-                      color: AppConstants.primaryColor.withOpacity(0.8),
-                      border: Border.all(color: Colors.white, width: 3),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: const Icon(
-                      Icons.camera_alt_sharp,
-                      color: Colors.white,
-                      size: 20,
+        ? Stack(
+            children: [
+              CircleAvatar(
+                radius: 70.r,
+                backgroundColor: AppConstants.primaryColor,
+                child: CircleAvatar(
+                  radius: 68.r,
+                  backgroundColor: Colors.grey.shade300,
+                  backgroundImage: const AssetImage("assets/images/avatar.png"),
+                ),
+              ),
+              const Positioned(
+                right: -1,
+                bottom: -1,
+                child: ContainerIcon(icon: Icons.camera_alt_sharp),
+              ),
+            ],
+          )
+        : Stack(
+            children: [
+              CircleAvatar(
+                radius: 75.r,
+                backgroundColor: AppConstants.primaryColor,
+                child: CircleAvatar(
+                  radius: 72.r,
+                  backgroundImage: FileImage(
+                    File(
+                      pickedImage!.path,
                     ),
                   ),
                 ),
-              ],
-            ),
-          )
-        : CircleAvatar(
-            backgroundImage: FileImage(
-              File(
-                pickedImage!.path,
-                //fit: BoxFit.fill,
               ),
-            ),
+              const Positioned(
+                right: -1,
+                bottom: -1,
+                child: ContainerIcon(icon: Icons.edit),
+              ),
+            ],
           );
   }
 }

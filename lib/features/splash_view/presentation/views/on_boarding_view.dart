@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/indicator.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/on_boarding_buttons.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/assets.dart';
+import '../../data/models/onboarding_model.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -12,17 +11,16 @@ class OnBoardingView extends StatefulWidget {
   State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-String onBoardingDescription =
-    'where you can exchange goods and services with ease. Let our app connect you with a community of like-minded individuals and open up a world of possibilities!';
-
 class _OnBoardingViewState extends State<OnBoardingView> {
   var onBoardingController = PageController();
-  List<OnBoardingModel> screens = [
-    OnBoardingModel(
-        image: AssetData.onboardingImage1, description: onBoardingDescription),
-    OnBoardingModel(image: AssetData.onboardingImage2),
-  ];
   bool isLast = false;
+
+  @override
+  void dispose() {
+    onBoardingController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +58,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: isLast
-                            ? Container()
+                            ? const SizedBox.shrink()
                             : Text(
                                 screens[index].description!,
                                 textAlign: TextAlign.center,
@@ -76,16 +74,15 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 ),
               ),
               Indicator(
-                  controller: onBoardingController, onBordingList: screens),
+                controller: onBoardingController,
+                onBordingList: screens,
+              ),
               // if statement for sized box
               const SizedBox(height: 15),
-              //TODO: راجع التصميم مع فيجما  => شهاب
-
               OnBoardingButtons(
                 onBoardingController: onBoardingController,
                 isLast: isLast,
               ),
-
               verticalSpace(40),
             ],
           ),
@@ -93,13 +90,4 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       ),
     );
   }
-}
-
-class OnBoardingModel {
-  String? image;
-  String? description;
-  OnBoardingModel({
-    this.image,
-    this.description,
-  });
 }

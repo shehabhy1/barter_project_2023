@@ -80,6 +80,7 @@ class AppWarning {
       animType: AnimType.topSlide,
       title: title,
       desc: desc,
+      descTextStyle: Styles.textStyle14,
       dialogBackgroundColor: Colors.white,
     ).show();
   }

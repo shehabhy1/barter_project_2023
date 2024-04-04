@@ -1,10 +1,13 @@
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
+import '../../features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import '../utils/styles.dart';
 
 class CheckButtom extends StatefulWidget {
   final String text;
-  const CheckButtom({super.key, required this.text});
+  final RegisterCubit? cubit;
+
+  const CheckButtom({super.key, required this.text, this.cubit});
 
   @override
   State<CheckButtom> createState() => _CheckButtomState();
@@ -27,6 +30,8 @@ class _CheckButtomState extends State<CheckButtom> {
           onChanged: (newBool) {
             setState(() {
               isChecked = newBool!;
+              widget.cubit?.isChecked = isChecked;
+              debugPrint(widget.cubit?.isChecked.toString());
             });
           },
         ),

@@ -4,7 +4,6 @@ import 'package:barter_app/features/auth/register/data/register_repo/register_re
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../../../../core/shared_widget/warning_dialog.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -22,6 +21,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   //File? imageFile;
   XFile? profilePic;
   String? gender;
+  bool isChecked = false;
+
   // uploadProfilePic(XFile image) {
   //   profilePic = image;
   //   emit(UploadProfilePic());
@@ -53,14 +54,16 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void validateThenDoLogin(context) {
     if (formKey.currentState!.validate()) {
-      if (profilePic != null && gender != null) {
+      if (profilePic != null && gender != null && isChecked == true) {
         emitRegisterStates();
       } else {
         AppWarning.showAwesomeDialog(
           title: 'Wrong',
-          desc: profilePic?.path == null
+          desc: profilePic == null
               ? 'please select your image'
-              : 'please select your gender',
+              : gender == null
+                  ? 'please select your gender'
+                  : 'Privacy & Policy',
           context: context,
           dialogType: DialogType.warning,
         );

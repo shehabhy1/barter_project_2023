@@ -8,10 +8,12 @@ import 'package:barter_app/features/auth/forget_pass/presentation/view/reset_pas
 import 'package:barter_app/features/auth/forget_pass/presentation/view/verify_reset_code_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
+import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/layout/presentation/view_model/cubit/layout_cubit.dart';
 import 'package:barter_app/features/layout/presentation/views/layout.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
+import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
 import 'package:barter_app/features/splash_view/presentation/views/on_boarding_view.dart';
 import 'package:barter_app/features/splash_view/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +79,15 @@ class AppRouter {
                     email: email,
                   ),
                 ));
+      case Routes.editProfileView:
+
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<ProfileCubit>.value(
+                  value: getIt<ProfileCubit>(),
+                  child: const EditProfileView(
+                      ),
+                ));
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -39,7 +39,7 @@ class RegisterBody extends StatelessWidget {
                   ? const CustomLoadingIndicator()
                   : AppButton(
                       text: 'Sign Up',
-                      func: () {
+                      onPressed: () {
                         context
                             .read<RegisterCubit>()
                             .validateThenDoLogin(context);

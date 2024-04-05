@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
   final double? buttonHeight;
   final String text;
   final TextStyle? textStyle;
-  final VoidCallback func;
+  final VoidCallback onPressed;
   final ButtonStyle? buttonStyle;
   const AppButton(
       {super.key,
@@ -26,7 +26,7 @@ class AppButton extends StatelessWidget {
       this.buttonHeight,
       required this.text,
       this.textStyle,
-      required this.func,
+      required this.onPressed,
       this.textColor,
       this.buttonStyle});
 
@@ -44,7 +44,7 @@ class AppButton extends StatelessWidget {
             fixedSize: MaterialStateProperty.all(Size(
                 buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 55.h)),
           ),
-      onPressed: func,
+      onPressed: onPressed,
       child: Center(
         child: Text(
           text,

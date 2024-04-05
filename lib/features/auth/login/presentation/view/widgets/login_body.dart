@@ -33,7 +33,7 @@ class LoginBody extends StatelessWidget {
                     ? const CustomLoadingIndicator()
                     : AppButton(
                         text: 'Log in',
-                        func: () {
+                        onPressed: () {
                           context.read<LoginCubit>().validateThenDoLogin();
                         },
                       );

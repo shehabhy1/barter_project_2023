@@ -1,8 +1,14 @@
+import 'package:barter_app/core/helper/app_constants.dart';
+import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
+import 'package:barter_app/core/shared_widget/app_buttom.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/indicator.dart';
 import 'package:barter_app/features/splash_view/presentation/views/widgets/on_boarding_buttons.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/utils/cache_helper.dart';
 import '../../data/models/onboarding_model.dart';
+import 'widgets/onboarding_item.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -33,61 +39,55 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             children: [
               verticalSpace(100),
               Expanded(
-                child: PageView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  onPageChanged: (value) {
-                    if (value == screens.length - 1) {
-                      setState(() {
-                        isLast = true;
-                      });
-                      debugPrint(" ${isLast.toString()}");
-                    } else {
-                      setState(() {
-                        isLast = false;
-                      });
-                    }
-                  },
+                child: PageView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  padEnds: false,
                   controller: onBoardingController,
-                  itemCount: screens.length,
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      Image.asset(
-                        screens[index].image!,
-                      ),
-                      const SizedBox(height: 40),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                        child: isLast
-                            ? const SizedBox.shrink()
-                            : Text(
-                                screens[index].description!,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xFF8B8B8B),
-                                ),
-                              ),
-                      ),
-                      verticalSpace(15),
-                    ],
-                  ),
+                  children: [
+                    OnBoardingItem(model: screens[0], isLast: isLast),
+                    OnBoardingItem(model: screens[1], isLast: isLast),
+                  ],
                 ),
               ),
-              Indicator(
-                controller: onBoardingController,
-                onBordingList: screens,
-              ),
               // if statement for sized box
-              const SizedBox(height: 15),
-              OnBoardingButtons(
+              Indicator(controller: onBoardingController),
+              AppButton(
+                buttonHeight: 50,
+                buttonWidth: 310,
+                text: isLast ? 'Login' : 'Next',
+                onPressed: () {
+                  if (isLast) {
+                    submit(context);
+                  } else {
+                    setState(() {
+                      isLast = true;
+                    });
+                    onBoardingController.nextPage(
+                      duration: const Duration(milliseconds: 350),
+                      curve: Curves.bounceIn,
+                    );
+                  }
+                },
+              ),
+              SkipButton(
                 onBoardingController: onBoardingController,
                 isLast: isLast,
+                onPressed: () => submit(context),
               ),
-              verticalSpace(40),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void submit(BuildContext context) {
+    isLast = true;
+    CacheHelper.saveBool(key: AppConstants.kOnBoardingView, value: true)
+        .then((value) {
+      if (value) {
+        context.pushReplacementNamed(Routes.loginView);
+      }
+    });
   }
 }

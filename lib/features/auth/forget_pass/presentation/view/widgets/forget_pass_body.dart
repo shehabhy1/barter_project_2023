@@ -44,7 +44,7 @@ class ForgetPassBody extends StatelessWidget {
             verticalSpace(5),
             AppButton(
                 text: 'Send',
-                func: () {
+                onPressed: () {
                   context
                       .read<ForgetPassCubit>()
                       .validateThenDoForgetPassword();

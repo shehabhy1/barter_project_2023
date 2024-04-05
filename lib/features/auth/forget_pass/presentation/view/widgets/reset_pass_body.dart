@@ -62,7 +62,7 @@ class ResetPassBody extends StatelessWidget {
               verticalSpace(10),
               AppButton(
                   text: 'Send',
-                  func: () {
+                  onPressed: () {
                     context
                         .read<ForgetPassCubit>()
                         .validateThenDoResetPassword(email);

@@ -55,7 +55,7 @@ class VerifyResetCodeBody extends StatelessWidget {
             verticalSpace(5),
             AppButton(
               text: 'Send',
-              func: () {
+              onPressed: () {
                 context.read<ForgetPassCubit>().validateThenDoVerifyResetCode();
                 debugPrint(email);
               },

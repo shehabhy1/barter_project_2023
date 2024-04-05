@@ -47,7 +47,7 @@ class EditProfileBody extends StatelessWidget {
             verticalSpace(25),
             AppButton(
               text: 'Saved Changes',
-              func: () {},
+              onPressed: () {},
             ),
             // const CustomButtonEditProfile(),
           ],

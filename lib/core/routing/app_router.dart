@@ -32,7 +32,7 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
-                  // child: const LoginView(),
+                  //child: const OnBoardingView(),
                   child: isLast ? const LoginView() : const OnBoardingView(),
                 ));
       case Routes.loginView:

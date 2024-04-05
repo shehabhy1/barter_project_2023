@@ -1,53 +1,25 @@
-import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
-import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/helper/app_constants.dart';
-import '../../../../../core/utils/cache_helper.dart';
 
-class OnBoardingButtons extends StatelessWidget {
-  const OnBoardingButtons({
+class SkipButton extends StatelessWidget {
+  final PageController onBoardingController;
+  final bool isLast;
+  final void Function()? onPressed;
+  const SkipButton({
     super.key,
     required this.onBoardingController,
     required this.isLast,
+    required this.onPressed,
   });
-  final PageController onBoardingController;
-  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: 310.w,
-          decoration: BoxDecoration(
-              color: AppConstants.primaryColor,
-              borderRadius: BorderRadius.circular(8)),
-          //TODO: راجع التصميم مع فيجما  => شهاب
-          child: TextButton(
-            onPressed: () async {
-              if (isLast) {
-                submit(context);
-                // await CacheHelper.saveBool(
-                //     key: AppConstants.kOnBoardingView, value: true);
-                // Future.delayed(const Duration(milliseconds: 5000), () {
-                //   context.pushReplacementNamed(Routes.loginView);
-                // });
-              } else {
-                onBoardingController.nextPage(
-                    duration: const Duration(microseconds: 750),
-                    curve: Curves.bounceIn);
-              }
-            },
-            child: Text(
-              isLast ? 'login' : 'Next',
-              style: AppStyles.semiBold20.copyWith(color: Colors.white),
-            ),
-          ),
-        ),
-        verticalSpace(16),
+        const SizedBox(height: 20),
         Container(
           width: 310.w,
           decoration: BoxDecoration(
@@ -56,9 +28,7 @@ class OnBoardingButtons extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: TextButton(
-            onPressed: () {
-              submit(context);
-            },
+            onPressed: onPressed,
             child: Text(
               'Skip',
               style: AppStyles.semiBold20
@@ -66,18 +36,8 @@ class OnBoardingButtons extends StatelessWidget {
             ),
           ),
         ),
+        verticalSpace(40),
       ],
-    );
-  }
-
-  void submit(BuildContext context) {
-    //save data in shared pref
-    CacheHelper.saveBool(key: AppConstants.kOnBoardingView, value: true).then(
-      (value) {
-        if (value) {
-          context.pushReplacementNamed(Routes.loginView);
-        }
-      },
     );
   }
 }

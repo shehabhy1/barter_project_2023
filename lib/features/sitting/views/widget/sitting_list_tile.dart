@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:barter_app/features/sitting/data/model/sitting_model.dart';
 import '../../../../core/utils/styles.dart';
 
 class SittingListTile extends StatelessWidget {
-  final SittingModel model;
-  const SittingListTile({super.key, required this.model});
+  final void Function()? onTap;
+  final String tittle;
+  final Widget? subTittle;
+  final bool icon;
+
+  const SittingListTile({
+    super.key,
+    this.onTap,
+    required this.tittle,
+    this.subTittle,
+    this.icon = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        // if (model.color != null) {
-        //   AppWarning.logoutDialog(
-        //     context: context,
-        //     tittle: 'Do you want to logout?',
-        //     onTap: () {},
-        //   );
-        // } else {
-        //   context.pushNamed(model.tittle);
-        // }
-      },
-      contentPadding: EdgeInsets.zero,
+      onTap: onTap,
+      //contentPadding: EdgeInsets.zero,
       title: Text(
-        model.tittle,
+        tittle,
         style: AppStyles.medium18,
       ),
-      trailing: const Icon(Icons.keyboard_arrow_right_sharp, size: 30),
+      subtitle: subTittle,
+      trailing: icon == true
+          ? const Icon(Icons.arrow_forward_ios_outlined, size: 25)
+          : null,
     );
   }
 }

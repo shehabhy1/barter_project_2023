@@ -1,6 +1,5 @@
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/utils/assets.dart';
 import 'bottom_sheet_body.dart';
 

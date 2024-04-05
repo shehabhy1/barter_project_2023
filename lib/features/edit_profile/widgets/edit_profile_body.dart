@@ -4,11 +4,14 @@ import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../profile_screen/data/models/user_info_model.dart';
 import 'cusomt_list_tile_profile.dart';
 import 'image_profile_with_image.dart';
 
 class EditProfileBody extends StatelessWidget {
-  const EditProfileBody({super.key});
+  final UserInfo user;
+
+  const EditProfileBody({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,13 @@ class EditProfileBody extends StatelessWidget {
           children: [
             const ImageProfileWithIcon(),
             Text(
-              'Ali Arsany',
+              user.data!.name!,
               textAlign: TextAlign.center,
               style: AppStyles.medium24.copyWith(fontWeight: FontWeight.w400),
             ),
             CustomListTileProfile(
               title: 'Name',
-              subTitle: 'Ali Arsany',
+              subTitle: user.data!.name!,
               controller: context.read<ProfileCubit>().nameController,
             ),
             CustomListTileProfile(
@@ -36,15 +39,15 @@ class EditProfileBody extends StatelessWidget {
             ),
             CustomListTileProfile(
               title: 'Phone Number',
-              subTitle: '01022352587',
+              subTitle: user.data!.phone!,
               controller: context.read<ProfileCubit>().phoneController,
             ),
             CustomListTileProfile(
               title: 'WhatsApp Number',
-              subTitle: '01149315420',
+              subTitle: user.data!.whatsapp!,
               controller: context.read<ProfileCubit>().whatsController,
             ),
-            verticalSpace(25),
+            verticalSpace(35),
             AppButton(
               text: 'Saved Changes',
               onPressed: () {},

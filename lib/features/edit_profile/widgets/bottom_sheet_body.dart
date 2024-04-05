@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../../../core/shared_widget/warning_dialog.dart';
 import '../../../core/utils/assets.dart';
-import 'alert_dialog_body.dart';
 
 class BottomSheetBody extends StatelessWidget {
   const BottomSheetBody({super.key});
@@ -37,9 +36,10 @@ class BottomSheetBody extends StatelessWidget {
                     AssetData.deleteIcon,
                   ),
                   onTap: () {
-                    showDialog(
+                    AppWarning.logoutDialog(
                       context: context,
-                      builder: (context) => const AlertDialogBody(),
+                      tittle: 'Do you want to remove photo?',
+                      onTap: () {},
                     );
                   },
                 ),

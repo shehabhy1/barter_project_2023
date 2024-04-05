@@ -4,9 +4,9 @@ import 'package:barter_app/features/profile_screen/presentation/model_view/cubit
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../core/di/injection.dart';
 import '../../core/shared_widget/build_app_bar.dart';
+import '../auth/login/presentation/view/widgets/custom_center_text.dart';
 import 'widgets/edit_profile_body.dart';
 
 class EditProfileView extends StatelessWidget {
@@ -25,6 +25,8 @@ class EditProfileView extends StatelessWidget {
               return EditProfileBody(user: state.userInfo);
             } else if (state is GetUserinfoLoadingState) {
               return const CustomLoadingIndicator();
+            } else if (state is GetUserinfoErrorState) {
+              return CustomCenterText(text: state.error);
             } else {
               return const CustomLoadingIndicator();
             }

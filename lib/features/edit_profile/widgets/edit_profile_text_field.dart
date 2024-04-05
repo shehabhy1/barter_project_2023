@@ -17,18 +17,22 @@ class EditProfileTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFiled(
-      contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-      focusNode: searchFocusNode,
-      type: TextInputType.name,
-      controller: widget.controller,
-      label: widget.title,
-      sufficIcon: IconButton(
-        onPressed: onPressed,
-        icon: const Icon(Icons.close),
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: AppTextFiled(
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        focusNode: searchFocusNode,
+        type: TextInputType.name,
+        controller: widget.controller,
+        label: widget.title,
+        sufficIcon: IconButton(
+          onPressed: onPressed,
+          icon: const Icon(Icons.close),
+        ),
+        onSubmitted: onSubmitted,
+        //prefixIcon: Text('data'),
       ),
-      onSubmitted: onSubmitted,
-      //prefixIcon: Text('data'),
     );
   }
 }

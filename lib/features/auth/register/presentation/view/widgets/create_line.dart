@@ -25,7 +25,7 @@ class LastLineSign extends StatelessWidget {
             'Log in ',
             style: TextStyle(
               color: Color(0xFFB73BFF),
-              fontSize: 14,
+              fontSize: 16,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
             ),

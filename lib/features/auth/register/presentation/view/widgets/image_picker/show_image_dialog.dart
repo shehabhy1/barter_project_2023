@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
+import '../../../veiw_model/cubit/register_cubit.dart';
 import 'image_picker_dialog.dart';
 import 'pick_image_widget.dart';
 

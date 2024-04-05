@@ -37,14 +37,14 @@ class _CustomListTileProfileState extends State<CustomListTileProfile> {
             searchFocusNode: searchFocusNode,
             widget: widget,
             onPressed: () => state(),
-            onSubmitted: (p0) => state(),
+            //onSubmitted: (p0) => state(),
           )
         : EditProfileListTile(
             widget: widget,
             onTap: () {
               state();
               if (searchOpened) {
-                Future.delayed(const Duration(milliseconds: 20), () {
+                Future.delayed(const Duration(milliseconds: 25), () {
                   FocusScope.of(context).requestFocus(searchFocusNode);
                 });
               } else {

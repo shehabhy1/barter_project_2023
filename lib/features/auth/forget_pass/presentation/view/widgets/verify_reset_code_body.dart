@@ -20,7 +20,7 @@ class VerifyResetCodeBody extends StatelessWidget {
     return Form(
       key: context.read<ForgetPassCubit>().formKey,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 20.w),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

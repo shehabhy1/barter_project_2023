@@ -28,14 +28,16 @@ class UserCardBuilder extends StatelessWidget {
                   AppStyles.medium24.copyWith(color: const Color(0xffB73BFF)),
             ),
           );
+        } else if (state is GetUserinfoErrorState) {
+          return CustomCenterText(text: state.error);
+        } else if (state is GetUserinfoErrorState) {
+          return CustomCenterText(text: state.error);
         } else if (state is GetUserinfoLoadingState) {
           return const CustomShimmer(
             height: 70,
             width: double.infinity,
             radius: 30,
           );
-        } else if (state is GetUserinfoErrorState) {
-          return CustomCenterText(text: state.error);
         } else {
           return const CustomShimmer(
             height: 70,

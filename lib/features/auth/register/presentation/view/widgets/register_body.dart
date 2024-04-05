@@ -8,7 +8,7 @@ import 'package:barter_app/features/auth/register/presentation/view/widgets/crea
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/shared_widget/app_buttom.dart';
-import '../../../../../../core/shared_widget/image_picker/show_image_dialog.dart';
+import 'image_picker/show_image_dialog.dart';
 import '../../../../../../core/shared_widget/radio_buttom.dart';
 import '../../../../login/presentation/view/widgets/custom_center_text.dart';
 
@@ -18,7 +18,7 @@ class RegisterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
           child: Column(
         children: [
@@ -50,6 +50,7 @@ class RegisterBody extends StatelessWidget {
           const SizedBox(height: 15),
           const LastLineSign(),
           const RegisterBlocListener(),
+          const SizedBox(height: 15),
         ],
       )),
     );

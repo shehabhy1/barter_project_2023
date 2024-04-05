@@ -7,9 +7,9 @@ class VerifyResetCodeView extends StatelessWidget {
   final String email;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: VerifyResetCodeBody(
+    return Scaffold(
+      body: SafeArea(
+        child: VerifyResetCodeBody(
           email: email,
         ),
       ),

@@ -6,9 +6,9 @@ class ResetPassView extends StatelessWidget {
   final String email;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ResetPassBody(
+    return Scaffold(
+      body: SafeArea(
+        child: ResetPassBody(
           email: email,
         ),
       ),

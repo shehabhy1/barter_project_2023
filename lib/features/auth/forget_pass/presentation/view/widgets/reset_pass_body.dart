@@ -19,7 +19,7 @@ class ResetPassBody extends StatelessWidget {
     return Form(
       key: context.read<ForgetPassCubit>().formKey,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -7,7 +7,7 @@ buildAppBar(
   return AppBar(
     surfaceTintColor: Colors.white,
     //backgroundColor: Colors.white,
-    backgroundColor: Colors.transparent,
+    //backgroundColor: Colors.transparent,
     scrolledUnderElevation: 0.0,
     centerTitle: true,
     title: Text(

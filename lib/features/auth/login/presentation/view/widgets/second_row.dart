@@ -22,7 +22,7 @@ class SecondRow extends StatelessWidget {
           },
           child: Text(
             'Forget password?',
-            style: Styles.textStyle20
+            style: AppStyles.semiBold20
                 .copyWith(fontSize: 14, color: AppConstants.primaryColor),
           ),
         ),

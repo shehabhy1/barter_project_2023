@@ -1,5 +1,5 @@
-import 'package:barter_app/features/profile_screen/presentation/widgets/profile_screen_widgets/report_item_listview.dart';
-import 'package:barter_app/features/profile_screen/presentation/widgets/profile_screen_widgets/top_part_of_profile_screen.dart';
+import 'package:barter_app/features/profile_screen/presentation/views/widgets/profile_screen_widgets/report_item_listview.dart';
+import 'package:barter_app/features/profile_screen/presentation/views/widgets/profile_screen_widgets/top_part_of_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class ReportView extends StatelessWidget {

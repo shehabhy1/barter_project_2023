@@ -24,7 +24,7 @@ class EmailAndPassword extends StatelessWidget {
               children: [
                 const Text(
                   'Email',
-                  style: Styles.textStyle20,
+                  style: AppStyles.semiBold20,
                 ),
                 const SizedBox(height: 8),
                 AppTextFiled(
@@ -42,7 +42,7 @@ class EmailAndPassword extends StatelessWidget {
                 const SizedBox(height: 16),
                 const Text(
                   'Password',
-                  style: Styles.textStyle20,
+                  style: AppStyles.semiBold20,
                 ),
                 const SizedBox(height: 8),
                 PasswordAndValidation(

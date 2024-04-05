@@ -18,7 +18,7 @@ class ShowAlertDialog extends StatelessWidget {
                       width: context.deviceWidth,
                       child: Text(
                         'Do you want to logout?',
-                        style: Styles.textStyle16
+                        style: AppStyles.medium16
                             .copyWith(color: const Color(0xff626262)),
                       ),
                     ),
@@ -30,7 +30,7 @@ class ShowAlertDialog extends StatelessWidget {
                           },
                           child: Text(
                             'Cancel',
-                            style: Styles.textStyle16
+                            style: AppStyles.medium16
                                 .copyWith(color: const Color(0xff626262)),
                           )),
                       TextButton(
@@ -40,7 +40,7 @@ class ShowAlertDialog extends StatelessWidget {
                           child: Text(
                             'LogOut',
                             style:
-                                Styles.textStyle16.copyWith(color: Colors.red),
+                                AppStyles.medium16.copyWith(color: Colors.red),
                           )),
                     ],
                     shape: RoundedRectangleBorder(
@@ -49,7 +49,7 @@ class ShowAlertDialog extends StatelessWidget {
         },
         child: Text(
           'Logout',
-          style: Styles.textStyle20.copyWith(color: Colors.black),
+          style: AppStyles.semiBold20.copyWith(color: Colors.black),
         ));
   }
 }

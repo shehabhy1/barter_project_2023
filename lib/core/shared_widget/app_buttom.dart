@@ -48,7 +48,7 @@ class AppButton extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: Styles.textStyle20
+          style: AppStyles.semiBold20
               .copyWith(fontSize: 24, color: AppConstants.white),
         ),
       ),

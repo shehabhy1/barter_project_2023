@@ -26,7 +26,7 @@ class ForgetPassBody extends StatelessWidget {
             verticalSpace(25),
             const Text(
               'Email',
-              style: Styles.textStyle20,
+              style: AppStyles.semiBold20,
             ),
             verticalSpace(8),
             AppTextFiled(

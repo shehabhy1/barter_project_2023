@@ -16,7 +16,7 @@ class SignUpTextFieldPart extends StatelessWidget {
         const SizedBox(height: 16),
         const Text(
           'Full Name',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         const SizedBox(height: 8),
         AppTextFiled(
@@ -31,7 +31,7 @@ class SignUpTextFieldPart extends StatelessWidget {
         const SizedBox(height: 16),
         const Text(
           'Email',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         const SizedBox(height: 8),
         AppTextFiled(
@@ -47,7 +47,7 @@ class SignUpTextFieldPart extends StatelessWidget {
         const SizedBox(height: 16),
         const Text(
           'Phone',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         const SizedBox(height: 8),
         AppTextFiled(

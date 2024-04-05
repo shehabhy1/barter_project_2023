@@ -3,7 +3,8 @@ import '../../../../../../core/utils/styles.dart';
 
 class CustomCenterText extends StatelessWidget {
   final String text;
-  const CustomCenterText({super.key, required this.text});
+  final TextStyle? style;
+  const CustomCenterText({super.key, required this.text, this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class CustomCenterText extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: Styles.textStyle32,
+          style: style ?? AppStyles.bold32,
         ),
       ),
     );

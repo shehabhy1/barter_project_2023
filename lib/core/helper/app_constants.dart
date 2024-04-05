@@ -9,4 +9,7 @@ class AppConstants {
 
   static const greyColor = Color(0xff575757);
   static const textColor = Color(0xff8B8B8B);
+  static String? token;
 }
+
+String? token;

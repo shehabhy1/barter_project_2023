@@ -11,7 +11,7 @@ class ImageProfileWithIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
-        clipBehavior: Clip.none,
+        //clipBehavior: Clip.none,
         children: [
           Image.asset(
             AssetData.testImageEditProfile,
@@ -19,8 +19,8 @@ class ImageProfileWithIcon extends StatelessWidget {
             width: MediaQuery.of(context).size.height * .16,
           ),
           Positioned(
-            top: 70,
-            left: 90,
+            bottom: -1,
+            right: -1,
             child: Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * .055,
@@ -30,8 +30,7 @@ class ImageProfileWithIcon extends StatelessWidget {
                 color: AppConstants.primaryColor,
               ),
               child: IconButton(
-                onPressed: ()
-                {
+                onPressed: () {
                   showModalBottomSheet(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
@@ -40,10 +39,9 @@ class ImageProfileWithIcon extends StatelessWidget {
                         ),
                       ),
                       context: context,
-                      builder: (context)
-                  {
-                    return const BottomSheetBody();
-                  });
+                      builder: (context) {
+                        return const BottomSheetBody();
+                      });
                 },
                 icon: Image.asset(
                   AssetData.camera,

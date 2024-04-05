@@ -19,7 +19,7 @@ class OtpTextFieldWidget extends StatelessWidget {
       autoFocus: true,
       showFieldAsBox: true,
       onCodeChanged: (val) {},
-      textStyle: Styles.textStyle20,
+      textStyle: AppStyles.semiBold20,
       focusedBorderColor: AppConstants.primaryColor,
       enabledBorderColor: AppConstants.greyColor,
       onSubmit: (String verificationCode) {

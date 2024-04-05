@@ -19,9 +19,10 @@ import 'package:barter_app/features/splash_view/presentation/views/splash_view.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/sitting/views/sitting_view.dart';
+
 class AppRouter {
   bool isLast = CacheHelper.getData(key: AppConstants.kOnBoardingView) ?? false;
-
   Route generatRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
@@ -69,9 +70,9 @@ class AppRouter {
                   value: getIt<ForgetPassCubit>(),
                   child: const ForgetPassView(),
                 ));
+
       case Routes.resetPassView:
         final email = arguments as String;
-
         return MaterialPageRoute(
             builder: (_) => BlocProvider<ForgetPassCubit>.value(
                   value: getIt<ForgetPassCubit>(),
@@ -80,13 +81,13 @@ class AppRouter {
                   ),
                 ));
       case Routes.editProfileView:
-
         return MaterialPageRoute(
             builder: (_) => BlocProvider<ProfileCubit>.value(
                   value: getIt<ProfileCubit>(),
-                  child: const EditProfileView(
-                      ),
+                  child: const EditProfileView(),
                 ));
+      case Routes.settingsView:
+        return MaterialPageRoute(builder: (_) => const SittingView());
 
       default:
         return MaterialPageRoute(

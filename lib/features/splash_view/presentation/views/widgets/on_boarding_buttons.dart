@@ -43,7 +43,7 @@ class OnBoardingButtons extends StatelessWidget {
             },
             child: Text(
               isLast ? 'login' : 'Next',
-              style: Styles.textStyle20.copyWith(color: Colors.white),
+              style: AppStyles.semiBold20.copyWith(color: Colors.white),
             ),
           ),
         ),
@@ -61,8 +61,8 @@ class OnBoardingButtons extends StatelessWidget {
             },
             child: Text(
               'Skip',
-              style:
-                  Styles.textStyle20.copyWith(color: AppConstants.primaryColor),
+              style: AppStyles.semiBold20
+                  .copyWith(color: AppConstants.primaryColor),
             ),
           ),
         ),

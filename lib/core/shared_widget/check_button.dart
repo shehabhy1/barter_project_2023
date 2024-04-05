@@ -37,7 +37,7 @@ class _CheckButtomState extends State<CheckButtom> {
         ),
         Text(
           widget.text,
-          style: Styles.textStyle20.copyWith(
+          style: AppStyles.semiBold20.copyWith(
             fontSize: 14,
             color: const Color(0xFF8B8B8B),
           ),

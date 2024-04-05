@@ -2,70 +2,65 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../helper/app_constants.dart';
 import '../utils/styles.dart';
 
 class AppWarning {
-  // static Future<void> showWarningDialog({
-  //   required BuildContext context,
-  //   required String subtitle,
-  //   required void Function()? onTap,
-  //   bool isError = true,
-  // }) async {
-  //   await showDialog(
-  //     context: context,
-  //     builder: (context) {
-  //       return AlertDialog(
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(12.0),
-  //         ),
-  //         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-  //         content: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Image.asset(
-  //               AppAssets.warning,
-  //               height: 50.h,
-  //               width: 50.w,
-  //             ),
-  //             const SizedBox(height: 16),
-  //             TextWidget(
-  //               label: subtitle,
-  //               fontWeight: FontWeight.w600,
-  //             ),
-  //             const SizedBox(height: 16),
-  //             Row(
-  //               mainAxisAlignment: MainAxisAlignment.center,
-  //               children: [
-  //                 Visibility(
-  //                   visible: !isError,
-  //                   child: TextButton(
-  //                     onPressed: () {
-  //                       Navigator.pop(context);
-  //                     },
-  //                     child: const TextWidget(
-  //                       label: "Cancel",
-  //                       color: Colors.green,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 TextButton(
-  //                   onPressed: onTap,
-  //                   child: const TextWidget(
-  //                     label: "OK",
-  //                     color: Colors.red,
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-
-  // }
+  static void logoutDialog({
+    required BuildContext context,
+    required String tittle,
+    required void Function()? onTap,
+  }) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          contentPadding:
+              const EdgeInsets.only(top: 20, left: 20, right: 10, bottom: 5),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                tittle,
+                style: AppStyles.regularBlack16,
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: AppStyles.regularBlack16.copyWith(
+                        color: const Color(0xff626262),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: onTap,
+                    child: Text(
+                      'Logout',
+                      style: AppStyles.regularBlack16.copyWith(
+                        color: const Color(0xffBA1A1A),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   static Future<void> showAwesomeDialog({
     required BuildContext context,
@@ -80,7 +75,7 @@ class AppWarning {
       animType: AnimType.topSlide,
       title: title,
       desc: desc,
-      descTextStyle: Styles.textStyle14,
+      descTextStyle: AppStyles.regularGrey16,
       dialogBackgroundColor: Colors.white,
     ).show();
   }
@@ -97,7 +92,7 @@ class AppWarning {
         ),
         content: Text(
           error,
-          style: Styles.textStyle14,
+          style: AppStyles.regularGrey16,
           textAlign: TextAlign.center,
         ),
         actions: [
@@ -107,7 +102,7 @@ class AppWarning {
             },
             child: const Text(
               'Got it',
-              style: Styles.textStyle16,
+              style: AppStyles.medium16,
             ),
           ),
         ],

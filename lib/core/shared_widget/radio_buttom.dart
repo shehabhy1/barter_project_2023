@@ -21,7 +21,7 @@ class _RadioCheckState extends State<RadioCheck> {
       children: [
         const Text(
           'Gender',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         Row(
           children: [
@@ -41,7 +41,7 @@ class _RadioCheckState extends State<RadioCheck> {
             ),
             const Text(
               'Male',
-              style: Styles.textStyle14,
+              style: AppStyles.regularGrey16,
             ),
           ],
         ),
@@ -66,7 +66,7 @@ class _RadioCheckState extends State<RadioCheck> {
             ),
             const Text(
               'Female',
-              style: Styles.textStyle14,
+              style: AppStyles.regularGrey16,
             ),
           ],
         ),

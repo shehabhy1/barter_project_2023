@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +14,11 @@ class EditProfileView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         title: const Text('Edit Profile'),
-        titleTextStyle: Styles.textStyle24,
+        titleTextStyle: AppStyles.medium24,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            context.pop();
           },
           icon: const Icon(
             Icons.arrow_back_ios,

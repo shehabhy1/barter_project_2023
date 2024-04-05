@@ -20,7 +20,7 @@ class PhoneAnsPasswordTextFieldPart extends StatelessWidget {
       children: [
         const Text(
           'WhatsApp Number',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         const SizedBox(height: 8),
         AppTextFiled(
@@ -47,7 +47,7 @@ class PhoneAnsPasswordTextFieldPart extends StatelessWidget {
         const SizedBox(height: 16),
         const Text(
           'Password',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         const SizedBox(height: 8),
         PasswordAndValidation(controller: cubit.passwordController),

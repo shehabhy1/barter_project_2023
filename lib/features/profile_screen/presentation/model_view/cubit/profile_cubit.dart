@@ -6,9 +6,14 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
+  final ProfileRepo _profileRepo;
   ProfileCubit(this._profileRepo) : super(ProfileInitial());
 
-  final ProfileRepo _profileRepo;
+  final formKey = GlobalKey<FormState>();
+  late TextEditingController nameController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
+  late TextEditingController phoneController = TextEditingController();
+  late TextEditingController whatsController = TextEditingController();
 
   Future<void> getMyInfo() async {
     // emit(const ProfileState.loading());

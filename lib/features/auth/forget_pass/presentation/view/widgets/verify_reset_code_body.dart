@@ -27,7 +27,7 @@ class VerifyResetCodeBody extends StatelessWidget {
             const Center(
               child: Text(
                 'Forget password',
-                style: Styles.textStyle32,
+                style: AppStyles.bold32,
               ),
             ),
             verticalSpace(10),
@@ -43,7 +43,7 @@ class VerifyResetCodeBody extends StatelessWidget {
                         color: AppConstants.primaryColor, fontSize: 16.sp),
                   )
                 ],
-                style: Styles.textStyle20.copyWith(
+                style: AppStyles.semiBold20.copyWith(
                   color: const Color((0xFF8B8B8B)),
                 ),
               ),

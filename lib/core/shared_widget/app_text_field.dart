@@ -24,6 +24,8 @@ class AppTextFiled extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final BoxConstraints? prefixIconConstraints;
+  final FocusNode? focusNode;
+  final void Function(String?)? onSubmitted;
   const AppTextFiled({
     super.key,
     required this.type,
@@ -43,13 +45,17 @@ class AppTextFiled extends StatelessWidget {
     this.contentPadding,
     this.focusedBorder,
     this.enabledBorder,
+    this.focusNode,
     this.isObscure = false,
     this.prefixIconConstraints,
+    this.onSubmitted,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onFieldSubmitted: onSubmitted,
+      focusNode: focusNode,
       readOnly: readOnly ?? false,
       maxLines: maxLines ?? 1,
       controller: controller,

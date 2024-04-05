@@ -15,11 +15,12 @@ class AlertDialogBody extends StatelessWidget {
               style: Theme.of(context).textTheme.bodySmall,
             )),
         TextButton(
-            onPressed: () {},
-            child: const Text(
-              'Remove',
-              style: TextStyle(color: Colors.red),
-            )),
+          onPressed: () {},
+          child: const Text(
+            'Remove',
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
       ],
     );
   }

@@ -1,4 +1,4 @@
-import 'package:barter_app/features/profile_screen/presentation/widgets/profile_screen_widgets/report_item.dart';
+import 'package:barter_app/features/profile_screen/presentation/views/widgets/profile_screen_widgets/report_item.dart';
 import 'package:flutter/material.dart';
 
 class ReportItemListView extends StatelessWidget {

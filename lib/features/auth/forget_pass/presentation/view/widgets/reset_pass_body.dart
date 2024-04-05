@@ -27,13 +27,13 @@ class ResetPassBody extends StatelessWidget {
               const Center(
                 child: Text(
                   'New password',
-                  style: Styles.textStyle32,
+                  style: AppStyles.bold32,
                 ),
               ),
               const SizedBox(height: 20),
               const Text(
                 'Email',
-                style: Styles.textStyle20,
+                style: AppStyles.semiBold20,
               ),
               const SizedBox(height: 8),
               AppTextFiled(
@@ -51,7 +51,7 @@ class ResetPassBody extends StatelessWidget {
               const SizedBox(height: 16),
               const Text(
                 'New Password',
-                style: Styles.textStyle20,
+                style: AppStyles.semiBold20,
               ),
               const SizedBox(height: 8),
               PasswordAndValidation(

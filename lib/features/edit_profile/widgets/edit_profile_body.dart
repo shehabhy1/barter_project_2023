@@ -10,25 +10,25 @@ import 'image_picker/show_image_dialog.dart';
 
 class EditProfileBody extends StatelessWidget {
   final UserInfo user;
-
   const EditProfileBody({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Form(
-          key: context.read<ProfileCubit>().formKey,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Form(
+        key: context.read<ProfileCubit>().formKey,
+        child: SingleChildScrollView(
           child: Column(
             children: [
               ProfileImageDialoge(imageUrl: user.data!.image!.url!),
-              // const ImageProfileWithIcon(),
+              verticalSpace(5),
               Text(
                 user.data!.name!,
                 textAlign: TextAlign.center,
                 style: AppStyles.medium24.copyWith(fontWeight: FontWeight.w400),
               ),
+              verticalSpace(20),
               CustomListTileProfile(
                 title: 'Name',
                 subTitle: user.data!.name!,
@@ -49,12 +49,11 @@ class EditProfileBody extends StatelessWidget {
                 subTitle: user.data!.whatsapp!,
                 controller: context.read<ProfileCubit>().whatsController,
               ),
-              verticalSpace(40),
+              verticalSpace(50),
               AppButton(
                 text: 'Saved Changes',
                 onPressed: () {},
               ),
-              // const CustomButtonEditProfile(),
             ],
           ),
         ),

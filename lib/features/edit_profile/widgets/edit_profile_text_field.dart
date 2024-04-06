@@ -31,7 +31,6 @@ class EditProfileTextField extends StatelessWidget {
           icon: const Icon(Icons.close),
         ),
         onSubmitted: onSubmitted,
-        //prefixIcon: Text('data'),
       ),
     );
   }

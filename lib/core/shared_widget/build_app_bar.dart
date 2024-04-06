@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/styles.dart';
 
 buildAppBar(
@@ -7,18 +6,20 @@ buildAppBar(
   return AppBar(
     surfaceTintColor: Colors.white,
     //backgroundColor: Colors.white,
-    //backgroundColor: Colors.transparent,
     scrolledUnderElevation: 0.0,
     centerTitle: true,
     title: Text(
       title,
       style: style ?? AppStyles.medium24,
     ),
-    leading: IconButton(
-      onPressed: onPressed,
-      icon: const Icon(
-        Icons.arrow_back_ios,
-        color: Colors.black,
+    leading: Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: const Icon(
+          Icons.arrow_back_ios,
+          color: Colors.black,
+        ),
       ),
     ),
   );

@@ -10,27 +10,25 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: RefreshIndicator(
-            onRefresh: () async {
-              return await context.read<ProfileCubit>().getMyInfo();
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const UserCardBuilder(),
-                const SizedBox(height: 10),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: profileList
-                      .map((model) => CustomListTileDivider(model: model))
-                      .toList(),
-                ),
-              ],
-            ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            return await context.read<ProfileCubit>().getMyInfo();
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const UserCardBuilder(),
+              const SizedBox(height: 10),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: profileList
+                    .map((model) => CustomListTileDivider(model: model))
+                    .toList(),
+              ),
+            ],
           ),
         ),
       ),

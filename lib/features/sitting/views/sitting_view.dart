@@ -9,8 +9,7 @@ class SittingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          buildAppBar(title: "Edit Profile", onPressed: () => context.pop()),
+      appBar: buildAppBar(title: "Sittings", onPressed: () => context.pop()),
       body: const SittingViewBody(),
     );
   }

@@ -18,7 +18,6 @@ import 'package:barter_app/features/splash_view/presentation/views/on_boarding_v
 import 'package:barter_app/features/splash_view/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../features/sitting/views/sitting_view.dart';
 
 class AppRouter {
@@ -32,8 +31,8 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
-                  child: const OnBoardingView(),
-                 // child: isLast ? const LoginView() : const OnBoardingView(),
+                  //child: const OnBoardingView(),
+                  child: isLast ? const LoginView() : const OnBoardingView(),
                 ));
       case Routes.loginView:
         return MaterialPageRoute(

@@ -1,5 +1,8 @@
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
+import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/shared_widget/warning_dialog.dart';
+import 'package:barter_app/core/utils/cache_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../../../data/models/profile_model.dart';
@@ -18,7 +21,13 @@ class CustomListTileDivider extends StatelessWidget {
               AppWarning.logoutDialog(
                 context: context,
                 tittle: 'Do you want to logout?',
-                onTap: () {},
+                onTap: () {
+                  CacheHelper.removeData(key: AppConstants.kUserToken)
+                      .then((value) {
+                    context.pop();
+                    context.pushNamed(Routes.loginView);
+                  });
+                },
               );
             } else {
               context.pushNamed(model.tittle);

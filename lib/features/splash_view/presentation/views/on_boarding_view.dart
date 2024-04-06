@@ -1,13 +1,7 @@
-import 'package:barter_app/core/helper/app_constants.dart';
-import 'package:barter_app/core/helper/extentions.dart';
-import 'package:barter_app/core/helper/spacing.dart';
-import 'package:barter_app/core/shared_widget/app_buttom.dart';
-import 'package:barter_app/features/splash_view/presentation/views/widgets/indicator.dart';
-import 'package:barter_app/features/splash_view/presentation/views/widgets/on_boarding_buttons.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/routing/routes.dart';
-import '../../../../core/utils/cache_helper.dart';
+import '../../../../core/helper/spacing.dart';
 import '../../data/models/onboarding_model.dart';
+import 'widgets/indicator_and_buttons.dart';
 import 'widgets/onboarding_item.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -19,7 +13,7 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   var onBoardingController = PageController();
-  bool isLast = false;
+  int currentIndex = 0;
 
   @override
   void dispose() {
@@ -44,50 +38,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   padEnds: false,
                   controller: onBoardingController,
                   children: [
-                    OnBoardingItem(model: screens[0], isLast: isLast),
-                    OnBoardingItem(model: screens[1], isLast: isLast),
+                    OnBoardingItem(model: screens[0], isLast: false),
+                    OnBoardingItem(model: screens[1], isLast: true),
                   ],
                 ),
               ),
-              // if statement for sized box
-              Indicator(controller: onBoardingController),
-              AppButton(
-                buttonHeight: 50,
-                buttonWidth: 310,
-                text: isLast ? 'Login' : 'Next',
-                onPressed: () {
-                  if (isLast) {
-                    submit(context);
-                  } else {
-                    setState(() {
-                      isLast = true;
-                    });
-                    onBoardingController.nextPage(
-                      duration: const Duration(milliseconds: 350),
-                      curve: Curves.bounceIn,
-                    );
-                  }
-                },
-              ),
-              SkipButton(
+              IndicatorAndButtons(
                 onBoardingController: onBoardingController,
-                isLast: isLast,
-                onPressed: () => submit(context),
+                currentIndex: currentIndex,
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void submit(BuildContext context) {
-    isLast = true;
-    CacheHelper.saveBool(key: AppConstants.kOnBoardingView, value: true)
-        .then((value) {
-      if (value) {
-        context.pushReplacementNamed(Routes.loginView);
-      }
-    });
   }
 }

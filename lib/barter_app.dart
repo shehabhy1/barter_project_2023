@@ -17,7 +17,7 @@ class BarterApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generatRoute,
         //initialRoute: Routes.routingSplashView,
-        initialRoute: Routes.layoutView,
+        initialRoute: Routes.routingSplashView,
         title: 'Barter App',
       ),
     );

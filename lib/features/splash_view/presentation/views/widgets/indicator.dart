@@ -4,13 +4,8 @@ import '../../../../../core/helper/app_constants.dart';
 
 class Indicator extends StatelessWidget {
   final PageController controller;
-  // final List<OnBoardingModel> onBordingList;
 
-  const Indicator({
-    super.key,
-    required this.controller,
-    //required this.onBordingList,
-  });
+  const Indicator({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +13,6 @@ class Indicator extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: SmoothPageIndicator(
         controller: controller,
-        //  count: onBordingList.length,
         count: 2,
         effect: const JumpingDotEffect(
           dotWidth: 9.0,

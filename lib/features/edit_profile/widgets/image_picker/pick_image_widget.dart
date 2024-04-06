@@ -18,7 +18,7 @@ class PickImageWidget extends StatelessWidget {
               CustomCachedNetworkImage(
                 width: 150,
                 height: 150,
-                radius: 100,
+                radius: 150,
                 imageUrl: imageUrl,
                 fit: BoxFit.fill,
               ),

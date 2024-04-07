@@ -12,12 +12,13 @@ class BarterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      minTextAdapt: true,
       designSize: const Size(375, 812),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generatRoute,
         //initialRoute: Routes.routingSplashView,
-        initialRoute: Routes.layoutView,
+        initialRoute: Routes.routingSplashView,
         title: 'Barter App',
       ),
     );

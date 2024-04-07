@@ -1,6 +1,6 @@
 class Routes {
   static const String routingSplashView = '/';
-  static const String onBoardingView = 'onBoardingView';
+  static const String firstView = 'onBoardingView';
   static const String loginView = 'loginView';
   static const String registerView = 'registerView';
   static const String forgetPassView = 'forgetPassView';

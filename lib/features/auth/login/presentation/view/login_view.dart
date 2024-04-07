@@ -1,4 +1,4 @@
-import 'package:barter_app/features/auth/login/presentation/view/widgets/login_body.dart';
+import 'package:barter_app/features/auth/login/presentation/view/widgets/login_view_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {

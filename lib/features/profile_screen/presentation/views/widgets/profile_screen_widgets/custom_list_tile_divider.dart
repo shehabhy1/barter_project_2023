@@ -22,11 +22,10 @@ class CustomListTileDivider extends StatelessWidget {
                 context: context,
                 tittle: 'Do you want to logout?',
                 onTap: () {
-                  CacheHelper.removeData(key: AppConstants.kUserToken)
-                      .then((value) {
-                    context.pop();
-                    context.pushNamed(Routes.loginView);
-                  });
+                  //   context.pop();
+                  CacheHelper.removeData(key: AppConstants.kUserToken);
+                  context.pushNamedAndRemoveUntil(Routes.loginView,
+                      predicate: (route) => false);
                 },
               );
             } else {

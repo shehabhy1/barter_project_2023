@@ -11,8 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   await CacheHelper.init();
-  token = await CacheHelper.getData(key: AppConstants.kUserToken);
-  debugPrint('Token is $token');
+ // token = await CacheHelper.getData(key: AppConstants.kUserToken);
+  //debugPrint('Token is $token');
 
   Bloc.observer = MyBlocObserver();
 

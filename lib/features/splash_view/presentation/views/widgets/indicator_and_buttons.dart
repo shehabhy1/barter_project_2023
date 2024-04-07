@@ -39,7 +39,7 @@ class _SkipButtonState extends State<IndicatorAndButtons> {
             });
             if (widget.currentIndex < 2) {
               widget.onBoardingController.nextPage(
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 350),
                 curve: Curves.easeInOut,
               );
             } else {

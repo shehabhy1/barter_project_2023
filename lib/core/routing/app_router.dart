@@ -22,18 +22,39 @@ import '../../features/sitting/views/sitting_view.dart';
 
 class AppRouter {
   bool isLast = CacheHelper.getData(key: AppConstants.kOnBoardingView) ?? false;
+  String userSignIn = CacheHelper.getData(key: AppConstants.kUserToken) ?? "";
   Route generatRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.routingSplashView:
         return MaterialPageRoute(builder: (_) => const SplashView());
-      case Routes.onBoardingView:
+      case Routes.firstView:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<LoginCubit>(),
-                  //child: const OnBoardingView(),
-                  child: isLast ? const LoginView() : const OnBoardingView(),
-                ));
+            builder: (_) => isLast 
+                ? userSignIn == ""
+                    ? BlocProvider(
+                        create: (context) => getIt<LoginCubit>(),
+                        child: const LoginView(),
+                      )
+                    : MultiBlocProvider(
+                        providers: [
+                          BlocProvider(
+                            create: (context) => getIt<ProfileCubit>(),
+                          ),
+                          BlocProvider(
+                            create: (context) => getIt<LayoutCubit>(),
+                          ),
+                        ],
+                        child: const LayoutView(),
+                      )
+                : const OnBoardingView()
+            // BlocProvider(
+            //       create: (context) => getIt<LoginCubit>(),
+            //       //child: const OnBoardingView(),
+            //       child: isLast ? const LoginView() : const OnBoardingView(),
+            //     )
+
+            );
       case Routes.loginView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(

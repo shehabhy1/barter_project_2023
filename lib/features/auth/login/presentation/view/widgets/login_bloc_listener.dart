@@ -21,10 +21,9 @@ class LoginBlocListener extends StatelessWidget {
           // setupErrorState(context, state.error);
           AppWarning.snackBarState(context, state.error);
         } else if (state is LoginSuccessState) {
-          context.pop();
-          context.pushNamedAndRemoveUntil(Routes.layoutView,
+          //context.pop();
+          context.pushNamedAndRemoveUntil(Routes.firstView,
               predicate: (route) => false);
-          // context.pop();
         }
       },
       child: const SizedBox.shrink(),

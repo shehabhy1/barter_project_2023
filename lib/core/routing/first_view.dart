@@ -7,18 +7,19 @@ import '../../features/auth/login/presentation/view_model/cubit/login_cubit.dart
 import '../../features/layout/presentation/views/layout.dart';
 import '../../features/splash_view/presentation/views/on_boarding_view.dart';
 import '../di/injection.dart';
+import '../helper/app_constants.dart';
+import '../utils/cache_helper.dart';
 
 class FirstView extends StatelessWidget {
-  final bool isLast;
-  final String? token;
-  const FirstView({super.key, required this.isLast, required this.token});
+  const FirstView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    isLast
-        ? token == ""
+    bool isLast =
+        CacheHelper.getData(key: AppConstants.kOnBoardingView) ?? false;
+    String userSignIn = CacheHelper.getData(key: AppConstants.kUserToken) ?? "";
+    return isLast
+        ? userSignIn == ""
             ? BlocProvider(
                 create: (context) => getIt<LoginCubit>(),
                 child: const LoginView(),

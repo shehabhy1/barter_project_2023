@@ -16,13 +16,13 @@ class CustomListTileDivider extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          onTap: () {
+          onTap: () async {
             if (model.color != null) {
               AppWarning.logoutDialog(
                 context: context,
                 tittle: 'Do you want to logout?',
                 onTap: () {
-                  //   context.pop();
+                  context.pop();
                   CacheHelper.removeData(key: AppConstants.kUserToken);
                   context.pushNamedAndRemoveUntil(Routes.loginView,
                       predicate: (route) => false);

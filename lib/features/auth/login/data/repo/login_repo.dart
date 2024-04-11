@@ -20,8 +20,7 @@ class LoginRepo {
           data: LoginRequest(email: email, password: password).toJson());
       final loginResponse = LoginResponse.fromJson(response);
 
-      CacheHelper.saveString(
-          key: AppConstants.kUserToken, value: loginResponse.token);
+      CacheHelper.putData(key: AppConstants.kUserToken, value: loginResponse.token);
       return Right(loginResponse);
     } on ServerException catch (e) {
       return Left(e.errModel.message!);

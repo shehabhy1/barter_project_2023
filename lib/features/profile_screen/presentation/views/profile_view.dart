@@ -11,6 +11,6 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CacheHelper.getData(key: AppConstants.kUserToken) == null
         ? const ProfileSignup()
-        : const ProfileViewBody();
+        : const SafeArea(child: ProfileViewBody());
   }
 }

@@ -21,36 +21,36 @@ class LayoutView extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           //toggle between screens
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            toolbarHeight: 50,
-            centerTitle: true,
-            // backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: isHomeScreen
-                ? null
-                : Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: IconButton(
-                      onPressed: () {
-                        cubit.navigatTOHome();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios_outlined,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ),
-            title: Text(
-              cubit.screensTitles[cubit.currnetIndex],
-              style: const TextStyle(
-                height: 2,
-                fontSize: 24,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
+          // appBar: AppBar(
+          //   automaticallyImplyLeading: false,
+          //   toolbarHeight: 50,
+          //   centerTitle: true,
+          //   // backgroundColor: Colors.transparent,
+          //   elevation: 0,
+          //   leading: isHomeScreen
+          //       ? null
+          //       : Padding(
+          //           padding: const EdgeInsets.only(top: 10.0),
+          //           child: IconButton(
+          //             onPressed: () {
+          //               cubit.navigatTOHome();
+          //             },
+          //             icon: const Icon(
+          //               Icons.arrow_back_ios_outlined,
+          //               color: Colors.black87,
+          //             ),
+          //           ),
+          //         ),
+          //   title: Text(
+          //     cubit.screensTitles[cubit.currnetIndex],
+          //     style: const TextStyle(
+          //       height: 2,
+          //       fontSize: 24,
+          //       color: Colors.black,
+          //       fontWeight: FontWeight.w500,
+          //     ),
+          //   ),
+          // ),
           body: cubit.bottomScreens[cubit.currnetIndex],
           bottomNavigationBar: BottomNavigationBar(
             // type: BottomNavigationBarType.fixed,

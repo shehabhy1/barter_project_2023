@@ -55,7 +55,7 @@ class _SkipButtonState extends State<IndicatorAndButtons> {
   }
 
   void toLogin(BuildContext context) {
-    CacheHelper.saveBool(key: AppConstants.kOnBoardingView, value: true);
+    CacheHelper.putData(key: AppConstants.kOnBoardingView, value: true);
     context.pushNamedAndRemoveUntil(Routes.loginView,
         predicate: (Route<dynamic> route) => false);
   }

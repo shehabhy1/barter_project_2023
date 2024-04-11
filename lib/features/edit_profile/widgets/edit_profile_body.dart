@@ -4,50 +4,54 @@ import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../profile_screen/data/models/user_info_model.dart';
+import '../../../core/helper/app_constants.dart';
+import '../../../core/utils/cache_helper.dart';
 import 'cusomt_list_tile_profile.dart';
 import 'image_picker/show_image_dialog.dart';
 
 class EditProfileBody extends StatelessWidget {
-  final UserInfo user;
-  const EditProfileBody({super.key, required this.user});
+  const EditProfileBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<ProfileCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Form(
-        key: context.read<ProfileCubit>().formKey,
+        key: cubit.formKey,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ProfileImageDialoge(imageUrl: user.data!.image!.url!),
+              ProfileImageDialoge(
+                imageUrl: CacheHelper.getData(key: AppConstants.kUserImage),
+              ),
               verticalSpace(5),
               Text(
-                user.data!.name!,
+                CacheHelper.getData(key: AppConstants.kUserName),
                 textAlign: TextAlign.center,
                 style: AppStyles.medium24.copyWith(fontWeight: FontWeight.w400),
               ),
               verticalSpace(20),
               CustomListTileProfile(
                 title: 'Name',
-                subTitle: user.data!.name!,
-                controller: context.read<ProfileCubit>().nameController,
+                subTitle: CacheHelper.getData(key: AppConstants.kUserName),
+                controller: cubit.nameController,
               ),
               CustomListTileProfile(
                 title: 'Password',
                 subTitle: '**********',
-                controller: context.read<ProfileCubit>().passwordController,
+                controller: cubit.passwordController,
               ),
               CustomListTileProfile(
                 title: 'Phone Number',
-                subTitle: user.data!.phone!,
-                controller: context.read<ProfileCubit>().phoneController,
+                subTitle: CacheHelper.getData(key: AppConstants.kUserNumber),
+                controller: cubit.phoneController,
               ),
               CustomListTileProfile(
                 title: 'WhatsApp Number',
-                subTitle: user.data!.whatsapp!,
-                controller: context.read<ProfileCubit>().whatsController,
+                subTitle:
+                    CacheHelper.getData(key: AppConstants.kUserWhatsAppNumber),
+                controller: cubit.whatsController,
               ),
               verticalSpace(50),
               AppButton(

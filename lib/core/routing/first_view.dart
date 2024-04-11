@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/login/presentation/view/login_view.dart';
 import '../../features/auth/login/presentation/view_model/cubit/login_cubit.dart';
-import '../../features/layout/presentation/views/layout.dart';
+import '../../features/layout/presentation/views/layout_view.dart';
 import '../../features/splash_view/presentation/views/on_boarding_view.dart';
 import '../di/injection.dart';
 import '../helper/app_constants.dart';

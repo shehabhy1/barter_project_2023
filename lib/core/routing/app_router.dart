@@ -13,6 +13,7 @@ import 'package:barter_app/features/auth/register/presentation/view/register_vie
 import 'package:barter_app/features/splash_view/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
 import '../../features/sitting/views/sitting_view.dart';
 
 class AppRouter {
@@ -64,12 +65,14 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => BlocProvider<ForgetPassCubit>.value(
                   value: getIt<ForgetPassCubit>(),
-                  child: ResetPassView(
-                    email: email,
-                  ),
+                  child: ResetPassView(email: email),
                 ));
       case Routes.editProfileView:
-        return MaterialPageRoute(builder: (_) => const EditProfileView());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<ProfileCubit>(),
+                  child: const EditProfileView(),
+                ));
       case Routes.settingsView:
         return MaterialPageRoute(builder: (_) => const SittingView());
 

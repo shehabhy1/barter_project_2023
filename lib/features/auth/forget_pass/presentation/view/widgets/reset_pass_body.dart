@@ -24,14 +24,14 @@ class ResetPassBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+               Center(
                 child: Text(
                   'New password',
                   style: AppStyles.bold32,
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
+               Text(
                 'Email',
                 style: AppStyles.semiBold20,
               ),
@@ -49,7 +49,7 @@ class ResetPassBody extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-              const Text(
+               Text(
                 'New Password',
                 style: AppStyles.semiBold20,
               ),

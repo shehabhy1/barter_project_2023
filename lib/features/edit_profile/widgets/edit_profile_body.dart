@@ -4,8 +4,8 @@ import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/helper/app_constants.dart';
-import '../../../core/utils/cache_helper.dart';
+import '../../../core/helper/cash_helper/cache_helper.dart';
+import '../../../core/helper/cash_helper/cash_helper_constants.dart';
 import 'cusomt_list_tile_profile.dart';
 import 'image_picker/show_image_dialog.dart';
 
@@ -23,18 +23,18 @@ class EditProfileBody extends StatelessWidget {
           child: Column(
             children: [
               ProfileImageDialoge(
-                imageUrl: CacheHelper.getData(key: AppConstants.kUserImage),
+                imageUrl: CachHelper.getData(key: CashConstants.userImage),
               ),
               verticalSpace(5),
               Text(
-                CacheHelper.getData(key: AppConstants.kUserName),
+                CachHelper.getData(key: CashConstants.userName),
                 textAlign: TextAlign.center,
                 style: AppStyles.medium24.copyWith(fontWeight: FontWeight.w400),
               ),
               verticalSpace(20),
               CustomListTileProfile(
                 title: 'Name',
-                subTitle: CacheHelper.getData(key: AppConstants.kUserName),
+                subTitle: CachHelper.getData(key: CashConstants.userName),
                 controller: cubit.nameController,
               ),
               CustomListTileProfile(
@@ -44,19 +44,22 @@ class EditProfileBody extends StatelessWidget {
               ),
               CustomListTileProfile(
                 title: 'Phone Number',
-                subTitle: CacheHelper.getData(key: AppConstants.kUserNumber),
+                subTitle: CachHelper.getData(key: CashConstants.userNumber),
                 controller: cubit.phoneController,
               ),
               CustomListTileProfile(
                 title: 'WhatsApp Number',
-                subTitle:
-                    CacheHelper.getData(key: AppConstants.kUserWhatsAppNumber),
+                subTitle: CachHelper.getData(key: CashConstants.userWhatsApp),
                 controller: cubit.whatsController,
               ),
               verticalSpace(50),
               AppButton(
                 text: 'Saved Changes',
-                onPressed: () {},
+                onPressed: () {
+                  // cubit.whatsController.text.isEmpty
+                  //     ? debugPrint('Null')
+                  //     : debugPrint(cubit.whatsController.text);
+                },
               ),
             ],
           ),

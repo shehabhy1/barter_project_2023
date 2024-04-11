@@ -7,8 +7,8 @@ import '../../features/auth/login/presentation/view_model/cubit/login_cubit.dart
 import '../../features/layout/presentation/views/layout_view.dart';
 import '../../features/splash_view/presentation/views/on_boarding_view.dart';
 import '../di/injection.dart';
-import '../helper/app_constants.dart';
-import '../utils/cache_helper.dart';
+import '../helper/cash_helper/cache_helper.dart';
+import '../helper/cash_helper/cash_helper_constants.dart';
 
 class FirstView extends StatelessWidget {
   const FirstView({super.key});
@@ -16,8 +16,8 @@ class FirstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLast =
-        CacheHelper.getData(key: AppConstants.kOnBoardingView) ?? false;
-    String userSignIn = CacheHelper.getData(key: AppConstants.kUserToken) ?? "";
+        CachHelper.getData(key: CashConstants.kOnBoardingView) ?? false;
+    String userSignIn = CachHelper.getData(key: CashConstants.userToken) ?? "";
     return isLast
         ? userSignIn == ""
             ? BlocProvider(

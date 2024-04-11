@@ -6,7 +6,7 @@ class LayoutView extends StatelessWidget {
   const LayoutView({super.key});
   @override
   Widget build(BuildContext context) {
-    var cubit = LayoutCubit.get(context);
+    var cubit = context.read<LayoutCubit>();
     //to appear back button
     bool isHomeScreen = true;
 
@@ -53,6 +53,8 @@ class LayoutView extends StatelessWidget {
           // ),
           body: cubit.bottomScreens[cubit.currnetIndex],
           bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: const Color(0xffB73BFF),
+            unselectedItemColor: Colors.white,
             // type: BottomNavigationBarType.fixed,
             selectedIconTheme: const IconThemeData(color: Color(0xffB73BFF)),
             items: cubit.bottomNavigationBarItems,

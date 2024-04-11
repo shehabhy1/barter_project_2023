@@ -7,17 +7,17 @@ class SittingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          SittingListTile(
+          const SittingListTile(
             tittle: 'Language',
             icon: true,
             //onTap: () => ,
           ),
-          SittingListTile(tittle: 'Rating & feedback'),
-          SittingListTile(tittle: 'Help'),
+          const SittingListTile(tittle: 'Rating & feedback'),
+          const SittingListTile(tittle: 'Help'),
           SittingListTile(
             tittle: 'Version',
             subTittle: Text(

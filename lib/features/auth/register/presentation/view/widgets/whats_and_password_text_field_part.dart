@@ -18,7 +18,7 @@ class PhoneAnsPasswordTextFieldPart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           'WhatsApp Number',
           style: AppStyles.semiBold20,
         ),
@@ -45,7 +45,7 @@ class PhoneAnsPasswordTextFieldPart extends StatelessWidget {
           },
         ),
         const SizedBox(height: 16),
-        const Text(
+         Text(
           'Password',
           style: AppStyles.semiBold20,
         ),

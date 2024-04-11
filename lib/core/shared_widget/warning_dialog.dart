@@ -100,7 +100,7 @@ class AppWarning {
             onPressed: () {
               context.pop();
             },
-            child: const Text(
+            child:  Text(
               'Got it',
               style: AppStyles.medium16,
             ),

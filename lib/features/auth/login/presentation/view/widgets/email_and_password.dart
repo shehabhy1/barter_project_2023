@@ -22,7 +22,7 @@ class EmailAndPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                 Text(
                   'Email',
                   style: AppStyles.semiBold20,
                 ),
@@ -40,7 +40,7 @@ class EmailAndPassword extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-                const Text(
+                 Text(
                   'Password',
                   style: AppStyles.semiBold20,
                 ),

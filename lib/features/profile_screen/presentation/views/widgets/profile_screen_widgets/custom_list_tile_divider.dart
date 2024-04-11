@@ -1,9 +1,9 @@
-import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:barter_app/core/shared_widget/warning_dialog.dart';
-import 'package:barter_app/core/utils/cache_helper.dart';
+import 'package:barter_app/core/helper/cash_helper/cache_helper.dart';
 import 'package:flutter/material.dart';
+import '../../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../../../data/models/profile_model.dart';
 
@@ -23,7 +23,7 @@ class CustomListTileDivider extends StatelessWidget {
                 tittle: 'Do you want to logout?',
                 onTap: () {
                   context.pop();
-                  CacheHelper.removeData(key: AppConstants.kUserToken);
+                  CachHelper.removeData(key: CashConstants.userToken);
                   context.pushNamedAndRemoveUntil(Routes.loginView,
                       predicate: (route) => false);
                 },

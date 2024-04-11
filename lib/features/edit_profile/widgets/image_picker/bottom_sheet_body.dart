@@ -35,7 +35,7 @@ class BottomSheetBody extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                   Text(
                     'profile photo',
                     style: AppStyles.medium18,
                   ),

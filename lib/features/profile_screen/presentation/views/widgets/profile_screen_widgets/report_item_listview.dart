@@ -9,12 +9,12 @@ class ReportItemListView extends StatelessWidget {
     //TODO: check list isEmpty or not to show another screen
     return Expanded(
       child: ListView.builder(
-        // shrinkWrap: true,
-        // physics: const NeverScrollableScrollPhysics(),
+          // shrinkWrap: true,
+          // physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemCount: 10,
           itemBuilder: (context, index) {
-            return  const ReportItem();
+            return const ReportItem();
           }),
     );
   }

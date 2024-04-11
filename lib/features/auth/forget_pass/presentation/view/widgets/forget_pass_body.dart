@@ -24,7 +24,7 @@ class ForgetPassBody extends StatelessWidget {
           children: [
             const CustomCenterText(text: 'Forget password'),
             verticalSpace(25),
-            const Text(
+             Text(
               'Email',
               style: AppStyles.semiBold20,
             ),

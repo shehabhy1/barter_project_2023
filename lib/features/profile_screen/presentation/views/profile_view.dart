@@ -1,6 +1,6 @@
-import 'package:barter_app/core/helper/app_constants.dart';
-import 'package:barter_app/core/utils/cache_helper.dart';
+import 'package:barter_app/core/helper/cash_helper/cache_helper.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import 'widgets/profile_screen_widgets/profile_signup.dart';
 import 'widgets/profile_screen_widgets/profile_view_body.dart';
 
@@ -9,7 +9,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CacheHelper.getData(key: AppConstants.kUserToken) == null
+    return CachHelper.getData(key: CashConstants.userToken) == null
         ? const ProfileSignup()
         : const SafeArea(child: ProfileViewBody());
   }

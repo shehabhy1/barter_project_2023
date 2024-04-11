@@ -14,7 +14,7 @@ class SignUpTextFieldPart extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 16),
-        const Text(
+         Text(
           'Full Name',
           style: AppStyles.semiBold20,
         ),
@@ -29,7 +29,7 @@ class SignUpTextFieldPart extends StatelessWidget {
               }
             }),
         const SizedBox(height: 16),
-        const Text(
+         Text(
           'Email',
           style: AppStyles.semiBold20,
         ),
@@ -45,7 +45,7 @@ class SignUpTextFieldPart extends StatelessWidget {
           },
         ),
         const SizedBox(height: 16),
-        const Text(
+         Text(
           'Phone',
           style: AppStyles.semiBold20,
         ),

@@ -2,6 +2,7 @@ import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/shared_widget/app_buttom.dart';
 import 'package:barter_app/core/utils/styles.dart';
 import 'package:barter_app/features/auth/forget_pass/presentation/view/widgets/linear_progress_indicator_builder.dart';
+import 'package:barter_app/features/auth/login/presentation/view/widgets/custom_center_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,12 +25,7 @@ class VerifyResetCodeBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
-              child: Text(
-                'Forget password',
-                style: AppStyles.bold32,
-              ),
-            ),
+            const CustomCenterText(text: 'Forget password'),
             verticalSpace(10),
             RichText(
               text: TextSpan(

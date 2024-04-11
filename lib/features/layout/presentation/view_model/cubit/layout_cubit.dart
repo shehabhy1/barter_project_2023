@@ -56,8 +56,10 @@ class LayoutCubit extends Cubit<LayoutState> {
         label: ''),
   ];
   void changeIndexOfBottomNavBar(index) {
-    currnetIndex = index;
-    emit(LayoutChangeBottomNavState());
+    if (index != currnetIndex) {
+      currnetIndex = index;
+      emit(LayoutChangeBottomNavState());
+    }
   }
 
   void navigatTOHome() {

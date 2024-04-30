@@ -11,7 +11,6 @@ class Routes {
   static const String productDetailsView = 'ProductDetails';
   static const String reportView = 'ReportView';
   static const String reportDetailsView = 'ReportDetailsView';
-  static const String dealView = 'DealView';
   static const String languageView = 'LanguageView';
   static const String haveAndNeedView = 'HaveAndNeedView';
   static const String allScreenView = 'homeAllView';

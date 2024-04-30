@@ -7,6 +7,7 @@ import 'package:barter_app/features/auth/forget_pass/presentation/view/reset_pas
 import 'package:barter_app/features/auth/forget_pass/presentation/view/verify_reset_code_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
+import 'package:barter_app/features/deals_view/presentation/view/deal_view.dart';
 import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
@@ -75,6 +76,8 @@ class AppRouter {
                 ));
       case Routes.settingsView:
         return MaterialPageRoute(builder: (_) => const SittingView());
+      case Routes.dealStatusView:
+        return MaterialPageRoute(builder: (_) => const DealView());
 
       default:
         return MaterialPageRoute(

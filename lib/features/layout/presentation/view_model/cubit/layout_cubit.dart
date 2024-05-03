@@ -1,11 +1,10 @@
-import 'package:barter_project_2023/core/utils/assets.dart';
-import 'package:barter_project_2023/features/notification/presentition/views/notification_screen.dart';
+import 'package:barter_app/core/utils/assets.dart';
+import 'package:barter_app/features/layout/presentation/views/home_screen.dart';
+import 'package:barter_app/features/profile_screen/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../views/add_view.dart';
-import '../../../../home/presentation/view/home_view.dart';
-import '../../../../profile_screen/views/profile_view.dart';
 
 part 'layout_state.dart';
 
@@ -17,13 +16,13 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<Widget> bottomScreens = const [
     HomeView(),
     AddView(),
-    NotificationsScreen(),
+    // NotificationView(),
     ProfileView(),
   ];
   List<String> screensTitles = [
     'Home',
     'Add',
-    'Notification',
+    // 'Notification',
     'Profile',
   ];
   List<BottomNavigationBarItem> bottomNavigationBarItems = [
@@ -41,13 +40,13 @@ class LayoutCubit extends Cubit<LayoutState> {
           height: 32,
         ),
         label: ''),
-    BottomNavigationBarItem(
-        icon: SvgPicture.asset(
-          AssetData.notificationIcon,
-          width: 32,
-          height: 32,
-        ),
-        label: ''),
+    // BottomNavigationBarItem(
+    //     icon: SvgPicture.asset(
+    //       AssetData.notificationIcon,
+    //       width: 32,
+    //       height: 32,
+    //     ),
+    //     label: ''),
     BottomNavigationBarItem(
         icon: SvgPicture.asset(
           AssetData.profilIcon,
@@ -57,8 +56,10 @@ class LayoutCubit extends Cubit<LayoutState> {
         label: ''),
   ];
   void changeIndexOfBottomNavBar(index) {
-    currnetIndex = index;
-    emit(LayoutChangeBottomNavState());
+    if (index != currnetIndex) {
+      currnetIndex = index;
+      emit(LayoutChangeBottomNavState());
+    }
   }
 
   void navigatTOHome() {

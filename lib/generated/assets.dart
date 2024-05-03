@@ -11,10 +11,13 @@ class Assets {
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesNotiPhoto = 'assets/images/notiPhoto.jpg';
   static const String imagesNotification = 'assets/images/notification.svg';
-  static const String imagesOnBoardingImage1 = 'assets/images/on_boarding_Image1.png';
-  static const String imagesOnBoardingImage2 = 'assets/images/on_boarding_Image2.png';
+  static const String imagesOnBoardingImage1 =
+      'assets/images/on_boarding_Image1.png';
+  static const String imagesOnBoardingImage2 =
+      'assets/images/on_boarding_Image2.png';
   static const String imagesProfilecircle = 'assets/images/profilecircle.svg';
   static const String imagesSplashImage = 'assets/images/splash_image.png';
-  static const String imagesMap = 'assets/images/map.png';
 
+  static const String imagesMap = 'assets/images/map.png';
+  static const String egyptFlag = 'assets/images/egypt-flag-icon.svg';
 }

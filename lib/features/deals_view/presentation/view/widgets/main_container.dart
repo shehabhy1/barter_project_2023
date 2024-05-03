@@ -1,4 +1,4 @@
-import 'package:barter_project_2023/core/utils/styles.dart';
+import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,12 +35,12 @@ class MainContainer extends StatelessWidget {
           const SizedBox(height: 8), // Add spacing between the image and text
           Text(
             text,
-            style: Styles.textStyle16,
+            style: AppStyles.medium16,
           ),
           const SizedBox(height: 2),
           Text(
             date,
-            style: Styles.textStyle12.copyWith(fontWeight: FontWeight.w500,),
+            style: AppStyles.regularGrey12.copyWith(fontWeight: FontWeight.w500,),
           ),
         ],
       ),
@@ -56,12 +56,12 @@ class MainContainer extends StatelessWidget {
                const SizedBox(height: 8), // Add spacing between the image and text
                Text(
                  text1,
-                 style: Styles.textStyle16,
+                 style: AppStyles.medium16,
                ),
                const SizedBox(height: 2),
                 Text(
                  date1,
-                 style: Styles.textStyle12.copyWith(fontWeight: FontWeight.w500,),
+                 style: AppStyles.regularGrey12.copyWith(fontWeight: FontWeight.w500,),
                ),
              ],
            ),

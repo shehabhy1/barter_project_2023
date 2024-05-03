@@ -1,83 +1,47 @@
-import 'package:barter_project_2023/constants.dart';
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import '../utils/styles.dart';
 
-class RadioCheck extends StatelessWidget {
-  RadioCheck(
-      {super.key,
-      this.groupValue,
-      this.onChanged,
-      required this.value,
-      this.text = ''});
-  Object? groupValue;
-  void Function(Object?)? onChanged;
-  Object value;
-  String text = '';
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Radio(
-              activeColor: kPrimaryColor,
-              value: value,
-              groupValue: groupValue,
-              onChanged: onChanged,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              text,
-              style: Styles.textStyle14,
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
-/* class RadioCheck extends StatefulWidget {
-  const RadioCheck({Key? key}) : super(key: key);
+class RadioCheck extends StatefulWidget {
+  const RadioCheck({super.key});
 
   @override
   State<RadioCheck> createState() => _RadioCheckState();
 }
 
 class _RadioCheckState extends State<RadioCheck> {
-  int _selectedValue = 1;
-  
+  int _selectedValue = -1;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           'Gender',
-          style: Styles.textStyle20,
+          style: AppStyles.semiBold20,
         ),
         Row(
           children: [
             Radio(
-              activeColor: kPrimaryColor,
-              value: 'male',
+              activeColor: AppConstants.primaryColor,
+              value: 1,
               groupValue: _selectedValue,
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  context.read<RegisterCubit>().gender = 'Male';
                 });
               },
             ),
             const SizedBox(
               width: 5,
             ),
-            const Text(
+             Text(
               'Male',
-              style: Styles.textStyle14,
+              style: AppStyles.regularGrey16,
             ),
           ],
         ),
@@ -87,21 +51,22 @@ class _RadioCheckState extends State<RadioCheck> {
         Row(
           children: [
             Radio(
-              activeColor: kPrimaryColor,
+              activeColor: AppConstants.primaryColor,
               value: 2,
               groupValue: _selectedValue,
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
+                  context.read<RegisterCubit>().gender = 'Female';
                 });
               },
             ),
             const SizedBox(
               width: 5,
             ),
-            const Text(
+             Text(
               'Female',
-              style: Styles.textStyle14,
+              style: AppStyles.regularGrey16,
             ),
           ],
         ),
@@ -109,4 +74,3 @@ class _RadioCheckState extends State<RadioCheck> {
     );
   }
 }
- */

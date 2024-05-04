@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
 part 'api_error_model.g.dart';
-
 @JsonSerializable()
 class ApiErrorModel {
   String? status;
@@ -25,4 +24,3 @@ class Error {
   Map<String, dynamic> toJson() => _$ErrorToJson(this);
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
 }
-// w

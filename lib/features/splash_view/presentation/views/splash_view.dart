@@ -1,10 +1,6 @@
 import 'package:barter_app/core/helper/extentions.dart';
-import 'package:barter_app/core/routing/app_router.dart';
+import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:barter_app/core/routing/routes.dart';
-
-import 'package:barter_app/core/routing/routes.dart';
-
 import '../../../../core/utils/assets.dart';
 
 class SplashView extends StatefulWidget {
@@ -52,7 +48,7 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(milliseconds: 3500), () {
+    Future.delayed(const Duration(seconds: 3), () {
       context.pushReplacementNamed(Routes.firstView);
     });
   }

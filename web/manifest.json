@@ -1,6 +1,6 @@
 {
-    "name": "barter_project_2023",
-    "short_name": "barter_project_2023",
+    "name": "barter_app",
+    "short_name": "barter_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

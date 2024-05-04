@@ -1,7 +1,10 @@
+import 'package:barter_app/core/helper/extentions.dart';
+import 'package:barter_app/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:barter_app/core/routing/routes.dart';
 
-import '../../../../core/utils/app_router.dart';
+import 'package:barter_app/core/routing/routes.dart';
+
 import '../../../../core/utils/assets.dart';
 
 class SplashView extends StatefulWidget {
@@ -29,15 +32,17 @@ class _SplashViewState extends State<SplashView> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
+                fit: BoxFit.cover,
                 AssetData.splashImage,
-                width: double.infinity,
+                width: context.deviceWidth,
+                alignment: Alignment.bottomCenter,
               ),
             ),
             Positioned(
-              bottom: 205.h,
+              // bottom: context.deviceHeight*.41,
               child: Image.asset(
                 AssetData.logo,
-                width: 250.w,
+                width: context.deviceWidth * 0.5,
               ),
             )
           ],
@@ -48,7 +53,7 @@ class _SplashViewState extends State<SplashView> {
 
   void navigateToHome() {
     Future.delayed(const Duration(milliseconds: 3500), () {
-      context.pushReplacementNamed(AppRouter.routingOnBoardingView);
+      context.pushReplacementNamed(Routes.firstView);
     });
   }
 }

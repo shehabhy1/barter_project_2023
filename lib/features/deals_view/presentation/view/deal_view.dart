@@ -1,6 +1,6 @@
-import 'package:barter_project_2023/core/helper/hundle_size_helper.dart';
-import 'package:barter_project_2023/core/utils/styles.dart';
-import 'package:barter_project_2023/features/deals_view/presentation/view/widgets/tab_bar_item.dart';
+import 'package:barter_app/core/helper/extentions.dart';
+import 'package:barter_app/core/utils/styles.dart';
+import 'package:barter_app/features/deals_view/presentation/view/widgets/tab_bar_item.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/all_tap_view.dart';
@@ -39,7 +39,7 @@ class _DealViewState extends State<DealView> {
         ),
         title: Text(
           'Deals status',
-          style: Styles.textStyle24.copyWith(fontWeight: FontWeight.w600),
+          style: AppStyles.medium24.copyWith(fontWeight: FontWeight.w600),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,

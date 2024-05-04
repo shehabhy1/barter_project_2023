@@ -1,4 +1,4 @@
-# barter_project_2023
+# barter_app
 
 A new Flutter project.
 

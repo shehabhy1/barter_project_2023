@@ -59,12 +59,10 @@ class _PasswordAndValidationsState extends State<PasswordAndValidation> {
           hint: 'Write your password',
           isObscure: isObscureText,
           validate: (val) {
-            if (val == null ||
-                val.isEmpty ||
-                val.length < 6 ||
-                val.length > 16 ||
-                AppRegex.isPasswordValid(val)) {
-              return 'Please enter a valid password';
+            if (val == null || val.isEmpty || val.length < 6 || val.length > 16
+                //  || !AppRegex.isPasswordValid(val)
+                ) {
+              return "Please enter a valid password";
             }
           },
           sufficIcon: GestureDetector(

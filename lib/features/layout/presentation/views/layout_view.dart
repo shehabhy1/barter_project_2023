@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/layout_models.dart';
 import '../view_model/cubit/layout_cubit.dart';
+import 'widgets/bottom_nav.dart';
 
 class LayoutView extends StatelessWidget {
   const LayoutView({super.key});
@@ -12,7 +14,7 @@ class LayoutView extends StatelessWidget {
 
     return BlocConsumer<LayoutCubit, LayoutState>(
       listener: (context, state) {
-        if (cubit.currnetIndex == 0) {
+        if (cubit.selectedIndex == 0) {
           isHomeScreen = true;
         } else {
           isHomeScreen = false;
@@ -51,18 +53,8 @@ class LayoutView extends StatelessWidget {
           //     ),
           //   ),
           // ),
-          body: cubit.bottomScreens[cubit.currnetIndex],
-          bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: const Color(0xffB73BFF),
-            unselectedItemColor: Colors.white,
-            // type: BottomNavigationBarType.fixed,
-            selectedIconTheme: const IconThemeData(color: Color(0xffB73BFF)),
-            items: cubit.bottomNavigationBarItems,
-            currentIndex: cubit.currnetIndex,
-            onTap: (int index) {
-              cubit.changeIndexOfBottomNavBar(index);
-            },
-          ),
+          body: bottomScreens[cubit.selectedIndex],
+          bottomNavigationBar: BottomNav(cubit: cubit),
         );
       },
     );

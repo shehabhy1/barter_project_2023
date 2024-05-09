@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextFiled extends StatelessWidget {
-  // final String? Function(String?)? validator,
   final TextEditingController? controller;
   final TextInputType type;
   final Function(String)? onChange;
-
   final Function(String?)? validate;
   final String? label;
   final String? hint;

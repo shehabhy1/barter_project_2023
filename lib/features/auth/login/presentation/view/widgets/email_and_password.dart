@@ -7,8 +7,8 @@ import '../../../../../../core/shared_widget/app_text_field.dart';
 import '../../../../../../core/shared_widget/password_and_validation.dart';
 import '../../../../../../core/utils/styles.dart';
 
-class EmailAndPassword extends StatelessWidget {
-  const EmailAndPassword({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class EmailAndPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   'Email',
                   style: AppStyles.semiBold20,
                 ),
@@ -40,7 +40,7 @@ class EmailAndPassword extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-                 Text(
+                Text(
                   'Password',
                   style: AppStyles.semiBold20,
                 ),

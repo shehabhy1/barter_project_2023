@@ -23,7 +23,7 @@ class LoginBody extends StatelessWidget {
           children: [
             const CustomCenterText(text: 'Login'),
             const SizedBox(height: 20),
-            const EmailAndPassword(),
+            const LoginForm(),
             const SizedBox(height: 8),
             const SecondRow(),
             const SizedBox(height: 20),

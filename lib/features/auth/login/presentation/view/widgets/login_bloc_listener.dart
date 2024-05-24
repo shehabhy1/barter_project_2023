@@ -22,7 +22,7 @@ class LoginBlocListener extends StatelessWidget {
           AppWarning.snackBarState(context, state.error);
         } else if (state is LoginSuccessState) {
           //context.pop();
-          context.pushNamedAndRemoveUntil(Routes.firstView,
+          context.pushNamedAndRemoveUntil(Routes.layoutView,
               predicate: (route) => false);
         }
       },

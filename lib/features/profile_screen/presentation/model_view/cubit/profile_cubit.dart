@@ -6,15 +6,15 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../core/helper/cash_helper/cache_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 
-class ProfileCubit extends Cubit<ProfileState> {
+class GetProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;
-  ProfileCubit(this._profileRepo) : super(ProfileInitial());
+  GetProfileCubit(this._profileRepo) : super(ProfileInitial());
 
   final formKey = GlobalKey<FormState>();
-  late TextEditingController nameController = TextEditingController();
-  late TextEditingController passwordController = TextEditingController();
-  late TextEditingController phoneController = TextEditingController();
-  late TextEditingController whatsController = TextEditingController();
+  late final TextEditingController nameController = TextEditingController();
+  late final TextEditingController passwordController = TextEditingController();
+  late final TextEditingController phoneController = TextEditingController();
+  late final TextEditingController whatsController = TextEditingController();
   XFile? profilePic;
 
   Future<void> getMyInfo() async {
@@ -26,15 +26,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     result.fold((error) {
       emit(GetUserinfoErrorState(error: error));
     }, (userInfo) async {
-      await CachHelper.putData(
+      CachHelper.putData(
           key: CashConstants.userName, value: userInfo.data!.name);
-      await CachHelper.putData(
+      CachHelper.putData(
           key: CashConstants.userEmail, value: userInfo.data!.email);
-      await CachHelper.putData(
+      CachHelper.putData(
           key: CashConstants.userImage, value: userInfo.data!.image!.url);
-      await CachHelper.putData(
+      CachHelper.putData(
           key: CashConstants.userNumber, value: userInfo.data!.phone);
-      await CachHelper.putData(
+      CachHelper.putData(
           key: CashConstants.userWhatsApp, value: userInfo.data!.whatsapp);
       emit(GetUserinfoSuccessState(userInfo: userInfo));
     });

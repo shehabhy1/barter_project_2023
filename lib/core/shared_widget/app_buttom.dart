@@ -35,13 +35,13 @@ class AppButton extends StatelessWidget {
     return TextButton(
       style: buttonStyle ??
           ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(borderRadius ?? 8))),
-            backgroundColor: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(
                 backgroundColor ?? AppConstants.primaryColor),
-            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
-            fixedSize: MaterialStateProperty.all(Size(
+            padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+            fixedSize: WidgetStateProperty.all(Size(
                 buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 55.h)),
           ),
       onPressed: onPressed,

@@ -15,7 +15,7 @@ class ProfileViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: BlocListener<ProfileCubit, ProfileState>(
+        child: BlocListener<GetProfileCubit, ProfileState>(
           listener: (context, state) {
             if (state is GetUserinfoErrorState) {
               AppWarning.snackBarState(context, state.error);
@@ -23,7 +23,7 @@ class ProfileViewBody extends StatelessWidget {
           },
           child: RefreshIndicator(
             onRefresh: () async {
-              return await context.read<ProfileCubit>().getMyInfo();
+              return await context.read<GetProfileCubit>().getMyInfo();
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

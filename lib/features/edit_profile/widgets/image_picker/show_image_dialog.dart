@@ -19,7 +19,7 @@ class ProfileImageDialogeState extends State<ProfileImageDialoge> {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<ProfileCubit>();
+    var cubit = context.read<GetProfileCubit>();
     return GestureDetector(
       onTap: () {
         showImagePickerDialogSection(context, cubit);
@@ -31,7 +31,8 @@ class ProfileImageDialogeState extends State<ProfileImageDialoge> {
     );
   }
 
-  void showImagePickerDialogSection(BuildContext context, ProfileCubit cubit) {
+  void showImagePickerDialogSection(
+      BuildContext context, GetProfileCubit cubit) {
     showModalBottomSheet(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

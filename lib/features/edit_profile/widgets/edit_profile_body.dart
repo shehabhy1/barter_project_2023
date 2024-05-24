@@ -14,7 +14,7 @@ class EditProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<ProfileCubit>();
+    var cubit = context.read<GetProfileCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Form(

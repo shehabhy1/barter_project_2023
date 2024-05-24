@@ -3,12 +3,9 @@ part 'register_response_model.g.dart';
 
 @JsonSerializable()
 class RegisterResponse {
-  String? token;
-  UserData? user;
-  RegisterResponse({
-    this.token,
-    this.user,
-  });
+  final String? token;
+  final UserData? user;
+  const RegisterResponse({this.token, this.user});
   Map<String, dynamic> toJson() => _$RegisterResponseToJson(this);
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
       _$RegisterResponseFromJson(json);
@@ -16,15 +13,14 @@ class RegisterResponse {
 
 @JsonSerializable()
 class UserData {
-  String? name;
-  String? email;
-  String? gender;
-  String? phone;
-  Image? image;
-  String? password;
-  String? whatsapp;
-
-  UserData({
+  final String? name;
+  final String? email;
+  final String? gender;
+  final String? phone;
+  final Image? image;
+  final String? password;
+  final String? whatsapp;
+  const UserData({
     this.name,
     this.email,
     this.gender,
@@ -41,12 +37,9 @@ class UserData {
 
 @JsonSerializable()
 class Image {
-  String? url;
-  String? imageId;
-  Image({
-    this.url,
-    this.imageId,
-  });
+  final String? url;
+  final String? imageId;
+  const Image({this.url, this.imageId});
 
   Map<String, dynamic> toJson() => _$ImageToJson(this);
   factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);

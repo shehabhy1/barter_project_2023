@@ -17,9 +17,12 @@ class BottomNav extends StatelessWidget {
         (index) => BottomNavigationBarItem(
           icon: SvgPicture.asset(
             iconList[index],
-            color: index == cubit.selectedIndex
-                ? AppConstants.primaryColor
-                : Colors.grey,
+            colorFilter: ColorFilter.mode(
+              index == cubit.selectedIndex
+                  ? AppConstants.primaryColor
+                  : Colors.grey,
+              BlendMode.srcIn,
+            ),
             width: index == cubit.selectedIndex ? 35.w : 30.w,
           ),
           label: '',

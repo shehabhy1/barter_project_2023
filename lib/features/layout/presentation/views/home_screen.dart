@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: BlocBuilder<ProfileCubit, ProfileState>(
+      body: BlocBuilder<GetProfileCubit, ProfileState>(
         builder: (context, state) {
           if (state is GetUserinfoSuccessState) {
             return Center(

@@ -5,14 +5,14 @@ part 'login_response_model.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
-  bool status;
-  String token;
+  final bool status;
+  final String token;
   @JsonKey(name: 'user')
-  UserData user;
-  LoginResponse({
-   required this.status,
-   required this.token,
-required this.user,
+  final UserData user;
+  const LoginResponse({
+    required this.status,
+    required this.token,
+    required this.user,
   });
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
@@ -21,21 +21,21 @@ required this.user,
 
 @JsonSerializable()
 class UserData {
-  Image? image;
+  final Image? image;
   @JsonKey(name: '_id')
-  String? id;
-  String? firstName;
-  String? lastName;
-  String? email;
-  String? gender;
-  String? role;
-  bool? active;
-  bool? isDeleted;
-  DateTime? createdAt;
-  DateTime? updatedAt;
+  final String? id;
+  final String? firstName;
+  final String? lastName;
+  final String? email;
+  final String? gender;
+  final String? role;
+  final bool? active;
+  final bool? isDeleted;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
   @JsonKey(name: '__v')
-  int? v;
-  UserData({
+  final int? v;
+  const UserData({
     this.image,
     this.id,
     this.firstName,
@@ -56,9 +56,9 @@ class UserData {
 
 @JsonSerializable()
 class Image {
-  String? url;
-  String? imageId;
-  Image({
+  final String? url;
+  final String? imageId;
+  const Image({
     this.url,
     this.imageId,
   });

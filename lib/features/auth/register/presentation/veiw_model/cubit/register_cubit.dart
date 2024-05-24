@@ -7,15 +7,15 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../../core/shared_widget/warning_dialog.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
+  final RegisterRepo _registerRepo;
   RegisterCubit(this._registerRepo) : super(RegisterInitial());
 
-  final RegisterRepo _registerRepo;
   final formKey = GlobalKey<FormState>();
-  late TextEditingController emailController = TextEditingController();
-  late TextEditingController passwordController = TextEditingController();
-  late TextEditingController nameController = TextEditingController();
-  late TextEditingController phoneController = TextEditingController();
-  late TextEditingController whatsController = TextEditingController();
+  late final TextEditingController emailController = TextEditingController();
+  late final TextEditingController passwordController = TextEditingController();
+  late final TextEditingController nameController = TextEditingController();
+  late final TextEditingController phoneController = TextEditingController();
+  late final TextEditingController whatsController = TextEditingController();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   //File? imageFile;

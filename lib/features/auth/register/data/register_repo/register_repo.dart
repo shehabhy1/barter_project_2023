@@ -7,6 +7,9 @@ import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime_type/mime_type.dart';
 
+import '../../../../../core/helper/cash_helper/cache_helper.dart';
+import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
+
 class RegisterRepo {
   final DioFactory _dioFactory;
 
@@ -25,23 +28,27 @@ class RegisterRepo {
     String mimee = mimeType!.split('/')[0];
     String type = mimeType.split('/')[1];
     try {
-      var response = await _dioFactory.post(ApiConstants.register,
-          data: {
-            'email': email,
-            'password': password,
-            'gender': gender,
-            'name': name,
-            'whatsapp': whatsapp,
-            'phone': phone,
-            'image': await MultipartFile.fromFile(
-              image,
-              filename: image.split('/').last,
-              contentType: MediaType(mimee, type),
-            ),
-          },
-          isFormData: true);
+      var response = await _dioFactory.post(
+        isFormData: true,
+        ApiConstants.register,
+        data: {
+          'email': email,
+          'password': password,
+          'gender': gender,
+          'name': name,
+          'whatsapp': whatsapp,
+          'phone': phone,
+          'image': await MultipartFile.fromFile(
+            image,
+            filename: image.split('/').last,
+            contentType: MediaType(mimee, type),
+          ),
+        },
+      );
 
       final registerResponse = RegisterResponse.fromJson(response);
+      CachHelper.putData(
+          key: CashConstants.userToken, value: registerResponse.token);
       return Right(registerResponse);
     } on ServerException catch (e) {
       return Left(e.errModel.errors![0].msg ?? e.errModel.message!);

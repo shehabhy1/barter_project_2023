@@ -31,7 +31,7 @@ Future<void> setupGetIt() async {
 
 //profile
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
-  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+  getIt.registerFactory<GetProfileCubit>(() => GetProfileCubit(getIt()));
 
   //layout
   getIt.registerFactory<LayoutCubit>(() => LayoutCubit());

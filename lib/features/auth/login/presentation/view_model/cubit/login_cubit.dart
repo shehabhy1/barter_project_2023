@@ -4,12 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 class LoginCubit extends Cubit<LoginState> {
+  final LoginRepo _loginRepo;
   LoginCubit(this._loginRepo) : super(LoginInitial());
 
-  final LoginRepo _loginRepo;
   final formKey = GlobalKey<FormState>();
-  late TextEditingController emailController = TextEditingController();
-  late TextEditingController passwordController = TextEditingController();
+  late final TextEditingController emailController = TextEditingController();
+  late final TextEditingController passwordController = TextEditingController();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void emitLoginStates() async {

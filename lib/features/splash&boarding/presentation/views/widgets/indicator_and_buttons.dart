@@ -1,6 +1,6 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
-import 'package:barter_app/features/splash_view/presentation/views/widgets/skip_button.dart';
+import 'package:barter_app/features/splash&boarding/presentation/views/widgets/skip_button.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../../core/routing/routes.dart';
@@ -56,7 +56,7 @@ class _SkipButtonState extends State<IndicatorAndButtons> {
 
   void toLogin(BuildContext context) {
     CachHelper.putData(key: CashConstants.kOnBoardingView, value: true);
-    context.pushNamedAndRemoveUntil(Routes.loginView,
+    context.pushNamedAndRemoveUntil(Routes.registerView,
         predicate: (Route<dynamic> route) => false);
   }
 }

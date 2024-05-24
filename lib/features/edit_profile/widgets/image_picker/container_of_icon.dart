@@ -10,7 +10,7 @@ class FilledIcon extends StatelessWidget {
     return IconButton.filled(
       onPressed: null,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
             AppConstants.primaryColor.withOpacity(0.75)),
       ),
       icon: Icon(

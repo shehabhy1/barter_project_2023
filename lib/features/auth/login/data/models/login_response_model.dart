@@ -58,10 +58,8 @@ class UserData {
 class Image {
   final String? url;
   final String? imageId;
-  const Image({
-    this.url,
-    this.imageId,
-  });
+  const Image({this.url, this.imageId});
+
   Map<String, dynamic> toJson() => _$ImageToJson(this);
   factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
 }

@@ -15,7 +15,7 @@ class ProfileViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: BlocListener<GetProfileCubit, ProfileState>(
+        child: BlocListener<GetProfileCubit, GetProfileState>(
           listener: (context, state) {
             if (state is GetUserinfoErrorState) {
               AppWarning.snackBarState(context, state.error);

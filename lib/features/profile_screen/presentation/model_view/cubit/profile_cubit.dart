@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../core/helper/cash_helper/cache_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 
-class GetProfileCubit extends Cubit<ProfileState> {
+class GetProfileCubit extends Cubit<GetProfileState> {
   final ProfileRepo _profileRepo;
   GetProfileCubit(this._profileRepo) : super(ProfileInitial());
 

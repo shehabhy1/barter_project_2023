@@ -11,7 +11,7 @@ class UserCardBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetProfileCubit, ProfileState>(
+    return BlocBuilder<GetProfileCubit, GetProfileState>(
       builder: (context, state) {
         if (state is GetUserinfoSuccessState) {
           return ListTile(

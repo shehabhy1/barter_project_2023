@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const baseUrl = 'https://barter.cyclic.app/api/v1/';
+  static const baseUrl = 'https://barter-api-sw94.onrender.com/api/v1/';
   
   static const login = 'auth/login';
   static const register = 'auth/signup';

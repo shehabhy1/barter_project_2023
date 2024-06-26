@@ -10,6 +10,7 @@ import 'package:barter_app/features/deals_view/presentation/view/deal_view.dart'
 import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
+import 'package:barter_app/features/profile_screen/data/models/user_info_model.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/on_boarding_view.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -93,10 +94,11 @@ class AppRouter {
 
       //editProfileView
       case Routes.editProfileView:
+        final user = arguments as UserData;
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<GetProfileCubit>(),
-                  child: const EditProfileView(),
+                  child: EditProfileView(userData: user),
                 ));
 
       //settingsView

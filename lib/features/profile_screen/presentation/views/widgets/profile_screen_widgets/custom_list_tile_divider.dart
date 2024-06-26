@@ -9,7 +9,8 @@ import '../../../../data/models/profile_model.dart';
 
 class CustomListTileDivider extends StatelessWidget {
   final ProfileModel model;
-  const CustomListTileDivider({super.key, required this.model});
+  final Object? argu;
+  const CustomListTileDivider({super.key, required this.model, this.argu});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,15 @@ class CustomListTileDivider extends StatelessWidget {
                 tittle: 'Do you want to logout?',
                 onTap: () {
                   context.pop();
-                  CachHelper.removeData(key: CashConstants.userToken);
+                  CachHelper.removeData(
+                    key: CashConstants.userToken,
+                  );
                   context.pushNamedAndRemoveUntil(Routes.loginView,
                       predicate: (route) => false);
                 },
               );
             } else {
-              context.pushNamed(model.tittle);
+              context.pushNamed(model.tittle, arguments: argu);
             }
           },
           minVerticalPadding: 15,

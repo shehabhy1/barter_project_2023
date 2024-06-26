@@ -12,32 +12,33 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(10),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: RefreshIndicator(
+        onRefresh: () async {
+                return  context.read<GetProfileCubit>().getMyInfo();
+              },
         child: BlocListener<GetProfileCubit, GetProfileState>(
           listener: (context, state) {
             if (state is GetUserinfoErrorState) {
               AppWarning.snackBarState(context, state.error);
             }
           },
-          child: RefreshIndicator(
-            onRefresh: () async {
-              return await context.read<GetProfileCubit>().getMyInfo();
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const UserCardBuilder(),
-                const SizedBox(height: 10),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: profileList
-                      .map((model) => CustomListTileDivider(model: model))
-                      .toList(),
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const UserCardBuilder(),
+              const SizedBox(height: 10),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: profileList
+                    .map((model) => CustomListTileDivider(
+                          model: model,
+                          argu: context.read<GetProfileCubit>().userData,
+                        ))
+                    .toList(),
+              ),
+            ],
           ),
         ),
       ),

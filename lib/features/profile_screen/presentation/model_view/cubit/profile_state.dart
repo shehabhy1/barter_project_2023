@@ -17,3 +17,16 @@ final class GetUserinfoErrorState extends GetProfileState {
 
   GetUserinfoErrorState({required this.error});
 }
+final class UpdateUserinfoLoadingState extends GetProfileState {}
+
+final class UpdateUserinfoSuccessState extends GetProfileState {
+  final UserInfo userInfo;
+
+  UpdateUserinfoSuccessState({required this.userInfo});
+}
+
+final class UpdateUserinfoErrorState extends GetProfileState {
+  final String error;
+
+  UpdateUserinfoErrorState({required this.error});
+}

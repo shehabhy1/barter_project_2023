@@ -7,4 +7,6 @@ class ApiConstants {
   static const verifyResetCode = 'auth/verifyResetCode';
   static const resetPassword = 'auth/resetPassword';
   static const getMyInfo = 'user/getMe';
+  static const updateUserInfo = 'user/updateMe';
+
 }

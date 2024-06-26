@@ -18,4 +18,15 @@ class ProfileRepo {
       return Left(e.errModel.message!);
     }
   }
+
+  Future<Either<String, UserInfo>> updateUserInfo(
+      String name, String phone, String whatsapp) async {
+    try {
+      final userInfo = await _dioFactory.put(ApiConstants.updateUserInfo,
+          data: {'name': name, 'phone': phone, 'whatsapp': whatsapp});
+      return Right(userInfo);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message!);
+    }
+  }
 }

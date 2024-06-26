@@ -1,14 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_info_model.g.dart';
 
 @JsonSerializable()
 class UserInfo {
-  UserData? data;
-  UserInfo({
-    this.data,
-  });
+  final UserData? data;
+  const UserInfo({this.data});
   Map<String, dynamic> toJson() => _$UserInfoToJson(this);
   factory UserInfo.fromJson(Map<String, dynamic> json) =>
       _$UserInfoFromJson(json);
@@ -16,22 +13,22 @@ class UserInfo {
 
 @JsonSerializable()
 class UserData {
-  Image? image;
+  final Image? image;
   @JsonKey(name: '_id')
-  String? id;
-  String? name;
-  String? email;
-  String? gender;
-  String? phone;
-  String? whatsapp;
-  String? role;
-  bool? active;
-  bool? isDeleted;
-  DateTime? createdAt;
-  DateTime? updatedAt;
+  final String? id;
+  final String? name;
+  final String? email;
+  final String? gender;
+  final String? phone;
+  final String? whatsapp;
+  final String? role;
+  final bool? active;
+  final bool? isDeleted;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
   @JsonKey(name: '__v')
-  int? v;
-  UserData({
+  final int? v;
+  const UserData({
     this.image,
     this.id,
     this.name,
@@ -55,10 +52,7 @@ class UserData {
 class Image {
   String? url;
   String? imageId;
-  Image({
-    this.url,
-    this.imageId,
-  });
+  Image({this.url, this.imageId});
   Map<String, dynamic> toJson() => _$ImageToJson(this);
   factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
 }

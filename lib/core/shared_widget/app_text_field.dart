@@ -68,13 +68,13 @@ class AppTextFiled extends StatelessWidget {
         prefixIconConstraints: prefixIconConstraints,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
-        labelStyle: const TextStyle(color: AppConstants.primaryColor),
+        labelStyle: const TextStyle(color: AppColors.primaryColor),
         enabledBorder:
-            enabledBorder ?? buildOutlineInputBorder(AppConstants.greyColor),
+            enabledBorder ?? buildOutlineInputBorder(AppColors.greyColor),
         focusedBorder: focusedBorder ??
-            buildOutlineInputBorder(AppConstants.primaryColor, width: 2),
-        errorBorder: buildOutlineInputBorder(AppConstants.red),
-        focusedErrorBorder: buildOutlineInputBorder(AppConstants.red),
+            buildOutlineInputBorder(AppColors.primaryColor, width: 2),
+        errorBorder: buildOutlineInputBorder(AppColors.red),
+        focusedErrorBorder: buildOutlineInputBorder(AppColors.red),
       ),
       enabled: enable,
       validator: (value) {

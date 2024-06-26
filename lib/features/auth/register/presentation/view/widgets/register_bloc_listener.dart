@@ -6,6 +6,8 @@ import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/shared_widget/custom_loading.dart';
+
 class RegisterBlocListener extends StatelessWidget {
   const RegisterBlocListener({super.key});
 
@@ -17,47 +19,20 @@ class RegisterBlocListener extends StatelessWidget {
           current is RegisterSuccessState ||
           current is RegisterErrorState,
       listener: (context, state) {
-        if (state is RegisterErrorState) {
+        if (state is RegisterLoadingState) {
+          customLoading(context);
+        } else if (state is RegisterErrorState) {
+          context.pop();
           AppWarning.snackBarState(context, state.error);
         } else if (state is RegisterSuccessState) {
           context.pop();
-          context.pushNamed(Routes.layoutView);
+          context.pushNamedAndRemoveUntil(
+            Routes.layoutView,
+            predicate: (route) => false,
+          );
         }
       },
       child: const SizedBox(),
     );
   }
-
-//   void setupErrorState(BuildContext context, String error) {
-//     context.pop();
-//     showDialog(
-//       context: context,
-//       builder: (context) => AlertDialog(
-//         icon: const Icon(
-//           Icons.error,
-//           color: Colors.red,
-//           size: 32,
-//         ),
-//         content: Text(error,
-//             style: TextStyle(
-//               fontSize: 15.sp,
-//               color: Colors.black,
-//             )),
-//         actions: [
-//           TextButton(
-//             onPressed: () {
-//               context.pop();
-//             },
-//             child: Text(
-//               'close',
-//               style: TextStyle(
-//                 fontSize: 14.sp,
-//                 color: Colors.blue,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
 }

@@ -26,7 +26,7 @@ class _CheckButtomState extends State<CheckButtom> {
             ), // Set your desired border radius here
           ),
           value: isChecked,
-          activeColor: AppConstants.primaryColor,
+          activeColor: AppColors.primaryColor,
           onChanged: (newBool) {
             setState(() {
               isChecked = newBool!;

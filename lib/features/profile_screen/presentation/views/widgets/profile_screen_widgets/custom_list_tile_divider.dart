@@ -24,7 +24,7 @@ class CustomListTileDivider extends StatelessWidget {
                 tittle: 'Do you want to logout?',
                 onTap: () {
                   context.pop();
-                  CachHelper.removeData(
+                  CashHelper.removeData(
                     key: CashConstants.userToken,
                   );
                   context.pushNamedAndRemoveUntil(Routes.loginView,

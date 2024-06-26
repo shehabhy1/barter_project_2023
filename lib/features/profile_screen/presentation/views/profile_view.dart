@@ -9,7 +9,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachHelper.getData(key: CashConstants.userToken) == null
+    return CashHelper.getData(key: CashConstants.userToken) == null
         ? const ProfileSignup()
         : const SafeArea(child: ProfileViewBody());
   }

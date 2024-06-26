@@ -100,7 +100,7 @@ class AppWarning {
             onPressed: () {
               context.pop();
             },
-            child:  Text(
+            child: Text(
               'Got it',
               style: AppStyles.medium16,
             ),
@@ -115,7 +115,7 @@ class AppWarning {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: AppColors.primaryColor,
         content: Text(
           error,
           textAlign: TextAlign.center,

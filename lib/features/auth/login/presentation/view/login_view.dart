@@ -17,13 +17,19 @@ class LoginView extends StatelessWidget {
               alignment: const Alignment(-1, 0.5),
               child: SvgPicture.asset(
                 AssetData.authLeft,
-                color: AppConstants.primaryColor.withOpacity(0.2),
+                colorFilter: ColorFilter.mode(
+                  AppColors.primaryColor.withOpacity(0.2),
+                  BlendMode.srcIn,
+                ),
               )),
           Align(
               alignment: const Alignment(1, -0.5),
               child: SvgPicture.asset(
                 AssetData.authRight,
-                color: AppConstants.primaryColor.withOpacity(0.2),
+                colorFilter: ColorFilter.mode(
+                  AppColors.primaryColor.withOpacity(0.2),
+                  BlendMode.srcIn,
+                ),
               )),
           const LoginBody(),
         ],

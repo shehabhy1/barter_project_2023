@@ -18,7 +18,7 @@ class Indicator extends StatelessWidget {
           dotWidth: 9.0,
           dotHeight: 9.0,
           spacing: 8.0,
-          activeDotColor: AppConstants.primaryColor,
+          activeDotColor: AppColors.primaryColor,
         ),
       ),
     );

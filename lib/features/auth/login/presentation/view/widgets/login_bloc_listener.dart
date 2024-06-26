@@ -1,5 +1,6 @@
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
+import 'package:barter_app/core/shared_widget/custom_loading.dart';
 import 'package:barter_app/core/shared_widget/warning_dialog.dart';
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:barter_app/features/auth/login/presentation/view_model/cubit/login_state.dart';
@@ -17,11 +18,14 @@ class LoginBlocListener extends StatelessWidget {
           current is LoginSuccessState ||
           current is LoginErrorState,
       listener: (context, state) {
-        if (state is LoginErrorState) {
+        if (state is LoginLoadingState) {
+          customLoading(context);
+        } else if (state is LoginErrorState) {
           // setupErrorState(context, state.error);
+          context.pop();
           AppWarning.snackBarState(context, state.error);
         } else if (state is LoginSuccessState) {
-          //context.pop();
+          context.pop();
           context.pushNamedAndRemoveUntil(Routes.layoutView,
               predicate: (route) => false);
         }

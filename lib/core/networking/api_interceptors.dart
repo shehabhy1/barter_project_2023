@@ -6,8 +6,8 @@ class ApiInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['Authorization'] =
-        CachHelper.getData(key: CashConstants.userToken) != null
-            ? 'Bearer ${CachHelper.getData(key: CashConstants.userToken)}'
+        CashHelper.getData(key: CashConstants.userToken) != null
+            ? 'Bearer ${CashHelper.getData(key: CashConstants.userToken)}'
             : null;
     super.onRequest(options, handler);
   }

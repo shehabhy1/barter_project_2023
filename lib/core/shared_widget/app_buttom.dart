@@ -1,7 +1,6 @@
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../utils/styles.dart';
 
 class AppButton extends StatelessWidget {
@@ -16,19 +15,20 @@ class AppButton extends StatelessWidget {
   final TextStyle? textStyle;
   final VoidCallback onPressed;
   final ButtonStyle? buttonStyle;
-  const AppButton(
-      {super.key,
-      this.borderRadius,
-      this.backgroundColor,
-      this.horizontalPadding,
-      this.verticalPadding,
-      this.buttonWidth,
-      this.buttonHeight,
-      required this.text,
-      this.textStyle,
-      required this.onPressed,
-      this.textColor,
-      this.buttonStyle});
+  const AppButton({
+    super.key,
+    this.borderRadius,
+    this.backgroundColor,
+    this.horizontalPadding,
+    this.verticalPadding,
+    this.buttonWidth,
+    this.buttonHeight,
+    required this.text,
+    this.textStyle,
+    required this.onPressed,
+    this.textColor,
+    this.buttonStyle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +39,17 @@ class AppButton extends StatelessWidget {
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(borderRadius ?? 8))),
             backgroundColor: WidgetStateProperty.all(
-                backgroundColor ?? AppConstants.primaryColor),
+                backgroundColor ?? AppColors.primaryColor),
             padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
             fixedSize: WidgetStateProperty.all(Size(
-                buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 55.h)),
+                buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 50.h)),
           ),
       onPressed: onPressed,
       child: Center(
         child: Text(
           text,
           style: AppStyles.semiBold20
-              .copyWith(fontSize: 24, color: AppConstants.white),
+              .copyWith(fontSize: 22, color: AppColors.white),
         ),
       ),
     );

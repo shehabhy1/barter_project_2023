@@ -17,6 +17,7 @@ class Assets {
       'assets/images/on_boarding_Image2.png';
   static const String imagesProfilecircle = 'assets/images/profilecircle.svg';
   static const String imagesSplashImage = 'assets/images/splash_image.png';
+  static const String imagesAvatar = 'assets/images/avatar.png';
 
   static const String imagesMap = 'assets/images/map.png';
   static const String egyptFlag = 'assets/images/egypt-flag-icon.svg';

@@ -1,6 +1,6 @@
+import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../core/helper/spacing.dart';
 
 class PasswordValidations extends StatelessWidget {
@@ -47,7 +47,7 @@ class PasswordValidations extends StatelessWidget {
             style: TextStyle(
               fontSize: 14.sp,
               decoration: hasValidated ? TextDecoration.lineThrough : null,
-              color: hasValidated ? Colors.grey : Colors.black,
+              color: hasValidated ? AppColors.primaryColor : Colors.black,
               decorationThickness: 2,
             ),
           )

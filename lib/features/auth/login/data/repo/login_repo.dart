@@ -18,7 +18,7 @@ class LoginRepo {
           data: LoginRequest(email: email, password: password).toJson());
       final loginResponse = LoginResponse.fromJson(response);
 
-      CachHelper.putData(
+      CashHelper.putData(
           key: CashConstants.userToken, value: loginResponse.token);
       return Right(loginResponse);
     } on ServerException catch (e) {

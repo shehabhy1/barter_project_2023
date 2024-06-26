@@ -53,4 +53,9 @@ abstract class AppStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
   );
+  static TextStyle font16SemiBoldBlack = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 16.sp,
+    color: Colors.black,
+  );
 }

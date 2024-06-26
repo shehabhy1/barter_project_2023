@@ -10,15 +10,16 @@ import 'package:barter_app/features/deals_view/presentation/view/deal_view.dart'
 import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
-import 'package:barter_app/features/profile_screen/data/models/user_info_model.dart';
-import 'package:barter_app/features/splash&boarding/presentation/views/on_boarding_view.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/edit_profile/view_model/update_user_cubit/update_user_cubit.dart';
 import '../../features/layout/presentation/view_model/cubit/layout_cubit.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
-import '../../features/profile_screen/presentation/model_view/cubit/profile_cubit.dart';
+import '../../features/profile_screen/presentation/model_view/cubit/get_user_cubit.dart';
 import '../../features/sitting/views/sitting_view.dart';
+import '../../features/splash&boarding/presentation/views/on_boarding_view.dart';
+import '../pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
   Route generatRoute(RouteSettings settings) {
@@ -42,8 +43,15 @@ class AppRouter {
       //registerView
       case Routes.registerView:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<RegisterCubit>(),
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => getIt<RegisterCubit>(),
+                    ),
+                    BlocProvider(
+                      create: (context) => getIt<PickImageCubit>(),
+                    ),
+                  ],
                   child: const RegisterView(),
                 ));
 
@@ -56,8 +64,7 @@ class AppRouter {
                       create: (context) => getIt<LayoutCubit>(),
                     ),
                     BlocProvider(
-                      create: (context) =>
-                          getIt<GetProfileCubit>()..getMyInfo(),
+                      create: (context) => getIt<GetUserCubit>()..getMyInfo(),
                     ),
                   ],
                   child: const LayoutView(),
@@ -94,11 +101,18 @@ class AppRouter {
 
       //editProfileView
       case Routes.editProfileView:
-        final user = arguments as UserData;
+        // final user = arguments as UserData;
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<GetProfileCubit>(),
-                  child: EditProfileView(userData: user),
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => getIt<UpdateUserCubit>(),
+                    ),
+                    BlocProvider(
+                      create: (context) => getIt<PickImageCubit>(),
+                    ),
+                  ],
+                  child: const EditProfileView(),
                 ));
 
       //settingsView

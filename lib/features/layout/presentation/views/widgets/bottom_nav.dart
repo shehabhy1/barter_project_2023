@@ -19,7 +19,7 @@ class BottomNav extends StatelessWidget {
             iconList[index],
             colorFilter: ColorFilter.mode(
               index == cubit.selectedIndex
-                  ? AppConstants.primaryColor
+                  ? AppColors.primaryColor
                   : Colors.grey,
               BlendMode.srcIn,
             ),

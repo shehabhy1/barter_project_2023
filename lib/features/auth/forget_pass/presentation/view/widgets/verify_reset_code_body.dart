@@ -36,7 +36,7 @@ class VerifyResetCodeBody extends StatelessWidget {
                     // ?? context.read<ForgetPassCubit>().email
 
                     style: TextStyle(
-                        color: AppConstants.primaryColor, fontSize: 16.sp),
+                        color: AppColors.primaryColor, fontSize: 16.sp),
                   )
                 ],
                 style: AppStyles.semiBold20.copyWith(

@@ -11,15 +11,15 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this._registerRepo) : super(RegisterInitial());
 
   final formKey = GlobalKey<FormState>();
+  late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late final TextEditingController emailController = TextEditingController();
   late final TextEditingController passwordController = TextEditingController();
   late final TextEditingController nameController = TextEditingController();
   late final TextEditingController phoneController = TextEditingController();
   late final TextEditingController whatsController = TextEditingController();
-  late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   //File? imageFile;
-  XFile? profilePic;
+
   String? gender;
   bool isChecked = false;
 
@@ -28,7 +28,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   //   emit(UploadProfilePic());
   // }
 
-  void emitRegisterStates() async {
+  void emitRegisterStates(XFile profilePic) async {
     emit(RegisterLoadingState());
 
     var response = await _registerRepo.register(
@@ -38,7 +38,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       name: nameController.text,
       whatsapp: whatsController.text,
       phone: phoneController.text,
-      image: profilePic!.path,
+      image: profilePic.path,
     );
     response.fold((error) {
       emit(RegisterErrorState(error: error));
@@ -52,10 +52,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(ValidateMode());
   }
 
-  void validateThenDoLogin(context) {
+  void validateThenDoLogin(context, {XFile? profilePic}) {
     if (formKey.currentState!.validate()) {
       if (profilePic != null && gender != null && isChecked == true) {
-        emitRegisterStates();
+        emitRegisterStates(profilePic);
       } else {
         AppWarning.showAwesomeDialog(
           title: 'Wrong',

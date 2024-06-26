@@ -19,14 +19,14 @@ class _RadioCheckState extends State<RadioCheck> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text(
+        Text(
           'Gender',
           style: AppStyles.semiBold20,
         ),
         Row(
           children: [
             Radio(
-              activeColor: AppConstants.primaryColor,
+              activeColor: AppColors.primaryColor,
               value: 1,
               groupValue: _selectedValue,
               onChanged: (value) {
@@ -39,7 +39,7 @@ class _RadioCheckState extends State<RadioCheck> {
             const SizedBox(
               width: 5,
             ),
-             Text(
+            Text(
               'Male',
               style: AppStyles.regularGrey16,
             ),
@@ -51,7 +51,7 @@ class _RadioCheckState extends State<RadioCheck> {
         Row(
           children: [
             Radio(
-              activeColor: AppConstants.primaryColor,
+              activeColor: AppColors.primaryColor,
               value: 2,
               groupValue: _selectedValue,
               onChanged: (value) {
@@ -64,7 +64,7 @@ class _RadioCheckState extends State<RadioCheck> {
             const SizedBox(
               width: 5,
             ),
-             Text(
+            Text(
               'Female',
               style: AppStyles.regularGrey16,
             ),

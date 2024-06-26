@@ -12,8 +12,7 @@ import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 
 class RegisterRepo {
   final DioFactory _dioFactory;
-
-  RegisterRepo(this._dioFactory);
+  const RegisterRepo(this._dioFactory);
 
   Future<Either<String, RegisterResponse>> register({
     required String email,
@@ -47,7 +46,7 @@ class RegisterRepo {
       );
 
       final registerResponse = RegisterResponse.fromJson(response);
-      CachHelper.putData(
+      CashHelper.putData(
           key: CashConstants.userToken, value: registerResponse.token);
       return Right(registerResponse);
     } on ServerException catch (e) {

@@ -23,8 +23,8 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     onBoarding =
-        CachHelper.getData(key: CashConstants.kOnBoardingView) ?? false;
-    isLogin = CachHelper.getData(key: CashConstants.userToken) ?? "";
+        CashHelper.getData(key: CashConstants.kOnBoardingView) ?? false;
+    isLogin = CashHelper.getData(key: CashConstants.userToken) ?? "";
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(

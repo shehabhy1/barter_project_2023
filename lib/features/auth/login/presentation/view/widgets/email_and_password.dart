@@ -12,44 +12,42 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<LoginCubit>();
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
-        return AbsorbPointer(
-          absorbing: state is LoginLoadingState ? true : false,
-          child: Form(
-            key: context.read<LoginCubit>().formKey,
-            autovalidateMode: context.read<LoginCubit>().autovalidateMode,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Email',
-                  style: AppStyles.semiBold20,
-                ),
-                const SizedBox(height: 8),
-                AppTextFiled(
-                  type: TextInputType.emailAddress,
-                  hint: 'Write your Email',
-                  controller: context.read<LoginCubit>().emailController,
-                  validate: (val) {
-                    if (val == null ||
-                        val.isEmpty ||
-                        !AppRegex.isEmailValid(val)) {
-                      return "Please enter a valid email";
-                    }
-                  },
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'Password',
-                  style: AppStyles.semiBold20,
-                ),
-                const SizedBox(height: 8),
-                PasswordAndValidation(
-                  controller: context.read<LoginCubit>().passwordController,
-                ),
-              ],
-            ),
+        return Form(
+          key: cubit.formKey,
+          autovalidateMode: cubit.autovalidateMode,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Email',
+                style: AppStyles.semiBold20,
+              ),
+              const SizedBox(height: 8),
+              AppTextFiled(
+                type: TextInputType.emailAddress,
+                hint: 'Write your Email',
+                controller: cubit.emailController,
+                validate: (val) {
+                  if (val == null ||
+                      val.isEmpty ||
+                      !AppRegex.isEmailValid(val)) {
+                    return "Please enter a valid email";
+                  }
+                },
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Password',
+                style: AppStyles.semiBold20,
+              ),
+              const SizedBox(height: 8),
+              PasswordAndValidation(
+                controller: cubit.passwordController,
+              ),
+            ],
           ),
         );
       },

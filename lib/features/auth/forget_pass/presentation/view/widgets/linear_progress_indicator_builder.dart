@@ -13,15 +13,15 @@ class LinearProgressIndicatorBuilder extends StatelessWidget {
       builder: (context, state) {
         if (state is ForgetPassLoadingState) {
           return const LinearProgressIndicator(
-            color: AppConstants.primaryColor,
+            color: AppColors.primaryColor,
           );
         } else if (state is VerifyResetCodeLoadingState) {
           return const LinearProgressIndicator(
-            color: AppConstants.primaryColor,
+            color: AppColors.primaryColor,
           );
         } else if (state is ResetPasswordLoadingState) {
           return const LinearProgressIndicator(
-            color: AppConstants.primaryColor,
+            color: AppColors.primaryColor,
           );
         } else {
           return const SizedBox();

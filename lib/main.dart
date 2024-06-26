@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   setupGetIt();
-  await CachHelper.init();
+  await CashHelper.init();
   //token = await CacheHelper.getData(key: AppConstants.kUserToken);
   //debugPrint('Token is $token');
 

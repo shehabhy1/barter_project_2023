@@ -20,8 +20,8 @@ class OtpTextFieldWidget extends StatelessWidget {
       showFieldAsBox: true,
       onCodeChanged: (val) {},
       textStyle: AppStyles.semiBold20,
-      focusedBorderColor: AppConstants.primaryColor,
-      enabledBorderColor: AppConstants.greyColor,
+      focusedBorderColor: AppColors.primaryColor,
+      enabledBorderColor: AppColors.greyColor,
       onSubmit: (String verificationCode) {
         context.read<ForgetPassCubit>().codeOtp = verificationCode;
         debugPrint(context.read<ForgetPassCubit>().codeOtp.toString());

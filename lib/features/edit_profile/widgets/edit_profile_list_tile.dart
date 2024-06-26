@@ -30,7 +30,7 @@ class EditProfileListTile extends StatelessWidget {
           AssetData.editTextIcon,
           width: 25,
           height: 44,
-          color: AppConstants.greyColor,
+          color: AppColors.greyColor,
         ),
       ),
     );

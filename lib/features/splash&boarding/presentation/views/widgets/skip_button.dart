@@ -13,15 +13,14 @@ class SkipButton extends StatelessWidget {
       width: 310.w,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: AppConstants.primaryColor),
+        border: Border.all(color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextButton(
         onPressed: onPressed,
         child: Text(
           'Skip',
-          style:
-              AppStyles.semiBold20.copyWith(color: AppConstants.primaryColor),
+          style: AppStyles.semiBold20.copyWith(color: AppColors.primaryColor),
         ),
       ),
     );

@@ -6,8 +6,7 @@ import 'package:dartz/dartz.dart';
 
 class ForgetPassRepo {
   final DioFactory _dioFactory;
-
-  ForgetPassRepo(this._dioFactory);
+ const ForgetPassRepo(this._dioFactory);
 
   Future<Either<String, ForgetPassResponse>> forgetPassword(
       String email) async {

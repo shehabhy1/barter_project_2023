@@ -15,10 +15,10 @@ class ForgetPassBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: context.read<ForgetPassCubit>().formKey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: Form(
+        key: context.read<ForgetPassCubit>().formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

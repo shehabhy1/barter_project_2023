@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/utils/styles.dart';
 import '../../../profile_screen/presentation/model_view/cubit/get_user_cubit.dart';
 import '../../../profile_screen/presentation/model_view/cubit/get_user_state.dart';

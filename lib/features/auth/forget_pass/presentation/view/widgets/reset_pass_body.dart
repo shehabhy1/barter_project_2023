@@ -17,21 +17,21 @@ class ResetPassBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<ForgetPassCubit>().formKey,
+      key: context.read<ForgetPassCubit>().resetKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Center(
+              Center(
                 child: Text(
                   'New password',
                   style: AppStyles.bold32,
                 ),
               ),
               const SizedBox(height: 20),
-               Text(
+              Text(
                 'Email',
                 style: AppStyles.semiBold20,
               ),
@@ -49,7 +49,7 @@ class ResetPassBody extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-               Text(
+              Text(
                 'New Password',
                 style: AppStyles.semiBold20,
               ),

@@ -29,7 +29,7 @@ class VerifyResetCodeBlocListener extends StatelessWidget {
         //   const Center(child: CircularProgressIndicator());
         // }
       },
-      child: const SizedBox(),
+      child: const SizedBox.shrink(),
     );
   }
 }

@@ -24,7 +24,7 @@ class LinearProgressIndicatorBuilder extends StatelessWidget {
             color: AppColors.primaryColor,
           );
         } else {
-          return const SizedBox();
+          return const SizedBox.shrink();
         }
       },
     );

@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:barter_app/features/auth/forget_pass/data/repo/foreget_pass_repo.dart';
 
 class ForgetPassCubit extends Cubit<ForgetPassState> {
+  final ForgetPassRepo _forgetPassRepo;
   ForgetPassCubit(this._forgetPassRepo) : super(ForgetPassInitial());
 
-  final formKey = GlobalKey<FormState>();
-  final ForgetPassRepo _forgetPassRepo;
-  late TextEditingController verifyEmailController = TextEditingController();
-  late TextEditingController newPassController = TextEditingController();
+  final forgetKey = GlobalKey<FormState>();
+  final verifyKey = GlobalKey<FormState>();
+  final resetKey = GlobalKey<FormState>();
+
+  late final TextEditingController verifyEmailController =
+      TextEditingController();
+  late final TextEditingController newPassController = TextEditingController();
 
   String? codeOtp;
 
@@ -49,19 +53,19 @@ class ForgetPassCubit extends Cubit<ForgetPassState> {
   }
 
   void validateThenDoForgetPassword() {
-    if (formKey.currentState!.validate()) {
+    if (forgetKey.currentState!.validate()) {
       emitForgetPassStates();
     }
   }
 
   void validateThenDoVerifyResetCode() {
-    if (formKey.currentState!.validate()) {
+    if (verifyKey.currentState!.validate()) {
       verifyResetCode();
     }
   }
 
   void validateThenDoResetPassword(String email) {
-    if (formKey.currentState!.validate()) {
+    if (resetKey.currentState!.validate()) {
       resetPassword(email: email);
     }
   }

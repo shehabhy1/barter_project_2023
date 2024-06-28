@@ -15,48 +15,40 @@ class ForgetPassBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      child: Form(
-        key: context.read<ForgetPassCubit>().formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomCenterText(text: 'Forget password'),
-            verticalSpace(25),
-             Text(
-              'Email',
-              style: AppStyles.semiBold20,
-            ),
-            verticalSpace(8),
-            AppTextFiled(
-              type: TextInputType.emailAddress,
-              controller: context.read<ForgetPassCubit>().verifyEmailController,
-              hint: 'Write Your Email',
-              validate: (val) {
-                if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
-                  return "Please enter a valid email";
-                }
-              },
-            ),
-            verticalSpace(40),
-            const LinearProgressIndicatorBuilder(),
-            verticalSpace(5),
-            AppButton(
-                text: 'Send',
-                onPressed: () {
-                  context
-                      .read<ForgetPassCubit>()
-                      .validateThenDoForgetPassword();
-                  debugPrint(
-                    context.read<ForgetPassCubit>().verifyEmailController.text,
-                  );
-                }),
-            ForgetPassBlocListener(
-              email: context.read<ForgetPassCubit>().verifyEmailController,
-            )
-          ],
-        ),
+    final cubit = context.read<ForgetPassCubit>();
+    return Form(
+      key: cubit.forgetKey,
+      child: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          const CustomCenterText(text: 'Forget password'),
+          verticalSpace(25),
+          Text(
+            'Email',
+            style: AppStyles.semiBold20,
+          ),
+          verticalSpace(8),
+          AppTextFiled(
+            type: TextInputType.emailAddress,
+            controller: context.read<ForgetPassCubit>().verifyEmailController,
+            hint: 'Write Your Email',
+            validate: (val) {
+              if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
+                return "Please enter a valid email";
+              }
+            },
+          ),
+          verticalSpace(40),
+          const LinearProgressIndicatorBuilder(),
+          verticalSpace(5),
+          AppButton(
+              text: 'Send',
+              onPressed: () {
+                cubit.validateThenDoForgetPassword();
+                debugPrint(cubit.verifyEmailController.text);
+              }),
+          ForgetPassBlocListener(email: cubit.verifyEmailController)
+        ],
       ),
     );
   }

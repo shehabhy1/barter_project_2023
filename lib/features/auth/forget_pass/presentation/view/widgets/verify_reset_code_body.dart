@@ -13,55 +13,48 @@ import 'verify_reset_code_listener.dart';
 
 class VerifyResetCodeBody extends StatelessWidget {
   final String? email;
-
   const VerifyResetCodeBody({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: context.read<ForgetPassCubit>().formKey,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomCenterText(text: 'Forget password'),
-            verticalSpace(10),
-            RichText(
-              text: TextSpan(
-                text: 'Enter the 6-digital code sent to ',
-                children: [
-                  TextSpan(
-                    text: email,
-                    // ?? context.read<ForgetPassCubit>().email
-
-                    style: TextStyle(
-                        color: AppColors.primaryColor, fontSize: 16.sp),
-                  )
-                ],
-                style: AppStyles.semiBold20.copyWith(
-                  color: const Color((0xFF8B8B8B)),
-                ),
-              ),
+    final cubit = context.read<ForgetPassCubit>();
+    return ListView(
+      padding: const EdgeInsets.all(20),
+      children: [
+        const CustomCenterText(text: 'Forget password'),
+        verticalSpace(10),
+        RichText(
+          text: TextSpan(
+            text: 'Enter the 6-digital code sent to ',
+            children: [
+              TextSpan(
+                text: email,
+                style:
+                    TextStyle(color: AppColors.primaryColor, fontSize: 16.sp),
+              )
+            ],
+            style: AppStyles.semiBold20.copyWith(
+              color: const Color((0xFF8B8B8B)),
             ),
-            verticalSpace(20),
-            const OtpTextFieldWidget(),
-            verticalSpace(80),
-            const LinearProgressIndicatorBuilder(),
-            verticalSpace(5),
-            AppButton(
-              text: 'Send',
-              onPressed: () {
-                context.read<ForgetPassCubit>().validateThenDoVerifyResetCode();
-                debugPrint(email);
-              },
-            ),
-            VerifyResetCodeBlocListener(
-              email: email!,
-            )
-          ],
+          ),
         ),
-      ),
+        verticalSpace(20),
+        OtpTextFieldWidget(cubit: cubit),
+        verticalSpace(80),
+        const LinearProgressIndicatorBuilder(),
+        verticalSpace(5),
+        AppButton(
+          text: 'Send',
+          onPressed: () {
+            cubit.validateThenDoVerifyResetCode();
+           debugPrint(email);
+            debugPrint(cubit.codeOtp);
+          },
+        ),
+        VerifyResetCodeBlocListener(
+          email: email!,
+        )
+      ],
     );
   }
 }

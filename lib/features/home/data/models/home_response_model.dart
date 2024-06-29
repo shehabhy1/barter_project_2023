@@ -7,11 +7,14 @@ class HomeResponseModel {
   int? results;
   List<ProductModel>? data;
   HomeResponseModel({this.results, this.data});
+
+  factory HomeResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$HomeResponseModelFromJson(json);
 }
 
 @JsonSerializable()
 class ProductModel {
-  String? image;
+  ImageData? image;
   String? title;
   String? slug;
   Category? category;
@@ -45,15 +48,16 @@ class ProductModel {
 }
 
 @JsonSerializable()
-class Image {
+class ImageData {
   String? url;
   String? imageId;
 
-  Image({
+  ImageData({
     this.url,
     this.imageId,
   });
-  factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
+  factory ImageData.fromJson(Map<String, dynamic> json) =>
+      _$ImageDataFromJson(json);
 }
 
 @JsonSerializable()
@@ -65,7 +69,8 @@ class Category {
     this.id,
     this.name,
   });
-  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 }
 
 @JsonSerializable()
@@ -85,9 +90,8 @@ class User {
   @JsonKey(name: '_id')
   String? id;
   String? name;
-  User({
-    this.id,
-    this.name,
-  });
+  String? phone;
+
+  User({this.id, this.name, this.phone});
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

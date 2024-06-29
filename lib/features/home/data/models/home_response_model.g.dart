@@ -21,7 +21,9 @@ Map<String, dynamic> _$HomeResponseModelToJson(HomeResponseModel instance) =>
     };
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
-      image: json['image'] as String?,
+      image: json['image'] == null
+          ? null
+          : ImageData.fromJson(json['image'] as Map<String, dynamic>),
       title: json['title'] as String?,
       slug: json['slug'] as String?,
       category: json['category'] == null
@@ -61,12 +63,12 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-Image _$ImageFromJson(Map<String, dynamic> json) => Image(
+ImageData _$ImageDataFromJson(Map<String, dynamic> json) => ImageData(
       url: json['url'] as String?,
       imageId: json['imageId'] as String?,
     );
 
-Map<String, dynamic> _$ImageToJson(Image instance) => <String, dynamic>{
+Map<String, dynamic> _$ImageDataToJson(ImageData instance) => <String, dynamic>{
       'url': instance.url,
       'imageId': instance.imageId,
     };
@@ -94,9 +96,11 @@ Map<String, dynamic> _$BrandToJson(Brand instance) => <String, dynamic>{
 User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['_id'] as String?,
       name: json['name'] as String?,
+      phone: json['phone'] as String?,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
+      'phone': instance.phone,
     };

@@ -6,6 +6,8 @@ import 'package:barter_app/features/auth/login/presentation/view_model/cubit/log
 import 'package:barter_app/features/auth/register/data/register_repo/register_repo.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import 'package:barter_app/features/edit_profile/data/repo/update_user_repo.dart';
+import 'package:barter_app/features/home/data/repo/home_repo.dart';
+import 'package:barter_app/features/home/presentation/view_model.dart/cubit/home_cubit.dart';
 import 'package:barter_app/features/layout/presentation/view_model/cubit/layout_cubit.dart';
 import 'package:barter_app/features/profile_screen/data/repo/get_user_repo.dart';
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/get_user_cubit.dart';
@@ -43,4 +45,8 @@ Future<void> setupGetIt() async {
 
   //layout
   getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
+
+  //home
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 }

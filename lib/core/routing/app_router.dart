@@ -11,6 +11,7 @@ import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
 import 'package:barter_app/features/home/presentation/view/screens/product_details_view.dart';
+import 'package:barter_app/features/home/presentation/view_model.dart/cubit/home_cubit.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,11 +68,14 @@ class AppRouter {
                     BlocProvider(
                       create: (context) => getIt<GetUserCubit>()..getMyInfo(),
                     ),
+                    BlocProvider(
+                      create: (context) => getIt<HomeCubit>()..getAllProducts(),
+                    ),
                   ],
                   child: const LayoutView(),
                 ));
 
-       case Routes.verifyView:
+      case Routes.verifyView:
         final email = arguments as TextEditingController;
         return MaterialPageRoute(
           builder: (_) => BlocProvider<ForgetPassCubit>.value(

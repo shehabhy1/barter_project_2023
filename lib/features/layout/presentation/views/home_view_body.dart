@@ -34,6 +34,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           );
         } else if (state is GetAllProductsErrorState) {
+          // handle error
           return const Center(
             child: Text('Error'),
           );

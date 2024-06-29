@@ -47,6 +47,13 @@ abstract class AppStyles {
     fontWeight: FontWeight.w400,
     letterSpacing: 0.05,
   );
+  static final regularGrey14 = TextStyle(
+    color: const Color(0xFF746F6F),
+    fontSize: 14.sp,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.05,
+  );
   static final regularBlack16 = TextStyle(
     color: const Color(0xFF50453A),
     fontSize: 15.sp,

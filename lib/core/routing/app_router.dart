@@ -17,7 +17,7 @@ import '../../features/edit_profile/view_model/update_user_cubit/update_user_cub
 import '../../features/layout/presentation/view_model/cubit/layout_cubit.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
 import '../../features/profile_screen/presentation/model_view/cubit/get_user_cubit.dart';
-import '../../features/sitting/views/sitting_view.dart';
+import '../../features/settings/views/settings_view.dart';
 import '../../features/splash&boarding/presentation/views/on_boarding_view.dart';
 import '../pick_image_cubit/pick_image_cubit.dart';
 
@@ -117,7 +117,7 @@ class AppRouter {
 
       //settingsView
       case Routes.settingsView:
-        return MaterialPageRoute(builder: (_) => const SittingView());
+        return MaterialPageRoute(builder: (_) => const SettingsView());
 
       //dealStatusView
       case Routes.dealStatusView:

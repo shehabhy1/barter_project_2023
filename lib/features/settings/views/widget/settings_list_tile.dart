@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/styles.dart';
 
-class SittingListTile extends StatelessWidget {
+class SettingsListTile extends StatelessWidget {
   final void Function()? onTap;
   final String tittle;
   final Widget? subTittle;
   final bool icon;
 
-  const SittingListTile({
+  const SettingsListTile({
     super.key,
     this.onTap,
     required this.tittle,

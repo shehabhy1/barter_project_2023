@@ -97,10 +97,24 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       phone: json['phone'] as String?,
+      image: json['image'] == null
+          ? null
+          : UserImage.fromJson(json['image'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
       'phone': instance.phone,
+      'image': instance.image,
+    };
+
+UserImage _$UserImageFromJson(Map<String, dynamic> json) => UserImage(
+      url: json['url'] as String?,
+      imageId: json['imageId'] as String?,
+    );
+
+Map<String, dynamic> _$UserImageToJson(UserImage instance) => <String, dynamic>{
+      'url': instance.url,
+      'imageId': instance.imageId,
     };

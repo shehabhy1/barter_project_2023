@@ -33,11 +33,10 @@ class ProductItem extends StatelessWidget {
             verticalSpace(20),
             Row(
               children: [
-                //TODO: Add user image
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 15,
                   backgroundImage: NetworkImage(
-                    'https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=130&h=195&c=7&r=0&o=5&pid=1.7',
+                    product.user!.image!.url!,
                   ),
                 ),
                 horizontalSpace(10),
@@ -73,7 +72,8 @@ class ProductItem extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.pushNamed(Routes.productDetailsView);
+                  context.pushNamed(Routes.productDetailsView,
+                      arguments: product);
                 },
                 child: const Text(
                   'Discover',

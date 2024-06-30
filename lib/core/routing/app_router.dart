@@ -10,6 +10,7 @@ import 'package:barter_app/features/deals_view/presentation/view/deal_view.dart'
 import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
+import 'package:barter_app/features/home/data/models/home_response_model.dart';
 import 'package:barter_app/features/home/presentation/view/screens/product_details_view.dart';
 import 'package:barter_app/features/home/presentation/view_model.dart/cubit/home_cubit.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/splash_view.dart';
@@ -129,7 +130,10 @@ class AppRouter {
 
       // productDetailsView
       case Routes.productDetailsView:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsView());
+        final productDetails = arguments as ProductModel;
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailsView(product: productDetails),
+        );
 
       default:
         return MaterialPageRoute(

@@ -2,18 +2,25 @@ import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/core/utils/styles.dart';
+import 'package:barter_app/features/home/data/models/home_response_model.dart';
 import 'package:barter_app/features/home/presentation/view/widgetes/communication_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductDetailsView extends StatelessWidget {
-  const ProductDetailsView({super.key});
-
+  const ProductDetailsView({
+    super.key,
+    required this.product,
+  });
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Details'),
+        title: Text(
+          product.title!,
+          style: AppStyles.medium24,
+        ),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
@@ -32,11 +39,11 @@ class ProductDetailsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildProductImage(context),
+              _buildProductImage(context, product.image!.url!),
               verticalSpace(20),
-              _buildSellerInfo(),
+              _buildBargainerInfo(product.user!),
               verticalSpace(15),
-              _buildProductDescription(),
+              _buildProductDescription(product.description!),
               const Spacer(),
               const BuildCommunicationButtons(),
               verticalSpace(20),
@@ -47,17 +54,17 @@ class ProductDetailsView extends StatelessWidget {
     );
   }
 
-  Widget _buildProductImage(BuildContext context) {
+  Widget _buildProductImage(BuildContext context, String imageUrl) {
     return Center(
-      child: Image.asset(
-        'assets/images/img_1.png',
+      child: Image.network(
+        imageUrl,
         width: double.infinity,
         height: context.deviceHeight * 0.2,
       ),
     );
   }
 
-  Widget _buildSellerInfo() {
+  Widget _buildBargainerInfo(User user) {
     return Container(
       padding: const EdgeInsets.all(12),
       width: double.infinity,
@@ -67,15 +74,15 @@ class ProductDetailsView extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 30,
             backgroundImage: NetworkImage(
-              'https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=130&h=195&c=7&r=0&o=5&pid=1.7',
+              user.image!.url!,
             ),
           ),
           horizontalSpace(16),
           Text(
-            'Mohmaed Gehad',
+            user.name!,
             style: AppStyles.medium18,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -85,7 +92,7 @@ class ProductDetailsView extends StatelessWidget {
     );
   }
 
-  Widget _buildProductDescription() {
+  Widget _buildProductDescription(String description) {
     return Container(
       padding: const EdgeInsets.all(12),
       width: double.infinity,
@@ -103,7 +110,7 @@ class ProductDetailsView extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           Text(
-            'A power bank is a portable device designed to recharge your electronic devices on the go. It serves as an external battery pack that can store electrical energy to charge various gadgets like smartphones, tablets, laptops, and other USB-powered devices when access to a standard power outlet is unavailable.',
+            product.description!,
             style: AppStyles.regularGrey16
                 .copyWith(color: Colors.black.withOpacity(.7)),
           ),

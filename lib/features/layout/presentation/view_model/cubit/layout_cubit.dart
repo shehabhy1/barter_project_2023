@@ -5,6 +5,7 @@ part 'layout_state.dart';
 class LayoutCubit extends Cubit<LayoutState> {
   LayoutCubit() : super(LayoutInitial());
   int selectedIndex = 0;
+  final PageStorageBucket bucket = PageStorageBucket();
 
   void changeIndexOfNavBar(index) {
     if (index != selectedIndex) {

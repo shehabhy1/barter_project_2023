@@ -1,3 +1,4 @@
+import 'package:barter_app/core/shared_widget/warning_dialog.dart';
 import 'package:barter_app/features/home/presentation/view/widgetes/product_item.dart';
 import 'package:barter_app/features/home/presentation/view/widgetes/shimmer_loading.dart';
 import 'package:barter_app/features/home/presentation/view_model.dart/cubit/home_cubit.dart';
@@ -9,7 +10,12 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (context, state) {
+        if (state is GetAllProductsErrorState) {
+          AppWarning.snackBarState(context, state.error);
+        }
+      },
       builder: (context, state) {
         if (state is GetAllProductsSuccessState) {
           return RefreshIndicator(
@@ -33,13 +39,12 @@ class HomeViewBody extends StatelessWidget {
               },
             ),
           );
-        } else if (state is GetAllProductsErrorState) {
-          // handle error
-          return const Center(
-            child: Text('Error'),
-          );
         } else {
-          return const ShimmerGridView();
+          return RefreshIndicator(
+              onRefresh: () async {
+                context.read<HomeCubit>().getAllProducts();
+              },
+              child: const ShimmerGridView());
         }
       },
     );

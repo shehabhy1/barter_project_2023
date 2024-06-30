@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
 part 'home_response_model.g.dart';
@@ -91,7 +92,21 @@ class User {
   String? id;
   String? name;
   String? phone;
+  UserImage? image;
 
-  User({this.id, this.name, this.phone});
+  User({this.id, this.name, this.phone, this.image});
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+}
+
+@JsonSerializable()
+class UserImage {
+  String? url;
+  String? imageId;
+  UserImage({
+    this.url,
+    this.imageId,
+  });
+
+  factory UserImage.fromJson(Map<String, dynamic> json) =>
+      _$UserImageFromJson(json);
 }

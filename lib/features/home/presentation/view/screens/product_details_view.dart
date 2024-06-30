@@ -45,7 +45,10 @@ class ProductDetailsView extends StatelessWidget {
               verticalSpace(15),
               _buildProductDescription(product.description!),
               const Spacer(),
-              const BuildCommunicationButtons(),
+              BuildCommunicationButtons(
+                phoneNumber: product.user!.phone!,
+                urlImage: product.image!.url!,
+              ),
               verticalSpace(20),
             ],
           ),

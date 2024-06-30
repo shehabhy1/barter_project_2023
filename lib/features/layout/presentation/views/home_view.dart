@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     //to get data when open app
     // if (context.read<HomeCubit>().products.isEmpty) {
-    context.read<HomeCubit>()..getAllProducts();
+    context.read<HomeCubit>().getAllProducts();
     // }
     super.initState();
   }
@@ -29,6 +29,17 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: const SafeArea(
         child: HomeViewBody(),
+      ),
+      floatingActionButton: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          if (state is GetProductsLoadingFromPaginationState) {
+            return const Align(
+                alignment: AlignmentDirectional.bottomCenter,
+                child: LinearProgressIndicator());
+          } else {
+            return const SizedBox();
+          }
+        },
       ),
     );
   }

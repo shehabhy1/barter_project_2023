@@ -7,7 +7,8 @@ part 'home_response_model.g.dart';
 class HomeResponseModel {
   int? results;
   List<ProductModel>? data;
-  HomeResponseModel({this.results, this.data});
+  PaginationResult? paginationResult;
+  HomeResponseModel({this.results, this.data, this.paginationResult});
 
   factory HomeResponseModel.fromJson(Map<String, dynamic> json) =>
       _$HomeResponseModelFromJson(json);
@@ -109,4 +110,18 @@ class UserImage {
 
   factory UserImage.fromJson(Map<String, dynamic> json) =>
       _$UserImageFromJson(json);
+}
+
+@JsonSerializable()
+class PaginationResult {
+  int? numberOfPages;
+  int? currentPage;
+  int? limit;
+  PaginationResult({
+    this.numberOfPages,
+    this.currentPage,
+    this.limit,
+  });
+  factory PaginationResult.fromJson(Map<String, dynamic> json) =>
+      _$PaginationResultFromJson(json);
 }

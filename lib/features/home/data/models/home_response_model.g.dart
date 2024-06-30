@@ -12,12 +12,17 @@ HomeResponseModel _$HomeResponseModelFromJson(Map<String, dynamic> json) =>
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      paginationResult: json['paginationResult'] == null
+          ? null
+          : PaginationResult.fromJson(
+              json['paginationResult'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$HomeResponseModelToJson(HomeResponseModel instance) =>
     <String, dynamic>{
       'results': instance.results,
       'data': instance.data,
+      'paginationResult': instance.paginationResult,
     };
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
@@ -117,4 +122,18 @@ UserImage _$UserImageFromJson(Map<String, dynamic> json) => UserImage(
 Map<String, dynamic> _$UserImageToJson(UserImage instance) => <String, dynamic>{
       'url': instance.url,
       'imageId': instance.imageId,
+    };
+
+PaginationResult _$PaginationResultFromJson(Map<String, dynamic> json) =>
+    PaginationResult(
+      numberOfPages: (json['numberOfPages'] as num?)?.toInt(),
+      currentPage: (json['currentPage'] as num?)?.toInt(),
+      limit: (json['limit'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PaginationResultToJson(PaginationResult instance) =>
+    <String, dynamic>{
+      'numberOfPages': instance.numberOfPages,
+      'currentPage': instance.currentPage,
+      'limit': instance.limit,
     };

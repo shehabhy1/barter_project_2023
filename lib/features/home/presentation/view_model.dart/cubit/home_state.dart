@@ -4,14 +4,18 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
-final class GetAllProductsSuccessState extends HomeState {
+final class GetProductsSuccessState extends HomeState {
   final List<ProductModel> products;
-  GetAllProductsSuccessState({required this.products});
+  GetProductsSuccessState({required this.products});
 }
 
-final class GetAllProductsErrorState extends HomeState {
+final class GetProductsErrorState extends HomeState {
   final String error;
-  GetAllProductsErrorState({required this.error});
+  GetProductsErrorState({required this.error});
 }
 
-final class GetAllProductsLoadingState extends HomeState {}
+final class GetProductsLoadingState extends HomeState {}
+
+final class GetProductsLoadingFromPaginationState extends HomeState {}
+
+final class NoMoreProductsState extends HomeState {}

@@ -6,17 +6,41 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepo) : super(HomeInitial());
-  HomeRepo homeRepo;
+  final HomeRepo homeRepo;
   List<ProductModel> products = [];
-  Future<void> getAllProducts() async {
-    products = [];
-    emit(GetAllProductsLoadingState());
-    final result = await homeRepo.getAllProducts();
+  int pageNum = 1;
+  bool isLoading = false;
+
+  Future<void> getAllProducts({bool fromPagination = false}) async {
+    if (isLoading) return;
+    isLoading = true;
+
+    if (fromPagination) {
+      emit(GetProductsLoadingFromPaginationState());
+    } else {
+      emit(GetProductsLoadingState());
+    }
+
+    final result = await homeRepo.getAllProducts(pageNum: pageNum);
     result.fold(
-      (error) => emit(GetAllProductsErrorState(error: error)),
+      (error) {
+        isLoading = false;
+        emit(GetProductsErrorState(error: error));
+      },
       (response) {
-        products = response.data!;
-        emit(GetAllProductsSuccessState(products: response.data!));
+        if (response.data!.isNotEmpty && response.results != 0) {
+          pageNum++;
+          if (fromPagination) {
+            products.addAll(response.data!);
+          } else {
+            // first time
+            products = response.data!;
+          }
+          emit(GetProductsSuccessState(products: products));
+        } else if (response.data!.isEmpty && response.results == 0) {
+          emit(NoMoreProductsState());
+        }
+        isLoading = false;
       },
     );
   }

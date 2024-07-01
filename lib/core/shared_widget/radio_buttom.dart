@@ -1,11 +1,26 @@
 import 'package:barter_app/core/helper/app_constants.dart';
+import 'package:barter_app/features/add_post/presentation/view/view_model/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import '../utils/styles.dart';
 
 class RadioCheck extends StatefulWidget {
-  const RadioCheck({super.key});
+  final RegisterCubit? registerCubit;
+  final PostCubit? postCubit;
+  final String text;
+  final String tittleOne;
+  final String tittleTwo;
+  final bool isAddPost;
+
+  const RadioCheck({
+    super.key,
+    required this.tittleOne,
+    required this.tittleTwo,
+    required this.text,
+    this.isAddPost = false,
+    this.registerCubit,
+    this.postCubit,
+  });
 
   @override
   State<RadioCheck> createState() => _RadioCheckState();
@@ -20,7 +35,7 @@ class _RadioCheckState extends State<RadioCheck> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Gender',
+          widget.text,
           style: AppStyles.semiBold20,
         ),
         Row(
@@ -32,22 +47,20 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
-                  context.read<RegisterCubit>().gender = 'Male';
                 });
+                widget.isAddPost == true
+                    ? widget.postCubit!.visability(true)
+                    : widget.registerCubit!.gender = 'Male';
               },
             ),
-            const SizedBox(
-              width: 5,
-            ),
+            const SizedBox(width: 5),
             Text(
-              'Male',
+              widget.tittleOne,
               style: AppStyles.regularGrey16,
             ),
           ],
         ),
-        const SizedBox(
-          width: 20,
-        ),
+        const SizedBox(width: 15),
         Row(
           children: [
             Radio(
@@ -57,15 +70,15 @@ class _RadioCheckState extends State<RadioCheck> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value as int;
-                  context.read<RegisterCubit>().gender = 'Female';
                 });
+                widget.isAddPost == true
+                    ? widget.postCubit!.visability(false)
+                    : widget.registerCubit!.gender = 'Female';
               },
             ),
-            const SizedBox(
-              width: 5,
-            ),
+            const SizedBox(width: 5),
             Text(
-              'Female',
+              widget.tittleTwo,
               style: AppStyles.regularGrey16,
             ),
           ],

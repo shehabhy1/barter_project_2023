@@ -9,6 +9,7 @@ class Assets {
   static const String imagesImg = 'assets/images/img.png';
   static const String imagesImg1 = 'assets/images/img_1.png';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesLogoIcon = 'assets/images/logo_icon.png';
   static const String imagesNotiPhoto = 'assets/images/notiPhoto.jpg';
   static const String imagesNotification = 'assets/images/notification.svg';
   static const String imagesOnBoardingImage1 =
@@ -21,4 +22,5 @@ class Assets {
 
   static const String imagesMap = 'assets/images/map.png';
   static const String egyptFlag = 'assets/images/egypt-flag-icon.svg';
+  static const String addPost = 'assets/images/add_post_icon.png';
 }

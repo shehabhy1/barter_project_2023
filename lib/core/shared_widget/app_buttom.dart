@@ -15,6 +15,7 @@ class AppButton extends StatelessWidget {
   final TextStyle? textStyle;
   final VoidCallback onPressed;
   final ButtonStyle? buttonStyle;
+  final TextStyle? style;
   const AppButton({
     super.key,
     this.borderRadius,
@@ -28,6 +29,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.textColor,
     this.buttonStyle,
+    this.style,
   });
 
   @override
@@ -48,8 +50,9 @@ class AppButton extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: AppStyles.semiBold20
-              .copyWith(fontSize: 22, color: AppColors.white),
+          style: style ??
+              AppStyles.semiBold20
+                  .copyWith(fontSize: 22, color: AppColors.white),
         ),
       ),
     );

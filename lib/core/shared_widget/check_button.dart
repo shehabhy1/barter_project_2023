@@ -6,7 +6,6 @@ import '../utils/styles.dart';
 class CheckButtom extends StatefulWidget {
   final String text;
   final RegisterCubit? cubit;
-
   const CheckButtom({super.key, required this.text, this.cubit});
 
   @override

@@ -16,6 +16,7 @@ class RegisterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RegisterCubit>();
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       children: [
@@ -24,20 +25,25 @@ class RegisterBody extends StatelessWidget {
         const ImageProfile(),
         const SizedBox(height: 20),
         const SignUpForm(),
-        const RadioCheck(),
+        RadioCheck(
+          registerCubit: cubit,
+          text: 'Gender',
+          tittleOne: 'Male',
+          tittleTwo: 'Female',
+        ),
         const SizedBox(height: 16),
         CheckButtom(
           text: 'Privacy & Policy',
-          cubit: context.read<RegisterCubit>(),
+          cubit: cubit,
         ),
         const SizedBox(height: 20),
         AppButton(
           text: 'Sign Up',
           onPressed: () {
-            context.read<RegisterCubit>().validateThenDoLogin(
-                  context,
-                  profilePic: context.read<PickImageCubit>().selectImage,
-                );
+            cubit.validateThenDoLogin(
+              context,
+              profilePic: context.read<PickImageCubit>().selectImage,
+            );
           },
         ),
         const SizedBox(height: 15),

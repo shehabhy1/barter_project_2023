@@ -23,7 +23,10 @@ class AppTextFiled extends StatelessWidget {
   final InputBorder? enabledBorder;
   final BoxConstraints? prefixIconConstraints;
   final FocusNode? focusNode;
+  final double? width;
+  final TextStyle? hintStyle;
   final void Function(String?)? onSubmitted;
+
   const AppTextFiled({
     super.key,
     required this.type,
@@ -47,6 +50,8 @@ class AppTextFiled extends StatelessWidget {
     this.isObscure = false,
     this.prefixIconConstraints,
     this.onSubmitted,
+    this.width,
+    this.hintStyle,
   });
 
   @override
@@ -63,6 +68,7 @@ class AppTextFiled extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
+        hintStyle: hintStyle,
         suffixIcon: sufficIcon,
         prefixIcon: prefixIcon,
         prefixIconConstraints: prefixIconConstraints,
@@ -72,7 +78,7 @@ class AppTextFiled extends StatelessWidget {
         enabledBorder:
             enabledBorder ?? buildOutlineInputBorder(AppColors.greyColor),
         focusedBorder: focusedBorder ??
-            buildOutlineInputBorder(AppColors.primaryColor, width: 2),
+            buildOutlineInputBorder(AppColors.primaryColor, width: width ?? 2),
         errorBorder: buildOutlineInputBorder(AppColors.red),
         focusedErrorBorder: buildOutlineInputBorder(AppColors.red),
       ),

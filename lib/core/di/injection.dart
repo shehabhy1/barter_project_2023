@@ -13,6 +13,7 @@ import 'package:barter_app/features/profile_screen/data/repo/get_user_repo.dart'
 import 'package:barter_app/features/profile_screen/presentation/model_view/cubit/get_user_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/add_post/presentation/view/view_model/cubit/post_cubit.dart';
 import '../../features/edit_profile/view_model/update_user_cubit/update_user_cubit.dart';
 import '../pick_image_cubit/pick_image_cubit.dart';
 
@@ -21,6 +22,9 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   // Dio & ApiService
   getIt.registerLazySingleton<DioFactory>(() => DioFactory(dio: Dio()));
+
+  //layout
+  getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
 
   //imageCubit
   getIt.registerFactory<PickImageCubit>(() => PickImageCubit());
@@ -43,10 +47,11 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<UpdateUserCubit>(() => UpdateUserCubit(getIt()));
   getIt.registerLazySingleton<UpdateUserRepo>(() => UpdateUserRepo(getIt()));
 
-  //layout
-  getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
-
   //home
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+
+  //post
+  //  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  getIt.registerFactory<PostCubit>(() => PostCubit());
 }

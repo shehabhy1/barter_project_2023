@@ -18,15 +18,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   late final TextEditingController phoneController = TextEditingController();
   late final TextEditingController whatsController = TextEditingController();
 
-  //File? imageFile;
-
   String? gender;
   bool isChecked = false;
-
-  // uploadProfilePic(XFile image) {
-  //   profilePic = image;
-  //   emit(UploadProfilePic());
-  // }
 
   void emitRegisterStates(XFile profilePic) async {
     emit(RegisterLoadingState());
@@ -73,5 +66,3 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 }
-//mo925@gmail.com
-//123456mmm

@@ -2,7 +2,7 @@ import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
 import 'package:barter_app/core/shared_widget/app_text_field.dart';
-import 'package:barter_app/features/add%20post/presentation/view/view_model/cubit/post_cubit.dart';
+import 'package:barter_app/features/add_post/presentation/view/view_model/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -458,7 +458,7 @@ class _CustomDropListState extends State<CustomDropList> {
                               ),
                               items: (_selectedSpecCategory == null)
                                   ? null
-                                  : _subcategoryOptions![_selectedSpecCategory]!
+                                  : _subcategoryOptions[_selectedSpecCategory]!
                                       .map((subcategory) {
                                       return DropdownMenuItem(
                                         value: subcategory,

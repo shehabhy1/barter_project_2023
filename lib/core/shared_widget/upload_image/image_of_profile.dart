@@ -20,7 +20,6 @@ class ImageProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<PickImageCubit>();
-
     return Center(
       child: BlocBuilder<PickImageCubit, PickImageStates>(
         builder: (context, state) {
@@ -65,8 +64,8 @@ class ImageProfile extends StatelessWidget {
                       context: context,
                       builder: (BuildContext context) {
                         return ImagePickerDialog(
-                          cameraFun: () => cubit.pickFromCamera(),
-                          galleryFun: () => cubit.pickFromGallary(true),
+                          cameraFun: () => cubit.pickImage(false),
+                          galleryFun: () => cubit.pickImage(true),
                           removeFun: () => cubit.removeImage(),
                           profilePic: cubit.selectImage,
                         );

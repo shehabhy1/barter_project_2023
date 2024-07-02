@@ -34,14 +34,16 @@ Widget buildShimmerCard(BuildContext context) {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          Center(
-            child: Shimmer.fromColors(
-              baseColor: Colors.grey[300]!,
-              highlightColor: Colors.grey[100]!,
-              child: Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.12,
-                color: Colors.white,
+          Expanded(
+            child: Center(
+              child: Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  width: double.infinity,
+                  // height: MediaQuery.of(context).size.height * 0.12,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

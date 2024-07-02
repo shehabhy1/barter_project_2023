@@ -1,5 +1,7 @@
 import 'package:barter_app/core/helper/spacing.dart';
+import 'package:barter_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -28,16 +30,24 @@ class BuildCommunicationButtons extends StatelessWidget {
   }
 
   Widget _buildCallButton() {
-    return TextButton.icon(
-      style: TextButton.styleFrom(
-        backgroundColor: const Color(0xff4CD964),
+    return SizedBox(
+      width: 150.w,
+      height: 50.h,
+      child: TextButton.icon(
+        style: TextButton.styleFrom(
+          backgroundColor: const Color(0xff4CD964),
+        ),
+        onPressed: () => _makePhoneCall('tel:$phoneNumber'),
+        label: Text(
+          'Call',
+          style: AppStyles.medium16.copyWith(color: Colors.white),
+        ),
+        icon: Icon(
+          Icons.call,
+          color: Colors.white,
+          size: 20.sp,
+        ),
       ),
-      onPressed: () => _makePhoneCall('tel:$phoneNumber'),
-      label: const Text(
-        'Call',
-        style: TextStyle(color: Colors.white),
-      ),
-      icon: const Icon(Icons.call, color: Colors.white),
     );
   }
 
@@ -69,13 +79,14 @@ class BuildCommunicationButtons extends StatelessWidget {
         ),
       ),
       onPressed: () => launchWhatsApp(),
-      label: const Text(
+      label: Text(
         'WhatsApp',
-        style: TextStyle(color: Colors.black),
+        style: AppStyles.medium16,
       ),
-      icon: const FaIcon(
+      icon: FaIcon(
         FontAwesomeIcons.whatsapp,
-        color: Color(0xff4CD964),
+        size: 20.sp,
+        color: const Color(0xff4CD964),
       ),
     );
   }

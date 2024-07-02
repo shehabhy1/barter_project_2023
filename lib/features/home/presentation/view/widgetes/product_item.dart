@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:barter_app/core/helper/app_constants.dart';
 import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/helper/spacing.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
@@ -23,18 +24,20 @@ class ProductItem extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            Center(
-              child: Image.network(
-                product.image!.url!,
-                width: double.infinity,
-                height: context.deviceHeight * 0.12,
+            Expanded(
+              child: Center(
+                child: Image.network(
+                  product.image!.url!,
+                  width: double.infinity,
+                  // height: context.deviceHeight * 0.12,
+                ),
               ),
             ),
             verticalSpace(20),
             Row(
               children: [
                 CircleAvatar(
-                  radius: 15,
+                  radius: 15.sp,
                   backgroundImage: NetworkImage(
                     product.user!.image!.url!,
                   ),
@@ -66,6 +69,8 @@ class ProductItem extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   backgroundColor: AppColors.primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -75,12 +80,13 @@ class ProductItem extends StatelessWidget {
                   context.pushNamed(Routes.productDetailsView,
                       arguments: product);
                 },
-                child: const Text(
+                child: Text(
                   'Discover',
-                  style: TextStyle(color: Colors.white),
+                  style: AppStyles.regularGrey14.copyWith(color: Colors.white),
                 ),
               ),
             ),
+            verticalSpace(5),
           ],
         ),
       ),

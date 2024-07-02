@@ -31,7 +31,7 @@ class BuildCommunicationButtons extends StatelessWidget {
 
   Widget _buildCallButton() {
     return SizedBox(
-      width: 150.w,
+      width: 100.w,
       height: 50.h,
       child: TextButton.icon(
         style: TextButton.styleFrom(

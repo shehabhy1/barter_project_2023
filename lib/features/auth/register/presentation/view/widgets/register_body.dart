@@ -2,7 +2,7 @@ import 'package:barter_app/core/shared_widget/check_button.dart';
 import 'package:barter_app/features/auth/register/presentation/veiw_model/cubit/register_cubit.dart';
 import 'package:barter_app/features/auth/register/presentation/view/widgets/signup_form.dart';
 import 'package:barter_app/features/auth/register/presentation/view/widgets/register_bloc_listener.dart';
-import 'package:barter_app/features/auth/register/presentation/view/widgets/create_line.dart';
+import 'package:barter_app/features/auth/register/presentation/view/widgets/have_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/pick_image_cubit/pick_image_cubit.dart';
@@ -21,7 +21,6 @@ class RegisterBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       children: [
         const CustomCenterText(text: 'Create account'),
-        //const ImageDialogeShow(),
         const ImageProfile(),
         const SizedBox(height: 20),
         const SignUpForm(),
@@ -47,7 +46,7 @@ class RegisterBody extends StatelessWidget {
           },
         ),
         const SizedBox(height: 15),
-        const LastLineSign(),
+        const HaveAccount(),
         const RegisterBlocListener(),
         const SizedBox(height: 15),
       ],

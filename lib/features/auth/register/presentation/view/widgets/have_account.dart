@@ -2,8 +2,8 @@ import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 
-class LastLineSign extends StatelessWidget {
-  const LastLineSign({super.key});
+class HaveAccount extends StatelessWidget {
+  const HaveAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +11,9 @@ class LastLineSign extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          'Have an account ?',
+          'Have an account? ',
           style: TextStyle(
+            fontSize: 15,
             fontWeight: FontWeight.w500,
             color: Color(0xFF767474),
           ),
@@ -22,10 +23,10 @@ class LastLineSign extends StatelessWidget {
             context.pushReplacementNamed(Routes.loginView);
           },
           child: const Text(
-            'Log in ',
+            'Log in',
             style: TextStyle(
               color: Color(0xFFB73BFF),
-              fontSize: 16,
+              fontSize: 17,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
             ),

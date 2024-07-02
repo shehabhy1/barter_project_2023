@@ -11,7 +11,7 @@ import 'package:barter_app/features/edit_profile/edit_profile_view.dart';
 import 'package:barter_app/features/auth/login/presentation/view/login_view.dart';
 import 'package:barter_app/features/auth/register/presentation/view/register_view.dart';
 import 'package:barter_app/features/home/data/models/home_response_model.dart';
-import 'package:barter_app/features/home/presentation/view/screens/product_details_view.dart';
+import 'package:barter_app/features/home/presentation/view/product_details_view.dart';
 import 'package:barter_app/features/home/presentation/view_model.dart/cubit/home_cubit.dart';
 import 'package:barter_app/features/splash&boarding/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -48,12 +48,8 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(
                   providers: [
-                    BlocProvider(
-                      create: (context) => getIt<RegisterCubit>(),
-                    ),
-                    BlocProvider(
-                      create: (context) => getIt<PickImageCubit>(),
-                    ),
+                    BlocProvider(create: (context) => getIt<RegisterCubit>()),
+                    BlocProvider(create: (context) => getIt<PickImageCubit>()),
                   ],
                   child: const RegisterView(),
                 ));
@@ -63,9 +59,7 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(
                   providers: [
-                    BlocProvider(
-                      create: (context) => getIt<LayoutCubit>(),
-                    ),
+                    BlocProvider(create: (context) => getIt<LayoutCubit>()),
                     BlocProvider(
                       create: (context) => getIt<GetUserCubit>()..getMyInfo(),
                     ),
@@ -79,8 +73,8 @@ class AppRouter {
       case Routes.verifyView:
         final email = arguments as TextEditingController;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<ForgetPassCubit>.value(
-            value: getIt<ForgetPassCubit>(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ForgetPassCubit>(),
             child: VerifyResetCodeView(
               email: email.text,
             ),
@@ -90,8 +84,8 @@ class AppRouter {
       //forgetPassView
       case Routes.forgetPassView:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider<ForgetPassCubit>.value(
-                  value: getIt<ForgetPassCubit>(),
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<ForgetPassCubit>(),
                   child: const ForgetPassView(),
                 ));
 
@@ -99,8 +93,8 @@ class AppRouter {
       case Routes.resetPassView:
         final email = arguments as String;
         return MaterialPageRoute(
-            builder: (_) => BlocProvider<ForgetPassCubit>.value(
-                  value: getIt<ForgetPassCubit>(),
+            builder: (_) => BlocProvider<ForgetPassCubit>(
+                  create: (context) => getIt<ForgetPassCubit>(),
                   child: ResetPassView(email: email),
                 ));
 
@@ -110,12 +104,8 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(
                   providers: [
-                    BlocProvider(
-                      create: (context) => getIt<UpdateUserCubit>(),
-                    ),
-                    BlocProvider(
-                      create: (context) => getIt<PickImageCubit>(),
-                    ),
+                    BlocProvider(create: (context) => getIt<UpdateUserCubit>()),
+                    BlocProvider(create: (context) => getIt<PickImageCubit>()),
                   ],
                   child: const EditProfileView(),
                 ));

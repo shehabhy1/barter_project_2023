@@ -1,4 +1,4 @@
-import 'package:barter_app/features/layout/presentation/views/home_view.dart';
+import 'package:barter_app/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/assets.dart';
 import '../../profile_screen/presentation/views/profile_view.dart';
@@ -9,10 +9,10 @@ const List<String> iconList = [
   AssetData.addIcon,
   AssetData.profilIcon,
 ];
-const List<Widget> bottomScreens = [
-  HomeView(),
-  AddView(),
-  ProfileView(),
+List<Widget> bottomScreens = [
+  const HomeView(),
+  const AddView(),
+  const ProfileView(),
 ];
 const List<String> screensTitles = [
   'Home',

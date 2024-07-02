@@ -2,8 +2,8 @@ import 'package:barter_app/core/helper/extentions.dart';
 import 'package:barter_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 
-class LastLine extends StatelessWidget {
-  const LastLine({super.key});
+class DontHaveAccount extends StatelessWidget {
+  const DontHaveAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class LastLine extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            context.pushNamed(Routes.registerView);
+            context.pushReplacementNamed(Routes.registerView);
           },
           child: const Text(
             'SIGN UP ',

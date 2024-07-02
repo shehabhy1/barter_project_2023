@@ -13,10 +13,7 @@ class LayoutView extends StatelessWidget {
     return BlocBuilder<LayoutCubit, LayoutState>(
       builder: (context, state) {
         return Scaffold(
-          body: IndexedStack(
-            index: cubit.selectedIndex,
-            children: bottomScreens,
-          ),
+          body: bottomScreens[cubit.selectedIndex],
           bottomNavigationBar: BottomNav(cubit: cubit),
         );
       },

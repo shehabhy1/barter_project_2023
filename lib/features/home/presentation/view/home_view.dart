@@ -3,22 +3,8 @@ import 'package:barter_app/features/home/presentation/view/widgetes/home_view_bo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  @override
-  void initState() {
-    //to get data when open app
-    // if (context.read<HomeCubit>().products.isEmpty) {
-    context.read<HomeCubit>().getAllProducts();
-    // }
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +29,4 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
-  // to save data state when navigation
-  bool get wantKeepAlive => true;
 }

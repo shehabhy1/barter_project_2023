@@ -42,16 +42,16 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ForgetPassCubit>(() => ForgetPassCubit(getIt()));
 
   //user
-  getIt.registerFactory<GetUserCubit>(() => GetUserCubit(getIt()));
   getIt.registerLazySingleton<GetUserRepo>(() => GetUserRepo(getIt()));
-  getIt.registerFactory<UpdateUserCubit>(() => UpdateUserCubit(getIt()));
+  getIt.registerFactory<GetUserCubit>(() => GetUserCubit(getIt()));
   getIt.registerLazySingleton<UpdateUserRepo>(() => UpdateUserRepo(getIt()));
+  getIt.registerFactory<UpdateUserCubit>(() => UpdateUserCubit(getIt()));
 
   //home
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 
-  //post
+  //AddPost
   //  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   getIt.registerFactory<PostCubit>(() => PostCubit());
 }

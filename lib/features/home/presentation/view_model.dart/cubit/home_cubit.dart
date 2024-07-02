@@ -5,8 +5,8 @@ import 'package:bloc/bloc.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.homeRepo) : super(HomeInitial());
   final HomeRepo homeRepo;
+  HomeCubit(this.homeRepo) : super(HomeInitial());
   List<ProductModel> products = [];
   int pageNum = 1;
   bool isLoading = false;

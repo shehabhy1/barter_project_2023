@@ -9,8 +9,8 @@ import 'package:barter_app/core/routing/app_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-  setupGetIt();
   await CashHelper.init();
+  setupGetIt();
   //token = await CacheHelper.getData(key: AppConstants.kUserToken);
   //debugPrint('Token is $token');
 
